@@ -81,12 +81,16 @@ def extract_from_file(path: str) -> List[Dict]:
     return items
 
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: python extract.py path/to/file.sml", file=sys.stderr)
+    if len(sys.argv) != 3:
+        print("Usage: python extract_thm_def_to_file.py input.sml output.json", file=sys.stderr)
         sys.exit(1)
-    path = sys.argv[1]
-    items = extract_from_file(path)
-    print(json.dumps(items, ensure_ascii=False, indent=2))
+    in_path = sys.argv[1]
+    out_path = sys.argv[2]
+    items = extract_from_file(in_path)
+
+    with open(out_path, "w", encoding="utf-8") as f_out:
+        json.dump(items, f_out, ensure_ascii=False, indent=2)
+    print(f"Extracted {len(items)} items -> {out_path}")
 
 if __name__ == "__main__":
     main()

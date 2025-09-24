@@ -1,0 +1,87 @@
+[
+  {
+    "kind": "Theorem",
+    "name": "real_of_rat_int",
+    "statement": "real_of_rat (&x) = &x"
+  },
+  {
+    "kind": "Theorem",
+    "name": "real_of_rat_lt",
+    "statement": "∀r1 r2. real_of_rat r1 < real_of_rat r2 ⇔ r1 < r2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "real_of_rat_add",
+    "statement": "∀r1 r2. real_of_rat (r1 + r2) = real_of_rat r1 + real_of_rat r2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "real_of_rat_mul",
+    "statement": "∀r1 r2. real_of_rat (r1 * r2) = real_of_rat r1 * real_of_rat r2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "real_of_rat_ainv",
+    "statement": "∀r. real_of_rat (-r) = -real_of_rat r"
+  },
+  {
+    "kind": "Theorem",
+    "name": "real_of_rat_sub",
+    "statement": "∀r1 r2. real_of_rat (r1 - r2) = real_of_rat r1 - real_of_rat r2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "real_of_rat_inv",
+    "statement": "!r. r ≠ 0 ==> real_of_rat (rat_minv r) = inv (real_of_rat r)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "real_of_rat_div",
+    "statement": "x ≠ 0 ⇒ real_of_rat (x' / x) = real_of_rat x' / real_of_rat x"
+  },
+  {
+    "kind": "Theorem",
+    "name": "real_of_int_of_rat",
+    "statement": "real_of_int i = real_of_rat (rat_of_int i)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "rat_of_int_eq",
+    "statement": "gcd (Num (ABS n1)) d1 = 1 ∧ d1 ≠ 0 ∧\n  gcd (Num (ABS n2)) d2 = 1 ∧ d2 ≠ 0 ∧\n  rat_of_int n1 / &d1 = rat_of_int n2 / &d2 ⇒\n  n1 = n2 ∧ d1 = d2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "real_of_int_div_eq",
+    "statement": "∀n d n' d'.\n    gcd (Num (ABS n')) d' = 1 ∧ d' ≠ 0 ∧\n    gcd (Num (ABS n)) d = 1 ∧ d ≠ 0 ⇒\n    (real_of_int n / &d = real_of_int n' / &d' ⇔ n = n' ∧ d = d')"
+  },
+  {
+    "kind": "Theorem",
+    "name": "INT_FLOOR_real_of_int",
+    "statement": "INT_FLOOR (real_of_int i) = i"
+  },
+  {
+    "kind": "Definition",
+    "name": "rational_of_num_def",
+    "statement": "rational_of_num (n:num) = RatPair (&n) 1"
+  },
+  {
+    "kind": "Definition",
+    "name": "rational_of_int_def",
+    "statement": "rational_of_int (n:int) = RatPair n 1"
+  },
+  {
+    "kind": "Definition",
+    "name": "real_of_rat_def",
+    "statement": "real_of_rat (r:rat) : real =\n    intreal$real_of_int (RATN r) /  real_of_num (RATD r)"
+  },
+  {
+    "kind": "Definition",
+    "name": "toString_def",
+    "statement": "toString (RatPair i n) =\n    if n = 1 then mlint$toString i else\n      concat [mlint$toString i ; implode\"/\" ; mlint$toString (&n)]"
+  },
+  {
+    "kind": "Definition",
+    "name": "real_to_str_def",
+    "statement": "real_to_str r = toString (real_to_rational r)"
+  }
+]
