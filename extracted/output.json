@@ -2,86 +2,445 @@
   {
     "kind": "Theorem",
     "name": "real_of_rat_int",
-    "statement": "real_of_rat (&x) = &x"
+    "statement": "real_of_rat (&x) = &x",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "real_of_rat_lt",
-    "statement": "∀r1 r2. real_of_rat r1 < real_of_rat r2 ⇔ r1 < r2"
+    "statement": "∀r1 r2. real_of_rat r1 < real_of_rat r2 ⇔ r1 < r2",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "real_of_rat_add",
-    "statement": "∀r1 r2. real_of_rat (r1 + r2) = real_of_rat r1 + real_of_rat r2"
+    "statement": "∀r1 r2. real_of_rat (r1 + r2) = real_of_rat r1 + real_of_rat r2",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "real_of_rat_mul",
-    "statement": "∀r1 r2. real_of_rat (r1 * r2) = real_of_rat r1 * real_of_rat r2"
+    "statement": "∀r1 r2. real_of_rat (r1 * r2) = real_of_rat r1 * real_of_rat r2",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "real_of_rat_ainv",
-    "statement": "∀r. real_of_rat (-r) = -real_of_rat r"
+    "statement": "∀r. real_of_rat (-r) = -real_of_rat r",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "real_of_rat_sub",
-    "statement": "∀r1 r2. real_of_rat (r1 - r2) = real_of_rat r1 - real_of_rat r2"
+    "statement": "∀r1 r2. real_of_rat (r1 - r2) = real_of_rat r1 - real_of_rat r2",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "real_of_rat_inv",
-    "statement": "!r. r ≠ 0 ==> real_of_rat (rat_minv r) = inv (real_of_rat r)"
+    "statement": "!r. r ≠ 0 ==> real_of_rat (rat_minv r) = inv (real_of_rat r)",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "real_of_rat_div",
-    "statement": "x ≠ 0 ⇒ real_of_rat (x' / x) = real_of_rat x' / real_of_rat x"
+    "statement": "x ≠ 0 ⇒ real_of_rat (x' / x) = real_of_rat x' / real_of_rat x",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "real_of_int_of_rat",
-    "statement": "real_of_int i = real_of_rat (rat_of_int i)"
+    "statement": "real_of_int i = real_of_rat (rat_of_int i)",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "rat_of_int_eq",
-    "statement": "gcd (Num (ABS n1)) d1 = 1 ∧ d1 ≠ 0 ∧\n  gcd (Num (ABS n2)) d2 = 1 ∧ d2 ≠ 0 ∧\n  rat_of_int n1 / &d1 = rat_of_int n2 / &d2 ⇒\n  n1 = n2 ∧ d1 = d2"
+    "statement": "gcd (Num (ABS n1)) d1 = 1 ∧ d1 ≠ 0 ∧\n  gcd (Num (ABS n2)) d2 = 1 ∧ d2 ≠ 0 ∧\n  rat_of_int n1 / &d1 = rat_of_int n2 / &d2 ⇒\n  n1 = n2 ∧ d1 = d2",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "real_of_int_div_eq",
-    "statement": "∀n d n' d'.\n    gcd (Num (ABS n')) d' = 1 ∧ d' ≠ 0 ∧\n    gcd (Num (ABS n)) d = 1 ∧ d ≠ 0 ⇒\n    (real_of_int n / &d = real_of_int n' / &d' ⇔ n = n' ∧ d = d')"
+    "statement": "∀n d n' d'.\n    gcd (Num (ABS n')) d' = 1 ∧ d' ≠ 0 ∧\n    gcd (Num (ABS n)) d = 1 ∧ d ≠ 0 ⇒\n    (real_of_int n / &d = real_of_int n' / &d' ⇔ n = n' ∧ d = d')",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Theorem",
     "name": "INT_FLOOR_real_of_int",
-    "statement": "INT_FLOOR (real_of_int i) = i"
+    "statement": "INT_FLOOR (real_of_int i) = i",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Definition",
     "name": "rational_of_num_def",
-    "statement": "rational_of_num (n:num) = RatPair (&n) 1"
+    "statement": "rational_of_num (n:num) = RatPair (&n) 1",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Definition",
     "name": "rational_of_int_def",
-    "statement": "rational_of_int (n:int) = RatPair n 1"
+    "statement": "rational_of_int (n:int) = RatPair n 1",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Definition",
     "name": "real_of_rat_def",
-    "statement": "real_of_rat (r:rat) : real =\n    intreal$real_of_int (RATN r) /  real_of_num (RATD r)"
+    "statement": "real_of_rat (r:rat) : real =\n    intreal$real_of_int (RATN r) /  real_of_num (RATD r)",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Definition",
     "name": "toString_def",
-    "statement": "toString (RatPair i n) =\n    if n = 1 then mlint$toString i else\n      concat [mlint$toString i ; implode\"/\" ; mlint$toString (&n)]"
+    "statement": "toString (RatPair i n) =\n    if n = 1 then mlint$toString i else\n      concat [mlint$toString i ; implode\"/\" ; mlint$toString (&n)]",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
   },
   {
     "kind": "Definition",
     "name": "real_to_str_def",
-    "statement": "real_to_str r = toString (real_to_rational r)"
+    "statement": "real_to_str r = toString (real_to_rational r)",
+    "source_file": ".\\to_be_extracted\\mlratScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_tail_MEM",
+    "statement": "!negate R xs ys acc. MEM x (merge_tail negate R xs ys acc) = ((MEM x xs) \\/ (MEM x ys) \\/ (MEM x acc))",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "mergesortN_tail_MEM",
+    "statement": "!negate R length lst. (MEM x (mergesortN_tail negate R length lst) <=> MEM x (TAKE length lst))",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "sort3_tail_sort3",
+    "statement": "!negate R x y z. sort3_tail negate R x y z =\n    (if negate then REVERSE(sort3 R x y z) else sort3 R x y z)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "sort2_tail_sort2",
+    "statement": "!negate R x y. sort2_tail negate R x y =\n    (if negate then REVERSE(sort2 R x y) else sort2 R x y)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "mergetail_merge",
+    "statement": "!negate R xs ys acc.\n     merge_tail negate R xs ys acc =\n     (if negate then REVERSE (merge (\\x y. ¬ R x y) xs ys) ++ acc\n      else REVERSE (merge R xs ys) ++ acc)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_tail_acc",
+    "statement": "∀negate R xs ys acc acc'. merge_tail negate R xs ys (acc ++ acc')\n    = (merge_tail negate R xs ys acc) ++ acc'",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "mergesort_tail_MEM",
+    "statement": "∀R l. MEM x (mergesort$mergesort_tail R l) ⇔ MEM x l",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_tail_PERM",
+    "statement": "!negate R xs ys acc. PERM (xs++ys++acc) (merge_tail negate R xs ys acc)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "sort2_tail_PERM",
+    "statement": "!neg R x y. PERM [x;y] (sort2_tail neg R x y)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "sort3_tail_PERM",
+    "statement": "!neg R x y z. PERM [x;y;z] (sort3_tail neg R x y z)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "mergesortN_tail_PERM",
+    "statement": "!neg R len l. PERM (TAKE len l) (mergesortN_tail neg R len l)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "sort_thm",
+    "statement": "!R l. sort R l = mergesort$mergesort_tail R l",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "sort_SORTED",
+    "statement": "!R L. transitive R ∧ total R ==> sorting$SORTED R (sort R L)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "sort_PERM",
+    "statement": "!R L. sorting$PERM L (sort R L)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "sort_SORTS",
+    "statement": "!R. (transitive R /\\ total R) ==> SORTS sort R",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "MAPI_thm",
+    "statement": "!f l. MAPi f l = mapi f 0 l",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "mapPartial_thm",
+    "statement": "!f l. mapPartial f l = MAP THE (FILTER IS_SOME (MAP f l))",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "index_find_thm",
+    "statement": "!x y. OPTION_MAP SND (INDEX_FIND x f l) = OPTION_MAP SND (INDEX_FIND y f l)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "FIND_thm",
+    "statement": "(FIND f [] = NONE) ∧\n   (∀h t. FIND f (h::t) = if f h then SOME h else FIND f t)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "partition_pos_thm",
+    "statement": "!f l. FST (partition f l) = FILTER f l",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "partition_neg_thm",
+    "statement": "!f l. SND (partition f l) = FILTER ($~ o f) l",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "foldl_intro",
+    "statement": "∀xs x f. FOLDL f x xs = foldl (λx acc. f acc x) x xs",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "foldli_thm",
+    "statement": "!f e l. foldli f e l = FOLDRi (\\n. f (LENGTH l - (SUC n))) e (REVERSE l)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "tabulate_aux_GENLIST",
+    "statement": "∀n m f acc. tabulate_aux n m f acc = REVERSE acc ++ GENLIST (f o FUNPOW SUC n) (m-n)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "tabulate_GENLIST",
+    "statement": "!n. tabulate n f = GENLIST f n",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "collate_equal_thm",
+    "statement": "!l. (!x. MEM x l ==> (f x x = EQUAL)) ==> (collate f l l = EQUAL)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "collate_short_thm",
+    "statement": "!f l1 l2. (!x. f x x = EQUAL) ∧ (l1 ≠ l2) /\\ (l1 ≼ l2) ==>\n        (collate f l1 l2 = LESS)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "collate_long_thm",
+    "statement": "!f l1 l2. (!x. f x x = EQUAL) ∧ (l1 ≠ l2) /\\ (l2 ≼ l1) ==>\n        (collate f l1 l2 = GREATER)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "collate_cpn_reln_thm",
+    "statement": "!f l1 l2. (!x1 x2. (f x1 x2 = EQUAL) <=>\n    (x1 = x2)) ==> (cpn_to_reln (collate f) l1 l2 = LLEX (cpn_to_reln f) l1 l2)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "map_rev_thm",
+    "statement": "map_rev f xs = REVERSE (MAP f xs)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "filter_rev_thm",
+    "statement": "filter_rev f xs = REVERSE (FILTER f xs)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "flat_rev_thm",
+    "statement": "flat_rev xs = REVERSE (FLAT xs)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "sort_def",
+    "statement": "sort = mergesort$mergesort_tail",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "getItem_def",
+    "statement": "(getItem [] = NONE) /\\\n  (getItem (h::t) = SOME(h, t))",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nth_def",
+    "statement": "nth l i = EL i l",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "take_def",
+    "statement": "take l i = TAKE i l",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "drop_def",
+    "statement": "drop l i = DROP i l",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "takeUntil_def",
+    "statement": "(takeUntil p [] = []) /\\\n  (takeUntil p (x::xs) = if p x then [] else x :: takeUntil p xs)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "dropUntil_def",
+    "statement": "(dropUntil p [] = []) /\\\n  (dropUntil p (x::xs) = if p x then x::xs else dropUntil p xs)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "mapi_def",
+    "statement": "(mapi f (n: num) [] = []) /\\\n  (mapi f n (h::t) = (let y = f n h in (y::(mapi f (n + 1) t))))",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "mapPartial_def",
+    "statement": "(mapPartial f [] = []) /\\\n  (mapPartial f (h::t) = case (f h) of\n    NONE => mapPartial f t\n    |(SOME x) => x::mapPartial f t)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "partition_aux_def",
+    "statement": "(partition_aux f [] pos neg =\n    (REVERSE pos, REVERSE neg)) /\\\n    (partition_aux f (h::t) pos neg = if f h then partition_aux f t (h::pos) neg\n      else partition_aux f t pos (h::neg))",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "partition_def",
+    "statement": "partition (f : 'a -> bool) l = partition_aux f l [] []",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "foldl_def",
+    "statement": "(foldl f e [] = e) /\\\n  (foldl f e (h::t) = foldl f (f h e) t)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "foldli_aux_def",
+    "statement": "(foldli_aux f e n [] = e) /\\\n  (foldli_aux f e n (h::t) = foldli_aux f (f n h e) (SUC n) t)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "foldli_def",
+    "statement": "foldli f e l = foldli_aux f e 0 l",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "tabulate_aux_def",
+    "statement": "tabulate_aux n m f acc =\n    let b = (n >= m) in\n    if b then REVERSE acc\n    else\n      let v = f n in\n      let n = n+1n in\n      let acc = v::acc in\n      tabulate_aux n m f acc\nTermination\n  wf_rel_tac`measure (λ(n,m,_,_). m-n)`",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "tabulate_def",
+    "statement": "tabulate n f = let l = [] in tabulate_aux 0 n f l",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "collate_def",
+    "statement": "(collate f [] [] = EQUAL) /\\\n  (collate f [] (h::t) = LESS) /\\\n  (collate f (h::t) [] = GREATER) /\\\n  (collate f (h1::t1) (h2::t2) =\n    if f h1 h2 = EQUAL\n      then collate f t1 t2\n    else f h1 h2)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "cpn_to_reln_def",
+    "statement": "cpn_to_reln f x1 x2 = (f x1 x2 = LESS)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "LENGTH_AUX_def",
+    "statement": "(LENGTH_AUX [] n = (n:num)) /\\\n  (LENGTH_AUX (x::xs) n = LENGTH_AUX xs (n+1))",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "map_rev'_def",
+    "statement": "map_rev' f [] acc = acc ∧\n  map_rev' f (x :: xs) acc = map_rev' f xs (f x :: acc)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "map_rev_def",
+    "statement": "map_rev f xs = map_rev' f xs []",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "filter_rev'_def",
+    "statement": "filter_rev' P [] acc = acc ∧\n  filter_rev' P (h::t) acc = if P h then filter_rev' P t (h::acc) else filter_rev' P t acc",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "filter_rev_def",
+    "statement": "filter_rev P xs = filter_rev' P xs []",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "flat_rev'_def",
+    "statement": "flat_rev' [] acc = acc ∧\n  flat_rev' (x::xs) acc = flat_rev' xs (REV x acc)",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "flat_rev_def",
+    "statement": "flat_rev xs = flat_rev' xs []",
+    "source_file": ".\\to_be_extracted\\test\\mllistScript.sml"
   }
 ]
