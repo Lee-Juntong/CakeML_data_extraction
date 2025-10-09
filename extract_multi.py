@@ -86,7 +86,7 @@ def extract_from_dir(input_dir: str) -> List[Dict]:
 
 def main():
     if len(sys.argv) != 3:
-        print("Usage: python extract_thm_def_dir.py input_directory output.json", file=sys.stderr)
+        print("Usage: python extract_multi.py input_directory output.json", file=sys.stderr)
         sys.exit(1)
     input_dir = sys.argv[1]
     output_path = sys.argv[2]
