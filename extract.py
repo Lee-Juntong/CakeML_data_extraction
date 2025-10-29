@@ -82,7 +82,7 @@ def extract_from_file(path: str) -> List[Dict]:
 
 def main():
     if len(sys.argv) != 3:
-        print("Usage: python extract_thm_def_to_file.py input.sml output.json", file=sys.stderr)
+        print("Usage: python extract.py input.sml output.json", file=sys.stderr)
         sys.exit(1)
     in_path = sys.argv[1]
     out_path = sys.argv[2]

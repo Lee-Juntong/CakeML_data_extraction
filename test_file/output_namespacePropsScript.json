@@ -1,0 +1,282 @@
+[
+  {
+    "kind": "Theorem",
+    "name": "mk_id_surj",
+    "statement": "!id. ?p n. id = mk_id p n"
+  },
+  {
+    "kind": "Theorem",
+    "name": "mk_id_thm",
+    "statement": "!id. mk_id (id_to_mods id) (id_to_n id) = id"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_mono2",
+    "statement": "(!x y z. nsLookup e1 x = SOME y ∧ nsLookup e2 x = SOME z ∧ R1 x y z ⇒ R2 x y z) ⇒ (nsSub R1 e1 e2 ⇒ nsSub R2 e1 e2)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_Bind_v_some",
+    "statement": "nsLookup (Bind v []) k = SOME x ⇔\n   ∃y. k = Short y ∧ ALOOKUP v y = SOME x"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_to_nsLookupMod",
+    "statement": "!n v t.\n    nsLookup n v = SOME t\n    ⇒\n    ?m. nsLookupMod n (id_to_mods v) = SOME m ∧ nsLookup m (Short (id_to_n v)) = SOME t"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_alist_to_ns_some",
+    "statement": "!l id v. nsLookup (alist_to_ns l) id = SOME v ⇔ ?x'. id = Short x' ∧ ALOOKUP l x' = SOME v"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_alist_to_ns_none",
+    "statement": "!l id. nsLookup (alist_to_ns l) id = NONE ⇔ !x'. id = Short x' ⇒ ALOOKUP l x' = NONE"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsLift",
+    "statement": "!mn e id.\n    nsLookup (nsLift mn e) id =\n    case id of\n    | Long mn' id' =>\n      if mn = mn' then\n        nsLookup e id'\n      else\n        NONE\n    | Short _ => NONE"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookupMod_nsLift",
+    "statement": "!mn e path.\n    nsLookupMod (nsLift mn e) path =\n    case path of\n    | [] => SOME (nsLift mn e)\n    | (mn'::path') =>\n      if mn = mn' then\n        nsLookupMod e path'\n      else\n        NONE"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsAppend_none",
+    "statement": "∀e1 id e2.\n    nsLookup (nsAppend e1 e2) id = NONE\n    ⇔\n    (nsLookup e1 id = NONE ∧\n     (nsLookup e2 id = NONE ∨\n      ?p1 p2 e3. p1 ≠ [] ∧ id_to_mods id = p1++p2 ∧ nsLookupMod e1 p1 = SOME e3))"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsAppend_some",
+    "statement": "∀e1 id e2 v.\n    nsLookup (nsAppend e1 e2) id = SOME v\n    ⇔\n    nsLookup e1 id = SOME v ∨\n    (nsLookup e1 id = NONE ∧ nsLookup e2 id = SOME v ∧\n     !p1 p2. p1 ≠ [] ∧ id_to_mods id = p1++p2 ⇒ nsLookupMod e1 p1 = NONE)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAppend_to_nsBindList",
+    "statement": "!l. nsAppend (alist_to_ns l) e = nsBindList l e"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookupMod_nsAppend_none",
+    "statement": "!e1 e2 path.\n    nsLookupMod (nsAppend e1 e2) path = NONE\n    ⇔\n    (nsLookupMod e1 path = NONE ∧\n     (nsLookupMod e2 path = NONE ∨\n      ?p1 p2 e3. p1 ≠ [] ∧ path = p1++p2 ∧ nsLookupMod e1 p1 = SOME e3))"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookupMod_nsAppend_some",
+    "statement": "!e1 e2 path.\n    (nsLookupMod (nsAppend e1 e2) path = SOME x\n     ⇔\n     if path = [] then x = nsAppend e1 e2 else\n     nsLookupMod e1 path = SOME x ∨\n      (nsLookupMod e2 path = SOME x ∧\n      !p1 p2. p1 ≠ [] ∧ path = p1++p2 ⇒ nsLookupMod e1 p1 = NONE))"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsAll",
+    "statement": "!env x P v. nsAll P env ∧ nsLookup env x = SOME v ⇒ P x v"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_nsAppend",
+    "statement": "!f e1 e2. nsAll f e1 ∧ nsAll f e2 ⇒ nsAll f (nsAppend e1 e2)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_nsBind",
+    "statement": "!P x v e. P (Short x) v ∧ nsAll P e ⇒ nsAll P (nsBind x v e)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_nsOptBind",
+    "statement": "!P x v e. (x = NONE ∨ ?n. x = SOME n ∧ P (Short n) v) ∧ nsAll P e ⇒ nsAll P (nsOptBind x v e)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_alist_to_ns",
+    "statement": "!R l. EVERY (λ(n,v). R (Short n) v) l ⇒ nsAll R (alist_to_ns l)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_nsAppend_left",
+    "statement": "!P n1 n2. nsAll P (nsAppend n1 n2) ⇒ nsAll P n1"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_conj",
+    "statement": "!P Q e1 e2. nsSub (\\id x y. P id x y ∧ Q id x y) e1 e2 ⇔ nsSub P e1 e2 ∧\n  nsSub Q e1 e2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_refl",
+    "statement": "!P R. (!n x. P n x ⇒ R n x x) ⇒ !e. nsAll P e ⇒ nsSub R e e"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_nsBind",
+    "statement": "!R x v1 v2 e1 e2.\n     R (Short x) v1 v2 ∧ nsSub R e1 e2 ⇒ nsSub R (nsBind x v1 e1) (nsBind x v2 e2)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_nsAppend2",
+    "statement": "!R e1 e2 e2'. nsSub R e1 e1 ∧ nsSub R e2 e2' ⇒ nsSub R (nsAppend e1 e2) (nsAppend e1 e2')"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_nsAppend_lift",
+    "statement": "!R mn e1 e1' e2 e2'.\n    nsSub (\\id. R (Long mn id)) e1 e1' ∧\n    nsSub R e2 e2'\n    ⇒\n    nsSub R (nsAppend (nsLift mn e1) e2) (nsAppend (nsLift mn e1') e2')"
+  },
+  {
+    "kind": "Theorem",
+    "name": "alist_rel_restr_thm",
+    "statement": "!R e1 e2 keys.\n    alist_rel_restr R e1 e2 keys ⇔\n      !k. MEM k keys ⇒ ?v1 v2. ALOOKUP e1 k = SOME v1 ∧ ALOOKUP e2 k = SOME v2 ∧ R k v1 v2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "alistSub_cong",
+    "statement": "!l1 l2 l1' l2' R R'.\n    l1 = l1' ∧ l2 = l2' ∧ (!n x y. ALOOKUP l1' n = SOME x ∧ ALOOKUP l2' n = SOME y ⇒ R n x y = R' n x y) ⇒\n    (alistSub R l1 l2 ⇔ alistSub R' l1' l2')"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_FOLDR_nsLift",
+    "statement": "!e p k. nsLookup (FOLDR nsLift e p) (mk_id p k) = nsLookup e (Short k)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_FOLDR_nsLift_some",
+    "statement": "!e p id v.\n    nsLookup (FOLDR nsLift e p) id = SOME v ⇔\n    (p = [] ∧ nsLookup e id = SOME v) ∨\n    (p ≠ [] ∧ ?p2 n. id = mk_id (p++p2) n ∧ nsLookup e (mk_id p2 n) = SOME v)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookupMod_FOLDR_nsLift_none",
+    "statement": "!e p1 p2. nsLookupMod (FOLDR nsLift e p1) p2 = NONE ⇔\n    (IS_PREFIX p1 p2 ∨ IS_PREFIX p2 p1) ⇒\n    ?p3. p2 = p1++p3 ∧ nsLookupMod e p3 = NONE"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_compute_thm_general",
+    "statement": "!p R e1 e2.\n    nsSub R (FOLDR nsLift e1 (REVERSE p)) (FOLDR nsLift e2 (REVERSE p)) ⇔\n    nsSub_compute p R e1 e2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_compute_thm",
+    "statement": "!R e1 e2. nsSub R e1 e2 ⇔ nsSub_compute [] R e1 e2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_conj",
+    "statement": "!P Q e1 e2. nsAll2 (\\id x y. P id x y ∧ Q id x y) e1 e2 ⇔ nsAll2 P e1 e2 ∧ nsAll2 Q e1 e2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsLookup1",
+    "statement": "!R e1 e2 n v1.\n    nsLookup e1 n = SOME v1 ∧\n    nsAll2 R e1 e2\n    ⇒\n    ?v2. nsLookup e2 n = SOME v2 ∧ R n v1 v2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsLookup2",
+    "statement": "!R e1 e2 n v2.\n    nsLookup e2 n = SOME v2 ∧\n    nsAll2 R e1 e2\n    ⇒\n    ?v1. nsLookup e1 n = SOME v1 ∧ R n v1 v2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsLookup_none",
+    "statement": "!R e1 e2 n.\n    nsAll2 R e1 e2\n    ⇒\n    (nsLookup e1 n = NONE ⇔ nsLookup e2 n = NONE)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsBind",
+    "statement": "!R x v1 v2 e1 e2.\n     R (Short x) v1 v2 ∧ nsAll2 R e1 e2 ⇒ nsAll2 R (nsBind x v1 e1) (nsBind x v2 e2)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsBindList",
+    "statement": "!R l1 l2 e1 e2.\n     LIST_REL (\\(x,y) (x',y'). x = x' ∧ R (Short x) y y') l1 l2 ∧ nsAll2 R e1 e2\n     ⇒\n     nsAll2 R (nsBindList l1 e1) (nsBindList l2 e2)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsAppend",
+    "statement": "!R e1 e1' e2 e2'.\n    nsAll2 R e1 e2 ∧ nsAll2 R e1' e2' ⇒ nsAll2 R (nsAppend e1 e1') (nsAppend e2 e2')"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_alist_to_ns",
+    "statement": "!R l1 l2. LIST_REL (\\(x,y) (x',y'). x = x' ∧ R (Short x) y y') l1 l2 ⇒ nsAll2 R (alist_to_ns l1) (alist_to_ns l2)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsMap_compose",
+    "statement": "∀g e f. nsMap f (nsMap g e) = nsMap (f o g) e"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsMap_nsAppend",
+    "statement": "!n1 n2 f. nsMap f (nsAppend n1 n2) = nsAppend (nsMap f n1) (nsMap f n2)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookupMod_nsMap",
+    "statement": "!n x f. nsLookupMod (nsMap f n) x = OPTION_MAP (nsMap f) (nsLookupMod n x)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsMap",
+    "statement": "!n x f. nsLookup (nsMap f n) x = OPTION_MAP f (nsLookup n x)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_nsMap",
+    "statement": "!f n P. nsAll P (nsMap f n) ⇔ nsAll (\\x y. P x (f y)) n"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLift_nsMap",
+    "statement": "!f n mn. nsLift mn (nsMap f n) = nsMap f (nsLift mn n)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_nsMap",
+    "statement": "!R f n1 n2.\n    nsSub R (nsMap f n1) (nsMap f n2) ⇔ nsSub (\\id x y. R id (f x) (f y)) n1 n2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsDom",
+    "statement": "!x n. x ∈ nsDom n ⇔ ?v. nsLookup n x = SOME v"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsDom_nsAppend_equal",
+    "statement": "!n1 n2 n3 n4.\n    nsDom n1 = nsDom n3 ∧\n    nsDom n2 = nsDom n4 ∧\n    nsDomMod n1 = nsDomMod n3 ∧\n    nsDomMod n2 = nsDomMod n4\n    ⇒\n    nsDom (nsAppend n1 n2) = nsDom (nsAppend n3 n4) ∧\n    nsDomMod (nsAppend n1 n2) = nsDomMod (nsAppend n3 n4)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsDom_nsLift",
+    "statement": "!mn n. nsDom (nsLift mn n) = IMAGE (Long mn) (nsDom n)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsDomMod_nsLift",
+    "statement": "!mn n. nsDomMod (nsLift mn n) = [] INSERT IMAGE (CONS mn) (nsDomMod n)"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsDom_nsAppend_flat",
+    "statement": "!n1 n2.nsDomMod n1 = {[]} ⇒ nsDom (nsAppend n1 n2) = nsDom n1 ∪ nsDom n2"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsDomMod_nsAppend_flat",
+    "statement": "!n1 n2.nsDomMod n1 = {[]} ⇒ nsDomMod (nsAppend n1 n2) = nsDomMod n2"
+  },
+  {
+    "kind": "Definition",
+    "name": "alist_rel_restr_def",
+    "statement": "(alist_rel_restr R l1 l2 [] ⇔ T) ∧\n  (alist_rel_restr R l1 l2 (k1::keys) ⇔\n    case ALOOKUP l1 k1 of\n    | NONE => F\n    | SOME v1 =>\n      case ALOOKUP l2 k1 of\n      | NONE => F\n      | SOME v2 => R k1 v1 v2 ∧ alist_rel_restr R l1 l2 keys)"
+  },
+  {
+    "kind": "Definition",
+    "name": "alistSub_def",
+    "statement": "alistSub R e1 e2 ⇔ alist_rel_restr R e1 e2 (MAP FST e1)"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsSub_compute_def",
+    "statement": "nsSub_compute path R (Bind e1V e1M) (Bind e2V e2M) ⇔\n    alistSub (\\k v1 v2. R (mk_id (REVERSE path) k) v1 v2) e1V e2V ∧\n    alistSub (\\k v1 v2. nsSub_compute (k::path) R v1 v2) e1M e2M\nTermination\n  wf_rel_tac `measure (\\(p,r,env,_). namespace_size (\\x.0) (\\x.0) (\\x.0) env)`\n >> rw []\n >> Induct_on `e1M`\n >> rw [namespace_size_def]\n >> PairCases_on `h`\n >> fs [ALOOKUP_def]\n >> every_case_tac\n >> fs []\n >> rw [namespace_size_def,basicSizeTheory.pair_size_def]"
+  }
+]
