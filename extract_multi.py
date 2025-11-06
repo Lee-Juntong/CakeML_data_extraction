@@ -14,6 +14,10 @@ DEF_START_RE = re.compile(
 )
 DEF_END_RE   = re.compile(r"^\s*End\b")
 
+# Regex for Datatype block
+DATATYPE_START_RE = re.compile(r"^\s*Datatype\s*:\s*$")
+END_RE = re.compile(r"^\s*End\b")
+
 def extract_theorems_from_lines(lines: List[str]) -> List[Dict]:
     out = []
     i, n = 0, len(lines)
@@ -62,6 +66,53 @@ def extract_definitions_from_lines(lines: List[str]) -> List[Dict]:
         i = j + 1
     return out
 
+def extract_datatypes_from_lines(lines: List[str]) -> List[Dict]:
+    """
+    Extract Datatype blocks from HOL4/CakeML scripts.
+    
+    Format:
+    Datatype:
+      typename = Constructor1 type1 type2
+               | Constructor2 type3
+               | ...
+    End
+    
+    The datatype name is extracted from the first line of the body.
+    """
+    out = []
+    i, n = 0, len(lines)
+    while i < n:
+        m = DATATYPE_START_RE.match(lines[i])
+        if not m:
+            i += 1
+            continue
+        
+        # Found a Datatype block
+        body_lines = []
+        j = i + 1
+        while j < n and not END_RE.match(lines[j]):
+            body_lines.append(lines[j].rstrip("\n"))
+            j += 1
+        
+        body = "\n".join(body_lines).strip()
+        
+        # Try to extract the datatype name from the body
+        # Format is typically: "name = Constructor1 | Constructor2 ..."
+        name = "unnamed"
+        if body:
+            # Match the pattern: typename = ...
+            name_match = re.match(r"^\s*([A-Za-z0-9_']+)\s*=", body)
+            if name_match:
+                name = name_match.group(1)
+        
+        out.append({
+            "kind": "Datatype",
+            "name": name,
+            "statement": body
+        })
+        i = j + 1
+    return out
+
 def extract_from_file(filepath: str) -> List[Dict]:
     try:
         with open(filepath, encoding="utf-8") as f:
@@ -69,7 +120,9 @@ def extract_from_file(filepath: str) -> List[Dict]:
     except Exception as e:
         print(f"Warning: failed to read {filepath}: {e}", file=sys.stderr)
         return []
-    items = extract_theorems_from_lines(lines) + extract_definitions_from_lines(lines)
+    items = (extract_theorems_from_lines(lines) + 
+             extract_definitions_from_lines(lines) + 
+             extract_datatypes_from_lines(lines))
     for it in items:
         it["source_file"] = filepath
     return items

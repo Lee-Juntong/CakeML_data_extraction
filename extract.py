@@ -1,9 +1,10 @@
 
 """
-Extract Theorem and Definition declarations from HOL4/CakeML SML scripts
+Extract Theorem, Definition, and Datatype declarations from HOL4/CakeML SML scripts
 
-  - Block theorems starting with “Theorem NAME: … Proof … QED”
-  - Definition blocks “Definition NAME: … End”
+  - Block theorems starting with "Theorem NAME: … Proof … QED"
+  - Definition blocks "Definition NAME: … End"
+  - Datatype blocks "Datatype: … End"
 """
 
 import re
@@ -23,6 +24,10 @@ DEF_START_RE = re.compile(
 )
 DEF_END_RE   = re.compile(r"^\s*End\b")
 
+# Regex for Datatype block
+DATATYPE_START_RE = re.compile(r"^\s*Datatype\s*:\s*$")
+END_RE = re.compile(r"^\s*End\b")
+
 def extract_theorems(lines: List[str]) -> List[Dict]:
     out = []
     i, n = 0, len(lines)
@@ -33,7 +38,7 @@ def extract_theorems(lines: List[str]) -> List[Dict]:
             continue
         name = m.group("name")
         after = m.group("after").rstrip("\n")
-        # collect statement lines until “Proof”
+        # collect statement lines until "Proof"
         stmt_lines = [after] if after else []
         j = i + 1
         while j < n and not PROOF_LINE_RE.match(lines[j]):
@@ -45,7 +50,7 @@ def extract_theorems(lines: List[str]) -> List[Dict]:
             "name": name,
             "statement": statement
         })
-        i = j + 1  # skip past “Proof” (or end)
+        i = j + 1  # skip past "Proof" (or end)
     return out
 
 def extract_definitions(lines: List[str]) -> List[Dict]:
@@ -72,12 +77,60 @@ def extract_definitions(lines: List[str]) -> List[Dict]:
         i = j + 1
     return out
 
+def extract_datatypes(lines: List[str]) -> List[Dict]:
+    """
+    Extract Datatype blocks from HOL4/CakeML scripts.
+    
+    Format:
+    Datatype:
+      typename = Constructor1 type1 type2
+               | Constructor2 type3
+               | ...
+    End
+    
+    The datatype name is extracted from the first line of the body.
+    """
+    out = []
+    i, n = 0, len(lines)
+    while i < n:
+        m = DATATYPE_START_RE.match(lines[i])
+        if not m:
+            i += 1
+            continue
+        
+        # Found a Datatype block
+        body_lines = []
+        j = i + 1
+        while j < n and not END_RE.match(lines[j]):
+            body_lines.append(lines[j].rstrip("\n"))
+            j += 1
+        
+        body = "\n".join(body_lines).strip()
+        
+        # Try to extract the datatype name from the body
+        # Format is typically: "name = Constructor1 | Constructor2 ..."
+        name = "unnamed"
+        if body:
+            # Match the pattern: typename = ...
+            name_match = re.match(r"^\s*([A-Za-z0-9_']+)\s*=", body)
+            if name_match:
+                name = name_match.group(1)
+        
+        out.append({
+            "kind": "Datatype",
+            "name": name,
+            "statement": body
+        })
+        i = j + 1
+    return out
+
 def extract_from_file(path: str) -> List[Dict]:
     with open(path, encoding="utf-8") as f:
         lines = f.read().splitlines()
     theos = extract_theorems(lines)
     defs = extract_definitions(lines)
-    items = theos + defs
+    dtypes = extract_datatypes(lines)
+    items = theos + defs + dtypes
     return items
 
 def main():
