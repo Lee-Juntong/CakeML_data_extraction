@@ -144,9 +144,17 @@ def main():
     input_dir = sys.argv[1]
     output_path = sys.argv[2]
     items = extract_from_dir(input_dir)
+    
+    # Sort by kind: Datatype first, then Definition, then Theorem
+    kind_order = {'Datatype': 0, 'Definition': 1, 'Theorem': 2}
+    items.sort(key=lambda x: kind_order.get(x['kind'], 3))
+    
     with open(output_path, "w", encoding="utf-8") as outf:
         json.dump(items, outf, ensure_ascii=False, indent=2)
     print(f"Processed directory {input_dir}, extracted {len(items)} items into {output_path}")
+    print(f"  Datatypes: {sum(1 for x in items if x['kind'] == 'Datatype')}")
+    print(f"  Definitions: {sum(1 for x in items if x['kind'] == 'Definition')}")
+    print(f"  Theorems: {sum(1 for x in items if x['kind'] == 'Theorem')}")
 
 if __name__ == "__main__":
     main()

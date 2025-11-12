@@ -1,0 +1,709 @@
+[
+  {
+    "kind": "Datatype",
+    "name": "lit",
+    "statement": "inductive lit where\n  | IntLit (i : Int) : lit\n  | Char (c : Char) : lit\n  | StrLit (s : String) : lit\n  | Word8 (w : UInt8) : lit\n  | Word64 (w : UInt64) : lit\n  | Float64 (w : UInt64) : lit",
+    "original_hol4": "lit =\n    IntLit int\n  | Char char\n  | StrLit string\n  | Word8 word8\n  | Word64 word64\n  | Float64 word64",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "opn",
+    "statement": "inductive opn where\n  | Plus | Minus | Times | Divide | Modulo",
+    "original_hol4": "opn = Plus | Minus | Times | Divide | Modulo",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "opb",
+    "statement": "inductive opb where\n  | Lt | Gt | Leq | Geq",
+    "original_hol4": "opb = Lt | Gt | Leq | Geq",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "opw",
+    "statement": "inductive opw where\n  | Andw | Orw | Xor | Add | Sub",
+    "original_hol4": "opw = Andw | Orw | Xor | Add | Sub",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "shift",
+    "statement": "inductive shift where\n  | Lsl | Lsr | Asr | Ror",
+    "original_hol4": "shift = Lsl | Lsr | Asr | Ror",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "fp_cmp",
+    "statement": "inductive fp_cmp where\n  | FP_Less | FP_LessEqual | FP_Greater | FP_GreaterEqual | FP_Equal",
+    "original_hol4": "fp_cmp = FP_Less | FP_LessEqual | FP_Greater | FP_GreaterEqual | FP_Equal",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "fp_uop",
+    "statement": "inductive fp_uop where\n  | FP_Abs | FP_Neg | FP_Sqrt",
+    "original_hol4": "fp_uop = FP_Abs | FP_Neg | FP_Sqrt",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "fp_bop",
+    "statement": "inductive fp_bop where\n  | FP_Add | FP_Sub | FP_Mul | FP_Div",
+    "original_hol4": "fp_bop = FP_Add | FP_Sub | FP_Mul | FP_Div",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "fp_top",
+    "statement": "inductive fp_top where\n  | FP_Fma",
+    "original_hol4": "fp_top = FP_Fma",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "word_size",
+    "statement": "inductive word_size where\n  | W8 | W64",
+    "original_hol4": "word_size = W8 | W64",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "thunk_mode",
+    "statement": "inductive thunk_mode where\n  | Evaluated | NotEvaluated",
+    "original_hol4": "thunk_mode = Evaluated | NotEvaluated",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "thunk_op",
+    "statement": "inductive thunk_op where\n  | AllocThunk (m : thunk_mode) : thunk_op\n  | UpdateThunk (m : thunk_mode) : thunk_op\n  | ForceThunk : thunk_op",
+    "original_hol4": "thunk_op =\n    AllocThunk thunk_mode\n  | UpdateThunk thunk_mode\n  | ForceThunk",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "op",
+    "statement": "inductive op where\n  | Opn (o : opn) : op\n  | Opb (o : opb) : op\n  | Opw (ws : word_size) (o : opw) : op\n  | Shift (ws : word_size) (s : shift) (n : Nat) : op\n  | Equality : op\n  | FP_cmp (c : fp_cmp) : op\n  | FP_uop (u : fp_uop) : op\n  | FP_bop (b : fp_bop) : op\n  | FP_top (t : fp_top) : op\n  | FpFromWord : op\n  | FpToWord : op\n  | Opapp : op\n  | Opassign : op\n  | Opref : op\n  | Opderef : op\n  | Aw8alloc : op\n  | Aw8sub : op\n  | Aw8length : op\n  | Aw8update : op\n  | WordFromInt (ws : word_size) : op\n  | WordToInt (ws : word_size) : op\n  | CopyStrStr : op\n  | CopyStrAw8 : op\n  | CopyAw8Str : op\n  | CopyAw8Aw8 : op\n  | XorAw8Str_unsafe : op\n  | Ord : op\n  | Chr : op\n  | Chopb (o : opb) : op\n  | Implode : op\n  | Explode : op\n  | Strsub : op\n  | Strlen : op\n  | Strcat : op\n  | VfromList : op\n  | Vsub : op\n  | Vlength : op\n  | Aalloc : op\n  | AallocEmpty : op\n  | AallocFixed : op\n  | Asub : op\n  | Alength : op\n  | Aupdate : op\n  | Asub_unsafe : op\n  | Aupdate_unsafe : op\n  | Aw8sub_unsafe : op\n  | Aw8update_unsafe : op\n  | ThunkOp (t : thunk_op) : op\n  | ListAppend : op\n  | ConfigGC : op\n  | FFI (s : String) : op\n  | Eval : op\n  | Env_id : op",
+    "original_hol4": "op =\n  (* Operations on integers *)\n    Opn opn\n  | Opb opb\n  (* Operations on words *)\n  | Opw word_size opw\n  | Shift word_size shift num\n  | Equality\n  (* FP operations *)\n  | FP_cmp fp_cmp\n  | FP_uop fp_uop\n  | FP_bop fp_bop\n  | FP_top fp_top\n  (* Floating-point <-> word translations *)\n  | FpFromWord\n  | FpToWord\n  (* Function application *)\n  | Opapp\n  (* Reference operations *)\n  | Opassign\n  | Opref\n  | Opderef\n  (* Word8Array operations *)\n  | Aw8alloc\n  | Aw8sub\n  | Aw8length\n  | Aw8update\n  (* Word/integer conversions *)\n  | WordFromInt word_size\n  | WordToInt word_size\n  (* string/bytearray conversions *)\n  | CopyStrStr\n  | CopyStrAw8\n  | CopyAw8Str\n  | CopyAw8Aw8\n  | XorAw8Str_unsafe\n  (* Char operations *)\n  | Ord\n  | Chr\n  | Chopb opb\n  (* String operations *)\n  | Implode\n  | Explode\n  | Strsub\n  | Strlen\n  | Strcat\n  (* Vector operations *)\n  | VfromList\n  | Vsub\n  | Vlength\n  (* Array operations *)\n  | Aalloc\n  | AallocEmpty\n  | AallocFixed\n  | Asub\n  | Alength\n  | Aupdate\n  (* Unsafe array accesses *)\n  | Asub_unsafe\n  | Aupdate_unsafe\n  | Aw8sub_unsafe\n  | Aw8update_unsafe\n  (* thunk operations *)\n  | ThunkOp thunk_op\n  (* List operations *)\n  | ListAppend\n  (* Configure the GC *)\n  | ConfigGC\n  (* Call a given foreign function *)\n  | FFI string\n  (* Evaluate new code in a given env *)\n  | Eval\n  (* Get the identifier of an env object *)\n  | Env_id",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "op_class",
+    "statement": "inductive op_class where\n  | EvalOp | FunApp | Force | Simple",
+    "original_hol4": "op_class =\n    EvalOp (* Eval primitive *)\n  | FunApp (* function application *)\n  | Force (* forcing a thunk *)\n  | Simple (* arithmetic operation, no finite-precision/reals *)",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "lop",
+    "statement": "inductive lop where\n  | And | Or",
+    "original_hol4": "lop = And | Or",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "ast_t",
+    "statement": "inductive ast_t where\n  | Atvar (v : tvarN) : ast_t\n  | Atfun (dom : ast_t) (ran : ast_t) : ast_t\n  | Attup (ts : List ast_t) : ast_t\n  | Atapp (ts : List ast_t) (i : id modN typeN) : ast_t",
+    "original_hol4": "ast_t =\n  (* Type variables that the user writes down ('a, 'b, etc.) *)\n    Atvar tvarN\n  (* Function type *)\n  | Atfun ast_t ast_t\n  (* Tuple type *)\n  | Attup (ast_t list)\n  (* Type constructor applications.\n    0-ary type applications represent unparameterised types (e.g., num or string) *)\n  | Atapp (ast_t list) ((modN, typeN) id)",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "pat",
+    "statement": "inductive pat where\n  | Pany : pat\n  | Pvar (v : varN) : pat\n  | Plit (l : lit) : pat\n  | Pcon (c : Option (id modN conN)) (ps : List pat) : pat\n  | Pref (p : pat) : pat\n  | Pas (p : pat) (v : varN) : pat\n  | Ptannot (p : pat) (t : ast_t) : pat",
+    "original_hol4": "pat =\n    Pany\n  | Pvar varN\n  | Plit lit\n  (* Constructor applications.\n     A Nothing constructor indicates a tuple pattern. *)\n  | Pcon (((modN, conN) id) option) (pat list)\n  | Pref pat\n  (* Pattern alias. *)\n  | Pas pat varN\n  | Ptannot pat ast_t",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "exp",
+    "statement": "inductive exp where\n  | Raise (e : exp) : exp\n  | Handle (e : exp) (cases : List (pat × exp)) : exp\n  | Lit (l : lit) : exp\n  | Con (c : Option (id modN conN)) (es : List exp) : exp\n  | Var (v : id modN varN) : exp\n  | Fun (v : varN) (body : exp) : exp\n  | App (o : op) (args : List exp) : exp\n  | Log (o : lop) (e1 e2 : exp) : exp\n  | If (c e1 e2 : exp) : exp\n  | Mat (e : exp) (cases : List (pat × exp)) : exp\n  | Let (v : Option varN) (b e : exp) : exp\n  | Letrec (bindings : List (varN × varN × exp)) (body : exp) : exp\n  | Tannot (e : exp) (t : ast_t) : exp\n  | Lannot (e : exp) (l : locs) : exp",
+    "original_hol4": "exp =\n    Raise exp\n  | Handle exp ((pat # exp) list)\n  | Lit lit\n  (* Constructor application.\n     A Nothing constructor indicates a tuple pattern. *)\n  | Con (((modN, conN)id)option) (exp list)\n  | Var ((modN, varN) id)\n  | Fun varN exp\n  (* Application a primitive operator to arguments.\n     Includes function application. *)\n  | App op (exp list)\n  (* Logical operations (and, or) *)\n  | Log lop exp exp\n  | If exp exp exp\n  (* Pattern matching *)\n  | Mat exp ((pat # exp) list)\n  (* A let expression\n     A Nothing value for the binding indicates that this is a\n     sequencing expression, that is: (e1; e2). *)\n  | Let (varN option) exp exp\n  (* Local definition (potentially) mutually recursive\n     functions.\n     The first varN is the function's name, and the second varN\n     is its parameter. *)\n  | Letrec ((varN # varN # exp) list) exp\n  | Tannot exp ast_t\n  (* Location annotated expressions, not expected in source programs *)\n  | Lannot exp locs",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "dec",
+    "statement": "inductive dec where\n  | Dlet (l : locs) (p : pat) (e : exp) : dec\n  | Dletrec (l : locs) (bindings : List (varN × varN × exp)) : dec\n  | Dtype (l : locs) (td : type_def) : dec\n  | Dtabbrev (l : locs) (tvs : List tvarN) (tn : typeN) (t : ast_t) : dec\n  | Dexn (l : locs) (cn : conN) (ts : List ast_t) : dec\n  | Dmod (m : modN) (decs : List dec) : dec\n  | Dlocal (local_decs : List dec) (visible_decs : List dec) : dec\n  | Denv (tv : tvarN) : dec",
+    "original_hol4": "dec =\n  (* Top-level bindings\n   * The pattern allows several names to be bound at once *)\n    Dlet locs pat exp\n  (* Mutually recursive function definition *)\n  | Dletrec locs ((varN # varN # exp) list)\n  (* Type definition\n     Defines several data types, each which has several\n     named variants, which can in turn have several arguments.\n   *)\n  | Dtype locs type_def\n  (* Type abbreviations *)\n  | Dtabbrev locs (tvarN list) typeN ast_t\n  (* New exceptions *)\n  | Dexn locs conN (ast_t list)\n  (* Module *)\n  | Dmod modN (dec list)\n  (* Local: local part, visible part *)\n  | Dlocal (dec list) (dec list)\n  (* Store current lexical env in an env value *)\n  | Denv tvarN",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "id",
+    "statement": "universe u v\ninductive id (m : Type u) (n : Type v) where\n  | Short (val : n) : id m n\n  | Long (mod_name : m) (rest : id m n) : id m n",
+    "original_hol4": "id = Short 'n | Long 'm id",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Datatype",
+    "name": "namespace",
+    "statement": "universe u v w\ninductive namespace (m : Type u) (n : Type v) (val : Type w) where\n  | Bind (vars : List (n × val)) (mods : List (m × namespace m n val)) : namespace m n val",
+    "original_hol4": "namespace =\n    Bind (('n,'v) alist) (('m,namespace) alist)",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "isFpBool_def",
+    "statement": "def isFpBool (o : op) : Bool :=\n  match o with\n  | op.FP_cmp _ => true\n  | _ => false",
+    "original_hol4": "isFpBool op = case op of FP_cmp _ => T | _ => F",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "pat_bindings_def",
+    "statement": "mutual\ndef pat_bindings (p : pat) (already_bound : List varN) : List varN :=\n  match p with\n  | pat.Pany => already_bound\n  | pat.Pvar n => n :: already_bound\n  | pat.Plit _ => already_bound\n  | pat.Pcon _ ps => pats_bindings ps already_bound\n  | pat.Pref p' => pat_bindings p' already_bound\n  | pat.Pas p' i => pat_bindings p' (i :: already_bound)\n  | pat.Ptannot p' _ => pat_bindings p' already_bound\n\ndef pats_bindings (ps : List pat) (already_bound : List varN) : List varN :=\n  match ps with\n  | [] => already_bound\n  | p :: rest => pats_bindings rest (pat_bindings p already_bound)\nend",
+    "original_hol4": "pat_bindings Pany already_bound = already_bound ∧\n  pat_bindings (Pvar n) already_bound = n::already_bound ∧\n  pat_bindings (Plit l) already_bound = already_bound ∧\n  pat_bindings (Pcon v0 ps) already_bound = pats_bindings ps already_bound ∧\n  pat_bindings (Pref p) already_bound = pat_bindings p already_bound ∧\n  pat_bindings (Pas p i) already_bound = pat_bindings p (i::already_bound) ∧\n  pat_bindings (Ptannot p v1) already_bound = pat_bindings p already_bound ∧\n  pats_bindings [] already_bound = already_bound ∧\n  pats_bindings (p::ps) already_bound =\n  pats_bindings ps (pat_bindings p already_bound)",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "Seqs_def",
+    "statement": "def Seqs : List exp → exp\n  | [] => exp.Con none []\n  | x :: xs => exp.Let none x (Seqs xs)",
+    "original_hol4": "Seqs [] = Con NONE [] ∧\n  Seqs (x::xs) = Let NONE x (Seqs xs)",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "Apps_def",
+    "statement": "def Apps (f : exp) : List exp → exp\n  | [] => f\n  | x :: xs => Apps (exp.App op.Opapp [f, x]) xs",
+    "original_hol4": "Apps f [] = f ∧\n  Apps f (x::xs) = Apps (App Opapp [f; x]) xs",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "Funs_def",
+    "statement": "def Funs : List varN → exp → exp\n  | [], e => e\n  | x :: xs, e => exp.Fun x (Funs xs e)",
+    "original_hol4": "Funs [] e = e ∧\n  Funs (x::xs) e = Fun x (Funs xs e)",
+    "source_file": ".\\to_be_extracted\\astScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "alist_rel_restr_def",
+    "statement": "def alist_rel_restr {κ α β} [BEq κ] (R : κ → α → β → Prop) (l1 : List (κ × α)) (l2 : List (κ × β)) : List κ → Prop\n  | [] => True\n  | k1 :: keys =>\n    match l1.lookup k1 with\n    | none => False\n    | some v1 =>\n      match l2.lookup k1 with\n      | none => False\n      | some v2 => R k1 v1 v2 ∧ alist_rel_restr R l1 l2 keys",
+    "original_hol4": "(alist_rel_restr R l1 l2 [] ⇔ T) ∧\n  (alist_rel_restr R l1 l2 (k1::keys) ⇔\n    case ALOOKUP l1 k1 of\n    | NONE => F\n    | SOME v1 =>\n      case ALOOKUP l2 k1 of\n      | NONE => F\n      | SOME v2 => R k1 v1 v2 ∧ alist_rel_restr R l1 l2 keys)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "alistSub_def",
+    "statement": "def alistSub {κ α β} [BEq κ] (R : κ → α → β → Prop) (e1 : List (κ × α)) (e2 : List (κ × β)) : Prop :=\n  alist_rel_restr R e1 e2 (e1.map Prod.fst)",
+    "original_hol4": "alistSub R e1 e2 ⇔ alist_rel_restr R e1 e2 (MAP FST e1)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsSub_compute_def",
+    "statement": "def nsSub_compute {m n v} [BEq n] [BEq m] (path : List m) (R : id m n → v → v → Prop) : namespace m n v → namespace m n v → Prop :=\n  fun (namespace.Bind e1V e1M) (namespace.Bind e2V e2M) =>\n    alistSub (fun k v1 v2 => R (mk_id path.reverse k) v1 v2) e1V e2V ∧\n    alistSub (fun k v1 v2 => nsSub_compute (k :: path) R v1 v2) e1M e2M",
+    "original_hol4": "nsSub_compute path R (Bind e1V e1M) (Bind e2V e2M) ⇔\n    alistSub (\\k v1 v2. R (mk_id (REVERSE path) k) v1 v2) e1V e2V ∧\n    alistSub (\\k v1 v2. nsSub_compute (k::path) R v1 v2) e1M e2M\nTermination\n  wf_rel_tac `measure (\\(p,r,env,_). namespace_size (\\x.0) (\\x.0) (\\x.0) env)`\n >> rw []\n >> Induct_on `e1M`\n >> rw [namespace_size_def]\n >> PairCases_on `h`\n >> fs [ALOOKUP_def]\n >> every_case_tac\n >> fs []\n >> rw [namespace_size_def,basicSizeTheory.pair_size_def]",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "mk_id_def",
+    "statement": "def mk_id {m n} : List m → n → id m n\n  | [], val => id.Short val\n  | mod_name :: rest, val => id.Long mod_name (mk_id rest val)",
+    "original_hol4": "mk_id [] n = Short n ∧\n  mk_id (mn::mns) n = Long mn (mk_id mns n)",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "id_to_n_def",
+    "statement": "def id_to_n {m n} : id m n → n\n  | id.Short val => val\n  | id.Long _ i => id_to_n i",
+    "original_hol4": "id_to_n (Short n) = n ∧\n id_to_n (Long _ id) = id_to_n id",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "id_to_mods_def",
+    "statement": "def id_to_mods {m n} : id m n → List m\n  | id.Short _ => []\n  | id.Long mn i => mn :: id_to_mods i",
+    "original_hol4": "id_to_mods (Short _) = [] ∧\n  id_to_mods (Long mn id) = mn::id_to_mods id",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsLookup_def",
+    "statement": "def nsLookup {m n v} [BEq n] [BEq m] : namespace m n v → id m n → Option v\n  | namespace.Bind vars _, id.Short val => vars.lookup val\n  | namespace.Bind _ mods, id.Long mn i =>\n    match mods.lookup mn with\n    | none => none\n    | some env => nsLookup env i",
+    "original_hol4": "nsLookup ((Bind v m):('m,'n,'v)namespace) (Short n) =\n    ALOOKUP v n ∧\n  nsLookup (Bind v m) (Long mn id) =\n    case ALOOKUP m mn of\n    | NONE => NONE\n    | SOME env => nsLookup env id",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsLookupMod_def",
+    "statement": "def nsLookupMod {m n v} [BEq m] : namespace m n v → List m → Option (namespace m n v)\n  | _, [] => some e\n  | namespace.Bind _ mods, mn :: path =>\n    match mods.lookup mn with\n    | none => none\n    | some env' => nsLookupMod env' path",
+    "original_hol4": "nsLookupMod e [] = SOME (e:('m,'n,'v)namespace) ∧\n  nsLookupMod (Bind v m) (mn::path) =\n  case ALOOKUP m mn of NONE => NONE | SOME env => nsLookupMod env path",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsEmpty_def",
+    "statement": "def nsEmpty {m n v} : namespace m n v := namespace.Bind [] []",
+    "original_hol4": "nsEmpty = Bind [] []",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsAppend_def",
+    "statement": "def nsAppend {m n v} : namespace m n v → namespace m n v → namespace m n v\n  | namespace.Bind v1 m1, namespace.Bind v2 m2 => namespace.Bind (v1 ++ v2) (m1 ++ m2)",
+    "original_hol4": "nsAppend (Bind v1 m1) (Bind v2 m2) = Bind (v1 ++ v2) (m1 ++ m2)",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsLift_def",
+    "statement": "def nsLift {m n v} (mn : m) (env : namespace m n v) : namespace m n v :=\n  namespace.Bind [] [(mn, env)]",
+    "original_hol4": "nsLift mn env = Bind [] [(mn,env)]",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "alist_to_ns_def",
+    "statement": "def alist_to_ns {m n v} (a : List (n × v)) : namespace m n v :=\n  namespace.Bind a []",
+    "original_hol4": "alist_to_ns a = Bind a []",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsBind_def",
+    "statement": "def nsBind {m n v} (k : n) (x : v) : namespace m n v → namespace m n v\n  | namespace.Bind vars mods => namespace.Bind ((k, x) :: vars) mods",
+    "original_hol4": "nsBind k x (Bind v m) = Bind ((k,x)::v) m",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsBindList_def",
+    "statement": "def nsBindList {m n v} (l : List (n × v)) (e : namespace m n v) : namespace m n v :=\n  l.foldr (fun (k, val) acc => nsBind k val acc) e",
+    "original_hol4": "nsBindList l e = FOLDR (λ(x,v) e. nsBind x v e) e l",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsOptBind_def",
+    "statement": "def nsOptBind {m n v} (n_opt : Option n) (x : v) (env : namespace m n v) : namespace m n v :=\n  match n_opt with\n  | none => env\n  | some k => nsBind k x env",
+    "original_hol4": "nsOptBind n x env = case n of NONE => env | SOME n => nsBind n x env",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsSing_def",
+    "statement": "def nsSing {m n v} (k : n) (x : v) : namespace m n v :=\n  namespace.Bind [(k, x)] []",
+    "original_hol4": "nsSing n x = Bind [(n,x)] []",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsSub_def",
+    "statement": "def nsSub {m n v} [BEq n] [BEq m] (r : id m n → v → v → Prop) (env1 env2 : namespace m n v) : Prop :=\n  (∀ i v1, nsLookup env1 i = some v1 → ∃ v2, nsLookup env2 i = some v2 ∧ r i v1 v2) ∧\n  (∀ path, nsLookupMod env2 path = none → nsLookupMod env1 path = none)",
+    "original_hol4": "nsSub r env1 env2 ⇔\n     (∀id v1.\n        nsLookup env1 id = SOME v1 ⇒\n        ∃v2. nsLookup env2 id = SOME v2 ∧ r id v1 v2) ∧\n     ∀path. nsLookupMod env2 path = NONE ⇒ nsLookupMod env1 path = NONE",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsAll_def",
+    "statement": "def nsAll {m n v} [BEq n] [BEq m] (f : id m n → v → Prop) (env : namespace m n v) : Prop :=\n  ∀ i val, nsLookup env i = some val → f i val",
+    "original_hol4": "nsAll f env ⇔ ∀id v. nsLookup env id = SOME v ⇒ f id v",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsAll2_def",
+    "statement": "def nsAll2 {m n v} [BEq n] [BEq m] (r : id m n → v → v → Prop) (env1 env2 : namespace m n v) : Prop :=\n  nsSub r env1 env2 ∧ nsSub (fun i v2 v1 => r i v1 v2) env2 env1",
+    "original_hol4": "nsAll2 r env1 env2 ⇔\n    nsSub r env1 env2 ∧ nsSub (λx y z. r x z y) env2 env1",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsDom_def",
+    "statement": "def nsDom {m n v} [BEq n] [BEq m] (env : namespace m n v) : Set (id m n) :=\n  { i | ∃ val, nsLookup env i = some val }",
+    "original_hol4": "nsDom (env:('m,'n,'v)namespace) =\n     {n | (v,n) | v ∈ 𝕌(:φ) ∧ n ∈ 𝕌(:(ν, ξ) id) ∧ nsLookup env n = SOME v}",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsDomMod_def",
+    "statement": "def nsDomMod {m n v} [BEq m] (env : namespace m n v) : Set (List m) :=\n  { p | ∃ ns, nsLookupMod env p = some ns }",
+    "original_hol4": "nsDomMod (env:('m,'n,'v)namespace) =\n     {n | (v,n) | v ∈ 𝕌(:(ν, ξ, φ) namespace) ∧ n ∈ 𝕌(:ν list) ∧\n                  nsLookupMod env n = SOME v}",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Definition",
+    "name": "nsMap_def",
+    "statement": "def nsMap {m n v w} (f : v → w) : namespace m n v → namespace m n w\n  | namespace.Bind vars mods =>\n    let vars' := vars.map (fun (name, val) => (name, f val));\n    let mods' := mods.map (fun (name, ns) => (name, nsMap f ns));\n    namespace.Bind vars' mods'",
+    "original_hol4": "nsMap (f:'v -> 'w) ((Bind v m):('m,'n,'v)namespace) =\n    Bind (MAP (λ(n,x). (n,f x)) v) (MAP (λ(mn,e). (mn,nsMap f e)) m)",
+    "source_file": ".\\to_be_extracted\\namespaceScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "mk_id_surj",
+    "statement": "theorem mk_id_surj {m n} (i : id m n) : ∃ (p : List m) (val : n), i = mk_id p val",
+    "original_hol4": "!id. ?p n. id = mk_id p n",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "mk_id_thm",
+    "statement": "theorem mk_id_thm {m n} (i : id m n) : mk_id (id_to_mods i) (id_to_n i) = i",
+    "original_hol4": "!id. mk_id (id_to_mods id) (id_to_n id) = id",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_mono2",
+    "statement": "theorem nsSub_mono2 {m n v} [BEq n] [BEq m] {R1 R2 : id m n → v → v → Prop} {e1 e2 : namespace m n v}\n  (h : ∀ x y z, nsLookup e1 x = some y → nsLookup e2 x = some z → R1 x y z → R2 x y z) :\n  nsSub R1 e1 e2 → nsSub R2 e1 e2",
+    "original_hol4": "(!x y z. nsLookup e1 x = SOME y ∧ nsLookup e2 x = SOME z ∧ R1 x y z ⇒ R2 x y z) ⇒ (nsSub R1 e1 e2 ⇒ nsSub R2 e1 e2)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_Bind_v_some",
+    "statement": "theorem nsLookup_Bind_v_some {m n v} [BEq n] [BEq m] (v_list : List (n × v)) (k : id m n) (x : v) :\n  nsLookup (namespace.Bind v_list []) k = some x ↔ ∃ y, k = id.Short y ∧ v_list.lookup y = some x",
+    "original_hol4": "nsLookup (Bind v []) k = SOME x ⇔\n   ∃y. k = Short y ∧ ALOOKUP v y = SOME x",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_to_nsLookupMod",
+    "statement": "theorem nsLookup_to_nsLookupMod {m n v} [BEq n] [BEq m] (ns : namespace m n v) (i : id m n) (t : v) :\n  nsLookup ns i = some t → ∃ m', nsLookupMod ns (id_to_mods i) = some m' ∧ nsLookup m' (id.Short (id_to_n i)) = some t",
+    "original_hol4": "!n v t.\n    nsLookup n v = SOME t\n    ⇒\n    ?m. nsLookupMod n (id_to_mods v) = SOME m ∧ nsLookup m (Short (id_to_n v)) = SOME t",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_alist_to_ns_some",
+    "statement": "theorem nsLookup_alist_to_ns_some {m n v} [BEq n] [BEq m] (l : List (n × v)) (i : id m n) (val : v) :\n  nsLookup (alist_to_ns l) i = some val ↔ ∃ x', i = id.Short x' ∧ l.lookup x' = some val",
+    "original_hol4": "!l id v. nsLookup (alist_to_ns l) id = SOME v ⇔ ?x'. id = Short x' ∧ ALOOKUP l x' = SOME v",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_alist_to_ns_none",
+    "statement": "theorem nsLookup_alist_to_ns_none {m n v} [BEq n] [BEq m] (l : List (n × v)) (i : id m n) :\n  nsLookup (alist_to_ns l) i = none ↔ ∀ x', i = id.Short x' → l.lookup x' = none",
+    "original_hol4": "!l id. nsLookup (alist_to_ns l) id = NONE ⇔ !x'. id = Short x' ⇒ ALOOKUP l x' = NONE",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsLift",
+    "statement": "theorem nsLookup_nsLift {m n v} [BEq n] [BEq m] [DecidableEq m] (mn : m) (e : namespace m n v) (i : id m n) :\n  nsLookup (nsLift mn e) i =\n    match i with\n    | id.Long mn' i' => if mn = mn' then nsLookup e i' else none\n    | id.Short _ => none",
+    "original_hol4": "!mn e id.\n    nsLookup (nsLift mn e) id =\n    case id of\n    | Long mn' id' =>\n      if mn = mn' then\n        nsLookup e id'\n      else\n        NONE\n    | Short _ => NONE",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookupMod_nsLift",
+    "statement": "theorem nsLookupMod_nsLift {m n v} [BEq m] [DecidableEq m] (mn : m) (e : namespace m n v) (path : List m) :\n  nsLookupMod (nsLift mn e) path =\n    match path with\n    | [] => some (nsLift mn e)\n    | mn' :: path' => if mn = mn' then nsLookupMod e path' else none",
+    "original_hol4": "!mn e path.\n    nsLookupMod (nsLift mn e) path =\n    case path of\n    | [] => SOME (nsLift mn e)\n    | (mn'::path') =>\n      if mn = mn' then\n        nsLookupMod e path'\n      else\n        NONE",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsAppend_none",
+    "statement": "theorem nsLookup_nsAppend_none {m n v} [BEq n] [BEq m] (e1 e2 : namespace m n v) (i : id m n) :\n  nsLookup (nsAppend e1 e2) i = none ↔\n  (nsLookup e1 i = none ∧\n   (nsLookup e2 i = none ∨\n    (∃ p1 p2 e3, ¬ p1.isEmpty ∧ id_to_mods i = p1 ++ p2 ∧ nsLookupMod e1 p1 = some e3)))",
+    "original_hol4": "∀e1 id e2.\n    nsLookup (nsAppend e1 e2) id = NONE\n    ⇔\n    (nsLookup e1 id = NONE ∧\n     (nsLookup e2 id = NONE ∨\n      ?p1 p2 e3. p1 ≠ [] ∧ id_to_mods id = p1++p2 ∧ nsLookupMod e1 p1 = SOME e3))",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsAppend_some",
+    "statement": "theorem nsLookup_nsAppend_some {m n v} [BEq n] [BEq m] (e1 e2 : namespace m n v) (i : id m n) (val : v) :\n  nsLookup (nsAppend e1 e2) i = some val ↔\n  nsLookup e1 i = some val ∨\n  (nsLookup e1 i = none ∧ nsLookup e2 i = some val ∧\n   (∀ p1 p2, ¬ p1.isEmpty ∧ id_to_mods i = p1 ++ p2 → nsLookupMod e1 p1 = none))",
+    "original_hol4": "∀e1 id e2 v.\n    nsLookup (nsAppend e1 e2) id = SOME v\n    ⇔\n    nsLookup e1 id = SOME v ∨\n    (nsLookup e1 id = NONE ∧ nsLookup e2 id = SOME v ∧\n     !p1 p2. p1 ≠ [] ∧ id_to_mods id = p1++p2 ⇒ nsLookupMod e1 p1 = NONE)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAppend_to_nsBindList",
+    "statement": "theorem nsAppend_to_nsBindList {m n v} (l : List (n × v)) (e : namespace m n v) :\n  nsAppend (alist_to_ns l) e = nsBindList l e",
+    "original_hol4": "!l. nsAppend (alist_to_ns l) e = nsBindList l e",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookupMod_nsAppend_none",
+    "statement": "theorem nsLookupMod_nsAppend_none {m n v} [BEq m] (e1 e2 : namespace m n v) (path : List m) :\n  nsLookupMod (nsAppend e1 e2) path = none ↔\n  (nsLookupMod e1 path = none ∧\n   (nsLookupMod e2 path = none ∨\n    (∃ p1 p2 e3, ¬ p1.isEmpty ∧ path = p1 ++ p2 ∧ nsLookupMod e1 p1 = some e3)))",
+    "original_hol4": "!e1 e2 path.\n    nsLookupMod (nsAppend e1 e2) path = NONE\n    ⇔\n    (nsLookupMod e1 path = NONE ∧\n     (nsLookupMod e2 path = NONE ∨\n      ?p1 p2 e3. p1 ≠ [] ∧ path = p1++p2 ∧ nsLookupMod e1 p1 = SOME e3))",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookupMod_nsAppend_some",
+    "statement": "theorem nsLookupMod_nsAppend_some {m n v} [BEq m] [DecidableEq (List m)] [DecidableEq (namespace m n v)] (e1 e2 : namespace m n v) (path : List m) (x : namespace m n v) :\n  nsLookupMod (nsAppend e1 e2) path = some x ↔\n  (if path.isEmpty then x = nsAppend e1 e2 else\n   nsLookupMod e1 path = some x ∨\n   (nsLookupMod e2 path = some x ∧\n    (∀ p1 p2, ¬ p1.isEmpty ∧ path = p1 ++ p2 → nsLookupMod e1 p1 = none)))",
+    "original_hol4": "!e1 e2 path.\n    (nsLookupMod (nsAppend e1 e2) path = SOME x\n     ⇔\n     if path = [] then x = nsAppend e1 e2 else\n     nsLookupMod e1 path = SOME x ∨\n      (nsLookupMod e2 path = SOME x ∧\n      !p1 p2. p1 ≠ [] ∧ path = p1++p2 ⇒ nsLookupMod e1 p1 = NONE))",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsAll",
+    "statement": "theorem nsLookup_nsAll {m n v} [BEq n] [BEq m] (env : namespace m n v) (x : id m n) (P : id m n → v → Prop) (val : v) :\n  nsAll P env → nsLookup env x = some val → P x val",
+    "original_hol4": "!env x P v. nsAll P env ∧ nsLookup env x = SOME v ⇒ P x v",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_nsAppend",
+    "statement": "theorem nsAll_nsAppend {m n v} [BEq n] [BEq m] (f : id m n → v → Prop) (e1 e2 : namespace m n v) :\n  nsAll f e1 → nsAll f e2 → nsAll f (nsAppend e1 e2)",
+    "original_hol4": "!f e1 e2. nsAll f e1 ∧ nsAll f e2 ⇒ nsAll f (nsAppend e1 e2)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_nsBind",
+    "statement": "theorem nsAll_nsBind {m n v} [BEq n] [BEq m] (P : id m n → v → Prop) (x : n) (val : v) (e : namespace m n v) :\n  P (id.Short x) val → nsAll P e → nsAll P (nsBind x val e)",
+    "original_hol4": "!P x v e. P (Short x) v ∧ nsAll P e ⇒ nsAll P (nsBind x v e)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_nsOptBind",
+    "statement": "theorem nsAll_nsOptBind {m n v} [BEq n] [BEq m] (P : id m n → v → Prop) (x : Option n) (val : v) (e : namespace m n v) :\n  (x = none ∨ (∃ n', x = some n' ∧ P (id.Short n') val)) → nsAll P e → nsAll P (nsOptBind x val e)",
+    "original_hol4": "!P x v e. (x = NONE ∨ ?n. x = SOME n ∧ P (Short n) v) ∧ nsAll P e ⇒ nsAll P (nsOptBind x v e)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_alist_to_ns",
+    "statement": "theorem nsAll_alist_to_ns {m n v} [BEq n] [BEq m] (R : id m n → v → Prop) (l : List (n × v)) :\n  l.Forall (fun (n, v) => R (id.Short n) v) → nsAll R (alist_to_ns l)",
+    "original_hol4": "!R l. EVERY (λ(n,v). R (Short n) v) l ⇒ nsAll R (alist_to_ns l)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_nsAppend_left",
+    "statement": "theorem nsAll_nsAppend_left {m n v} [BEq n] [BEq m] (P : id m n → v → Prop) (n1 n2 : namespace m n v) :\n  nsAll P (nsAppend n1 n2) → nsAll P n1",
+    "original_hol4": "!P n1 n2. nsAll P (nsAppend n1 n2) ⇒ nsAll P n1",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_conj",
+    "statement": "theorem nsSub_conj {m n v} [BEq n] [BEq m] (P Q : id m n → v → v → Prop) (e1 e2 : namespace m n v) :\n  nsSub (fun i x y => P i x y ∧ Q i x y) e1 e2 ↔ nsSub P e1 e2 ∧ nsSub Q e1 e2",
+    "original_hol4": "!P Q e1 e2. nsSub (\\id x y. P id x y ∧ Q id x y) e1 e2 ⇔ nsSub P e1 e2 ∧\n  nsSub Q e1 e2",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_refl",
+    "statement": "theorem nsSub_refl {m n v} [BEq n] [BEq m] (P : id m n → v → Prop) (R : id m n → v → v → Prop) :\n  (∀ n x, P n x → R n x x) → ∀ e, nsAll P e → nsSub R e e",
+    "original_hol4": "!P R. (!n x. P n x ⇒ R n x x) ⇒ !e. nsAll P e ⇒ nsSub R e e",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_nsBind",
+    "statement": "theorem nsSub_nsBind {m n v} [BEq n] [BEq m] (R : id m n → v → v → Prop) (x : n) (v1 v2 : v) (e1 e2 : namespace m n v) :\n  R (id.Short x) v1 v2 → nsSub R e1 e2 → nsSub R (nsBind x v1 e1) (nsBind x v2 e2)",
+    "original_hol4": "!R x v1 v2 e1 e2.\n     R (Short x) v1 v2 ∧ nsSub R e1 e2 ⇒ nsSub R (nsBind x v1 e1) (nsBind x v2 e2)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_nsAppend2",
+    "statement": "theorem nsSub_nsAppend2 {m n v} [BEq n] [BEq m] (R : id m n → v → v → Prop) (e1 e2 e2' : namespace m n v) :\n  nsSub R e1 e1 → nsSub R e2 e2' → nsSub R (nsAppend e1 e2) (nsAppend e1 e2')",
+    "original_hol4": "!R e1 e2 e2'. nsSub R e1 e1 ∧ nsSub R e2 e2' ⇒ nsSub R (nsAppend e1 e2) (nsAppend e1 e2')",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_nsAppend_lift",
+    "statement": "theorem nsSub_nsAppend_lift {m n v} [BEq n] [BEq m] (R : id m n → v → v → Prop) (mn : m) (e1 e1' e2 e2' : namespace m n v) :\n  nsSub (fun i => R (id.Long mn i)) e1 e1' →\n  nsSub R e2 e2' →\n  nsSub R (nsAppend (nsLift mn e1) e2) (nsAppend (nsLift mn e1') e2')",
+    "original_hol4": "!R mn e1 e1' e2 e2'.\n    nsSub (\\id. R (Long mn id)) e1 e1' ∧\n    nsSub R e2 e2'\n    ⇒\n    nsSub R (nsAppend (nsLift mn e1) e2) (nsAppend (nsLift mn e1') e2')",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "alist_rel_restr_thm",
+    "statement": "theorem alist_rel_restr_thm {κ α β} [BEq κ] (R : κ → α → β → Prop) (e1 : List (κ × α)) (e2 : List (κ × β)) (keys : List κ) :\n  alist_rel_restr R e1 e2 keys ↔\n  ∀ k ∈ keys, ∃ v1 v2, e1.lookup k = some v1 ∧ e2.lookup k = some v2 ∧ R k v1 v2",
+    "original_hol4": "!R e1 e2 keys.\n    alist_rel_restr R e1 e2 keys ⇔\n      !k. MEM k keys ⇒ ?v1 v2. ALOOKUP e1 k = SOME v1 ∧ ALOOKUP e2 k = SOME v2 ∧ R k v1 v2",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "alistSub_cong",
+    "statement": "theorem alistSub_cong {κ α β} [BEq κ] (l1 l1' : List (κ × α)) (l2 l2' : List (κ × β)) (R R' : κ → α → β → Prop) :\n  l1 = l1' → l2 = l2' → (∀ n x y, l1'.lookup n = some x → l2'.lookup n = some y → (R n x y ↔ R' n x y)) →\n  (alistSub R l1 l2 ↔ alistSub R' l1' l2')",
+    "original_hol4": "!l1 l2 l1' l2' R R'.\n    l1 = l1' ∧ l2 = l2' ∧ (!n x y. ALOOKUP l1' n = SOME x ∧ ALOOKUP l2' n = SOME y ⇒ R n x y = R' n x y) ⇒\n    (alistSub R l1 l2 ⇔ alistSub R' l1' l2')",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_FOLDR_nsLift",
+    "statement": "theorem nsLookup_FOLDR_nsLift {m n v} [BEq n] [BEq m] (e : namespace m n v) (p : List m) (k : n) :\n  nsLookup (p.foldr nsLift e) (mk_id p k) = nsLookup e (id.Short k)",
+    "original_hol4": "!e p k. nsLookup (FOLDR nsLift e p) (mk_id p k) = nsLookup e (Short k)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_FOLDR_nsLift_some",
+    "statement": "theorem nsLookup_FOLDR_nsLift_some {m n v} [BEq n] [BEq m] (e : namespace m n v) (p : List m) (i : id m n) (val : v) :\n  nsLookup (p.foldr nsLift e) i = some val ↔\n  (p.isEmpty ∧ nsLookup e i = some val) ∨\n  (¬ p.isEmpty ∧ ∃ p2 n', i = mk_id (p ++ p2) n' ∧ nsLookup e (mk_id p2 n') = some val)",
+    "original_hol4": "!e p id v.\n    nsLookup (FOLDR nsLift e p) id = SOME v ⇔\n    (p = [] ∧ nsLookup e id = SOME v) ∨\n    (p ≠ [] ∧ ?p2 n. id = mk_id (p++p2) n ∧ nsLookup e (mk_id p2 n) = SOME v)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookupMod_FOLDR_nsLift_none",
+    "statement": "theorem nsLookupMod_FOLDR_nsLift_none {m n v} [BEq m] (e : namespace m n v) (p1 p2 : List m) :\n  nsLookupMod (p1.foldr nsLift e) p2 = none ↔\n  ((p1.isPrefixOf p2 ∨ p2.isPrefixOf p1) →\n   (∃ p3, p2 = p1 ++ p3 ∧ nsLookupMod e p3 = none))",
+    "original_hol4": "!e p1 p2. nsLookupMod (FOLDR nsLift e p1) p2 = NONE ⇔\n    (IS_PREFIX p1 p2 ∨ IS_PREFIX p2 p1) ⇒\n    ?p3. p2 = p1++p3 ∧ nsLookupMod e p3 = NONE",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_compute_thm_general",
+    "statement": "theorem nsSub_compute_thm_general {m n v} [BEq n] [BEq m] (p : List m) (R : id m n → v → v → Prop) (e1 e2 : namespace m n v) :\n  nsSub R (p.reverse.foldr nsLift e1) (p.reverse.foldr nsLift e2) ↔ nsSub_compute p R e1 e2",
+    "original_hol4": "!p R e1 e2.\n    nsSub R (FOLDR nsLift e1 (REVERSE p)) (FOLDR nsLift e2 (REVERSE p)) ⇔\n    nsSub_compute p R e1 e2",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_compute_thm",
+    "statement": "theorem nsSub_compute_thm {m n v} [BEq n] [BEq m] (R : id m n → v → v → Prop) (e1 e2 : namespace m n v) :\n  nsSub R e1 e2 ↔ nsSub_compute [] R e1 e2",
+    "original_hol4": "!R e1 e2. nsSub R e1 e2 ⇔ nsSub_compute [] R e1 e2",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_conj",
+    "statement": "theorem nsAll2_conj {m n v} [BEq n] [BEq m] (P Q : id m n → v → v → Prop) (e1 e2 : namespace m n v) :\n  nsAll2 (fun i x y => P i x y ∧ Q i x y) e1 e2 ↔ nsAll2 P e1 e2 ∧ nsAll2 Q e1 e2",
+    "original_hol4": "!P Q e1 e2. nsAll2 (\\id x y. P id x y ∧ Q id x y) e1 e2 ⇔ nsAll2 P e1 e2 ∧ nsAll2 Q e1 e2",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsLookup1",
+    "statement": "theorem nsAll2_nsLookup1 {m n v} [BEq n] [BEq m] (R : id m n → v → v → Prop) (e1 e2 : namespace m n v) (i : id m n) (v1 : v) :\n  nsLookup e1 i = some v1 → nsAll2 R e1 e2 → ∃ v2, nsLookup e2 i = some v2 ∧ R i v1 v2",
+    "original_hol4": "!R e1 e2 n v1.\n    nsLookup e1 n = SOME v1 ∧\n    nsAll2 R e1 e2\n    ⇒\n    ?v2. nsLookup e2 n = SOME v2 ∧ R n v1 v2",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsLookup2",
+    "statement": "theorem nsAll2_nsLookup2 {m n v} [BEq n] [BEq m] (R : id m n → v → v → Prop) (e1 e2 : namespace m n v) (i : id m n) (v2 : v) :\n  nsLookup e2 i = some v2 → nsAll2 R e1 e2 → ∃ v1, nsLookup e1 i = some v1 ∧ R i v1 v2",
+    "original_hol4": "!R e1 e2 n v2.\n    nsLookup e2 n = SOME v2 ∧\n    nsAll2 R e1 e2\n    ⇒\n    ?v1. nsLookup e1 n = SOME v1 ∧ R n v1 v2",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsLookup_none",
+    "statement": "theorem nsAll2_nsLookup_none {m n v} [BEq n] [BEq m] (R : id m n → v → v → Prop) (e1 e2 : namespace m n v) (i : id m n) :\n  nsAll2 R e1 e2 → (nsLookup e1 i = none ↔ nsLookup e2 i = none)",
+    "original_hol4": "!R e1 e2 n.\n    nsAll2 R e1 e2\n    ⇒\n    (nsLookup e1 n = NONE ⇔ nsLookup e2 n = NONE)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsBind",
+    "statement": "theorem nsAll2_nsBind {m n v} [BEq n] [BEq m] (R : id m n → v → v → Prop) (x : n) (v1 v2 : v) (e1 e2 : namespace m n v) :\n  R (id.Short x) v1 v2 → nsAll2 R e1 e2 → nsAll2 R (nsBind x v1 e1) (nsBind x v2 e2)",
+    "original_hol4": "!R x v1 v2 e1 e2.\n     R (Short x) v1 v2 ∧ nsAll2 R e1 e2 ⇒ nsAll2 R (nsBind x v1 e1) (nsBind x v2 e2)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsBindList",
+    "statement": "theorem nsAll2_nsBindList {m n v} [BEq n] [BEq m] [DecidableEq n] (R : id m n → v → v → Prop) (l1 l2 : List (n × v)) (e1 e2 : namespace m n v) :\n  List.Forall₂ (fun p1 p2 => p1.1 = p2.1 ∧ R (id.Short p1.1) p1.2 p2.2) l1 l2 → nsAll2 R e1 e2 →\n  nsAll2 R (nsBindList l1 e1) (nsBindList l2 e2)",
+    "original_hol4": "!R l1 l2 e1 e2.\n     LIST_REL (\\(x,y) (x',y'). x = x' ∧ R (Short x) y y') l1 l2 ∧ nsAll2 R e1 e2\n     ⇒\n     nsAll2 R (nsBindList l1 e1) (nsBindList l2 e2)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_nsAppend",
+    "statement": "theorem nsAll2_nsAppend {m n v} [BEq n] [BEq m] (R : id m n → v → v → Prop) (e1 e1' e2 e2' : namespace m n v) :\n  nsAll2 R e1 e2 → nsAll2 R e1' e2' → nsAll2 R (nsAppend e1 e1') (nsAppend e2 e2')",
+    "original_hol4": "!R e1 e1' e2 e2'.\n    nsAll2 R e1 e2 ∧ nsAll2 R e1' e2' ⇒ nsAll2 R (nsAppend e1 e1') (nsAppend e2 e2')",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll2_alist_to_ns",
+    "statement": "theorem nsAll2_alist_to_ns {m n v} [BEq n] [BEq m] [DecidableEq n] (R : id m n → v → v → Prop) (l1 l2 : List (n × v)) :\n  List.Forall₂ (fun p1 p2 => p1.1 = p2.1 ∧ R (id.Short p1.1) p1.2 p2.2) l1 l2 →\n  nsAll2 R (alist_to_ns l1) (alist_to_ns l2)",
+    "original_hol4": "!R l1 l2. LIST_REL (\\(x,y) (x',y'). x = x' ∧ R (Short x) y y') l1 l2 ⇒ nsAll2 R (alist_to_ns l1) (alist_to_ns l2)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsMap_compose",
+    "statement": "theorem nsMap_compose {m n v w u} (g : v → w) (e : namespace m n v) (f : w → u) :\n  nsMap f (nsMap g e) = nsMap (f ∘ g) e",
+    "original_hol4": "∀g e f. nsMap f (nsMap g e) = nsMap (f o g) e",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsMap_nsAppend",
+    "statement": "theorem nsMap_nsAppend {m n v w} (n1 n2 : namespace m n v) (f : v → w) :\n  nsMap f (nsAppend n1 n2) = nsAppend (nsMap f n1) (nsMap f n2)",
+    "original_hol4": "!n1 n2 f. nsMap f (nsAppend n1 n2) = nsAppend (nsMap f n1) (nsMap f n2)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookupMod_nsMap",
+    "statement": "theorem nsLookupMod_nsMap {m n v w} [BEq m] (ns : namespace m n v) (x : List m) (f : v → w) :\n  nsLookupMod (nsMap f ns) x = Option.map (nsMap f) (nsLookupMod ns x)",
+    "original_hol4": "!n x f. nsLookupMod (nsMap f n) x = OPTION_MAP (nsMap f) (nsLookupMod n x)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsMap",
+    "statement": "theorem nsLookup_nsMap {m n v w} [BEq n] [BEq m] (ns : namespace m n v) (x : id m n) (f : v → w) :\n  nsLookup (nsMap f ns) x = Option.map f (nsLookup ns x)",
+    "original_hol4": "!n x f. nsLookup (nsMap f n) x = OPTION_MAP f (nsLookup n x)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsAll_nsMap",
+    "statement": "theorem nsAll_nsMap {m n v w} [BEq n] [BEq m] (f : v → w) (ns : namespace m n v) (P : id m n → w → Prop) :\n  nsAll P (nsMap f ns) ↔ nsAll (fun x y => P x (f y)) ns",
+    "original_hol4": "!f n P. nsAll P (nsMap f n) ⇔ nsAll (\\x y. P x (f y)) n",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLift_nsMap",
+    "statement": "theorem nsLift_nsMap {m n v w} (f : v → w) (n : namespace m n v) (mn : m) :\n  nsLift mn (nsMap f n) = nsMap f (nsLift mn n)",
+    "original_hol4": "!f n mn. nsLift mn (nsMap f n) = nsMap f (nsLift mn n)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsSub_nsMap",
+    "statement": "theorem nsSub_nsMap {m n v w} [BEq n] [BEq m] (R : id m n → w → w → Prop) (f : v → w) (n1 n2 : namespace m n v) :\n  nsSub R (nsMap f n1) (nsMap f n2) ↔ nsSub (fun id x y => R id (f x) (f y)) n1 n2",
+    "original_hol4": "!R f n1 n2.\n    nsSub R (nsMap f n1) (nsMap f n2) ⇔ nsSub (\\id x y. R id (f x) (f y)) n1 n2",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsLookup_nsDom",
+    "statement": "theorem nsLookup_nsDom {m n v} [BEq n] [BEq m] (x : id m n) (ns : namespace m n v) :\n  x ∈ nsDom ns ↔ ∃ v, nsLookup ns x = some v",
+    "original_hol4": "!x n. x ∈ nsDom n ⇔ ?v. nsLookup n x = SOME v",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsDom_nsAppend_equal",
+    "statement": "theorem nsDom_nsAppend_equal {m n v} [BEq n] [BEq m] (n1 n2 n3 n4 : namespace m n v) :\n  nsDom n1 = nsDom n3 → nsDom n2 = nsDom n4 → nsDomMod n1 = nsDomMod n3 → nsDomMod n2 = nsDomMod n4 →\n  nsDom (nsAppend n1 n2) = nsDom (nsAppend n3 n4) ∧\n  nsDomMod (nsAppend n1 n2) = nsDomMod (nsAppend n3 n4)",
+    "original_hol4": "!n1 n2 n3 n4.\n    nsDom n1 = nsDom n3 ∧\n    nsDom n2 = nsDom n4 ∧\n    nsDomMod n1 = nsDomMod n3 ∧\n    nsDomMod n2 = nsDomMod n4\n    ⇒\n    nsDom (nsAppend n1 n2) = nsDom (nsAppend n3 n4) ∧\n    nsDomMod (nsAppend n1 n2) = nsDomMod (nsAppend n3 n4)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsDom_nsLift",
+    "statement": "theorem nsDom_nsLift {m n v} [BEq n] [BEq m] (mn : m) (ns : namespace m n v) :\n  nsDom (nsLift mn ns) = (fun i => id.Long mn i) '' (nsDom ns)",
+    "original_hol4": "!mn n. nsDom (nsLift mn n) = IMAGE (Long mn) (nsDom n)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsDomMod_nsLift",
+    "statement": "theorem nsDomMod_nsLift {m n v} [BEq m] (mn : m) (ns : namespace m n v) :\n  nsDomMod (nsLift mn ns) = insert [] ((fun p => mn :: p) '' (nsDomMod ns))",
+    "original_hol4": "!mn n. nsDomMod (nsLift mn n) = [] INSERT IMAGE (CONS mn) (nsDomMod n)",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsDom_nsAppend_flat",
+    "statement": "theorem nsDom_nsAppend_flat {m n v} [BEq n] [BEq m] (n1 n2 : namespace m n v) :\n  nsDomMod n1 = {[]} → nsDom (nsAppend n1 n2) = nsDom n1 ∪ nsDom n2",
+    "original_hol4": "!n1 n2.nsDomMod n1 = {[]} ⇒ nsDom (nsAppend n1 n2) = nsDom n1 ∪ nsDom n2",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  },
+  {
+    "kind": "Theorem",
+    "name": "nsDomMod_nsAppend_flat",
+    "statement": "theorem nsDomMod_nsAppend_flat {m n v} [BEq m] (n1 n2 : namespace m n v) :\n  nsDomMod n1 = {[]} → nsDomMod (nsAppend n1 n2) = nsDomMod n2",
+    "original_hol4": "!n1 n2.nsDomMod n1 = {[]} ⇒ nsDomMod (nsAppend n1 n2) = nsDomMod n2",
+    "source_file": ".\\to_be_extracted\\namespacePropsScript.sml"
+  }
+]
