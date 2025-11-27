@@ -5,12 +5,12 @@ import json
 from typing import List, Dict
 
 THEOREM_START_RE = re.compile(
-    r"^\s*Theorem\s+(?P<name>[A-Za-z0-9_']+)\s*:\s*(?P<after>.*)$"
+    r"^\s*Theorem\s+(?P<name>[A-Za-z0-9_']+)(?:\[[^\]]+\])?\s*:\s*(?P<after>.*)$"
 )
 PROOF_LINE_RE = re.compile(r"^\s*Proof\b")
 
 DEF_START_RE = re.compile(
-    r"^\s*Definition\s+(?P<name>[A-Za-z0-9_']+)\s*:\s*(?P<after>.*)$"
+    r"^\s*Definition\s+(?P<name>[A-Za-z0-9_']+)(?:\[[^\]]+\])?\s*:\s*(?P<after>.*)$"
 )
 DEF_END_RE   = re.compile(r"^\s*End\b")
 
