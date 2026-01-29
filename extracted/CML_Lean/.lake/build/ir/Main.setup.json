@@ -1,0 +1,9 @@
+{"plugins": [],
+ "package": "CML_Lean",
+ "options": {},
+ "name": "Main",
+ "isModule": false,
+ "importArts":
+ {"CML_Lean":
+  ["E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\lib\\lean\\CML_Lean.olean"]},
+ "dynlibs": []}

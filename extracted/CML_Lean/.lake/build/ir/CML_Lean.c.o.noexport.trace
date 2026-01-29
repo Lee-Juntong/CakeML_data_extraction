@@ -1,0 +1,18 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs": "58eadb63cc81ea54.o",
+ "log":
+ [{"message":
+   ".> c:\\Users\\my-pc\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\clang.exe -c -o E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\ir\\CML_Lean.c.o.noexport E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\ir\\CML_Lean.c -I c:\\Users\\my-pc\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\include -fstack-clash-protection -fwrapv -Wno-unused-command-line-argument --sysroot c:\\Users\\my-pc\\.elan\\toolchains\\leanprover--lean4---v4.27.0 -nostdinc -isystem c:\\Users\\my-pc\\.elan\\toolchains\\leanprover--lean4---v4.27.0/include/clang -O3 -DNDEBUG",
+   "level": "trace"}],
+ "inputs":
+ [["CML_Lean:c",
+   [["E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\ir\\CML_Lean.c",
+     "3e30142465a77227"],
+    ["Lean 4.27.0, commit db93fe1608548721853390a10cd40580fe7d22ae",
+     "9a2be90fd35343e5"]]],
+  ["Lean 4.27.0, commit db93fe1608548721853390a10cd40580fe7d22ae",
+   "9a2be90fd35343e5"],
+  ["traceArgs: #[-O3, -DNDEBUG]", "6c7bb0eeabd8f74a"],
+  ["x86_64-w64-windows-gnu", "360db333d006d911"]],
+ "depHash": "1244a18a6b74b67e"}

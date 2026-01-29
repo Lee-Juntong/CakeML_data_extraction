@@ -1,0 +1,198 @@
+[
+  {
+    "kind": "Datatype",
+    "name": "locn",
+    "statement": "locn = UNKNOWNpt | EOFpt | POSN num num",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locnrow_def",
+    "statement": "locnrow (POSN r c) = r",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locn_rowupdate_def",
+    "statement": "locn_rowupdate f (POSN r c) = POSN (f r) c",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locncol_def",
+    "statement": "locncol (POSN r c) = c",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locn_colupdate_def",
+    "statement": "locn_colupdate f (POSN r c) = POSN r (f c)",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Datatype",
+    "name": "locs",
+    "statement": "locs = Locs locn locn",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "default_loc_def",
+    "statement": "default_loc = POSN 0 0",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "start_locs_def",
+    "statement": "start_locs = Locs default_loc default_loc",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "unknown_loc_def",
+    "statement": "unknown_loc = Locs UNKNOWNpt UNKNOWNpt",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locnle_def",
+    "statement": "locnle l1 l2 <=>\n    l1 = l2 ∨ (* reflexivity, for free *)\n    l1 = UNKNOWNpt ∨ (* minimal element *)\n    l2 = EOFpt ∨ (* maximal element *)\n    (* otherwise compare row and col lexicographically*)\n    l2 ≠ UNKNOWNpt ∧ l1 ≠ EOFpt ∧\n    (l1.row < l2.row ∨ l1.row = l2.row ∧ l1.col < l2.col)",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_REFL",
+    "statement": "locnle l l",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_total",
+    "statement": "locnle l1 l2 ∨ locnle l2 l1",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_ANTISYM",
+    "statement": "locnle l1 l2 ∧ locnle l2 l1 ⇒ l1 = l2",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_TRANS",
+    "statement": "locnle l1 l2 ∧ locnle l2 l3 ⇒ locnle l1 l3",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_end",
+    "statement": "locnle EOFpt l ⇔ l = EOFpt",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_unknown",
+    "statement": "locnle l UNKNOWNpt ⇔ l = UNKNOWNpt",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locsle_def",
+    "statement": "locsle (Locs l1 _) (Locs l2 _) ⇔ locnle l1 l2",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locsle_REFL",
+    "statement": "locsle l l",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locsle_total",
+    "statement": "locsle l1 l2 ∨ locsle l2 l1",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locsle_TRANS",
+    "statement": "locsle l1 l2 ∧ locsle l2 l3 ⇒ locsle l1 l3",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "merge_locs_def",
+    "statement": "merge_locs (Locs l1 l2) (Locs l3 l4) = Locs l1 l4",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "merge_list_locs_def",
+    "statement": "(merge_list_locs [] = unknown_loc) /\\\n  (merge_list_locs (h :: []) = h) /\\\n  (merge_list_locs (h1 :: h2 :: []) = merge_locs h1 h2) /\\\n  (merge_list_locs (h1 :: h2 :: t) = merge_list_locs (h1 :: t))",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "map_loc_def",
+    "statement": "(map_loc [] _ = []) /\\\n  (map_loc (h :: t) n =\n    (h, Locs (POSN 0 n) (POSN 0 n)) :: map_loc t (n+1))",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_locs_assoc",
+    "statement": "(merge_locs (merge_locs l1 l2) l3 = merge_locs l1 l3) ∧\n  (merge_locs l1 (merge_locs l2 l3) = merge_locs l1 l3)",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_list_locs_2",
+    "statement": "∀h1 h2 t.\n    merge_list_locs (h1 :: h2 :: t) = merge_list_locs (merge_locs h1 h2 :: t)",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_list_locs_nested",
+    "statement": "∀h t1 t2. merge_list_locs (merge_list_locs (h::t1) :: t2) =\n            merge_list_locs (h :: t1 ++ t2)",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_list_locs_sing",
+    "statement": "merge_list_locs [h] = h",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_locs_idem",
+    "statement": "merge_locs l l = l",
+    "theory": "location",
+    "ancestors": []
+  }
+]

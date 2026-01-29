@@ -1,0 +1,28 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["106c363a82eec14a.olean"],
+  "i": "0346280b09a09434.ilean",
+  "c": "3e30142465a77227.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\lib\\lean c:\\Users\\my-pc\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\lean.exe E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\CML_Lean.lean -o E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\lib\\lean\\CML_Lean.olean -i E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\lib\\lean\\CML_Lean.ilean -c E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\ir\\CML_Lean.c --setup E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\ir\\CML_Lean.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["CML_Lean:deps",
+   [["deps",
+     [["CML_Lean/CML_Lean:extraDep",
+       [["@CML_Lean:extraDep", "00000000000006bb"]]],
+      ["imports", "00000000000006bb"]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.27.0, commit db93fe1608548721853390a10cd40580fe7d22ae",
+   "9a2be90fd35343e5"],
+  ["E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\CML_Lean.lean",
+   "56e5d2d1c0bbfdbc"],
+  ["options", "00000000000006bb"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "436f59150155c792"}

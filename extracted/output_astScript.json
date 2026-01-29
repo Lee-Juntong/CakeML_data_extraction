@@ -1,0 +1,422 @@
+[
+  {
+    "kind": "Datatype",
+    "name": "lit",
+    "statement": "inductive Lit where\n  | IntLit  : Int → Lit\n  | Char    : Char → Lit\n  | StrLit  : String → Lit\n  | Word8   : UInt8 → Lit\n  | Word64  : UInt64 → Lit\n  | Float64 : UInt64 → Lit -- Raw bit representation of a float\n  deriving Repr, DecidableEq",
+    "original_hol4": "lit =\n    IntLit int\n  | Char char\n  | StrLit string\n  | Word8 word8\n  | Word64 word64\n  | Float64 word64",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "opn",
+    "statement": "inductive Opn where\n  | Plus   : Opn\n  | Minus  : Opn\n  | Times  : Opn\n  | Divide : Opn\n  | Modulo : Opn\n  deriving Repr, DecidableEq",
+    "original_hol4": "opn = Plus | Minus | Times | Divide | Modulo",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "opb",
+    "statement": "inductive Opb where\n  | Lt  : Opb\n  | Gt  : Opb\n  | Leq : Opb\n  | Geq : Opb\n  deriving Repr, DecidableEq",
+    "original_hol4": "opb = Lt | Gt | Leq | Geq",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "opw",
+    "statement": "inductive Opw where\n  | Andw : Opw\n  | Orw  : Opw\n  | Xor  : Opw\n  | Add  : Opw\n  | Sub  : Opw\n  deriving Repr, DecidableEq",
+    "original_hol4": "opw = Andw | Orw | Xor | Add | Sub",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "shift",
+    "statement": "inductive Shift where\n  | Lsl : Shift\n  | Lsr : Shift\n  | Asr : Shift\n  | Ror : Shift\n  deriving Repr, DecidableEq",
+    "original_hol4": "shift = Lsl | Lsr | Asr | Ror",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "fp_cmp",
+    "statement": "inductive FpCmp where\n  | FP_Less       : FpCmp\n  | FP_LessEqual  : FpCmp\n  | FP_Greater    : FpCmp\n  | FP_GreaterEqual : FpCmp\n  | FP_Equal      : FpCmp\n  deriving Repr, DecidableEq",
+    "original_hol4": "fp_cmp = FP_Less | FP_LessEqual | FP_Greater | FP_GreaterEqual | FP_Equal",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "fp_uop",
+    "statement": "inductive FpUop where\n  | FP_Abs  : FpUop\n  | FP_Neg  : FpUop\n  | FP_Sqrt : FpUop\n  deriving Repr, DecidableEq",
+    "original_hol4": "fp_uop = FP_Abs | FP_Neg | FP_Sqrt",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "fp_bop",
+    "statement": "inductive FpBop where\n  | FP_Add : FpBop\n  | FP_Sub : FpBop\n  | FP_Mul : FpBop\n  | FP_Div : FpBop\n  deriving Repr, DecidableEq",
+    "original_hol4": "fp_bop = FP_Add | FP_Sub | FP_Mul | FP_Div",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "fp_top",
+    "statement": "inductive FpTop where\n  | FP_Fma : FpTop\n  deriving Repr, DecidableEq",
+    "original_hol4": "fp_top = FP_Fma",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Type",
+    "name": "modN",
+    "statement": "abbrev ModN := String",
+    "original_hol4": "“:string”\n\n(* Variable names *)\nType varN = “:string”\n\n(* Constructor names (from datatype definitions) *)\nType conN = ``: string``",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Type",
+    "name": "typeN",
+    "statement": "abbrev TypeN := String",
+    "original_hol4": "``: string``",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Type",
+    "name": "tvarN",
+    "statement": "abbrev TvarN := String",
+    "original_hol4": "``: string``",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "word_size",
+    "statement": "inductive WordSize where\n  | W8  : WordSize\n  | W64 : WordSize\n  deriving Repr, DecidableEq",
+    "original_hol4": "word_size = W8 | W64",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "thunk_mode",
+    "statement": "inductive ThunkMode where\n  | Evaluated    : ThunkMode\n  | NotEvaluated : ThunkMode\n  deriving Repr, DecidableEq",
+    "original_hol4": "thunk_mode = Evaluated | NotEvaluated",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "thunk_op",
+    "statement": "inductive ThunkOp where\n  | AllocThunk  : ThunkMode → ThunkOp\n  | UpdateThunk : ThunkMode → ThunkOp\n  | ForceThunk  : ThunkOp\n  deriving Repr, DecidableEq",
+    "original_hol4": "thunk_op =\n    AllocThunk thunk_mode\n  | UpdateThunk thunk_mode\n  | ForceThunk",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "op",
+    "statement": "inductive Op where\n  -- Operations on integers\n  | Opn             : Opn → Op\n  | Opb             : Opb → Op\n  -- Operations on words\n  | Opw             : WordSize → Opw → Op\n  | Shift           : WordSize → Shift → Nat → Op\n  | Equality        : Op\n  -- FP operations\n  | FpCmp           : FpCmp → Op\n  | FpUop           : FpUop → Op\n  | FpBop           : FpBop → Op\n  | FpTop           : FpTop → Op\n  -- Floating-point <-> word translations\n  | FpFromWord      : Op\n  | FpToWord        : Op\n  -- Function application\n  | Opapp           : Op\n  -- Reference operations\n  | Opassign        : Op\n  | Opref           : Op\n  | Opderef         : Op\n  -- Word8Array operations\n  | Aw8alloc        : Op\n  | Aw8sub          : Op\n  | Aw8length       : Op\n  | Aw8update       : Op\n  -- Word/integer conversions\n  | WordFromInt     : WordSize → Op\n  | WordToInt       : WordSize → Op\n  -- string/bytearray conversions\n  | CopyStrStr      : Op\n  | CopyStrAw8      : Op\n  | CopyAw8Str      : Op\n  | CopyAw8Aw8      : Op\n  | XorAw8Str_unsafe : Op\n  -- Char operations\n  | Ord             : Op\n  | Chr             : Op\n  | Chopb           : Opb → Op\n  -- String operations\n  | Implode         : Op\n  | Explode         : Op\n  | Strsub          : Op\n  | Strlen          : Op\n  | Strcat          : Op\n  -- Vector operations\n  | VfromList       : Op\n  | Vsub            : Op\n  | Vlength         : Op\n  -- Array operations\n  | Aalloc          : Op\n  | AallocEmpty     : Op\n  | AallocFixed     : Op\n  | Asub            : Op\n  | Alength         : Op\n  | Aupdate         : Op\n  -- Unsafe array accesses\n  | Asub_unsafe     : Op\n  | Aupdate_unsafe  : Op\n  | Aw8sub_unsafe   : Op\n  | Aw8update_unsafe : Op\n  -- thunk operations\n  | ThunkOp         : ThunkOp → Op\n  -- List operations\n  | ListAppend      : Op\n  -- Configure the GC\n  | ConfigGC        : Op\n  -- Call a given foreign function\n  | FFI             : String → Op\n  -- Evaluate new code in a given env\n  | Eval            : Op\n  -- Get the identifier of an env object\n  | Env_id          : Op\n  deriving Repr, DecidableEq",
+    "original_hol4": "op =\n  (* Operations on integers *)\n    Opn opn\n  | Opb opb\n  (* Operations on words *)\n  | Opw word_size opw\n  | Shift word_size shift num\n  | Equality\n  (* FP operations *)\n  | FP_cmp fp_cmp\n  | FP_uop fp_uop\n  | FP_bop fp_bop\n  | FP_top fp_top\n  (* Floating-point <-> word translations *)\n  | FpFromWord\n  | FpToWord\n  (* Function application *)\n  | Opapp\n  (* Reference operations *)\n  | Opassign\n  | Opref\n  | Opderef\n  (* Word8Array operations *)\n  | Aw8alloc\n  | Aw8sub\n  | Aw8length\n  | Aw8update\n  (* Word/integer conversions *)\n  | WordFromInt word_size\n  | WordToInt word_size\n  (* string/bytearray conversions *)\n  | CopyStrStr\n  | CopyStrAw8\n  | CopyAw8Str\n  | CopyAw8Aw8\n  | XorAw8Str_unsafe\n  (* Char operations *)\n  | Ord\n  | Chr\n  | Chopb opb\n  (* String operations *)\n  | Implode\n  | Explode\n  | Strsub\n  | Strlen\n  | Strcat\n  (* Vector operations *)\n  | VfromList\n  | Vsub\n  | Vlength\n  (* Array operations *)\n  | Aalloc\n  | AallocEmpty\n  | AallocFixed\n  | Asub\n  | Alength\n  | Aupdate\n  (* Unsafe array accesses *)\n  | Asub_unsafe\n  | Aupdate_unsafe\n  | Aw8sub_unsafe\n  | Aw8update_unsafe\n  (* thunk operations *)\n  | ThunkOp thunk_op\n  (* List operations *)\n  | ListAppend\n  (* Configure the GC *)\n  | ConfigGC\n  (* Call a given foreign function *)\n  | FFI string\n  (* Evaluate new code in a given env *)\n  | Eval\n  (* Get the identifier of an env object *)\n  | Env_id",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "op_class",
+    "statement": "inductive OpClass where\n  | EvalOp : OpClass\n  | FunApp : OpClass\n  | Force  : OpClass\n  | Simple : OpClass\n  deriving Repr, DecidableEq",
+    "original_hol4": "op_class =\n    EvalOp (* Eval primitive *)\n  | FunApp (* function application *)\n  | Force (* forcing a thunk *)\n  | Simple (* arithmetic operation, no finite-precision/reals *)",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Definition",
+    "name": "getOpClass_def",
+    "statement": "def get_op_class (op_val : Op) : OpClass := \n  match op_val with\n  | Op.Opapp             => OpClass.FunApp\n  | Op.Eval              => OpClass.EvalOp\n  | Op.ThunkOp (ThunkOp.ForceThunk) => OpClass.Force\n  | Op.ThunkOp _         => OpClass.Simple\n  | _                    => OpClass.Simple",
+    "original_hol4": "getOpClass op =\n case op of\n  | Opapp => FunApp\n  | Eval => EvalOp\n  | ThunkOp t => (if t = ForceThunk then Force else Simple)\n  | _ => Simple",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Definition",
+    "name": "isFpBool_def",
+    "statement": "def is_fp_bool (op_val : Op) : Bool := \n  match op_val with\n  | Op.FpCmp _ => true\n  | _          => false",
+    "original_hol4": "isFpBool op = case op of FP_cmp _ => T | _ => F",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "lop",
+    "statement": "inductive Lop where\n  | And : Lop\n  | Or  : Lop\n  deriving Repr, DecidableEq",
+    "original_hol4": "lop = And | Or",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "ast_t",
+    "statement": "inductive AstT where\n  -- Type variables that the user writes down ('a, 'b, etc.)\n  | Atvar : TvarN → AstT\n  -- Function type\n  | Atfun : AstT → AstT → AstT\n  -- Tuple type\n  | Attup : List AstT → AstT\n  -- Type constructor applications.\n  -- 0-ary type applications represent unparameterised types (e.g., num or string)\n  | Atapp : List AstT → cml_id TypeN ModN → AstT\n  deriving Repr, DecidableEq",
+    "original_hol4": "ast_t =\n  (* Type variables that the user writes down ('a, 'b, etc.) *)\n    Atvar tvarN\n  (* Function type *)\n  | Atfun ast_t ast_t\n  (* Tuple type *)\n  | Attup (ast_t list)\n  (* Type constructor applications.\n    0-ary type applications represent unparameterised types (e.g., num or string) *)\n  | Atapp (ast_t list) ((modN, typeN) id)",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "pat",
+    "statement": "inductive Pat where\n  | Pany     : Pat\n  | Pvar     : VarN → Pat\n  | Plit     : Lit → Pat\n  -- Constructor applications.\n  -- A none constructor indicates a tuple pattern.\n  | Pcon     : Option (cml_id ConN ModN) → List Pat → Pat\n  | Pref     : Pat → Pat\n  -- Pattern alias.\n  | Pas      : Pat → VarN → Pat\n  | Ptannot  : Pat → AstT → Pat\n  deriving Repr, DecidableEq",
+    "original_hol4": "pat =\n    Pany\n  | Pvar varN\n  | Plit lit\n  (* Constructor applications.\n     A Nothing constructor indicates a tuple pattern. *)\n  | Pcon (((modN, conN) id) option) (pat list)\n  | Pref pat\n  (* Pattern alias. *)\n  | Pas pat varN\n  | Ptannot pat ast_t",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "exp",
+    "statement": "inductive Exp where\n  | Raise    : Exp → Exp\n  | Handle   : Exp → List (Pat × Exp) → Exp\n  | Lit      : Lit → Exp\n  -- Constructor application.\n  -- A none constructor indicates a tuple pattern.\n  | Con      : Option (cml_id ConN ModN) → List Exp → Exp\n  | Var      : cml_id VarN ModN → Exp\n  | Fun      : VarN → Exp → Exp\n  -- Application a primitive operator to arguments.\n  -- Includes function application.\n  | App      : Op → List Exp → Exp\n  -- Logical operations (and, or)\n  | Log      : Lop → Exp → Exp → Exp\n  | If       : Exp → Exp → Exp → Exp\n  -- Pattern matching\n  | Mat      : Exp → List (Pat × Exp) → Exp\n  -- A let expression\n  -- A none value for the binding indicates that this is a\n  -- sequencing expression, that is: (e1; e2).\n  | Let      : Option VarN → Exp → Exp → Exp\n  -- Local definition (potentially) mutually recursive\n  -- functions.\n  -- The first VarN is the function's name, and the second VarN\n  -- is its parameter.\n  | Letrec   : List (VarN × VarN × Exp) → Exp → Exp\n  | Tannot   : Exp → AstT → Exp\n  -- Location annotated expressions, not expected in source programs\n  | Lannot   : Exp → Locs → Exp\n  deriving Repr, DecidableEq",
+    "original_hol4": "exp =\n    Raise exp\n  | Handle exp ((pat # exp) list)\n  | Lit lit\n  (* Constructor application.\n     A Nothing constructor indicates a tuple pattern. *)\n  | Con (((modN, conN)id)option) (exp list)\n  | Var ((modN, varN) id)\n  | Fun varN exp\n  (* Application a primitive operator to arguments.\n     Includes function application. *)\n  | App op (exp list)\n  (* Logical operations (and, or) *)\n  | Log lop exp exp\n  | If exp exp exp\n  (* Pattern matching *)\n  | Mat exp ((pat # exp) list)\n  (* A let expression\n     A Nothing value for the binding indicates that this is a\n     sequencing expression, that is: (e1; e2). *)\n  | Let (varN option) exp exp\n  (* Local definition (potentially) mutually recursive\n     functions.\n     The first varN is the function's name, and the second varN\n     is its parameter. *)\n  | Letrec ((varN # varN # exp) list) exp\n  | Tannot exp ast_t\n  (* Location annotated expressions, not expected in source programs *)\n  | Lannot exp locs",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Type",
+    "name": "type_def",
+    "statement": "abbrev TypeDef := List (List TvarN × TypeN × List (ConN × List AstT))",
+    "original_hol4": "``: ( tvarN list # typeN # (conN # ast_t list) list) list``",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Datatype",
+    "name": "dec",
+    "statement": "inductive Dec where\n  -- Top-level bindings\n  -- The pattern allows several names to be bound at once\n  | Dlet      : Locs → Pat → Exp → Dec\n  -- Mutually recursive function definition\n  | Dletrec   : Locs → List (VarN × VarN × Exp) → Dec\n  -- Type definition\n  -- Defines several data types, each which has several\n  -- named variants, which can in turn have several arguments.\n  | Dtype     : Locs → TypeDef → Dec\n  -- Type abbreviations\n  | Dtabbrev  : Locs → List TvarN → TypeN → AstT → Dec\n  -- New exceptions\n  | Dexn      : Locs → ConN → List AstT → Dec\n  -- Module\n  | Dmod      : ModN → List Dec → Dec\n  -- Local: local part, visible part\n  | Dlocal    : List Dec → List Dec → Dec\n  -- Store current lexical env in an env value\n  | Denv      : TvarN → Dec\n  deriving Repr, DecidableEq",
+    "original_hol4": "dec =\n  (* Top-level bindings\n   * The pattern allows several names to be bound at once *)\n    Dlet locs pat exp\n  (* Mutually recursive function definition *)\n  | Dletrec locs ((varN # varN # exp) list)\n  (* Type definition\n     Defines several data types, each which has several\n     named variants, which can in turn have several arguments.\n   *)\n  | Dtype locs type_def\n  (* Type abbreviations *)\n  | Dtabbrev locs (tvarN list) typeN ast_t\n  (* New exceptions *)\n  | Dexn locs conN (ast_t list)\n  (* Module *)\n  | Dmod modN (dec list)\n  (* Local: local part, visible part *)\n  | Dlocal (dec list) (dec list)\n  (* Store current lexical env in an env value *)\n  | Denv tvarN",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Definition",
+    "name": "pat_bindings_def",
+    "statement": "def pat_bindings (p : Pat) (already_bound : List VarN) : List VarN :=\n  let rec pats_bindings (ps : List Pat) (acc : List VarN) : List VarN := \n    match ps with\n    | []      => acc\n    | p' :: ps' => pats_bindings ps' (pat_bindings p' acc)\n  match p with\n  | Pat.Pany             => already_bound\n  | Pat.Pvar n           => n :: already_bound\n  | Pat.Plit _           => already_bound\n  | Pat.Pcon _ ps_list   => pats_bindings ps_list already_bound\n  | Pat.Pref p'          => pat_bindings p' already_bound\n  | Pat.Pas p' i         => pat_bindings p' (i :: already_bound)\n  | Pat.Ptannot p' _     => pat_bindings p' already_bound",
+    "original_hol4": "pat_bindings Pany already_bound = already_bound ∧\n  pat_bindings (Pvar n) already_bound = n::already_bound ∧\n  pat_bindings (Plit l) already_bound = already_bound ∧\n  pat_bindings (Pcon v0 ps) already_bound = pats_bindings ps already_bound ∧\n  pat_bindings (Pref p) already_bound = pat_bindings p already_bound ∧\n  pat_bindings (Pas p i) already_bound = pat_bindings p (i::already_bound) ∧\n  pat_bindings (Ptannot p v1) already_bound = pat_bindings p already_bound ∧\n  pats_bindings [] already_bound = already_bound ∧\n  pats_bindings (p::ps) already_bound =\n  pats_bindings ps (pat_bindings p already_bound)",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Definition",
+    "name": "every_exp_def",
+    "statement": "def every_exp (p : Exp → Prop) (e : Exp) : Prop :=\n  match e with\n  | Exp.Raise e'           => p (Exp.Raise e') ∧ every_exp p e'\n  | Exp.Handle e' pes      => p (Exp.Handle e' pes) ∧ every_exp p e' ∧ (List.Forall (fun (_, exp_val) => every_exp p exp_val) pes)\n  | Exp.Lit _              => p (Exp.Lit e.lit)\n  | Exp.Con _ es           => p (Exp.Con e.con es) ∧ (List.Forall (every_exp p) es)\n  | Exp.Var _              => p (Exp.Var e.var)\n  | Exp.Fun _ e'           => p (Exp.Fun e.fun e') ∧ every_exp p e'\n  | Exp.App _ es           => p (Exp.App e.op es) ∧ (List.Forall (every_exp p) es)\n  | Exp.Log _ e1 e2        => p (Exp.Log e.lop e1 e2) ∧ every_exp p e1 ∧ every_exp p e2\n  | Exp.If e1 e2 e3        => p (Exp.If e1 e2 e3) ∧ every_exp p e1 ∧ every_exp p e2 ∧ every_exp p e3\n  | Exp.Mat e' pes         => p (Exp.Mat e' pes) ∧ every_exp p e' ∧ (List.Forall (fun (_, exp_val) => every_exp p exp_val) pes)\n  | Exp.Let _ e1 e2        => p (Exp.Let e.optionVarN e1 e2) ∧ every_exp p e1 ∧ every_exp p e2\n  | Exp.Tannot e' _        => p (Exp.Tannot e' e.astT) ∧ every_exp p e'\n  | Exp.Lannot e' _        => p (Exp.Lannot e' e.locs) ∧ every_exp p e'\n  | Exp.Letrec funs e'     => p (Exp.Letrec funs e') ∧ every_exp p e' ∧ (List.Forall (fun (_, _, exp_val) => every_exp p exp_val) funs)",
+    "original_hol4": "(every_exp p (Raise e) ⇔\n             p (Raise e) ∧ every_exp p e) ∧\n  (every_exp p (Handle e pes) ⇔\n             p (Handle e pes) ∧ every_exp p e ∧ EVERY (λ(pat,e). every_exp p e) pes) ∧\n  (every_exp p (ast$Lit l) ⇔\n             p (ast$Lit l)) ∧\n  (every_exp p (Con cn es) ⇔\n             p (Con cn es) ∧ EVERY (every_exp p) es) ∧\n  (every_exp p (Var v) ⇔\n             p (Var v)) ∧\n  (every_exp p (Fun x e) ⇔\n             p (Fun x e) ∧ every_exp p e) ∧\n  (every_exp p (App op es) ⇔\n             p (App op es) ∧ EVERY (every_exp p) es) ∧\n  (every_exp p (Log lop e1 e2) ⇔\n             p (Log lop e1 e2) ∧ every_exp p e1 ∧ every_exp p e2) ∧\n  (every_exp p (If e1 e2 e3) ⇔\n             p (If e1 e2 e3) ∧ every_exp p e1 ∧ every_exp p e2 ∧ every_exp p e3) ∧\n  (every_exp p (Mat e pes) ⇔\n             p (Mat e pes) ∧ every_exp p e ∧ EVERY (λ(pat,e). every_exp p e) pes) ∧\n  (every_exp p (Let x e1 e2) ⇔\n             p (Let x e1 e2) ∧ every_exp p e1 ∧ every_exp p e2) ∧\n  (every_exp p (Tannot e a) ⇔\n             p (Tannot e a) ∧ every_exp p e) ∧\n  (every_exp p (Lannot e a) ⇔\n             p (Lannot e a) ∧ every_exp p e) ∧\n  (every_exp p (Letrec funs e) ⇔\n             p (Letrec funs e) ∧ every_exp p e ∧ EVERY (λ(n,v,e). every_exp p e) funs)",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Definition",
+    "name": "Seqs_def",
+    "statement": "def Seqs (es : List Exp) : Exp :=\n  match es with\n  | []      => Exp.Con none []\n  | x :: xs => Exp.Let none x (Seqs xs)",
+    "original_hol4": "Seqs [] = Con NONE [] ∧\n  Seqs (x::xs) = Let NONE x (Seqs xs)",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Definition",
+    "name": "Apps_def",
+    "statement": "def Apps (f : Exp) (args : List Exp) : Exp :=\n  match args with\n  | []      => f\n  | x :: xs => Apps (Exp.App Op.Opapp [f, x]) xs",
+    "original_hol4": "Apps f [] = f ∧\n  Apps f (x::xs) = Apps (App Opapp [f; x]) xs",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  },
+  {
+    "kind": "Definition",
+    "name": "Funs_def",
+    "statement": "def Funs (vars : List VarN) (e : Exp) : Exp :=\n  match vars with\n  | []      => e\n  | x :: xs => Exp.Fun x (Funs xs e)",
+    "original_hol4": "Funs [] e = e ∧\n  Funs (x::xs) e = Fun x (Funs xs e)",
+    "theory": "ast",
+    "ancestors": [
+      "integer",
+      "words",
+      "string",
+      "namespace",
+      "location"
+    ]
+  }
+]

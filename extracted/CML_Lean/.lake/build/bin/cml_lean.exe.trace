@@ -1,0 +1,20 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs": "3c75fc90388e69d2.exe",
+ "log":
+ [{"message":
+   ".> c:\\Users\\my-pc\\.elan\\toolchains\\leanprover--lean4---v4.27.0\\bin\\clang.exe -o E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\bin\\cml_lean.exe @E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\bin\\cml_lean.exe.rsp",
+   "level": "trace"}],
+ "inputs":
+ [["linkObjs",
+   [["E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\ir\\Main.c.o.noexport",
+     "b40d1bf34ad8fa07"],
+    ["E:\\NUS\\mcomp\\Dissertation\\CakeML_data_extraction\\extracted\\CML_Lean\\.lake\\build\\ir\\CML_Lean.c.o.noexport",
+     "58eadb63cc81ea54"]]],
+  ["linkLibs", "00000000000006bb"],
+  ["Lean 4.27.0, commit db93fe1608548721853390a10cd40580fe7d22ae",
+   "9a2be90fd35343e5"],
+  ["traceArgs: #[-Wl,--whole-archive, -lleanmanifest, -Wl,--no-whole-archive]",
+   "d9dc93f51f923c09"],
+  ["x86_64-w64-windows-gnu", "360db333d006d911"]],
+ "depHash": "a8e341fa834d0757"}

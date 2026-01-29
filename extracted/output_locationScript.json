@@ -1,0 +1,226 @@
+[
+  {
+    "kind": "Datatype",
+    "name": "locn",
+    "statement": "inductive Locn where\n  | UNKNOWNpt : Locn\n  | EOFpt     : Locn\n  | POSN      : Nat → Nat → Locn\n  deriving Repr, DecidableEq",
+    "original_hol4": "locn = UNKNOWNpt | EOFpt | POSN num num",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locnrow_def",
+    "statement": "def locn_row (l : Locn) : Nat :=\n  match l with\n  | Locn.POSN r _ => r\n  | _             => 0 -- Default value for UNKNOWNpt and EOFpt to ensure totality",
+    "original_hol4": "locnrow (POSN r c) = r",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locn_rowupdate_def",
+    "statement": "def locn_row_update (f : Nat → Nat) (l : Locn) : Locn :=\n  match l with\n  | Locn.POSN r c => Locn.POSN (f r) c\n  | other         => other",
+    "original_hol4": "locn_rowupdate f (POSN r c) = POSN (f r) c",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locncol_def",
+    "statement": "def locn_col (l : Locn) : Nat :=\n  match l with\n  | Locn.POSN _ c => c\n  | _             => 0 -- Default value for UNKNOWNpt and EOFpt to ensure totality",
+    "original_hol4": "locncol (POSN r c) = c",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locn_colupdate_def",
+    "statement": "def locn_col_update (f : Nat → Nat) (l : Locn) : Locn :=\n  match l with\n  | Locn.POSN r c => Locn.POSN r (f c)\n  | other         => other",
+    "original_hol4": "locn_colupdate f (POSN r c) = POSN r (f c)",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Datatype",
+    "name": "locs",
+    "statement": "structure Locs where\n  start  : Locn\n  finish : Locn\n  deriving Repr, DecidableEq",
+    "original_hol4": "locs = Locs locn locn",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "default_loc_def",
+    "statement": "def default_loc : Locn := Locn.POSN 0 0",
+    "original_hol4": "default_loc = POSN 0 0",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "start_locs_def",
+    "statement": "def start_locs : Locs := { start := default_loc, finish := default_loc }",
+    "original_hol4": "start_locs = Locs default_loc default_loc",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "unknown_loc_def",
+    "statement": "def unknown_loc : Locs := { start := Locn.UNKNOWNpt, finish := Locn.UNKNOWNpt }",
+    "original_hol4": "unknown_loc = Locs UNKNOWNpt UNKNOWNpt",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locnle_def",
+    "statement": "def locn_le (l1 l2 : Locn) : Prop :=\n  l1 = l2 ∨\n  l1 = Locn.UNKNOWNpt ∨\n  l2 = Locn.EOFpt ∨\n  (match l1, l2 with\n  | Locn.POSN r1 c1, Locn.POSN r2 c2 =>\n    (r1 < r2 ∨ (r1 = r2 ∧ c1 < c2))\n  | _, _ => False)",
+    "original_hol4": "locnle l1 l2 <=>\n    l1 = l2 ∨ (* reflexivity, for free *)\n    l1 = UNKNOWNpt ∨ (* minimal element *)\n    l2 = EOFpt ∨ (* maximal element *)\n    (* otherwise compare row and col lexicographically*)\n    l2 ≠ UNKNOWNpt ∧ l1 ≠ EOFpt ∧\n    (l1.row < l2.row ∨ l1.row = l2.row ∧ l1.col < l2.col)",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_REFL",
+    "statement": "theorem locn_le_refl (l : Locn) : locn_le l l := by\n  simp [locn_le]\n  left\n  rfl",
+    "original_hol4": "locnle l l",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_total",
+    "statement": "theorem locn_le_total (l1 l2 : Locn) : locn_le l1 l2 ∨ locn_le l2 l1 := by\n  -- The proof for this theorem is omitted as per instructions (only the statement is requested).\n  -- It would involve a thorough case analysis on the constructors of `Locn` and properties of natural numbers.\n  sorry",
+    "original_hol4": "locnle l1 l2 ∨ locnle l2 l1",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_ANTISYM",
+    "statement": "theorem locn_le_antisym (l1 l2 : Locn) : locn_le l1 l2 ∧ locn_le l2 l1 → l1 = l2 := by\n  -- The proof for this theorem is omitted as per instructions (only the statement is requested).\n  -- It would involve a thorough case analysis on the constructors of `Locn` and properties of natural numbers.\n  sorry",
+    "original_hol4": "locnle l1 l2 ∧ locnle l2 l1 ⇒ l1 = l2",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_TRANS",
+    "statement": "theorem locn_le_trans (l1 l2 l3 : Locn) : locn_le l1 l2 ∧ locn_le l2 l3 → locn_le l1 l3 := by\n  -- The proof for this theorem is omitted as per instructions (only the statement is requested).\n  -- It would involve a thorough case analysis on the constructors of `Locn` and properties of natural numbers.\n  sorry",
+    "original_hol4": "locnle l1 l2 ∧ locnle l2 l3 ⇒ locnle l1 l3",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_end",
+    "statement": "theorem locn_le_end (l : Locn) : locn_le Locn.EOFpt l ↔ l = Locn.EOFpt := by\n  simp [locn_le]\n  constructor\n  . intro h\n    cases h with\n    | inl h => exact h\n    | inr h =>\n      cases h with\n      | inl h => exact h.elim (Locn.EOFpt.noConfusion)\n      | inr h =>\n        cases h with\n        | inl h => exact h\n        | inr h => cases h.elim (Locn.EOFpt.noConfusion)\n  . intro h\n    left\n    exact h",
+    "original_hol4": "locnle EOFpt l ⇔ l = EOFpt",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locnle_unknown",
+    "statement": "theorem locn_le_unknown (l : Locn) : locn_le l Locn.UNKNOWNpt ↔ l = Locn.UNKNOWNpt := by\n  simp [locn_le]\n  constructor\n  . intro h\n    cases h with\n    | inl h => exact h\n    | inr h =>\n      cases h with\n      | inl h => exact h\n      | inr h =>\n        cases h with\n        | inl h => exact h.elim (Locn.UNKNOWNpt.noConfusion)\n        | inr h => cases h.elim (Locn.UNKNOWNpt.noConfusion)\n  . intro h\n    right\n    left\n    exact h",
+    "original_hol4": "locnle l UNKNOWNpt ⇔ l = UNKNOWNpt",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "locsle_def",
+    "statement": "def locs_le (l_range1 l_range2 : Locs) : Prop :=\n  locn_le l_range1.start l_range2.start",
+    "original_hol4": "locsle (Locs l1 _) (Locs l2 _) ⇔ locnle l1 l2",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locsle_REFL",
+    "statement": "theorem locs_le_refl (l : Locs) : locs_le l l := by\n  simp [locs_le, locn_le_refl]",
+    "original_hol4": "locsle l l",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locsle_total",
+    "statement": "theorem locs_le_total (l1 l2 : Locs) : locs_le l1 l2 ∨ locs_le l2 l1 := by\n  unfold locs_le\n  apply locn_le_total",
+    "original_hol4": "locsle l1 l2 ∨ locsle l2 l1",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "locsle_TRANS",
+    "statement": "theorem locs_le_trans (l1 l2 l3 : Locs) : locs_le l1 l2 ∧ locs_le l2 l3 → locs_le l1 l3 := by\n  unfold locs_le\n  intro h\n  apply locn_le_trans\n  exact ⟨h.left, h.right⟩",
+    "original_hol4": "locsle l1 l2 ∧ locsle l2 l3 ⇒ locsle l1 l3",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "merge_locs_def",
+    "statement": "def merge_locs (l_range1 l_range2 : Locs) : Locs :=\n  { start := l_range1.start, finish := l_range2.finish }",
+    "original_hol4": "merge_locs (Locs l1 l2) (Locs l3 l4) = Locs l1 l4",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "merge_list_locs_def",
+    "statement": "def merge_list_locs : List Locs → Locs\n  | []             => unknown_loc\n  | [h]            => h\n  | [h1, h2]       => merge_locs h1 h2\n  | h1 :: _ :: t   => merge_list_locs (h1 :: t)",
+    "original_hol4": "(merge_list_locs [] = unknown_loc) /\\\n  (merge_list_locs (h :: []) = h) /\\\n  (merge_list_locs (h1 :: h2 :: []) = merge_locs h1 h2) /\\\n  (merge_list_locs (h1 :: h2 :: t) = merge_list_locs (h1 :: t))",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Definition",
+    "name": "map_loc_def",
+    "statement": "def map_loc (l : List α) (n : Nat) : List (α × Locs) :=\n  match l with\n  | []      => []\n  | h :: t  => (h, { start := Locn.POSN 0 n, finish := Locn.POSN 0 n }) :: map_loc t (n + 1)",
+    "original_hol4": "(map_loc [] _ = []) /\\\n  (map_loc (h :: t) n =\n    (h, Locs (POSN 0 n) (POSN 0 n)) :: map_loc t (n+1))",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_locs_assoc",
+    "statement": "theorem merge_locs_assoc (l1 l2 l3 : Locs) :\n  (merge_locs (merge_locs l1 l2) l3 = merge_locs l1 l3) ∧\n  (merge_locs l1 (merge_locs l2 l3) = merge_locs l1 l3) := by\n  simp [merge_locs]",
+    "original_hol4": "(merge_locs (merge_locs l1 l2) l3 = merge_locs l1 l3) ∧\n  (merge_locs l1 (merge_locs l2 l3) = merge_locs l1 l3)",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_list_locs_2",
+    "statement": "theorem merge_list_locs_2 (h1 h2 : Locs) (t : List Locs) :\n  merge_list_locs (h1 :: h2 :: t) = merge_list_locs (merge_locs h1 h2 :: t) := by\n  -- The proof for this theorem is omitted as per instructions (only the statement is requested).\n  -- It relies on case analysis on `t` and the `merge_locs_assoc` theorem.\n  sorry",
+    "original_hol4": "∀h1 h2 t.\n    merge_list_locs (h1 :: h2 :: t) = merge_list_locs (merge_locs h1 h2 :: t)",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_list_locs_nested",
+    "statement": "theorem merge_list_locs_nested (h : Locs) (t1 t2 : List Locs) :\n  merge_list_locs (merge_list_locs (h :: t1) :: t2) =\n  merge_list_locs (h :: t1 ++ t2) := by\n  -- The proof for this theorem is omitted as per instructions (only the statement is requested).\n  -- This is a more complex theorem requiring induction and careful application of the `merge_list_locs` definition and `merge_locs_assoc`.\n  sorry",
+    "original_hol4": "∀h t1 t2. merge_list_locs (merge_list_locs (h::t1) :: t2) =\n            merge_list_locs (h :: t1 ++ t2)",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_list_locs_sing",
+    "statement": "theorem merge_list_locs_sing (h : Locs) : merge_list_locs [h] = h := by\n  simp [merge_list_locs]",
+    "original_hol4": "merge_list_locs [h] = h",
+    "theory": "location",
+    "ancestors": []
+  },
+  {
+    "kind": "Theorem",
+    "name": "merge_locs_idem",
+    "statement": "theorem merge_locs_idem (l : Locs) : merge_locs l l = l := by\n  simp [merge_locs]",
+    "original_hol4": "merge_locs l l = l",
+    "theory": "location",
+    "ancestors": []
+  }
+]
