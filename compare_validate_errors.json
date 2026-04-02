@@ -1,0 +1,143 @@
+[
+  {
+    "base": "location",
+    "status": "error",
+    "summary": "Partial functions in HOL4 were translated into total functions in Lean by adding default behavior for cases not covered in the original definitions. This changes the semantics from partial to total with specific, arbitrary default values.",
+    "errors": [
+      {
+        "kind": "Semantic change: partial function made total with default value",
+        "severity": "medium",
+        "hol4_evidence": "Definition locnrow_def:\n  locnrow (POSN r c) = r\nEnd\n\nDefinition locncol_def:\n  locncol (POSN r c) = c\nEnd",
+        "lean_evidence": "def locnrow : locn → Nat\n  | .POSN r _ => r\n  | _ => 0\n\ndef locncol : locn → Nat\n  | .POSN _ c => c\n  | _ => 0",
+        "why_wrong": "The HOL4 functions `locnrow` and `locncol` are partial, defined only for the `POSN` constructor. The Lean translations are total functions that return a default value of `0` for the `UNKNOWNpt` and `EOFpt` cases. This introduces new behavior not present in the original specification, changing the functions' semantics.",
+        "suggested_fix": "To more faithfully represent the partial nature of the HOL4 functions, the Lean versions should return an `Option Nat`.\n\ndef locnrow : locn → Option Nat\n  | .POSN r _ => some r\n  | _ => none\n\ndef locncol : locn → Option Nat\n  | .POSN _ c => some c\n  | _ => none"
+      },
+      {
+        "kind": "Semantic change: partial function made total with identity fallback",
+        "severity": "medium",
+        "hol4_evidence": "Definition locn_rowupdate_def:\n  locn_rowupdate f (POSN r c) = POSN (f r) c\nEnd\n\nDefinition locn_colupdate_def:\n  locn_colupdate f (POSN r c) = POSN r (f c)\nEnd",
+        "lean_evidence": "def locn_rowupdate (f : Nat → Nat) : locn → locn\n  | .POSN r c => .POSN (f r) c\n  | l => l\n\ndef locn_colupdate (f : Nat → Nat) : locn → locn\n  | .POSN r c => .POSN r (f c)\n  | l => l",
+        "why_wrong": "The HOL4 functions `locn_rowupdate` and `locn_colupdate` are partial, defined only for the `POSN` constructor. The Lean translations are made total by returning the input value unchanged for the `UNKNOWNpt` and `EOFpt` cases. This introduces an identity-function behavior for these cases, which is not specified in the original definitions.",
+        "suggested_fix": "To more faithfully represent the partial nature of the HOL4 functions, the Lean versions should return an `Option locn`.\n\ndef locn_rowupdate (f : Nat → Nat) : locn → Option locn\n  | .POSN r c => some (.POSN (f r) c)\n  | _ => none\n\ndef locn_colupdate (f : Nat → Nat) : locn → Option locn\n  | .POSN r c => some (.POSN r (f c))\n  | _ => none"
+      }
+    ],
+    "confidence": 1,
+    "notes": "The errors stem from a common challenge in translating from a logic that supports partial functions (HOL4) to one that requires total functions (Lean 4). The translator made a choice to add default behavior, which alters the semantics.",
+    "hol4_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\hol4-ultramin\\locationScript.sml",
+    "lean_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\LeanTypeSound\\Location.lean",
+    "stage": 1
+  },
+  {
+    "base": "misc",
+    "status": "error",
+    "summary": "The Lean definition of `UPDATE_LIST` uses a left fold (`foldl`), while the HOL4 definition uses a right fold (`foldr`), reversing the order in which updates are applied.",
+    "errors": [
+      {
+        "kind": "Semantic difference in definition",
+        "severity": "medium",
+        "hol4_evidence": "Definition UPDATE_LIST_def:\n  UPDATE_LIST = FOLDL (combin$C (UNCURRY UPDATE))\nEnd",
+        "lean_evidence": "def UPDATE_LIST {α : Type} (f : Nat → α) (updates : List (Nat × α)) : Nat → α :=\n  updates.foldl (fun g (k, v) => fun n => if n == k then v else g n) f",
+        "why_wrong": "The HOL4 definition of `UPDATE_LIST` uses `FOLDL`. In some SML contexts and libraries (like `combin`), `FOLDL` is implemented as a right fold (`foldr`). Assuming this is the case, updates from the list are applied from last to first. The Lean translation uses `List.foldl`, which applies updates from first to last. This changes the semantics of the function, as the precedence of overlapping updates is reversed. For example, for `updates = [(k, v1), (k, v2)]`, the HOL4 version would result in `v1` being the final value for key `k`, while the Lean version results in `v2`.",
+        "suggested_fix": "To match the likely `foldr` semantics of the HOL4 definition, use `List.foldr` in the Lean implementation:\n\n```lean\ndef UPDATE_LIST {α : Type} (f : Nat → α) (updates : List (Nat × α)) : Nat → α :=\n  updates.foldr (fun (k, v) g => fun n => if n == k then v else g n) f\n```"
+      }
+    ],
+    "confidence": 0.8,
+    "notes": "The analysis of the HOL4 `UPDATE_LIST` definition is complex. If `FOLDL` is the standard `fold_left` from `listTheory`, the HOL4 term `FOLDL (combin$C (UNCURRY UPDATE))` is ill-typed. However, it's plausible that a non-standard `FOLDL` (equivalent to `foldr`) is in scope, which would make the term well-typed. The Lean translation uses `foldl`, which is a valid interpretation but differs semantically from the `foldr` interpretation. This discrepancy is reported as an error.",
+    "hol4_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\hol4-ultramin\\miscScript.sml",
+    "lean_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\LeanTypeSound\\Misc.lean",
+    "stage": 1
+  },
+  {
+    "base": "mllist",
+    "status": "error",
+    "summary": "The Lean `sort` function has a different type signature for its comparison function compared to the HOL4 definition it is meant to translate.",
+    "errors": [
+      {
+        "kind": "Type Mismatch",
+        "severity": "medium",
+        "hol4_evidence": "Definition sort_def:\n  sort = mergesort$mergesort_tail\nEnd",
+        "lean_evidence": "def sort {α : Type} (cmp : α → α → ordering) (l : List α) : List α :=\n  l.mergeSort (fun a b => cmp a b != .GREATER)",
+        "why_wrong": "The HOL4 definition defines `sort` as an alias for `mergesort_tail`, which takes a boolean comparison predicate `le: 'a -> 'a -> bool` (less than or equal to). The Lean translation changes the signature to take a three-way comparison function `cmp: α → α → ordering` that returns `.LESS`, `.EQUAL`, or `.GREATER`. While this matches the standard SML `List.sort` function, it is not a faithful translation of the provided HOL4 definition.",
+        "suggested_fix": "To be a faithful translation, the Lean `sort` function should accept a boolean predicate, matching the type of `mergesort_tail`.\n\n```lean\ndef sort {α : Type} (le : α → α → Bool) (l : List α) : List α :=\n  l.mergeSort (fun a b => le a b)\n```"
+      }
+    ],
+    "confidence": 5,
+    "notes": "The translator seems to have prioritized matching the SML library's API for `List.sort` over a direct translation of the HOL4 definition, which uses a more generic sorting algorithm from the HOL4 `sorting` library.",
+    "hol4_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\hol4-ultramin\\mllistScript.sml",
+    "lean_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\LeanTypeSound\\Mllist.lean",
+    "stage": 1
+  },
+  {
+    "base": "semanticprimitives",
+    "status": "error",
+    "summary": "The function `v_to_char_list` is translated incorrectly. The HOL4 version returns a string, while the Lean version returns a list of characters.",
+    "errors": [
+      {
+        "kind": "Logic error",
+        "severity": "medium",
+        "hol4_evidence": "Definition v_to_char_list_def:\n  v_to_char_list (Conv (SOME stamp) []) =\n    (if stamp = TypeStamp «[]» list_type_num then SOME \"\" else NONE) ∧\n  v_to_char_list (Conv (SOME stamp) [Litv (Char c); v]) =\n    (if stamp = TypeStamp «::» list_type_num then\n       case v_to_char_list v of NONE => NONE | SOME cs => SOME (STRING c cs)\n     else NONE) ∧\n  v_to_char_list _ = NONE",
+        "lean_evidence": "def v_to_char_list : v → Option (List Char)\n  | .Conv (some stmp) [] =>\n    if stmp == .TypeStamp (mlstring.strlit \"[]\") list_type_num then some [] else none\n  | .Conv (some stmp) [.Litv (.Char c), v'] =>\n    if stmp == .TypeStamp (mlstring.strlit \"::\") list_type_num then\n      match v_to_char_list v' with\n      | none => none\n      | some cs => some (c :: cs)\n    else none\n  | _ => none",
+        "why_wrong": "The HOL4 function `v_to_char_list` recursively builds and returns a string (type `mlstring`). The base case for an empty list returns an empty string `\"\"`, and the recursive step uses `STRING` to prepend a character to the resulting string. The Lean translation returns a list of characters (type `Option (List Char)`). Its base case returns an empty list `[]`, and the recursive step uses list cons `::`. This changes the return type and logic of the function.",
+        "suggested_fix": "The Lean function should be changed to return an `Option mlstring` to match the HOL4 version. This would involve returning an empty `mlstring` in the base case and using a string prepending function (like `str_cons`) in the recursive step.\n\n```lean\ndef v_to_char_list : v → Option mlstring\n  | .Conv (some stmp) [] =>\n    if stmp == .TypeStamp (mlstring.strlit \"[]\") list_type_num then some (mlstring.strlit \"\") else none\n  | .Conv (some stmp) [.Litv (.Char c), v'] =>\n    if stmp == .TypeStamp (mlstring.strlit \"::\") list_type_num then\n      match v_to_char_list v' with\n      | none => none\n      | some cs => some (str_cons c cs) -- Assuming str_cons is available\n    else none\n  | _ => none\n```"
+      }
+    ],
+    "confidence": 5,
+    "notes": "The HOL4 source code appears to have a type error in its usage of `v_to_char_list` within the `do_app` function (specifically for the `Implode` primitive), where it seems to expect a list of characters instead of a string. The Lean translation seems to 'fix' this bug by changing the implementation of `v_to_char_list`. While the Lean version might be more correct in spirit, it is not a faithful translation of the provided HOL4 source code.",
+    "hol4_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\hol4-ultramin\\semanticPrimitivesScript.sml",
+    "lean_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\LeanTypeSound\\SemanticPrimitives.lean",
+    "stage": 1
+  },
+  {
+    "base": "typesysprops",
+    "status": "error",
+    "summary": "The type of variable `n` in `nsLookup_add_tenvE3` is incorrect.",
+    "errors": [
+      {
+        "kind": "type error",
+        "severity": "medium",
+        "hol4_evidence": "Theorem nsLookup_add_tenvE3:\n   !tenvE tenvV n t tvs2 mn.\n    nsLookup tenvV (Long mn n) = SOME (tvs2,t) ⇒\n    nsLookup (add_tenvE tenvE tenvV) (Long mn n) = SOME (tvs2,t)",
+        "lean_evidence": "theorem nsLookup_add_tenvE3 :\n    ∀ (tenvE : tenv_val_exp) (tenvV : tenv_val) (n : cml_id modN varN) (t : sem_t)\n      (tvs2 : Nat) (mn : modN),\n      nsLookup tenvV (.Long mn n) = some (tvs2, t) →\n      nsLookup (add_tenvE tenvE tenvV) (.Long mn n) = some (tvs2, t) := by sorry",
+        "why_wrong": "In HOL4, `tenvV` is a namespace mapping keys of type `cml_id modN varN` to values. The `Long` constructor builds such a key from a `modN` and a `varN`. Thus, the variable `n` in `Long mn n` must have type `varN`.\nIn the Lean translation, `n` is incorrectly typed as `cml_id modN varN`. This would make the expression `.Long mn n` have type `cml_id modN (cml_id modN varN)`, which is not a valid key for the namespace `tenvV`.",
+        "suggested_fix": "Change the type of `n` from `cml_id modN varN` to `varN`.\n\n```lean\ntheorem nsLookup_add_tenvE3 :\n    ∀ (tenvE : tenv_val_exp) (tenvV : tenv_val) (n : varN) (t : sem_t)\n      (tvs2 : Nat) (mn : modN),\n      nsLookup tenvV (.Long mn n) = some (tvs2, t) →\n      nsLookup (add_tenvE tenvE tenvV) (.Long mn n) = some (tvs2, t) := by sorry\n```"
+      }
+    ],
+    "confidence": 1,
+    "notes": "",
+    "hol4_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\hol4-ultramin\\typeSysPropsScript.sml",
+    "lean_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\LeanTypeSound\\TypeSysProps.lean",
+    "stage": 1
+  },
+  {
+    "base": "weakening",
+    "status": "error",
+    "summary": "Error during stage 1 analysis call",
+    "errors": [],
+    "confidence": 0.0,
+    "notes": "No text returned by model; candidate 1: finish_reason=2, finish_message=None",
+    "error_type": "RuntimeError",
+    "error_traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\my-pc\\AppData\\Local\\Temp\\ipykernel_103168\\3232308820.py\", line 34, in <module>\n    out = analyze_pair(fp)\n  File \"C:\\Users\\my-pc\\AppData\\Local\\Temp\\ipykernel_103168\\3232308820.py\", line 11, in analyze_pair\n    raw = call_gemini_json_or_right(prompt)\n  File \"C:\\Users\\my-pc\\AppData\\Local\\Temp\\ipykernel_103168\\3346116633.py\", line 62, in call_gemini_json_or_right\n    raise RuntimeError(f'No text returned by model; {get_finish_reason_summary(resp)}')\nRuntimeError: No text returned by model; candidate 1: finish_reason=2, finish_message=None\n",
+    "hol4_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\hol4-ultramin\\weakeningScript.sml",
+    "lean_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\LeanTypeSound\\Weakening.lean",
+    "stage": 1
+  },
+  {
+    "base": "semantics_min",
+    "status": "error",
+    "summary": "In the `Fail` case of the `semantics_prog` definition, a call to `evaluate_prog_with_clock` is missing its clock argument `k`.",
+    "errors": [
+      {
+        "kind": "missing_argument",
+        "severity": "high",
+        "hol4_evidence": "∃k.\n      SND(evaluate_prog_with_clock st env k prog) = Rerr (Rabort Rtype_error)",
+        "lean_evidence": "∃ k,\n      (evaluate_prog_with_clock st env prog).2 = .Rerr (.Rabort .Rtype_error)",
+        "why_wrong": "The Lean function call `evaluate_prog_with_clock st env prog` is missing the clock argument `k`, which is bound by the existential quantifier `∃ k`. The HOL4 source correctly includes `k` in the call: `evaluate_prog_with_clock st env k prog`. This omission would cause a compile error in Lean as the function signature requires the clock argument.",
+        "suggested_fix": "∃ k,\n      (evaluate_prog_with_clock st env k prog).2 = .Rerr (.Rabort .Rtype_error)"
+      }
+    ],
+    "confidence": 1,
+    "notes": "",
+    "hol4_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\hol4-ultramin\\semantics_minScript.sml",
+    "lean_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\LeanTypeSound\\SemanticsMin.lean",
+    "stage": 1
+  }
+]
