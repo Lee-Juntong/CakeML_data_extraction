@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recompute the validator counts of Table IV and the finding list of Table V
+"""Recompute the validator counts of Table V and the finding list of Table VI
 from the retained validator records."""
 import collections
 import csv
@@ -54,7 +54,7 @@ print("round 4:", r4)
 print("round 4 escalated items:", len(esc), [e.get("base") for e in esc] if isinstance(esc, list) else esc)
 rows = list(csv.DictReader(open(ROOT / "data" / "findings.csv", encoding="utf-8")))
 verdicts = collections.Counter(r["post_hoc_verdict"].split(";")[0] for r in rows)
-print("Table V findings:", len(rows), dict(verdicts))
+print("Table VI findings:", len(rows), dict(verdicts))
 ok = (r3["right_calls"] == 13 and r3["flagged_pairs"] == 7 and r3["findings"] == 8 and r3["failed_calls"] == 0
       and r4["flagged_pairs"] == 6 and r4["findings"] == 7 and r4["failed_calls"] == 1
       and len(r4["misrouted_calls"]) == 1 and r4["right_calls"] == 13 and len(rows) == 15

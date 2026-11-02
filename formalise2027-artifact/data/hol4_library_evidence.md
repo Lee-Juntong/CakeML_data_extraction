@@ -1,4 +1,4 @@
-# HOL4 library evidence for the post hoc checks (Table V of the paper)
+# HOL4 library evidence for the post hoc checks (Table VI of the paper)
 
 All excerpts are from the HOL4 repository, https://github.com/HOL-Theorem-Prover/HOL,
 branch `develop` at commit `99698b3cf170095de9e2e1c0ae22238fb04ec3ff` (3 October 2026).
@@ -132,7 +132,7 @@ typing property, and omit the condition on module paths (`nsLookupMod`).
   `(evaluate_prog_with_clock st env k prog).2 = .Rerr (.Rabort .Rtype_error)`. The
   round 4 record quotes the line without `k`.
 
-## Table VII: strings and equality
+## Table II and Section VI-C: strings and equality
 
 Strings. `src/string/stringScript.sml` defines the character type as the numbers
 below 256 and strings as character lists:

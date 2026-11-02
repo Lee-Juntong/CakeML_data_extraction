@@ -3,10 +3,10 @@
 Artifact for the FormaliSE 2027 experience report "Migrating CakeML Type Soundness
 from HOL4 to Lean with LLM Agents: An Experience Report".
 
-The artifact recomputes the numbers in Tables I, III, VI, and VII of the paper and the
+The artifact recomputes the numbers in Tables IV, VII, and VIII of the paper and the
 counts in the text of Sections II, IV, V, and VI from exported repository states and
-retained records, and checks the validator counts of Table IV and the findings of
-Tables V and VII against the validator records. It rebuilds the frozen Lean baseline,
+retained records, and checks the validator counts of Table V and the findings of
+Tables VI and VIII against the validator records. It rebuilds the frozen Lean baseline,
 the four Claude Code proving endpoints, and the repaired translation with Lean 4.29.1,
 runs the transitive axiom audit, the statement taint check, and the statement
 preservation check, replays the two Lean refutations of frozen statements, and
@@ -16,18 +16,18 @@ checks the Lean proofs of the repaired statements and the semantic scan for vacu
 
 | Path | Content |
 |---|---|
-| `snapshots/<commit>/` | The `lean_type_sound` directory of the CakeML fork at 15 commits: the seven translation milestones of Table III, the proof pilot `98d240248`, the frozen baseline `252eab2cf`, the five proving endpoints, and the repaired translation `4841f993e` (branch `lean-translate-round5-repair`, two repair commits on `252eab2cf`, Lean sources only). Each has a `COMMIT.json` with the full hash, date, and author. The reduced HOL4 package is in `snapshots/252eab2cf/lean_type_sound/hol4-ultramin/`. Agent session logs are in `claude-logs/`. |
+| `snapshots/<commit>/` | The `lean_type_sound` directory of the CakeML fork at 15 commits: the seven translation milestones of Table IV, the proof pilot `98d240248`, the frozen baseline `252eab2cf`, the five proving endpoints, and the repaired translation `4841f993e` (branch `lean-translate-round5-repair`, two repair commits on `252eab2cf`, Lean sources only). Each has a `COMMIT.json` with the full hash, date, and author. The reduced HOL4 package is in `snapshots/252eab2cf/lean_type_sound/hol4-ultramin/`. Agent session logs are in `claude-logs/`. |
 | `data/validator/` | Validator records: `round3_results.jsonl`, `round4_results.jsonl`, the two escalated round 4 pairs (`round4_escalated.json`), the earlier two stage runs of 26 March (`earlier_runs_26mar.jsonl`), and the validator notebook with its prompts (`compare_validate.ipynb`). `round5/` and `round6/` hold the three runs of rounds 5 and 6 with Gemini 3.8 Flash (`run1.jsonl` to `run3.jsonl`, `run_log.json`), the scripts that produced them, and their input files (`inputs_252eab2cf.zip` for the frozen baseline, `inputs_4841f993e.zip` for the repaired translation). |
 | `data/direct/kernel_41c815090.json` | Recorded axiom audit of the Direct endpoint, which imports Mathlib. |
-| `data/review_rounds.json` | Reconstruction of review rounds 1 to 4 (Table IV). Rounds 5 and 6 are in `data/validator/`. |
-| `data/findings.csv` | The 15 validator findings of Table V with handling and post hoc verdicts. |
-| `data/findings_round5.csv`, `data/findings_round6.csv` | Every finding of rounds 5 and 6 with our verdict against the HOL4 sources and the defect of Table VII it matches. Round 6 has no finding. |
+| `data/review_rounds.json` | Reconstruction of review rounds 1 to 4 (Table V). Rounds 5 and 6 are in `data/validator/`. |
+| `data/findings.csv` | The 15 validator findings of Table VI with handling and post hoc verdicts. |
+| `data/findings_round5.csv`, `data/findings_round6.csv` | Every finding of rounds 5 and 6 with our verdict against the HOL4 sources and the defect of Table VIII it matches. Round 6 has no finding. |
 | `data/hol4_library_evidence.md` | HOL4 library excerpts behind the post hoc verdicts (fixities, finite map updates, folds, `mergesort_tail`). |
-| `scripts/counter.py` | The structural counter (Tables I and III, local proof counts). |
+| `scripts/counter.py` | The structural counter (the manifest of Section II, Table IV, local proof counts). |
 | `scripts/build.py`, `scripts/run_audit.sh` | Rebuild the baseline and endpoints and run the Lean audit scripts. |
 | `scripts/lean/` | `Axioms.lean` (transitive axiom audit), `StmtTaint.lean` and `StmtRoots.lean` (statement taint), `DefSorry.lean` (admitted definitions), the refutations `Refute_nsLookup_nsBind.lean` and `Refute_explode_thm.lean`, `Check_repairs.lean` (proofs of the repaired statements), `Check_computed.lean` (proofs of the expanded `do_app_cases` and `type_op_cases`), and `Vacuous.lean` (statements that are trivially true, such as `P ↔ P`). |
 | `scripts/analysis.py` | Recomputes all numbers and compares them with `expected/expected.json`. |
-| `scripts/check_validator.py` | Recomputes the validator counts of Table IV and checks Table V and the R5 column of Table VII against the records. |
+| `scripts/check_validator.py` | Recomputes the validator counts of Table V and checks Table VI and the R5 column of Table VIII against the records. |
 | `run_all.sh`, `Dockerfile`, `build_image.sh` | Entry point, image definition, and image export with SHA256 checksum. |
 
 ## Proving endpoints
@@ -78,23 +78,23 @@ and writes all recomputed values to `results/paper_numbers.json`.
 | Paper item | Step | Output |
 |---|---|---|
 | Section II: HOL4 counts (255 definition blocks, 280 theorems, 266 stated, 8 absent), 8,352 Lean lines | `analysis.py` | `hol4`, `lean_lines` |
-| Table I | `analysis.py` | `table1` |
-| Table III, initial defect partition (21, 40, 229, 57, 10, 3) | `counter.py`, `analysis.py` | `table3`, `initial_partition` |
-| Section IV-C: 61 definitions without bodies at acceptance, 532 of 539 and 58 of 112 | `analysis.py` | `acceptance` |
-| Table IV validator counts, misrouted FpSem call, failed Weakening call, escalated pairs, round 5 runs and inputs | `check_validator.py` | console |
-| Section VI-B and the R5 column of Table VII: 5 round 5 findings, all correct | `data/findings_round5.csv`, `check_validator.py` | console |
-| Section VI-D and Table IV: round 6, all 60 calls right | `data/validator/round6/`, `check_validator.py` | console |
-| Table V | `data/findings.csv`, `data/hol4_library_evidence.md`, `check_validator.py` | console |
-| Section V-A: 120 tainted statements, 106 / 24 / 16 | `StmtTaint.lean`, `StmtRoots.lean`, `analysis.py` | `taint` |
-| Table VI (all columns) and the Any row | `Axioms.lean`, `analysis.py` | `table5`, `union` |
+| Section II: manifest of 382 definitions and 269 theorems, 112 definitions in the prelude | `analysis.py` | `table1` |
+| Table IV, initial defect partition (21, 40, 229, 57, 10, 3) | `counter.py`, `analysis.py` | `table3`, `initial_partition` |
+| Section IV: 61 definitions without bodies at acceptance, 532 of 539 and 58 of 112 | `analysis.py` | `acceptance` |
+| Table V validator counts, misrouted FpSem call, failed Weakening call, escalated pairs, round 5 runs and inputs | `check_validator.py` | console |
+| Section V and the R5 column of Table VIII: 5 round 5 findings, all correct | `data/findings_round5.csv`, `check_validator.py` | console |
+| Section V and Table V: round 6, all 60 calls right | `data/validator/round6/`, `check_validator.py` | console |
+| Table VI | `data/findings.csv`, `data/hol4_library_evidence.md`, `check_validator.py` | console |
+| Section VI-A: 120 tainted statements, 106 / 24 / 16 | `StmtTaint.lean`, `StmtRoots.lean`, `analysis.py` | `taint` |
+| Table VII (all columns) and the Any row | `Axioms.lean`, `analysis.py` | `table5`, `union` |
 | Completion modulo admissions: Lean roots for four endpoints, text rule for Direct, agreement of the two rules | `Axioms.lean`, `analysis.py` | `table5/*/modulo_admissions`, `closure_rule_check` |
-| Section VI-C and Table VII, repaired translation: coverage, admitted definitions, taint, edits, refutations fail, proofs of repaired statements | `DefSorry.lean`, `StmtTaint.lean`, `Check_repairs.lean`, `Check_computed.lean`, `analysis.py` | `repaired` |
-| Section VI-A, vacuous statements: 9 in the baseline (7 trivial in HOL4 too, plus `do_app_cases` and `type_op_cases`), 7 after the repair | `Vacuous.lean`, `analysis.py` | `vacuous` |
-| Section V-B: Skills versus Second pass (same prompt, one and two passes) | `analysis.py` | `skills_vs_second` |
-| Section V-B: Docs versus Second pass (24 via `check_freevars`) | `analysis.py` | `docs_vs_second` |
-| Section V-B: 50 LawfulBEq edits to 28 theorems | `analysis.py` | `lawfulbeq` |
-| Section V-B: refutations of `nsLookup_nsBind` and `explode_thm` | `Refute_*.lean` | `refutations` |
-| Section V-B: residual 118 modulo admissions, by file | `analysis.py` | `union` |
+| Section VI-D and Table VIII, repaired translation: coverage, admitted definitions, taint, edits, refutations fail, proofs of repaired statements | `DefSorry.lean`, `StmtTaint.lean`, `Check_repairs.lean`, `Check_computed.lean`, `analysis.py` | `repaired` |
+| Sections VI-C and VI-D, vacuous statements: 9 in the baseline (7 trivial in HOL4 too, plus `do_app_cases` and `type_op_cases`), 7 after the repair | `Vacuous.lean`, `analysis.py` | `vacuous` |
+| Supporting numbers, not in the current text: Skills versus Second pass in round 1 (same prompt, one and two passes) | `analysis.py` | `skills_vs_second` |
+| Supporting numbers, not in the current text: Docs versus Second pass in round 1 (24 via `check_freevars`) | `analysis.py` | `docs_vs_second` |
+| Section VI-C: 50 LawfulBEq edits to 28 theorems | `analysis.py` | `lawfulbeq` |
+| Section VI-C: refutations of `nsLookup_nsBind` and `explode_thm` | `Refute_*.lean` | `refutations` |
+| Section VI-C: residual 118 modulo admissions, by file | `analysis.py` | `union` |
 | Admitted definitions in the baseline and in Hybrid | `DefSorry.lean` | `admitted_definitions` |
 
 ## What the artifact cannot reproduce
@@ -103,8 +103,8 @@ and writes all recomputed values to `results/paper_numbers.json`.
   (rounds 3 to 6), and the five proving runs. They depend on hosted models and are not deterministic.
   The artifact contains their outputs (repository states and records) and the session
   logs that were kept.
-- The human decisions in the review rounds. Table IV and the handling column of
-  Table V are reconstructed from commit messages, the validator records, and project
+- The human decisions in the review rounds. Table V and the handling column of
+  Table VI are reconstructed from commit messages, the validator records, and project
   notes.
 - A fresh audit of the Direct endpoint, which imports Mathlib. The artifact uses the
   recorded audit in `data/direct/kernel_41c815090.json`.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recompute the numbers reported in the paper (Tables I, III, VI, VII and the text) from the snapshots, the Lean
+"""Recompute the numbers reported in the paper (Tables IV, VII, VIII and the text) from the snapshots, the Lean
 audit outputs (scripts/run_audit.sh), and the retained records.
 
 Usage: python3 scripts/analysis.py [--work WORK] [--check expected/expected.json]
@@ -171,7 +171,7 @@ def main():
     B = {d.key: d for d in base}
     out["hol4"] = hol4_counts(base)
 
-    # Table I: layers by file.
+    # Section II: manifest by layer.
     layer_of = {
         "HOL4Prelude.lean": "prelude",
         **{f: "syntax_namespaces_libraries" for f in ["Ast.lean", "Location.lean", "Namespace.lean", "NamespaceProps.lean",
@@ -190,7 +190,7 @@ def main():
     out["lean_lines"] = sum((C._snap(BASE) / f).read_text(encoding="utf-8").count("\n")
                             for f in C.files_at_ref(REPO, BASE))
 
-    # Table III.
+    # Table IV.
     res = C.analyze(REPO, BASE, C.DEFAULT_MILESTONES)
     out["table3"] = {r.commit: {"defs": r.translated_definitions, "stmts": r.translated_theorem_statements,
                                 "coverage": r.translated_combined} for r in res}

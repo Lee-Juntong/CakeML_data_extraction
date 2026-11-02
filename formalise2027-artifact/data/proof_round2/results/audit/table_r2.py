@@ -1,4 +1,4 @@
-"""Round 2 version of Table VII: Local, Mod., Aud., Unch. on the canonical theorems of de795c9f6.
+"""Table IX, the round 2 version of Table VII: Local, Mod., Aud., Unch. on the canonical theorems of de795c9f6.
 
 Local: the theorem declaration has no sorry/admit (dissertation counter).
 Aud.:  Lean.collectAxioms has no sorryAx and only the three standard axioms.
