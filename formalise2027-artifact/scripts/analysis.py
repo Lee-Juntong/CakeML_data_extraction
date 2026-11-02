@@ -255,7 +255,7 @@ def main():
     out["taint"] = {"tainted": len(taint), "by_category": dict(cat)}
 
     # Proof endpoints.
-    kj = json.load(open(ROOT / "data" / "direct" / "kernel_41c815090.json"))
+    kj = json.load(open(ROOT / "data" / "direct" / "kernel_41c815090.json", encoding="utf-8"))
     kax = collections.defaultdict(list)
     for dd in kj["declarations"]:
         if dd["kind"] == "theorem":
@@ -460,11 +460,11 @@ def main():
 
     resdir = ROOT / "results"
     resdir.mkdir(exist_ok=True)
-    json.dump(out, open(resdir / "paper_numbers.json", "w"), indent=1, sort_keys=True)
+    json.dump(out, open(resdir / "paper_numbers.json", "w", encoding="utf-8"), indent=1, sort_keys=True)
     print(f"wrote {resdir / 'paper_numbers.json'}")
 
     if args.check:
-        exp = json.load(open(args.check))
+        exp = json.load(open(args.check, encoding="utf-8"))
         bad = 0
         for path, want in exp.items():
             cur = out

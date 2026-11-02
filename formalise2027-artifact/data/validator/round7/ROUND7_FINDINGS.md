@@ -7,8 +7,8 @@
 - HOL4 source: branch develop of HOL-Theorem-Prover/HOL, fetched 2026-10-15T10:29:52Z. The commit sha is unknown. Each file's sha256 is recorded in pairs/INDEX.md.
 
 ## Raw outcome
-- 8 calls answered RIGHT: sets in runs 1 and 2, list ops in all three runs, option/finmap in all three runs, and misc in run 1.
-- The other 16 calls reported 26 errors.
+- 9 calls answered RIGHT: sets in runs 1 and 2, list ops in all three runs, option/finmap in all three runs, and misc in run 1.
+- The other 15 calls reported 27 error items (`errors` entries in the JSON answers). An earlier version of this file said 8, 16, and 26; the counts were corrected on 2 November 2026 from the raw answers in `results/`.
 
 ## Distinct findings and post hoc check against the HOL4 text
 

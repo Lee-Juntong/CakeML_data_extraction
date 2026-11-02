@@ -3,11 +3,11 @@
 Artifact for the FormaliSE 2027 experience report "Migrating CakeML Type Soundness
 from HOL4 to Lean with LLM Agents: An Experience Report".
 
-The artifact recomputes the numbers in Tables IV, VII, and VIII of the paper and the
+The artifact recomputes the numbers in Tables IV, VII, VIII, and IX of the paper and the
 counts in the text of Sections II, IV, V, and VI from exported repository states and
 retained records, and checks the validator counts of Table V and the findings of
 Tables VI and VIII against the validator records. It rebuilds the frozen Lean baseline,
-the four Claude Code proving endpoints, and the repaired translation with Lean 4.29.1,
+the four Claude Code proving endpoints of the first round, and the repaired translation with Lean 4.29.1,
 runs the transitive axiom audit, the statement taint check, and the statement
 preservation check, replays the two Lean refutations of frozen statements, and
 checks the Lean proofs of the repaired statements and the semantic scan for vacuous statements.
@@ -16,7 +16,7 @@ checks the Lean proofs of the repaired statements and the semantic scan for vacu
 
 | Path | Content |
 |---|---|
-| `snapshots/<commit>/` | The `lean_type_sound` directory of the CakeML fork at 15 commits: the seven translation milestones of Table IV, the proof pilot `98d240248`, the frozen baseline `252eab2cf`, the five proving endpoints, and the repaired translation `4841f993e` (branch `lean-translate-round5-repair`, two repair commits on `252eab2cf`, Lean sources only). Each has a `COMMIT.json` with the full hash, date, and author. The reduced HOL4 package is in `snapshots/252eab2cf/lean_type_sound/hol4-ultramin/`. Agent session logs are in `claude-logs/`. |
+| `snapshots/<commit>/` | The `lean_type_sound` directory of the CakeML fork at 20 commits: the seven translation milestones of Table IV, the proof pilot `98d240248`, the frozen baseline `252eab2cf`, the five proving endpoints, and the repaired translation `4841f993e` (branch `lean-translate-round5-repair`, two repair commits on `252eab2cf`, Lean sources only), and the five endpoints of the second proving round, `578cf6024` (Skills), `8faa2c0ff` (Docs), `6df3c625f` (Second pass), `a26ded4c6` (Hybrid), and `904068958` (Direct), the heads of the fork's `lean-translate-*` branches (Lean sources and the May session logs only; the round 2 session logs are in `data/proof_round2/`). Each has a `COMMIT.json` with the full hash, date, and author. The reduced HOL4 package is in `snapshots/252eab2cf/lean_type_sound/hol4-ultramin/`. Agent session logs are in `claude-logs/`. |
 | `data/validator/` | Validator records: `round3_results.jsonl`, `round4_results.jsonl`, the two escalated round 4 pairs (`round4_escalated.json`), the earlier two stage runs of 26 March (`earlier_runs_26mar.jsonl`), and the validator notebook with its prompts (`compare_validate.ipynb`). `round5/` and `round6/` hold the three runs of rounds 5 and 6 with Gemini 3.8 Flash (`run1.jsonl` to `run3.jsonl`, `run_log.json`), the scripts that produced them, and their input files (`inputs_252eab2cf.zip` for the frozen baseline, `inputs_4841f993e.zip` for the repaired translation). |
 | `data/direct/kernel_41c815090.json` | Recorded axiom audit of the Direct endpoint, which imports Mathlib. |
 | `data/review_rounds.json` | Reconstruction of review rounds 1 to 4 (Table V). Rounds 5 and 6 are in `data/validator/`. |
@@ -65,7 +65,7 @@ export BATTERIES=/path/to/batteries        # at commit 756e3321
 bash run_all.sh
 ```
 
-The run takes about 8 minutes on 2 cores. It ends with
+The run takes about 8 minutes on 2 cores. Step 4 prints `PASS Table IX equals the recorded table_r2.json`, and the run ends with
 
 ```
 181 of 181 checks pass
@@ -80,7 +80,7 @@ and writes all recomputed values to `results/paper_numbers.json`.
 | Section II: HOL4 counts (255 definition blocks, 280 theorems, 266 stated, 8 absent), 8,352 Lean lines | `analysis.py` | `hol4`, `lean_lines` |
 | Section II: manifest of 382 definitions and 269 theorems, 112 definitions in the prelude | `analysis.py` | `table1` |
 | Table IV, initial defect partition (21, 40, 229, 57, 10, 3) | `counter.py`, `analysis.py` | `table3`, `initial_partition` |
-| Section IV: 61 definitions without bodies at acceptance, 532 of 539 and 58 of 112 | `analysis.py` | `acceptance` |
+| Section IV: 61 definitions without bodies at acceptance (54 in the prelude, 7 semantic primitives) | `analysis.py` | `acceptance` |
 | Table V validator counts, misrouted FpSem call, failed Weakening call, escalated pairs, round 5 runs and inputs | `check_validator.py` | console |
 | Section V and the R5 column of Table VIII: 5 round 5 findings, all correct | `data/findings_round5.csv`, `check_validator.py` | console |
 | Section V and Table V: round 6, all 60 calls right | `data/validator/round6/`, `check_validator.py` | console |
@@ -96,6 +96,7 @@ and writes all recomputed values to `results/paper_numbers.json`.
 | Section VI-C: refutations of `nsLookup_nsBind` and `explode_thm` | `Refute_*.lean` | `refutations` |
 | Section VI-C: residual 118 modulo admissions, by file | `analysis.py` | `union` |
 | Admitted definitions in the baseline and in Hybrid | `DefSorry.lean` | `admitted_definitions` |
+| Table IX, proof completion of round 2 on the 269 canonical theorems of the repaired translation, from the recorded axiom audits and the exported round 2 endpoints. The script counts Direct's two restated theorems (`tlookup_bij_suff`, `tlookup_bij_iff`) as Mod. and Aud. (269); the paper reports 267 for these two columns because it excludes the restated theorems until their repair is reviewed | `data/proof_round2/results/audit/table_r2.py --snapshots snapshots` | console, `table_r2.json` |
 
 ## What the artifact cannot reproduce
 
@@ -141,12 +142,12 @@ look absent in the dissertation.
 
 ## Additions of November 2026
 
-This section lists the records added after the artifact archive of 9 October 2026. The Docker entry point does not yet run them; they are records and Lean files to check by hand. The final translation is commit `de795c9f6` on branch `lean-translate` of the CakeML fork; the README text above still names the earlier repair `4841f993e` on branch `lean-translate-round5-repair`, which was not pushed. Its tree is identical to `de795c9f6`, which carries the same two repair commits rebased onto `lean-translate`.
+This section lists the records added after the artifact archive of 9 October 2026. The Docker entry point recomputes Table IX from them (step 4 of `run_all.sh`, from the recorded axiom audits and the exported round 2 endpoints in `snapshots/`); the other files are records and Lean files to check by hand. The final translation is commit `de795c9f6` on branch `lean-translate` of the CakeML fork; the README text above still names the earlier repair `4841f993e` on branch `lean-translate-round5-repair`, which was not pushed. Its tree is identical to `de795c9f6`, which carries the same two repair commits rebased onto `lean-translate`.
 
 | Path | Content |
 |---|---|
-| `data/validator/round7/` | Round 7, the review of the library file `HOL4Prelude.lean` at `de795c9f6` against the HOL4 library definitions it names. `pairs/` holds the 8 section pairs and `INDEX.md` with the sha256 of each fetched HOL4 file; `results/run1` to `run3` hold the 24 raw validator answers; `validator_prompt.md` is the prompt; `ROUND7_FINDINGS.md` lists the distinct findings and the author's decisions. The answers contain 9 `RIGHT` and 15 error reports. `ROUND7_FINDINGS.md` says 8 and 16; the raw answers are authoritative. |
-| `data/proof_round2/` | The second proving round of October 2026: the setup and run scripts, the prompts, the Claude Code settings, and per workflow (`skills`, `docs`, `second-pass`, `hybrid`, `direct`) the session logs and run logs. `results/proof_round2.bundle` is a Git bundle of the five `proof2-*` branches. `results/audit/` holds the statement and definition diffs (`stmt_diff_out.txt`, `def_diff_out.txt`), the table script and its output (`table_r2.py`, `table_out.txt`, `table_r2.json`), the audit scripts, and the Lean checks `Refute_tlookup_bij.lean` and `Check_CARD.lean`. `table_r2.py` recomputes Table IX from the recorded axiom audits `results/audit/<workflow>/axioms.tsv` and a clone of the CakeML fork: `python table_r2.py /path/to/cakeml` (or set `CAKEML`). It uses `scripts/counter.py` of this artifact and the fork's branches `lean-translate-*`, whose heads equal the bundle's `proof2-*` heads; `stages.py` gives Direct's local count after each Aristotle task in the same way. `results/audit/PRIM_SEM_ENV_NOTE.md` and `results/primsemenv/` record the translation of `prim_type_sound_invariants` and its Aristotle proof. In the session logs, the operator's e-mail address is replaced by `[redacted]`. |
+| `data/validator/round7/` | Round 7, the review of the library file `HOL4Prelude.lean` at `de795c9f6` against the HOL4 library definitions it names. `pairs/` holds the 8 section pairs and `INDEX.md` with the sha256 of each fetched HOL4 file; `results/run1` to `run3` hold the 24 raw validator answers; `validator_prompt.md` is the prompt; `ROUND7_FINDINGS.md` lists the distinct findings and the author's decisions. The answers contain 9 `RIGHT` and 15 error reports with 27 error items. |
+| `data/proof_round2/` | The second proving round of October 2026: the setup and run scripts, the prompts, the Claude Code settings, and per workflow (`skills`, `docs`, `second-pass`, `hybrid`, `direct`) the session logs and run logs. `results/proof_round2.bundle` is a Git bundle of the five `proof2-*` branches. `results/audit/` holds the statement and definition diffs (`stmt_diff_out.txt`, `def_diff_out.txt`), the table script and its output (`table_r2.py`, `table_out.txt`, `table_r2.json`), the audit scripts, and the Lean checks `Refute_tlookup_bij.lean` and `Check_CARD.lean`. `table_r2.py` recomputes Table IX from the recorded axiom audits `results/audit/<workflow>/axioms.tsv` and a clone of the CakeML fork: `python table_r2.py /path/to/cakeml` (or set `CAKEML`), or without a clone from the exported endpoints in `snapshots/`: `python table_r2.py --snapshots snapshots`, as `run_all.sh` does. It uses `scripts/counter.py` of this artifact and the fork's branches `lean-translate-*`, whose heads equal the bundle's `proof2-*` heads; `stages.py` gives Direct's local count after each Aristotle task in the same way. `results/audit/PRIM_SEM_ENV_NOTE.md` and `results/primsemenv/` record the translation of `prim_type_sound_invariants` and its Aristotle proof. In the session logs, the operator's e-mail address is replaced by `[redacted]`. |
 | `data/evidence/` | Lean files behind the claims about rewritten definitions and the library: `OldEqualsNew*.lean` and `OrigEquations*.lean` (rewritten definitions against the originals), `Closure.lean`, `Closure2.lean`, `CardDeps.lean` (closure of the main theorem), `PreludeDefects.lean` with its output (the word shift and `fp64_mul_add` defects of round 7, checked by `decide`), and `Observe.lean` with its output (which defects reach the closure of the main theorem and of each manifest statement). `PrimSemEnv.lean` is the translation of `prim_type_sound_invariants` with Aristotle's proof, from branch `lean-translate-prim-sem-env` of the fork (commit `cdee629213`). `ind2.py` compares the declarations outside the manifest at all ten endpoints (`python ind2.py /path/to/cakeml`). |
 
 ## Computers, tool versions, and costs

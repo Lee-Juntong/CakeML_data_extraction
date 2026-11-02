@@ -1,0 +1,11 @@
+{
+ "commit": "904068958db33922ce53afed3c5eca8062e5089f",
+ "short": "904068958",
+ "date": "2026-10-12",
+ "author": "Lee-Juntong",
+ "branch": "lean-translate-direct-aristotle",
+ "bundle_branch": "proof2-direct",
+ "workflow": "Direct (proof round 2)",
+ "base": "de795c9f6d6515d6c99bdcbb0f8d32e31ee10af6",
+ "subject": "Proof round 2: direct, state after Aristotle task 8209f1b8 (COMPLETE), stage 5"
+}

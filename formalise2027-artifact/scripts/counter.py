@@ -254,7 +254,7 @@ def read_at_ref(repo: Path, ref: str, file: str) -> str:
 def files_at_ref(repo: Path, ref: str) -> list[str]:
     if SNAPSHOT_ROOT is not None:
         base = _snap(ref)
-        return sorted(str(p.relative_to(base)) for p in (base / "lean_type_sound" / "LeanTypeSound").rglob("*.lean"))
+        return sorted(p.relative_to(base).as_posix() for p in (base / "lean_type_sound" / "LeanTypeSound").rglob("*.lean"))
     tree = git(repo, "ls-tree", "-r", "--name-only", ref, "--", "lean_type_sound/LeanTypeSound")
     return sorted(line for line in tree.splitlines() if line.endswith(".lean"))
 

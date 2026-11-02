@@ -48,7 +48,7 @@ def summary(records):
 
 r3 = summary(load(V / "round3_results.jsonl"))
 r4 = summary(load(V / "round4_results.jsonl"))
-esc = json.load(open(V / "round4_escalated.json"))
+esc = json.load(open(V / "round4_escalated.json", encoding="utf-8"))
 print("round 3:", r3)
 print("round 4:", r4)
 print("round 4 escalated items:", len(esc), [e.get("base") for e in esc] if isinstance(esc, list) else esc)

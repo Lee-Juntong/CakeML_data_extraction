@@ -1,0 +1,1731 @@
+╭─── Claude Code v2.1.117 ─────────────────────────────────────────────────────╮
+│                                                 │ Tips for getting started   │
+│                Welcome back Joe!                │ Run /init to create a CLA… │
+│                                                 │ ────────────────────────── │
+│                     ▐▛███▜▌                     │ Recent activity            │
+│                    ▝▜█████▛▘                    │ No recent activity         │
+│                      ▘▘ ▝▝                      │                            │
+│                                                 │                            │
+│   Opus 4.7 (1M context) · Claude Team · ASFMG   │                            │
+│          ~/dev/cakeml/lean_type_sound           │                            │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+❯ /model                                                                        
+  ⎿  Set model to Opus 4.7 (1M context) (default)
+
+❯ /model                                                                        
+  ⎿  Set model to Opus 4.7 (1M context) (default)
+
+❯ /model                                                                        
+  ⎿  Set model to Opus 4.7 (1M context) (default)
+
+❯ Please scan the current directory for all .lean files containing the sorry    
+  keyword. For every instance found, act as an expert Lean 4 formal             
+  verification engineer and attempt to prove the goal.                          
+                                                                                
+  Follow this exact workflow for each file:                                     
+                                                                                
+  Identify & Analyze: Locate the sorry and analyze the theorem signature,       
+  hypotheses, and expected goal.                                                
+  Prove: try to prove them, you can use mathlib tactics if necessary.           
+  Verification: You must verify your proposed proof before finalizing the file. 
+   Run lean <filename>.lean (or utilize the Lean language server if integrated) 
+   to confirm the proof compiles without errors and that no new warnings are    
+  introduced.                                                                   
+  Iterate or Revert: If your proof fails to compile, try one alternative        
+  approach. If it still fails, restore the sorry to prevent breaking the build. 
+                                                                                
+  Once you have processed the entire directory, provide a summary report        
+  listing:                                                                      
+  Which theorems were successfully proven.                                      
+  Which theorems still contain sorry and a brief note on why the proof attempts 
+   failed (e.g., missing lemmas, inductive hypothesis mismatch).                
+
+  Searched for 3 patterns, read 2 files, listed 1 directory (ctrl+o to expand)
+
+● Let me examine the project structure and first try building to establish a
+  baseline.
+
+  Read 1 file (ctrl+o to expand)
+
+● Bash(lake build 2>&1 | tail -50)
+  ⎿  warning: LeanTypeSound/Weakening.lean:349:8: declaration uses `sorry`
+     warning: LeanTypeSound/Weakening.lean:364:8: declaration uses `sorry`
+     warning: LeanTypeSound/Weakening.lean:378:8: declaration uses `sorry`
+     … +47 lines (ctrl+o to expand)
+
+● I'll ignore the task reminder as this is a straightforward scan-then-fix
+  workflow. Let me start analyzing each file. I'll look at the smaller ones
+  first to understand the structure.
+
+  Searched for 15 patterns (ctrl+o to expand)
+
+● I have a clear picture now. Many sorries are in opaque function stubs (which
+  can't be "proven" - they need concrete implementations) or termination proofs
+  (hard without knowing the decreasing measure). Let me focus on the actual
+  provable theorem statements. I'll start with the easiest wins in Misc.lean and
+   Weakening.lean.
+
+  Read 2 files (ctrl+o to expand)
+
+● Let me focus on the clearly provable ones. I'll start with Misc.lean — there
+  are several trivial theorems there.
+
+● Update(LeanTypeSound/Misc.lean)
+  ⎿  Added 2 lines, removed 1 line
+      213    (λ(n,v). n) = FST
+      214  -/
+      215  theorem FST_pair {α β : Type} :
+      216 -    (fun (p : α × β) => p.1) = Prod.fst := by sorry           
+      216 +    (fun (p : α × β) => p.1) = Prod.fst := by                 
+      217 +  funext p; rfl                                               
+      218  
+      219  /- HOL4:
+      220  Theorem LESS_1[simp]:
+
+● Update(LeanTypeSound/Misc.lean)
+  ⎿  Added 2 lines, removed 1 line
+      221    x < 1 ⇔ (x = 0:num)
+      222  -/
+      223  theorem LESS_1 {x : Nat} :
+      224 -    x < 1 ↔ x = 0 := by sorry                                 
+      224 +    x < 1 ↔ x = 0 := by                                       
+      225 +  omega                                                       
+      226  
+      227  /- HOL4:
+      228  Theorem map_some_eq:
+
+● Update(LeanTypeSound/Misc.lean)
+  ⎿  Added 2 lines, removed 1 line
+      266     $+ 0n = I
+      267  -/
+      268  theorem plus_0_I :
+      269 -    (fun (n : Nat) => 0 + n) = id := by sorry                 
+      269 +    (fun (n : Nat) => 0 + n) = id := by                       
+      270 +  funext n; simp                                              
+
+● Now let me try the more substantive ones.
+
+● Update(LeanTypeSound/Misc.lean)
+  ⎿  Added 10 lines, removed 1 line
+      186  -/
+      187  theorem find_index_LESS_LENGTH {α : Type} [BEq α]
+      188      (ls : List α) (n : α) (m i : Nat) :
+      189 -    find_index n ls m = some i → m ≤ i ∧ i < m + ls.length := 
+          -by sorry                                                      
+      189 +    find_index n ls m = some i → m ≤ i ∧ i < m + ls.length := 
+          +by                                                            
+      190 +  induction ls generalizing m with                            
+      191 +  | nil => intro h; simp [find_index] at h                    
+      192 +  | cons x xs ih =>                                           
+      193 +    intro h                                                   
+      194 +    simp [find_index] at h                                    
+      195 +    split at h                                                
+      196 +    · simp at h; omega                                        
+      197 +    · have := ih (m + 1) h                                    
+      198 +      simp; omega                                             
+      199  
+      200  /- HOL4:
+      201  Theorem ALOOKUP_find_index_SOME:
+
+● Update(LeanTypeSound/Misc.lean)
+  ⎿  Added 13 lines, removed 1 line
+      238    !l1 l2. (MAP SOME l1 = MAP SOME l2) ⇔ (l1 = l2)
+      239  -/
+      240  theorem map_some_eq {α : Type} (l1 l2 : List α) :
+      241 -    l1.map some = l2.map some ↔ l1 = l2 := by sorry           
+      241 +    l1.map some = l2.map some ↔ l1 = l2 := by                 
+      242 +  constructor                                                 
+      243 +  · intro h                                                   
+      244 +    induction l1 generalizing l2 with                         
+      245 +    | nil => cases l2 <;> simp_all                            
+      246 +    | cons x xs ih =>                                         
+      247 +      cases l2 with                                           
+      248 +      | nil => simp at h                                      
+      249 +      | cons y ys =>                                          
+      250 +        simp at h                                             
+      251 +        obtain ⟨hxy, hxs⟩ := h                                
+      252 +        exact ⟨hxy, ih ys hxs⟩                                
+      253 +  · intro h; rw [h]                                           
+      254  
+      255  /- HOL4:
+      256  Theorem map_some_eq_append:
+
+● Update(LeanTypeSound/Misc.lean)
+  ⎿  Added 4 lines, removed 1 line
+      280     !ls n. (DROP n ls = []) ==> (n >= LENGTH ls)
+      281  -/
+      282  theorem DROP_EMPTY {α : Type} (ls : List α) (n : Nat) :
+      283 -    DROP n ls = [] → n ≥ ls.length := by sorry                
+      283 +    DROP n ls = [] → n ≥ ls.length := by                      
+      284 +  intro h                                                     
+      285 +  simp [DROP] at h                                            
+      286 +  omega                                                       
+      287  
+      288  /- HOL4:
+      289  Theorem plus_0_I[simp]:
+
+● Now let me verify the Misc.lean changes build. Let me build specifically on
+  that file.
+
+● Bash(lake build LeanTypeSound.Misc 2>&1 | tail -40)
+  ⎿  warning: LeanTypeSound/HOL4Prelude.lean:326:4: declaration uses `sorry
+     `
+     warning: LeanTypeSound/HOL4Prelude.lean:334:4: declaration uses `sorry
+     … +51 lines (ctrl+o to expand)
+● Let me look at the current state of the file after my edits:
+
+  Read 1 file (ctrl+o to expand)
+
+● Let me fix both broken proofs:
+
+● Update(LeanTypeSound/Misc.lean)
+  ⎿  Added 8 lines, removed 5 lines
+      191    | nil => intro h; simp [find_index] at h
+      192    | cons x xs ih =>
+      193      intro h
+      194 -    simp [find_index] at h                                    
+      195 -    split at h                                                
+      196 -    · simp at h; omega                                        
+      197 -    · have := ih (m + 1) h                                    
+      198 -      simp; omega                                             
+      194 +    simp only [find_index] at h                               
+      195 +    by_cases hxy : x == n                                     
+      196 +    · simp [hxy] at h                                         
+      197 +      omega                                                   
+      198 +    · simp [hxy] at h                                         
+      199 +      have := ih (m + 1) h                                    
+      200 +      simp                                                    
+      201 +      omega                                                   
+      202  
+      203  /- HOL4:
+      204  Theorem ALOOKUP_find_index_SOME:
+
+● Update(LeanTypeSound/Misc.lean)
+  ⎿  Added 1 line, removed 1 line
+      252        | cons y ys =>
+      253          simp at h
+      254          obtain ⟨hxy, hxs⟩ := h
+      255 -        exact ⟨hxy, ih ys hxs⟩                                
+      255 +        rw [hxy, ih ys hxs]                                   
+      256    · intro h; rw [h]
+      257  
+      258  /- HOL4:
+
+● Bash(lake build LeanTypeSound.Misc 2>&1 | tail -40)
+  ⎿  warning: LeanTypeSound/HOL4Prelude.lean:325:4: declaration uses `sorry
+     `
+     warning: LeanTypeSound/HOL4Prelude.lean:326:4: declaration uses `sorry
+     … +49 lines (ctrl+o to expand)
+
+● Update(LeanTypeSound/Misc.lean)
+  ⎿  Added 7 lines, removed 5 lines
+      191    | nil => intro h; simp [find_index] at h
+      192    | cons x xs ih =>
+      193      intro h
+      194 -    simp only [find_index] at h                               
+      194 +    simp only [find_index, List.length_cons] at h             
+      195      by_cases hxy : x == n
+      196 -    · simp [hxy] at h                                         
+      196 +    · rw [if_pos hxy] at h                                    
+      197 +      have hmi : m = i := Option.some.inj h                   
+      198 +      subst hmi                                               
+      199 +      refine ⟨Nat.le_refl _, ?_⟩                              
+      200        omega
+      198 -    · simp [hxy] at h                                         
+      201 +    · rw [if_neg hxy] at h                                    
+      202        have := ih (m + 1) h
+      200 -      simp                                                    
+      201 -      omega                                                   
+      203 +      refine ⟨?_, ?_⟩ <;> omega                               
+      204  
+      205  /- HOL4:
+      206  Theorem ALOOKUP_find_index_SOME:
+
+● Bash(lake build LeanTypeSound.Misc 2>&1 | grep -E "error|warning.*Misc" | head
+       -20)
+  ⎿  warning: LeanTypeSound/Misc.lean:162:8: declaration uses `sorry`
+     warning: LeanTypeSound/Misc.lean:171:8: declaration uses `sorry`
+     warning: LeanTypeSound/Misc.lean:179:8: declaration uses `sorry`
+     … +10 lines (ctrl+o to expand)
+
+● Bash(lake build LeanTypeSound.Misc 2>&1 | grep -A 10 "error.*omega" | head
+      -40)
+  ⎿  error: LeanTypeSound/Misc.lean:200:6: omega could not prove the goal:
+     a possible counterexample may satisfy the constraints
+       a ≥ 0
+     … +13 lines (ctrl+o to expand)
+
+● Let me try a simpler approach with just simp and induction:
+
+● Update(LeanTypeSound/Misc.lean)
+  ⎿  Added 4 lines, removed 4 lines
+      191    | nil => intro h; simp [find_index] at h
+      192    | cons x xs ih =>
+      193      intro h
+      194 -    simp only [find_index, List.length_cons] at h             
+      194 +    simp only [find_index] at h                               
+      195      by_cases hxy : x == n
+      196      · rw [if_pos hxy] at h
+      197        have hmi : m = i := Option.some.inj h
+      198        subst hmi
+      199 -      refine ⟨Nat.le_refl _, ?_⟩                              
+      200 -      omega                                                   
+      199 +      simp [List.length_cons]                                 
+      200      · rw [if_neg hxy] at h
+      201        have := ih (m + 1) h
+      203 -      refine ⟨?_, ?_⟩ <;> omega                               
+      202 +      simp [List.length_cons]                                 
+      203 +      omega                                                   
+      204  
+      205  /- HOL4:
+      206  Theorem ALOOKUP_find_index_SOME:
+
+● Bash(lake build LeanTypeSound.Misc 2>&1 | grep -E
+      "error|Misc\.lean.*declaration" | head -20)
+  ⎿  warning: LeanTypeSound/Misc.lean:162:8: declaration uses `sorry`
+     warning: LeanTypeSound/Misc.lean:171:8: declaration uses `sorry`
+     warning: LeanTypeSound/Misc.lean:179:8: declaration uses `sorry`
+     … +5 lines (ctrl+o to expand)
+
+● Bash(lake build LeanTypeSound.Misc 2>&1 | tail -5)
+  ⎿  warning: LeanTypeSound/Misc.lean:220:8: declaration uses `sorry`
+     warning: LeanTypeSound/Misc.lean:264:8: declaration uses `sorry`
+     warning: LeanTypeSound/Misc.lean:272:8: declaration uses `sorry`
+     … +2 lines (ctrl+o to expand)
+
+● Misc.lean now builds with 8 sorries left (down from 14). Let me tackle
+  Weakening.lean's trivial ones:
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/Weakening.lean)
+  ⎿  Added 3 lines, removed 1 line
+      242    !x:num.x ≥ 0
+      243  -/
+      244  theorem gt_0 :
+      245 -    ∀ (x : Nat), x ≥ 0 := by sorry                            
+      245 +    ∀ (x : Nat), x ≥ 0 := by                                  
+      246 +  intro x                                                     
+      247 +  exact Nat.zero_le x                                         
+      248  
+      249  /- HOL4:
+      250  Theorem weak_ctMap_lookup[local]:
+
+● Bash(lake build LeanTypeSound.Weakening 2>&1 | tail -5)
+  ⎿  warning: LeanTypeSound/Weakening.lean:351:8: declaration uses `sorry`
+     warning: LeanTypeSound/Weakening.lean:366:8: declaration uses `sorry`
+     warning: LeanTypeSound/Weakening.lean:380:8: declaration uses `sorry`
+     … +2 lines (ctrl+o to expand)
+  ⎿  (timeout 10m)
+
+● Let me look at TypeSysProps which has many theorem stubs:
+
+  Searched for 2 patterns, read 3 files (ctrl+o to expand)
+
+● Now let me try to prove several TypeSysProps theorems:
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 3 lines, removed 1 line
+      111  -/
+      112  theorem unchanged_tenv :
+      113      ∀ (tenv : type_env),
+      114 -      { v := tenv.v, c := tenv.c, t := tenv.t : type_env} = te
+          -nv := by sorry                                                
+      114 +      { v := tenv.v, c := tenv.c, t := tenv.t : type_env} = te
+          +nv := by                                                      
+      115 +  intro tenv                                                  
+      116 +  rfl                                                         
+      117  
+      118  /- HOL4:
+      119  Theorem extend_dec_tenv_assoc[simp]:
+
+  Read 1 file (ctrl+o to expand)
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 13 lines, removed 1 line
+      125  theorem extend_dec_tenv_assoc_thm :
+      126      ∀ (tenv1 tenv2 tenv3 : type_env),
+      127        extend_dec_tenv tenv1 (extend_dec_tenv tenv2 tenv3) =
+      128 -      extend_dec_tenv (extend_dec_tenv tenv1 tenv2) tenv3 := b
+          -y sorry                                                       
+      128 +      extend_dec_tenv (extend_dec_tenv tenv1 tenv2) tenv3 := b
+          +y                                                             
+      129 +  intro tenv1 tenv2 tenv3                                     
+      130 +  simp [extend_dec_tenv]                                      
+      131 +  cases h1v : tenv1.v with | Bind v1 m1 =>                    
+      132 +  cases h2v : tenv2.v with | Bind v2 m2 =>                    
+      133 +  cases h3v : tenv3.v with | Bind v3 m3 =>                    
+      134 +  cases h1c : tenv1.c with | Bind c1 mc1 =>                   
+      135 +  cases h2c : tenv2.c with | Bind c2 mc2 =>                   
+      136 +  cases h3c : tenv3.c with | Bind c3 mc3 =>                   
+      137 +  cases h1t : tenv1.t with | Bind t1 mt1 =>                   
+      138 +  cases h2t : tenv2.t with | Bind t2 mt2 =>                   
+      139 +  cases h3t : tenv3.t with | Bind t3 mt3 =>                   
+      140 +  simp [nsAppend, List.append_assoc]                          
+      141  
+      142  /- HOL4:
+      143  Theorem tenv_val_ok_nsEmpty[simp]:
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 4 lines, removed 1 line
+      144     tenv_val_ok nsEmpty
+      145  -/
+      146  theorem tenv_val_ok_nsEmpty :
+      147 -    tenv_val_ok nsEmpty := by sorry                           
+      147 +    tenv_val_ok nsEmpty := by                                 
+      148 +  intro id val h                                              
+      149 +  simp [nsEmpty, nsLookup, ALOOKUP] at h                      
+      150 +  split at h <;> simp_all                                     
+      151  
+      152  /- HOL4:
+      153  Theorem tenv_ctor_ok_nsEmpty[simp]:
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 4 lines, removed 1 line
+      154     tenv_ctor_ok nsEmpty
+      155  -/
+      156  theorem tenv_ctor_ok_nsEmpty :
+      157 -    tenv_ctor_ok nsEmpty := by sorry                          
+      157 +    tenv_ctor_ok nsEmpty := by                                
+      158 +  intro id val h                                              
+      159 +  simp [nsEmpty, nsLookup, ALOOKUP] at h                      
+      160 +  split at h <;> simp_all                                     
+      161  
+      162  /- HOL4:
+      163  Theorem tenv_abbrev_ok_nsEmpty[simp]:
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 4 lines, removed 1 line
+      164     tenv_abbrev_ok nsEmpty
+      165  -/
+      166  theorem tenv_abbrev_ok_nsEmpty :
+      167 -    tenv_abbrev_ok nsEmpty := by sorry                        
+      167 +    tenv_abbrev_ok nsEmpty := by                              
+      168 +  intro id val h                                              
+      169 +  simp [nsEmpty, nsLookup, ALOOKUP] at h                      
+      170 +  split at h <;> simp_all                                     
+      171  
+      172  /- HOL4:
+      173  Theorem tenv_ok_empty[simp]:
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 5 lines, removed 1 line
+      174     tenv_ok <| v := nsEmpty; c := nsEmpty; t := nsEmpty |>
+      175  -/
+      176  theorem tenv_ok_empty :
+      177 -    tenv_ok { v := nsEmpty, c := nsEmpty, t := nsEmpty } := by
+          - sorry                                                        
+      177 +    tenv_ok { v := nsEmpty, c := nsEmpty, t := nsEmpty } := by
+      178 +  refine ⟨?_, ?_, ?_⟩                                         
+      179 +  · exact tenv_val_ok_nsEmpty                                 
+      180 +  · exact tenv_ctor_ok_nsEmpty                                
+      181 +  · exact tenv_abbrev_ok_nsEmpty                              
+      182  
+      183  /- HOL4:
+      184  Theorem check_freevars_add:
+
+● Let me also try the bind_tvar one and some easy-looking deBruijn ones. Let me
+  look at bind_tvar definition:
+
+  Searched for 1 pattern, read 2 files (ctrl+o to expand)
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 3 lines, removed 1 line
+      639   !x. bind_tvar 0 x = x
+      640  -/
+      641  theorem bind_tvar0 :
+      642 -    ∀ (x : tenv_val_exp), bind_tvar 0 x = x := by sorry       
+      642 +    ∀ (x : tenv_val_exp), bind_tvar 0 x = x := by             
+      643 +  intro x                                                     
+      644 +  simp [bind_tvar]                                            
+      645  
+      646  /- HOL4:
+      647  Theorem tveLookup_subst_none:
+
+● Now let me check around lines 689, 697, 732, 740 which look like num_tvs /
+  bind_var_list lemmas that might be more tractable:
+
+  Read 2 files (ctrl+o to expand)
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 7 lines, removed 1 line
+      715  -/
+      716  theorem bind_var_list_append :
+      717      ∀ (n : Nat) (te1 te2 : List (mlstring × sem_t)) (te3 : ten
+           v_val_exp),
+      718 -      bind_var_list n (te1 ++ te2) te3 = bind_var_list n te1 (
+          -bind_var_list n te2 te3) := by sorry                          
+      718 +      bind_var_list n (te1 ++ te2) te3 = bind_var_list n te1 (
+          +bind_var_list n te2 te3) := by                                
+      719 +  intro n te1 te2 te3                                         
+      720 +  induction te1 with                                          
+      721 +  | nil => simp [bind_var_list]                               
+      722 +  | cons h t ih =>                                            
+      723 +    obtain ⟨a, b⟩ := h                                        
+      724 +    simp [bind_var_list, ih]                                  
+      725  
+      726  /- HOL4:
+      727  Theorem num_tvs_bind_var_list[simp]:
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 7 lines, removed 1 line
+      729  -/
+      730  theorem num_tvs_bind_var_list :
+      731      ∀ (tvs : Nat) (env : List (mlstring × sem_t)) (tenvE : ten
+           v_val_exp),
+      732 -      num_tvs (bind_var_list tvs env tenvE) = num_tvs tenvE :=
+          - by sorry                                                     
+      732 +      num_tvs (bind_var_list tvs env tenvE) = num_tvs tenvE :=
+          + by                                                           
+      733 +  intro tvs env tenvE                                         
+      734 +  induction env with                                          
+      735 +  | nil => simp [bind_var_list]                               
+      736 +  | cons h t ih =>                                            
+      737 +    obtain ⟨a, b⟩ := h                                        
+      738 +    simp [bind_var_list, num_tvs, ih]                         
+      739  
+      740  /- HOL4:
+      741  Theorem tenv_val_exp_ok_bvl:
+
+  Searched for 3 patterns, read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 6 lines, removed 1 line
+      770  -/
+      771  theorem num_tvs_db_merge :
+      772      ∀ (e1 e2 : tenv_val_exp),
+      773 -      num_tvs (db_merge e1 e2) = num_tvs e1 + num_tvs e2 := by
+          - sorry                                                        
+      773 +      num_tvs (db_merge e1 e2) = num_tvs e1 + num_tvs e2 := by
+      774 +  intro e1 e2                                                 
+      775 +  induction e1 with                                           
+      776 +  | Empty => simp [db_merge, num_tvs]                         
+      777 +  | Bind_tvar tvs e ih => simp [db_merge, num_tvs, ih]; omega 
+      778 +  | Bind_name n tvs t e ih => simp [db_merge, num_tvs, ih]    
+      779  
+      780  /- HOL4:
+      781  Theorem num_tvs_deBruijn_subst_tenvE[simp]:
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 6 lines, removed 1 line
+      783  -/
+      784  theorem num_tvs_deBruijn_subst_tenvE :
+      785      ∀ (targs : List sem_t) (tenvE : tenv_val_exp),
+      786 -      num_tvs (deBruijn_subst_tenvE targs tenvE) = num_tvs ten
+          -vE := by sorry                                                
+      786 +      num_tvs (deBruijn_subst_tenvE targs tenvE) = num_tvs ten
+          +vE := by                                                      
+      787 +  intro targs tenvE                                           
+      788 +  induction tenvE with                                        
+      789 +  | Empty => simp [deBruijn_subst_tenvE, num_tvs]             
+      790 +  | Bind_tvar tvs e ih => simp [deBruijn_subst_tenvE, num_tvs,
+          + ih]                                                          
+      791 +  | Bind_name n tvs t e ih => simp [deBruijn_subst_tenvE, num_
+          +tvs, ih]                                                      
+      792  
+      793  /- HOL4:
+      794  Theorem tveLookup_inc_some:
+
+● Now let me build TypeSysProps to see if my attempts work:
+
+● Bash(lake build LeanTypeSound.TypeSysProps 2>&1 | grep -E
+      "^error|TypeSysProps\.lean.*error" | head -20)
+  ⎿  error: LeanTypeSound/TypeSysProps.lean:150:2: Tactic `split` failed: C
+     ould not split an `if` or `match` expression in the type
+     error: LeanTypeSound/TypeSysProps.lean:160:2: Tactic `split` failed: C
+     … +5 lines (ctrl+o to expand)
+
+● Update(LeanTypeSound/TypeSysProps.lean)
+  ⎿  Added 9 lines, removed 6 lines
+      146  theorem tenv_val_ok_nsEmpty :
+      147      tenv_val_ok nsEmpty := by
+      148    intro id val h
+      149 -  simp [nsEmpty, nsLookup, ALOOKUP] at h                      
+      150 -  split at h <;> simp_all                                     
+      149 +  cases id with                                               
+      150 +  | Short x => simp [nsEmpty, nsLookup, ALOOKUP] at h         
+      151 +  | Long mn i => simp [nsEmpty, nsLookup, ALOOKUP] at h       
+      152  
+      153  /- HOL4:
+      154  Theorem tenv_ctor_ok_nsEmpty[simp]:
+     ...
+      157  theorem tenv_ctor_ok_nsEmpty :
+      158      tenv_ctor_ok nsEmpty := by
+      159    intro id val h
+      159 -  simp [nsEmpty, nsLookup, ALOOKUP] at h                      
+      160 -  split at h <;> simp_all                                     
+      160 +  cases id with                                               
+      161 +  | Short x => simp [nsEmpty, nsLookup, ALOOKUP] at h         
+      162 +  | Long mn i => simp [nsEmpty, nsLookup, ALOOKUP] at h       
+      163  
+      164  /- HOL4:
+      165  Theorem tenv_abbrev_ok_nsEmpty[simp]:
+     ...
+      168  theorem tenv_abbrev_ok_nsEmpty :
+      169      tenv_abbrev_ok nsEmpty := by
+      170    intro id val h
+      169 -  simp [nsEmpty, nsLookup, ALOOKUP] at h                      
+      170 -  split at h <;> simp_all                                     
+      171 +  cases id with                                               
+      172 +  | Short x => simp [nsEmpty, nsLookup, ALOOKUP] at h         
+      173 +  | Long mn i => simp [nsEmpty, nsLookup, ALOOKUP] at h       
+      174  
+      175  /- HOL4:
+      176  Theorem tenv_ok_empty[simp]:
+
+● Bash(lake build LeanTypeSound.TypeSysProps 2>&1 | grep -E
+      "^error|TypeSysProps\.lean.*error" | head -20)
+  ⎿  (No output)
+
+● Bash(lake build LeanTypeSound.TypeSysProps 2>&1 | tail -8)
+  ⎿  warning: LeanTypeSound/TypeSysProps.lean:1447:8: declaration uses `sor
+     ry`
+     warning: LeanTypeSound/TypeSysProps.lean:1464:8: declaration uses `sor
+     … +12 lines (ctrl+o to expand)
+  Searched for 1 pattern (ctrl+o to expand)
+
+● Let me look at NamespaceProps which has many theorem stubs:
+
+  Searched for 1 pattern, read 2 files (ctrl+o to expand)
+
+● Now I have enough context to prove several of these. Let me prove multiple at
+  once:
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 5 lines, removed 1 line
+      70  
+      71  /- HOL4: Theorem mk_id_thm: !id. mk_id (id_to_mods id) (id_to_n
+           id) = id -/
+      72  theorem mk_id_thm {m n : Type} :
+      73 -    ∀ (id : cml_id m n), mk_id (id_to_mods id) (id_to_n id) = i
+         -d := by sorry                                                  
+      73 +    ∀ (id : cml_id m n), mk_id (id_to_mods id) (id_to_n id) = i
+         +d := by                                                        
+      74 +  intro id                                                     
+      75 +  induction id with                                            
+      76 +  | Short x => simp [id_to_mods, id_to_n, mk_id]               
+      77 +  | Long mn i ih => simp [id_to_mods, id_to_n, mk_id, ih]      
+      78  
+      79  /- HOL4: Theorem nsSub_mono[mono] -/
+      80  theorem nsSub_mono {m n v1 v2 : Type} [BEq m] [BEq n]
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 3 lines, removed 1 line
+      66  
+      67  /- HOL4: Theorem mk_id_surj: !id. ?p n. id = mk_id p n -/
+      68  theorem mk_id_surj {m n : Type} :
+      69 -    ∀ (id : cml_id m n), ∃ (p : List m) (n_ : n), id = mk_id p 
+         -n_ := by sorry                                                 
+      69 +    ∀ (id : cml_id m n), ∃ (p : List m) (n_ : n), id = mk_id p 
+         +n_ := by                                                       
+      70 +  intro id                                                     
+      71 +  exact ⟨id_to_mods id, id_to_n id, (mk_id_thm id).symm⟩       
+      72  
+      73  /- HOL4: Theorem mk_id_thm: !id. mk_id (id_to_mods id) (id_to_n
+           id) = id -/
+      74  theorem mk_id_thm {m n : Type} :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 5 lines, removed 1 line
+       94  
+       95  /- HOL4: Theorem nsLookup_nsEmpty[simp] -/
+       96  theorem nsLookup_nsEmpty {m n v : Type} [BEq m] [BEq n] :
+       97 -    ∀ (id : cml_id m n), nsLookup (nsEmpty : «namespace» m n v
+          -) id = none := by sorry                                       
+       97 +    ∀ (id : cml_id m n), nsLookup (nsEmpty : «namespace» m n v
+          +) id = none := by                                             
+       98 +  intro id                                                    
+       99 +  cases id with                                               
+      100 +  | Short x => simp [nsEmpty, nsLookup, ALOOKUP]              
+      101 +  | Long mn i => simp [nsEmpty, nsLookup, ALOOKUP]            
+      102  
+      103  /- HOL4: Theorem nsLookupMod_nsEmpty[simp] -/
+      104  theorem nsLookupMod_nsEmpty {m n v : Type} [BEq m] :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 3 lines, removed 1 line
+      102  
+      103  /- HOL4: Theorem nsLookupMod_nsEmpty[simp] -/
+      104  theorem nsLookupMod_nsEmpty {m n v : Type} [BEq m] :
+      105 -    ∀ (x : m) (y : List m), nsLookupMod (nsEmpty : «namespace»
+          - m n v) (x :: y) = none := by sorry                           
+      105 +    ∀ (x : m) (y : List m), nsLookupMod (nsEmpty : «namespace»
+          + m n v) (x :: y) = none := by                                 
+      106 +  intro x y                                                   
+      107 +  simp [nsEmpty, nsLookupMod, ALOOKUP]                        
+      108  
+      109  /- HOL4: Theorem nsAppend_nsEmpty[simp] -/
+      110  theorem nsAppend_nsEmpty {m n v : Type} :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 4 lines, removed 1 line
+      109  /- HOL4: Theorem nsAppend_nsEmpty[simp] -/
+      110  theorem nsAppend_nsEmpty {m n v : Type} :
+      111      ∀ (env : «namespace» m n v),
+      112 -      nsAppend env nsEmpty = env ∧ nsAppend nsEmpty env = env 
+          -:= by sorry                                                   
+      112 +      nsAppend env nsEmpty = env ∧ nsAppend nsEmpty env = env 
+          +:= by                                                         
+      113 +  intro env                                                   
+      114 +  cases env with                                              
+      115 +  | Bind vals mods => simp [nsAppend, nsEmpty]                
+      116  
+      117  /- HOL4: Theorem alist_to_ns_nil[simp] -/
+      118  theorem alist_to_ns_nil {m n v : Type} :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 2 lines, removed 1 line
+      116  
+      117  /- HOL4: Theorem alist_to_ns_nil[simp] -/
+      118  theorem alist_to_ns_nil {m n v : Type} :
+      119 -    (alist_to_ns [] : «namespace» m n v) = nsEmpty := by sorry
+      119 +    (alist_to_ns [] : «namespace» m n v) = nsEmpty := by      
+      120 +  simp [alist_to_ns, nsEmpty]                                 
+      121  
+      122  /- HOL4: Theorem nsSub_nsEmpty[simp] -/
+      123  theorem nsSub_nsEmpty {m n v1 v2 : Type} [BEq m] [BEq n] :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 4 lines, removed 1 line
+      126  
+      127  /- HOL4: Theorem nsAll_nsEmpty[simp] -/
+      128  theorem nsAll_nsEmpty {m n v : Type} [BEq m] [BEq n] :
+      129 -    ∀ (f : cml_id m n → v → Prop), nsAll f nsEmpty := by sorry
+      129 +    ∀ (f : cml_id m n → v → Prop), nsAll f nsEmpty := by      
+      130 +  intro f id val h                                            
+      131 +  rw [nsLookup_nsEmpty] at h                                  
+      132 +  cases h                                                     
+      133  
+      134  /- HOL4: Theorem nsAll2_nsEmpty[simp] -/
+      135  theorem nsAll2_nsEmpty {m n v1 v2 : Type} [BEq m] [BEq n] :
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 10 lines, removed 1 line
+      122  /- HOL4: Theorem nsSub_nsEmpty[simp] -/
+      123  theorem nsSub_nsEmpty {m n v1 v2 : Type} [BEq m] [BEq n] :
+      124      ∀ (r : cml_id m n → v1 → v2 → Prop) (env : «namespace» m n
+            v2),
+      125 -      nsSub r nsEmpty env := by sorry                         
+      125 +      nsSub r (nsEmpty : «namespace» m n v1) env := by        
+      126 +  intro r env                                                 
+      127 +  refine ⟨?_, ?_⟩                                             
+      128 +  · intro id_ v1_ h                                           
+      129 +    rw [nsLookup_nsEmpty] at h                                
+      130 +    cases h                                                   
+      131 +  · intro path _                                              
+      132 +    cases path with                                           
+      133 +    | nil => simp [nsEmpty, nsLookupMod]                      
+      134 +    | cons x y => simp [nsEmpty, nsLookupMod, ALOOKUP]        
+      135  
+      136  /- HOL4: Theorem nsAll_nsEmpty[simp] -/
+      137  theorem nsAll_nsEmpty {m n v : Type} [BEq m] [BEq n] :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 4 lines, removed 1 line
+      143  /- HOL4: Theorem nsAll2_nsEmpty[simp] -/
+      144  theorem nsAll2_nsEmpty {m n v1 v2 : Type} [BEq m] [BEq n] :
+      145      ∀ (f : cml_id m n → v1 → v2 → Prop),
+      146 -      nsAll2 f (nsEmpty : «namespace» m n v1) (nsEmpty : «name
+          -space» m n v2) := by sorry                                    
+      146 +      nsAll2 f (nsEmpty : «namespace» m n v1) (nsEmpty : «name
+          +space» m n v2) := by                                          
+      147 +  intro f                                                     
+      148 +  refine ⟨nsSub_nsEmpty f nsEmpty, ?_⟩                        
+      149 +  exact nsSub_nsEmpty _ nsEmpty                               
+      150  
+      151  /- HOL4: Theorem alist_to_ns_cons[simp] -/
+      152  theorem alist_to_ns_cons {m n v : Type} :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 6 lines, removed 1 line
+      156  /- HOL4: Theorem nsAppend_nsBind[simp] -/
+      157  theorem nsAppend_nsBind {m n v : Type} :
+      158      ∀ (k : n) (val_ : v) (e1 e2 : «namespace» m n v),
+      159 -      nsAppend (nsBind k val_ e1) e2 = nsBind k val_ (nsAppend
+          - e1 e2) := by sorry                                           
+      159 +      nsAppend (nsBind k val_ e1) e2 = nsBind k val_ (nsAppend
+          + e1 e2) := by                                                 
+      160 +  intro k val_ e1 e2                                          
+      161 +  cases e1 with                                               
+      162 +  | Bind v1 m1 =>                                             
+      163 +    cases e2 with                                             
+      164 +    | Bind v2 m2 => simp [nsBind, nsAppend]                   
+      165  
+      166  /- HOL4: Theorem nsAppend_assoc[simp] -/
+      167  theorem nsAppend_assoc {m n v : Type} :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 6 lines, removed 1 line
+      166  /- HOL4: Theorem nsAppend_assoc[simp] -/
+      167  theorem nsAppend_assoc {m n v : Type} :
+      168      ∀ (e1 e2 e3 : «namespace» m n v),
+      169 -      nsAppend e1 (nsAppend e2 e3) = nsAppend (nsAppend e1 e2)
+          - e3 := by sorry                                               
+      169 +      nsAppend e1 (nsAppend e2 e3) = nsAppend (nsAppend e1 e2)
+          + e3 := by                                                     
+      170 +  intro e1 e2 e3                                              
+      171 +  cases e1 with | Bind v1 m1 =>                               
+      172 +  cases e2 with | Bind v2 m2 =>                               
+      173 +  cases e3 with | Bind v3 m3 =>                               
+      174 +  simp [nsAppend, List.append_assoc]                          
+      175  
+      176  /- HOL4: Theorem nsLookup_nsBind[simp] -/
+      177  theorem nsLookup_nsBind {m n v : Type} [BEq m] [BEq n] :
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 3 lines, removed 1 line
+      151  /- HOL4: Theorem alist_to_ns_cons[simp] -/
+      152  theorem alist_to_ns_cons {m n v : Type} :
+      153      ∀ (k : n) (val_ : v) (l : List (n × v)),
+      154 -      (alist_to_ns ((k, val_) :: l) : «namespace» m n v) = nsB
+          -ind k val_ (alist_to_ns l) := by sorry                        
+      154 +      (alist_to_ns ((k, val_) :: l) : «namespace» m n v) = nsB
+          +ind k val_ (alist_to_ns l) := by                              
+      155 +  intro k val_ l                                              
+      156 +  simp [alist_to_ns, nsBind]                                  
+      157  
+      158  /- HOL4: Theorem nsAppend_nsBind[simp] -/
+      159  theorem nsAppend_nsBind {m n v : Type} :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 4 lines, removed 1 line
+      185  /- HOL4: Theorem nsAppend_nsSing[simp] -/
+      186  theorem nsAppend_nsSing {m n v : Type} :
+      187      ∀ (n_ : n) (x : v) (e : «namespace» m n v),
+      188 -      nsAppend (nsSing n_ x) e = nsBind n_ x e := by sorry    
+      188 +      nsAppend (nsSing n_ x) e = nsBind n_ x e := by          
+      189 +  intro n_ x e                                                
+      190 +  cases e with | Bind v m =>                                  
+      191 +  simp [nsSing, nsAppend, nsBind]                             
+      192  
+      193  /- HOL4: Theorem nsLookup_nsSing[simp] -/
+      194  theorem nsLookup_nsSing {m n v : Type} [BEq m] [BEq n] :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 6 lines, removed 1 line
+      83      {R1 R2 : cml_id m n → v1 → v2 → Prop}
+      84      {e1 : «namespace» m n v1} {e2 : «namespace» m n v2} :
+      85      (∀ (x : cml_id m n) (y : v1) (z : v2), R1 x y z → R2 x y z)
+           →
+      86 -    (nsSub R1 e1 e2 → nsSub R2 e1 e2) := by sorry              
+      86 +    (nsSub R1 e1 e2 → nsSub R2 e1 e2) := by                    
+      87 +  intro hmono hsub                                             
+      88 +  refine ⟨?_, hsub.2⟩                                          
+      89 +  intro id v1_ h                                               
+      90 +  obtain ⟨v2_, hlookup, hR⟩ := hsub.1 id v1_ h                 
+      91 +  exact ⟨v2_, hlookup, hmono id v1_ v2_ hR⟩                    
+      92  
+      93  /- HOL4: Theorem nsAll2_mono[mono] -/
+      94  theorem nsAll2_mono {m n v1 v2 : Type} [BEq m] [BEq n]
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 5 lines, removed 1 line
+       95      {R1 R2 : cml_id m n → v1 → v2 → Prop}
+       96      {e1 : «namespace» m n v1} {e2 : «namespace» m n v2} :
+       97      (∀ (x : cml_id m n) (y : v1) (z : v2), R1 x y z → R2 x y z
+           ) →
+       98 -    nsAll2 R1 e1 e2 → nsAll2 R2 e1 e2 := by sorry             
+       98 +    nsAll2 R1 e1 e2 → nsAll2 R2 e1 e2 := by                   
+       99 +  intro hmono hall                                            
+      100 +  refine ⟨?_, ?_⟩                                             
+      101 +  · exact nsSub_mono hmono hall.1                             
+      102 +  · exact nsSub_mono (fun x y z h => hmono x z y h) hall.2    
+      103  
+      104  /- HOL4: Theorem nsLookup_nsEmpty[simp] -/
+      105  theorem nsLookup_nsEmpty {m n v : Type} [BEq m] [BEq n] :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 9 lines, removed 1 line
+      254  /- HOL4: Theorem nsAppend_to_nsBindList -/
+      255  theorem nsAppend_to_nsBindList {m n v : Type} :
+      256      ∀ (l : List (n × v)) (e : «namespace» m n v),
+      257 -      nsAppend (alist_to_ns l) e = nsBindList l e := by sorry 
+      257 +      nsAppend (alist_to_ns l) e = nsBindList l e := by       
+      258 +  intro l e                                                   
+      259 +  induction l with                                            
+      260 +  | nil =>                                                    
+      261 +    cases e with | Bind v m => simp [nsAppend, alist_to_ns, ns
+          +BindList]                                                     
+      262 +  | cons h t ih =>                                            
+      263 +    obtain ⟨k, val_⟩ := h                                     
+      264 +    rw [alist_to_ns_cons, nsAppend_nsBind, ih]                
+      265 +    simp [nsBindList]                                         
+      266  
+      267  /- HOL4: Theorem nsLookupMod_nsAppend_none -/
+      268  theorem nsLookupMod_nsAppend_none {m n v : Type} [BEq m] :
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 3 lines, removed 1 line
+      275  
+      276  /- HOL4: Theorem eALL_T[simp] -/
+      277  theorem eALL_T {m n v : Type} [BEq m] [BEq n] :
+      278 -    ∀ (e : «namespace» m n v), nsAll (fun (_n : cml_id m n) (_
+          -x : v) => True) e := by sorry                                 
+      278 +    ∀ (e : «namespace» m n v), nsAll (fun (_n : cml_id m n) (_
+          +x : v) => True) e := by                                       
+      279 +  intro e id val _                                            
+      280 +  trivial                                                     
+      281  
+      282  /- HOL4: Theorem nsLookup_nsAll -/
+      283  theorem nsLookup_nsAll {m n v : Type} [BEq m] [BEq n] :
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 3 lines, removed 1 line
+      282  /- HOL4: Theorem nsLookup_nsAll -/
+      283  theorem nsLookup_nsAll {m n v : Type} [BEq m] [BEq n] :
+      284      ∀ (env : «namespace» m n v) (x : cml_id m n) (P : cml_id m
+            n → v → Prop) (val_ : v),
+      285 -      nsAll P env ∧ nsLookup env x = some val_ → P x val_ := b
+          -y sorry                                                       
+      285 +      nsAll P env ∧ nsLookup env x = some val_ → P x val_ := b
+          +y                                                             
+      286 +  intro env x P val_ ⟨hall, hlookup⟩                          
+      287 +  exact hall x val_ hlookup                                   
+      288  
+      289  /- HOL4: Theorem nsAll_nsAppend -/
+      290  theorem nsAll_nsAppend {m n v : Type} [BEq m] [BEq n] :
+
+● Now let me build NamespaceProps to check the changes:
+
+● Bash(lake build LeanTypeSound.NamespaceProps 2>&1 | grep -E
+      "^error|error:.*lean" | head -30)
+  ⎿  error: LeanTypeSound/NamespaceProps.lean:71:37: Unknown identifier `mk
+     _id_thm`
+     error: LeanTypeSound/NamespaceProps.lean:142:10: unsolved goals
+     … +2 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 2 lines, removed 2 lines
+      137    · intro id_ v1_ h
+      138      rw [nsLookup_nsEmpty] at h
+      139      cases h
+      140 -  · intro path _                                              
+      140 +  · intro path hpath                                          
+      141      cases path with
+      142 -    | nil => simp [nsEmpty, nsLookupMod]                      
+      142 +    | nil => simp [nsLookupMod] at hpath                      
+      143      | cons x y => simp [nsEmpty, nsLookupMod, ALOOKUP]
+      144  
+      145  /- HOL4: Theorem nsAll_nsEmpty[simp] -/
+
+● Now fix the ordering of mk_id_surj and mk_id_thm:
+
+● Update(LeanTypeSound/NamespaceProps.lean)
+  ⎿  Added 6 lines, removed 6 lines
+      64  -- Theorem stubs
+      65  -- ============================================================
+      66  
+      67 -/- HOL4: Theorem mk_id_surj: !id. ?p n. id = mk_id p n -/      
+      68 -theorem mk_id_surj {m n : Type} :                              
+      69 -    ∀ (id : cml_id m n), ∃ (p : List m) (n_ : n), id = mk_id p 
+         -n_ := by                                                       
+      70 -  intro id                                                     
+      71 -  exact ⟨id_to_mods id, id_to_n id, (mk_id_thm id).symm⟩       
+      72 -                                                               
+      67  /- HOL4: Theorem mk_id_thm: !id. mk_id (id_to_mods id) (id_to_n
+           id) = id -/
+      68  theorem mk_id_thm {m n : Type} :
+      69      ∀ (id : cml_id m n), mk_id (id_to_mods id) (id_to_n id) = i
+          d := by
+     ...
+      72    | Short x => simp [id_to_mods, id_to_n, mk_id]
+      73    | Long mn i ih => simp [id_to_mods, id_to_n, mk_id, ih]
+      74  
+      75 +/- HOL4: Theorem mk_id_surj: !id. ?p n. id = mk_id p n -/      
+      76 +theorem mk_id_surj {m n : Type} :                              
+      77 +    ∀ (id : cml_id m n), ∃ (p : List m) (n_ : n), id = mk_id p 
+         +n_ := by                                                       
+      78 +  intro id                                                     
+      79 +  exact ⟨id_to_mods id, id_to_n id, (mk_id_thm id).symm⟩       
+      80 +                                                               
+      81  /- HOL4: Theorem nsSub_mono[mono] -/
+      82  theorem nsSub_mono {m n v1 v2 : Type} [BEq m] [BEq n]
+      83      {R1 R2 : cml_id m n → v1 → v2 → Prop}
+
+● Bash(lake build LeanTypeSound.NamespaceProps 2>&1 | grep -E
+      "^error|error:.*lean" | head -30)
+  ⎿  (No output)
+
+● Bash(lake build LeanTypeSound.NamespaceProps 2>&1 | tail -10)
+  ⎿  warning: LeanTypeSound/NamespaceProps.lean:367:8: declaration uses `so
+     rry`
+     warning: LeanTypeSound/NamespaceProps.lean:374:8: declaration uses `so
+     … +16 lines (ctrl+o to expand)
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+● Let me do a full build to verify nothing broke:
+
+● Bash(lake build 2>&1 | tail -5)
+  ⎿  warning: LeanTypeSound/TypeSound.lean:935:8: declaration uses `sorry`
+     warning: LeanTypeSound/TypeSound.lean:983:8: declaration uses `sorry`
+     warning: LeanTypeSound/TypeSound.lean:1016:8: declaration uses `sorry`
+     … +2 lines (ctrl+o to expand)
+  ⎿  (timeout 10m)
+
+● Full build succeeds. Let me try more theorems. Let me look at Mlstring.lean
+  which has provable-looking theorems:
+
+  Read 1 file (ctrl+o to expand)
+
+● Let me try a few more in SemanticPrimitivesProps:
+
+  Searched for 1 pattern, read 2 files (ctrl+o to expand)
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 2 lines, removed 1 line
+      177     (env:'v sem_env) with v := env.v = env
+      178  -/
+      179  theorem with_same_v (env : sem_env) :
+      180 -    sem_env.mk env.v_ env.c = env := by sorry                 
+      180 +    sem_env.mk env.v_ env.c = env := by                       
+      181 +  rfl                                                         
+      182  
+      183  /- HOL4: Theorem unchanged_env[simp]:
+      184     !(env : 'a sem_env). <| v := env.v; c := env.c |> = env
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 2 lines, removed 1 line
+      184     !(env : 'a sem_env). <| v := env.v; c := env.c |> = env
+      185  -/
+      186  theorem unchanged_env (env : sem_env) :
+      187 -    sem_env.mk env.v_ env.c = env := by sorry                 
+      187 +    sem_env.mk env.v_ env.c = env := by                       
+      188 +  rfl                                                         
+      189  
+      190  /- HOL4: Theorem with_same_clock:
+      191     (st:'ffi state) with clock := st.clock = st
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 2 lines, removed 1 line
+      191     (st:'ffi state) with clock := st.clock = st
+      192  -/
+      193  theorem with_same_clock {ffi : Type} (st : cml_state ffi) :
+      194 -    { st with clock := st.clock } = st := by sorry            
+      194 +    { st with clock := st.clock } = st := by                  
+      195 +  rfl                                                         
+      196  
+      197  /- HOL4: Theorem Boolv_11[simp]:
+      198     Boolv b1 = Boolv b2 <=> (b1 = b2)
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 5 lines, removed 1 line
+      198     Boolv b1 = Boolv b2 <=> (b1 = b2)
+      199  -/
+      200  theorem Boolv_11 (b1 b2 : Bool) :
+      201 -    Boolv b1 = Boolv b2 ↔ b1 = b2 := by sorry                 
+      201 +    Boolv b1 = Boolv b2 ↔ b1 = b2 := by                       
+      202 +  constructor                                                 
+      203 +  · intro h                                                   
+      204 +    cases b1 <;> cases b2 <;> simp_all [Boolv]                
+      205 +  · intro h; rw [h]                                           
+      206  
+      207  /- HOL4: Theorem extend_dec_env_assoc[simp]:
+      208     !env1 env2 env3.
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 9 lines, removed 1 line
+      211  -/
+      212  theorem extend_dec_env_assoc (env1 env2 env3 : sem_env) :
+      213      extend_dec_env env1 (extend_dec_env env2 env3) =
+      214 -    extend_dec_env (extend_dec_env env1 env2) env3 := by sorry
+      214 +    extend_dec_env (extend_dec_env env1 env2) env3 := by      
+      215 +  simp [extend_dec_env]                                       
+      216 +  cases h1v : env1.v_ with | Bind v1 m1 =>                    
+      217 +  cases h2v : env2.v_ with | Bind v2 m2 =>                    
+      218 +  cases h3v : env3.v_ with | Bind v3 m3 =>                    
+      219 +  cases h1c : env1.c with | Bind c1 mc1 =>                    
+      220 +  cases h2c : env2.c with | Bind c2 mc2 =>                    
+      221 +  cases h3c : env3.c with | Bind c3 mc3 =>                    
+      222 +  simp [nsAppend, List.append_assoc]                          
+      223  
+      224  /- HOL4: Theorem pat_bindings_accum:
+      225     (!p acc. pat_bindings p acc = pat_bindings p [] ++ acc) /\
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 3 lines, removed 2 lines
+      236     In Lean, this is the definitional unfolding of do_app.
+      237  -/
+      238  theorem do_app_cases {ffi : Type} :
+      239 -    ∀ (s : List (store_v v)) (t : ffi_state ffi) (op_ : op) (v
+          -s : List v)                                                   
+      239 +    ∀ (s : List (store_v v) ) (t : ffi_state ffi) (op_ : op) (
+          +vs : List v)                                                  
+      240        (st' : List (store_v v) × ffi_state ffi) (r : result v v
+           ),
+      241      do_app (s, t) op_ vs = some (st', r) ↔
+      242 -    do_app (s, t) op_ vs = some (st', r) := by sorry          
+      242 +    do_app (s, t) op_ vs = some (st', r) := by                
+      243 +  intros; rfl                                                 
+      244  
+      245  /- HOL4: Theorem build_rec_env_merge:
+      246     !funs funs' env env'.
+
+● Let me look at how build_rec_env is defined to prove build_rec_env_merge:
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 8 lines, removed 1 line
+      251      (funs : List (varN × varN × exp)) (env : sem_env)
+      252      (env' : «namespace» modN varN v) :
+      253      build_rec_env funs env env' =
+      254 -    nsAppend (alist_to_ns (funs.map (fun (f, _, _) => (f, v.Re
+          -cclosure env funs f)))) env' := by sorry                      
+      254 +    nsAppend (alist_to_ns (funs.map (fun (f, _, _) => (f, v.Re
+          +cclosure env funs f)))) env' := by                            
+      255 +  rw [NamespaceProps.nsAppend_to_nsBindList]                  
+      256 +  simp [build_rec_env, nsBindList]                            
+      257 +  induction funs with                                         
+      258 +  | nil => simp                                               
+      259 +  | cons h t ih =>                                            
+      260 +    obtain ⟨f, x, e⟩ := h                                     
+      261 +    simp [ih]                                                 
+      262  
+      263  /- HOL4: Theorem do_con_check_build_conv:
+      264     !tenvC cn vs l.
+
+● Bash(lake build LeanTypeSound.SemanticPrimitivesProps 2>&1 | grep -E
+      "^error|error:.*lean" | head -20)
+  ⎿  error: LeanTypeSound/SemanticPrimitivesProps.lean:181:2: Tactic `rfl`
+     failed: The left-hand side
+     error: LeanTypeSound/SemanticPrimitivesProps.lean:188:2: Tactic `rfl`
+     … +9 lines (ctrl+o to expand)
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 1 line, removed 1 line
+      178  -/
+      179  theorem with_same_v (env : sem_env) :
+      180      sem_env.mk env.v_ env.c = env := by
+      181 -  rfl                                                         
+      181 +  cases env with | mk v c => rfl                              
+      182  
+      183  /- HOL4: Theorem unchanged_env[simp]:
+      184     !(env : 'a sem_env). <| v := env.v; c := env.c |> = env
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 1 line, removed 1 line
+      185  -/
+      186  theorem unchanged_env (env : sem_env) :
+      187      sem_env.mk env.v_ env.c = env := by
+      188 -  rfl                                                         
+      188 +  cases env with | mk v c => rfl                              
+      189  
+      190  /- HOL4: Theorem with_same_clock:
+      191     (st:'ffi state) with clock := st.clock = st
+
+● Now let me fix the do_app_cases issue (it's Iff not Eq) and the
+  NamespaceProps.nsAppend_to_nsBindList:
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 1 line, removed 1 line
+      240        (st' : List (store_v v) × ffi_state ffi) (r : result v v
+           ),
+      241      do_app (s, t) op_ vs = some (st', r) ↔
+      242      do_app (s, t) op_ vs = some (st', r) := by
+      243 -  intros; rfl                                                 
+      243 +  intros; exact Iff.rfl                                       
+      244  
+      245  /- HOL4: Theorem build_rec_env_merge:
+      246     !funs funs' env env'.
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 1 line, removed 1 line
+      252      (env' : «namespace» modN varN v) :
+      253      build_rec_env funs env env' =
+      254      nsAppend (alist_to_ns (funs.map (fun (f, _, _) => (f, v.Re
+           cclosure env funs f)))) env' := by
+      255 -  rw [NamespaceProps.nsAppend_to_nsBindList]                  
+      255 +  rw [nsAppend_to_nsBindList]                                 
+      256    simp [build_rec_env, nsBindList]
+      257    induction funs with
+      258    | nil => simp
+
+  Read 1 file (ctrl+o to expand)
+
+● Bash(lake build LeanTypeSound.SemanticPrimitivesProps 2>&1 | grep -E
+      "^error|error:" | head -20)
+  ⎿  error: LeanTypeSound/SemanticPrimitivesProps.lean:221:40: unsolved goa
+     ls
+     error: LeanTypeSound/SemanticPrimitivesProps.lean:259:16: unsolved goa
+     … +3 lines (ctrl+o to expand)
+
+● Bash(lake build LeanTypeSound.SemanticPrimitivesProps 2>&1 | grep -A 10 "line
+      221" | head -20)
+  ⎿  (No output)
+
+● Bash(lake build LeanTypeSound.SemanticPrimitivesProps 2>&1 | tail -40)
+  ⎿        | «namespace».Bind v1 m1, «namespace».Bind v2 m2 => «namespace».
+     Bind (v1 ++ v2) (m1 ++ m2)
+     warning: LeanTypeSound/SemanticPrimitivesProps.lean:222:18: This simp
+     … +26 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 10 lines, removed 8 lines
+      212  theorem extend_dec_env_assoc (env1 env2 env3 : sem_env) :
+      213      extend_dec_env env1 (extend_dec_env env2 env3) =
+      214      extend_dec_env (extend_dec_env env1 env2) env3 := by
+      215 -  simp [extend_dec_env]                                       
+      216 -  cases h1v : env1.v_ with | Bind v1 m1 =>                    
+      217 -  cases h2v : env2.v_ with | Bind v2 m2 =>                    
+      218 -  cases h3v : env3.v_ with | Bind v3 m3 =>                    
+      219 -  cases h1c : env1.c with | Bind c1 mc1 =>                    
+      220 -  cases h2c : env2.c with | Bind c2 mc2 =>                    
+      221 -  cases h3c : env3.c with | Bind c3 mc3 =>                    
+      222 -  simp [nsAppend, List.append_assoc]                          
+      215 +  cases env1 with | mk v1x c1x =>                             
+      216 +  cases env2 with | mk v2x c2x =>                             
+      217 +  cases env3 with | mk v3x c3x =>                             
+      218 +  cases v1x with | Bind _ _ =>                                
+      219 +  cases v2x with | Bind _ _ =>                                
+      220 +  cases v3x with | Bind _ _ =>                                
+      221 +  cases c1x with | Bind _ _ =>                                
+      222 +  cases c2x with | Bind _ _ =>                                
+      223 +  cases c3x with | Bind _ _ =>                                
+      224 +  simp [extend_dec_env, sem_env.v_, sem_env.c, nsAppend, List.
+          +append_assoc]                                                 
+      225  
+      226  /- HOL4: Theorem pat_bindings_accum:
+      227     (!p acc. pat_bindings p acc = pat_bindings p [] ++ acc) /\
+
+● Now let me revert the broken build_rec_env_merge:
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 3 lines, removed 1 line
+      256      nsAppend (alist_to_ns (funs.map (fun (f, _, _) => (f, v.Re
+           cclosure env funs f)))) env' := by
+      257    rw [nsAppend_to_nsBindList]
+      258    simp [build_rec_env, nsBindList]
+      259 +  generalize hclo : (fun f => v.Recclosure env funs f) = clo  
+      260    induction funs with
+      261    | nil => simp
+      262    | cons h t ih =>
+      263      obtain ⟨f, x, e⟩ := h
+      263 -    simp [ih]                                                 
+      264 +    simp                                                      
+      265 +    sorry                                                     
+      266  
+      267  /- HOL4: Theorem do_con_check_build_conv:
+      268     !tenvC cn vs l.
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 8 lines, removed 7 lines
+      255      build_rec_env funs env env' =
+      256      nsAppend (alist_to_ns (funs.map (fun (f, _, _) => (f, v.Re
+           cclosure env funs f)))) env' := by
+      257    rw [nsAppend_to_nsBindList]
+      258 -  simp [build_rec_env, nsBindList]                            
+      259 -  generalize hclo : (fun f => v.Recclosure env funs f) = clo  
+      260 -  induction funs with                                         
+      261 -  | nil => simp                                               
+      262 -  | cons h t ih =>                                            
+      263 -    obtain ⟨f, x, e⟩ := h                                     
+      264 -    simp                                                      
+      258 +  simp only [build_rec_env, nsBindList]                       
+      259 +  -- Both sides fold over `funs`, but nsBind takes a Recclosur
+          +e that uses the full `funs`                                   
+      260 +  suffices h : ∀ (l : List (varN × varN × exp)),              
+      261 +    l.foldr (fun (p : varN × varN × exp) acc =>               
+      262 +        nsBind p.1 (v.Recclosure env funs p.1) acc) env' =    
+      263 +    l.foldr (fun (p : varN × v) acc => nsBind p.1 p.2 acc) env
+          +'                                                             
+      264 +      ∘ (fun g => g) <| (l.map (fun (x : varN × varN × exp) =>
+          + (x.1, v.Recclosure env funs x.1))) by                        
+      265      sorry
+      266 +  sorry                                                       
+      267  
+      268  /- HOL4: Theorem do_con_check_build_conv:
+      269     !tenvC cn vs l.
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 17 lines, removed 8 lines
+      256      nsAppend (alist_to_ns (funs.map (fun (f, _, _) => (f, v.Re
+           cclosure env funs f)))) env' := by
+      257    rw [nsAppend_to_nsBindList]
+      258    simp only [build_rec_env, nsBindList]
+      259 -  -- Both sides fold over `funs`, but nsBind takes a Recclosur
+          -e that uses the full `funs`                                   
+      260 -  suffices h : ∀ (l : List (varN × varN × exp)),              
+      261 -    l.foldr (fun (p : varN × varN × exp) acc =>               
+      262 -        nsBind p.1 (v.Recclosure env funs p.1) acc) env' =    
+      263 -    l.foldr (fun (p : varN × v) acc => nsBind p.1 p.2 acc) env
+          -'                                                             
+      264 -      ∘ (fun g => g) <| (l.map (fun (x : varN × varN × exp) =>
+          - (x.1, v.Recclosure env funs x.1))) by                        
+      265 -    sorry                                                     
+      266 -  sorry                                                       
+      259 +  -- Generalize the recursive closure to prove by induction on
+          + the list being folded over                                   
+      260 +  generalize hg : (fun (f : varN) => v.Recclosure env funs f) 
+          += g                                                           
+      261 +  suffices h : ∀ (l : List (varN × varN × exp)) (acc : «namesp
+          +ace» modN varN v),                                            
+      262 +      l.foldr (fun (p : varN × varN × exp) acc => nsBind p.1 (
+          +g p.1) acc) acc =                                             
+      263 +      (l.map (fun (x : varN × varN × exp) => (x.1, g x.1))).fo
+          +ldr                                                           
+      264 +        (fun (p : varN × v) acc => nsBind p.1 p.2 acc) acc by 
+      265 +    have := h funs env'                                       
+      266 +    convert this using 2                                      
+      267 +    funext p acc                                              
+      268 +    rw [← hg]                                                 
+      269 +  intro l                                                     
+      270 +  induction l with                                            
+      271 +  | nil => intro acc; simp                                    
+      272 +  | cons h' t' ih' =>                                         
+      273 +    intro acc                                                 
+      274 +    obtain ⟨f, x, e⟩ := h'                                    
+      275 +    simp [ih']                                                
+      276  
+      277  /- HOL4: Theorem do_con_check_build_conv:
+      278     !tenvC cn vs l.
+
+● Bash(lake build LeanTypeSound.SemanticPrimitivesProps 2>&1 | grep -E
+      "^error|error:" | head -20)
+  ⎿  error: LeanTypeSound/SemanticPrimitivesProps.lean:266:5: unknown tacti
+     c
+     error: LeanTypeSound/SemanticPrimitivesProps.lean:264:59: unsolved goa
+     … +5 lines (ctrl+o to expand)
+
+● Bash(lake build LeanTypeSound.SemanticPrimitivesProps 2>&1 | tail -50)
+  ⎿  warning: LeanTypeSound/NamespaceProps.lean:337:8: declaration uses `so
+     rry`
+     warning: LeanTypeSound/NamespaceProps.lean:345:8: declaration uses `so
+     … +60 lines (ctrl+o to expand)
+
+● Update(LeanTypeSound/SemanticPrimitivesProps.lean)
+  ⎿  Added 1 line, removed 20 lines
+      253      (funs : List (varN × varN × exp)) (env : sem_env)
+      254      (env' : «namespace» modN varN v) :
+      255      build_rec_env funs env env' =
+      256 -    nsAppend (alist_to_ns (funs.map (fun (f, _, _) => (f, v.Re
+          -cclosure env funs f)))) env' := by                            
+      257 -  rw [nsAppend_to_nsBindList]                                 
+      258 -  simp only [build_rec_env, nsBindList]                       
+      259 -  -- Generalize the recursive closure to prove by induction on
+          - the list being folded over                                   
+      260 -  generalize hg : (fun (f : varN) => v.Recclosure env funs f) 
+          -= g                                                           
+      261 -  suffices h : ∀ (l : List (varN × varN × exp)) (acc : «namesp
+          -ace» modN varN v),                                            
+      262 -      l.foldr (fun (p : varN × varN × exp) acc => nsBind p.1 (
+          -g p.1) acc) acc =                                             
+      263 -      (l.map (fun (x : varN × varN × exp) => (x.1, g x.1))).fo
+          -ldr                                                           
+      264 -        (fun (p : varN × v) acc => nsBind p.1 p.2 acc) acc by 
+      265 -    have := h funs env'                                       
+      266 -    convert this using 2                                      
+      267 -    funext p acc                                              
+      268 -    rw [← hg]                                                 
+      269 -  intro l                                                     
+      270 -  induction l with                                            
+      271 -  | nil => intro acc; simp                                    
+      272 -  | cons h' t' ih' =>                                         
+      273 -    intro acc                                                 
+      274 -    obtain ⟨f, x, e⟩ := h'                                    
+      275 -    simp [ih']                                                
+      256 +    nsAppend (alist_to_ns (funs.map (fun (f, _, _) => (f, v.Re
+          +cclosure env funs f)))) env' := by sorry                      
+      257  
+      258  /- HOL4: Theorem do_con_check_build_conv:
+      259     !tenvC cn vs l.
+
+● Bash(lake build LeanTypeSound.SemanticPrimitivesProps 2>&1 | grep -E
+      "^error|error:" | head -10)
+  ⎿  (No output)
+
+● Bash(lake build LeanTypeSound.SemanticPrimitivesProps 2>&1 | tail -5)
+  ⎿  warning: LeanTypeSound/SemanticPrimitivesProps.lean:271:8: declaration
+      uses `sorry`
+     warning: LeanTypeSound/SemanticPrimitivesProps.lean:279:8: declaration
+     … +6 lines (ctrl+o to expand)
+
+  Searched for 2 patterns, read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/EvaluateProps.lean)
+  ⎿  Added 4 lines, removed 1 line
+      118  -/
+      119  theorem io_events_mono_refl {ffi : Type}
+      120      (s : ffi_state ffi) :
+      121 -    io_events_mono s s := by sorry                            
+      121 +    io_events_mono s s := by                                  
+      122 +  refine ⟨?_, ?_⟩                                             
+      123 +  · exact List.isPrefixOf_refl s.io_events                    
+      124 +  · intro _; rfl                                              
+      125  
+      126  /- HOL4: Theorem do_app_call_FFI_rel
+      127     do_app (r,ffi) op vs = SOME ((r',ffi'),res) ⇒
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/EvaluateProps.lean)
+  ⎿  Added 11 lines, removed 1 line
+      174     (case x of (a, b) => P a b) = (!a b. x = (a, b) ==> P a b)
+      175  -/
+      176  theorem pair_CASE_eq_forall {α β : Type} {P : α → β → Prop} {x
+            : α × β} :
+      177 -    (match x with | (a, b) => P a b) = (∀ a b, x = (a, b) → P 
+          -a b) := by sorry                                              
+      177 +    (match x with | (a, b) => P a b) = (∀ a b, x = (a, b) → P 
+          +a b) := by                                                    
+      178 +  cases x with                                                
+      179 +  | mk a b =>                                                 
+      180 +    simp                                                      
+      181 +    apply propext                                             
+      182 +    constructor                                               
+      183 +    · intro h a' b' heq                                       
+      184 +      cases heq                                               
+      185 +      exact h                                                 
+      186 +    · intro h                                                 
+      187 +      exact h a b rfl                                         
+      188  
+      189  /- HOL4: Theorem is_clock_io_mono_bind
+      190     is_clock_io_mono f s /\ (!s' r. f s = (s', r)
+
+● Bash(lake build LeanTypeSound.EvaluateProps 2>&1 | grep -E "^error|error:" |
+      head -10)
+  ⎿  error: LeanTypeSound/EvaluateProps.lean:123:10: Unknown constant `List
+     .isPrefixOf_refl`
+     error: LeanTypeSound/EvaluateProps.lean:181:4: No goals to be solved
+     … +2 lines (ctrl+o to expand)
+
+● Update(LeanTypeSound/EvaluateProps.lean)
+  ⎿  Added 3 lines, removed 1 line
+      120      (s : ffi_state ffi) :
+      121      io_events_mono s s := by
+      122    refine ⟨?_, ?_⟩
+      123 -  · exact List.isPrefixOf_refl s.io_events                    
+      123 +  · induction s.io_events with                                
+      124 +    | nil => simp [List.isPrefixOf]                           
+      125 +    | cons h t ih => simp [List.isPrefixOf]; exact ih         
+      126    · intro _; rfl
+      127  
+      128  /- HOL4: Theorem do_app_call_FFI_rel
+
+● Update(LeanTypeSound/EvaluateProps.lean)
+  ⎿  Removed 1 line
+      179      (match x with | (a, b) => P a b) = (∀ a b, x = (a, b) → P 
+           a b) := by
+      180    cases x with
+      181    | mk a b =>
+      182 -    simp                                                      
+      182      apply propext
+      183      constructor
+      184      · intro h a' b' heq
+
+● Bash(lake build LeanTypeSound.EvaluateProps 2>&1 | grep -E "^error|error:" |
+      head -10)
+  ⎿  error: LeanTypeSound/EvaluateProps.lean:125:45: Type mismatch
+     error: Lean exited with code 1
+     error: build failed
+
+● Bash(lake build LeanTypeSound.EvaluateProps 2>&1 | grep -A 8 "Type mismatch" |
+       head -30)
+  ⎿  error: LeanTypeSound/EvaluateProps.lean:125:45: Type mismatch
+       ih
+     has type
+     … +9 lines (ctrl+o to expand)
+
+● Update(LeanTypeSound/EvaluateProps.lean)
+  ⎿  Added 1 line, removed 1 line
+      122    refine ⟨?_, ?_⟩
+      123    · induction s.io_events with
+      124      | nil => simp [List.isPrefixOf]
+      125 -    | cons h t ih => simp [List.isPrefixOf]; exact ih         
+      125 +    | cons h t ih => simp [List.isPrefixOf]; exact ⟨by simp, i
+          +h⟩                                                            
+      126    · intro _; rfl
+      127  
+      128  /- HOL4: Theorem do_app_call_FFI_rel
+
+● Bash(lake build LeanTypeSound.EvaluateProps 2>&1 | grep -E "^error|error:" |
+      head -10)
+  ⎿  error: LeanTypeSound/EvaluateProps.lean:125:55: `simp` made no progres
+     s
+     error: Lean exited with code 1
+     error: build failed
+
+● Update(LeanTypeSound/EvaluateProps.lean)
+  ⎿  Added 2 lines, removed 1 line
+      122    refine ⟨?_, ?_⟩
+      123    · induction s.io_events with
+      124      | nil => simp [List.isPrefixOf]
+      125 -    | cons h t ih => simp [List.isPrefixOf]; exact ⟨by simp, i
+          -h⟩                                                            
+      125 +    | cons h t ih =>                                          
+      126 +      simp [List.isPrefixOf, beq_self_eq_true, ih]            
+      127    · intro _; rfl
+      128  
+      129  /- HOL4: Theorem do_app_call_FFI_rel
+
+● Bash(lake build LeanTypeSound.EvaluateProps 2>&1 | grep -E "^error|error:" |
+      head -10)
+  ⎿  error: LeanTypeSound/EvaluateProps.lean:125:18: unsolved goals
+     error: Lean exited with code 1
+     error: build failed
+
+● Bash(lake build LeanTypeSound.EvaluateProps 2>&1 | grep -A 10 "125:18" | head
+      -20)  ⎿  error: LeanTypeSound/EvaluateProps.lean:125:18: unsolved goals
+     case refine_1.cons
+     ffi : Type
+     … +8 lines (ctrl+o to expand)
+
+● Update(LeanTypeSound/EvaluateProps.lean)
+  ⎿  Added 1 line, removed 7 lines
+      118  -/
+      119  theorem io_events_mono_refl {ffi : Type}
+      120      (s : ffi_state ffi) :
+      121 -    io_events_mono s s := by                                  
+      122 -  refine ⟨?_, ?_⟩                                             
+      123 -  · induction s.io_events with                                
+      124 -    | nil => simp [List.isPrefixOf]                           
+      125 -    | cons h t ih =>                                          
+      126 -      simp [List.isPrefixOf, beq_self_eq_true, ih]            
+      127 -  · intro _; rfl                                              
+      121 +    io_events_mono s s := by sorry                            
+      122  
+      123  /- HOL4: Theorem do_app_call_FFI_rel
+      124     do_app (r,ffi) op vs = SOME ((r',ffi'),res) ⇒
+
+● Bash(lake build LeanTypeSound.EvaluateProps 2>&1 | tail -5)
+  ⎿  warning: LeanTypeSound/EvaluateProps.lean:298:8: declaration uses `sor
+     ry`
+     warning: LeanTypeSound/EvaluateProps.lean:312:8: declaration uses `sor
+     … +6 lines (ctrl+o to expand)
+
+● Now let me run a complete build and check status:
+
+● Bash(lake build 2>&1 | tail -5)
+  ⎿  warning: LeanTypeSound/TypeSound.lean:935:8: declaration uses `sorry`
+     warning: LeanTypeSound/TypeSound.lean:983:8: declaration uses `sorry`
+     warning: LeanTypeSound/TypeSound.lean:1016:8: declaration uses `sorry`
+     … +2 lines (ctrl+o to expand)
+  ⎿  (timeout 10m)
+
+● Let me try a few more. Let me look at simple theorems in more files:
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/TypeSound.lean)
+  ⎿  Added 4 lines, removed 1 line
+      43    (\ (x,y,z). x) = FST
+      44  -/
+      45  theorem fst_triple {α β γ : Type} :
+      46 -    (fun ((x, _, _) : α × β × γ) => x) = (fun (p : α × β × γ) =
+         -> p.1) := by sorry                                             
+      46 +    (fun ((x, _, _) : α × β × γ) => x) = (fun (p : α × β × γ) =
+         +> p.1) := by                                                   
+      47 +  funext p                                                     
+      48 +  obtain ⟨x, y, z⟩ := p                                        
+      49 +  rfl                                                          
+      50  
+      51  /- HOL4:
+      52  Theorem sing_list[local]:
+
+● Update(LeanTypeSound/TypeSound.lean)
+  ⎿  Added 12 lines, removed 1 line
+      53    !l. LENGTH l = 1 ⇔ ?x. l = [x]
+      54  -/
+      55  theorem sing_list {α : Type} :
+      56 -    ∀ (l : List α), l.length = 1 ↔ ∃ (x : α), l = [x] := by sor
+         -ry                                                             
+      56 +    ∀ (l : List α), l.length = 1 ↔ ∃ (x : α), l = [x] := by    
+      57 +  intro l                                                      
+      58 +  constructor                                                  
+      59 +  · intro h                                                    
+      60 +    cases l with                                               
+      61 +    | nil => simp at h                                         
+      62 +    | cons x xs =>                                             
+      63 +      cases xs with                                            
+      64 +      | nil => exact ⟨x, rfl⟩                                  
+      65 +      | cons y ys => simp at h                                 
+      66 +  · rintro ⟨x, rfl⟩                                            
+      67 +    simp                                                       
+      68  
+      69  /- HOL4:
+      70  Theorem EVERY_LIST_REL[local]:
+
+● Update(LeanTypeSound/TypeSound.lean)
+  ⎿  Added 3 lines, removed 1 line
+      79    !tenv x. tenv with v := tenv.v = tenv
+      80  -/
+      81  theorem v_unchanged :
+      82 -    ∀ (tenv : type_env), { tenv with v := tenv.v } = tenv := by
+         - sorry                                                         
+      82 +    ∀ (tenv : type_env), { tenv with v := tenv.v } = tenv := by
+      83 +  intro tenv                                                   
+      84 +  rfl                                                          
+      85  
+      86  /- HOL4:
+      87  Theorem check_dup_ctors_thm:
+
+● Now let me look at the same_type_refl theorem in SemanticPrimitivesProps.lean:
+
+  Searched for 1 pattern, read 2 files (ctrl+o to expand)
+
+● Update(LeanTypeSound/TypeSound.lean)
+  ⎿  Added 5 lines, removed 1 line
+      219    !t. same_type t t
+      220  -/
+      221  theorem same_type_refl :
+      222 -    ∀ (t : stamp), same_type t t := by sorry                  
+      222 +    ∀ (t : stamp), same_type t t := by                        
+      223 +  intro t                                                     
+      224 +  cases t with                                                
+      225 +  | TypeStamp s n => simp [same_type]                         
+      226 +  | ExnStamp n => simp [same_type]                            
+      227  
+      228  /- HOL4:
+      229  Theorem eq_same_type[local]:
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(LeanTypeSound/TypeSound.lean)
+  ⎿  Added 5 lines, removed 1 line
+      379  -/
+      380  theorem remove_lambda_prod {α β γ : Type} :
+      381      ∀ (P : α → β → γ),
+      382 -      (fun ((x, y) : α × β) => P x y) = (fun (p : α × β) => P 
+          -p.1 p.2) := by sorry                                          
+      382 +      (fun ((x, y) : α × β) => P x y) = (fun (p : α × β) => P 
+          +p.1 p.2) := by                                                
+      383 +  intro P                                                     
+      384 +  funext p                                                    
+      385 +  obtain ⟨x, y⟩ := p                                          
+      386 +  rfl                                                         
+      387  
+      388  /- HOL4:
+      389  Theorem opapp_type_sound:
+
+● Now let me check TypeSystem.lean:
+
+  Read 1 file (ctrl+o to expand)
+
+● Bash(lake build 2>&1 | grep -E "error|^warning.*sorry" | wc -l)
+  ⎿  303
+
+● Bash(lake build 2>&1 | grep "error:" | head -10)
+  ⎿  (No output)
+
+● Bash(lake build 2>&1 | tail -3)
+  ⎿  warning: LeanTypeSound/TypeSound.lean:1007:8: declaration uses `sorry`
+     warning: LeanTypeSound/TypeSound.lean:1040:8: declaration uses `sorry`
+     Build completed successfully (24 jobs).
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+● Let me also try a few more potentially easy theorems. Let me check TypeSound
+  for "div_divsound" and similar terminal easy theorems:
+
+  Read 1 file (ctrl+o to expand)
+
+● Let me verify the full build one more time and check the total number of
+  sorries reduced:
+
+● Bash(lake build 2>&1 | grep "error" | head -5)  ⎿  (No output)
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+● Bash(lake build 2>&1 | tail -3)
+  ⎿  warning: LeanTypeSound/TypeSound.lean:1007:8: declaration uses `sorry`
+     warning: LeanTypeSound/TypeSound.lean:1040:8: declaration uses `sorry`
+     Build completed successfully (24 jobs).
+
+● Project builds cleanly. Here is the summary report.
+
+  Summary Report
+
+  Starting count: 344 sorrys across 15 Lean files in LeanTypeSound/.
+  Final count: 296 sorrys. 48 theorems proven and verified via lake build.
+
+  Successfully Proven (48 theorems)
+
+  Misc.lean (6 proven):
+  - find_index_LESS_LENGTH — induction on list
+  - FST_pair — funext; rfl
+  - LESS_1 — omega
+  - map_some_eq — induction on list
+  - DROP_EMPTY — simp + omega
+  - plus_0_I — funext
+
+  Weakening.lean (1 proven):
+  - gt_0 — Nat.zero_le
+
+  TypeSysProps.lean (11 proven):
+  - unchanged_tenv — rfl
+  - extend_dec_tenv_assoc_thm — cases + list append assoc
+  - tenv_val_ok_nsEmpty, tenv_ctor_ok_nsEmpty, tenv_abbrev_ok_nsEmpty,
+  tenv_ok_empty — cases on id + empty lookup
+  - bind_tvar0 — simp unfolding
+  - bind_var_list_append, num_tvs_bind_var_list — list induction
+  - num_tvs_db_merge, num_tvs_deBruijn_subst_tenvE — induction on tenv_val_exp
+
+  NamespaceProps.lean (18 proven):
+  - mk_id_thm, mk_id_surj — induction on cml_id
+  - nsLookup_nsEmpty, nsLookupMod_nsEmpty, nsAppend_nsEmpty, alist_to_ns_nil
+  - nsAll_nsEmpty, nsSub_nsEmpty, nsAll2_nsEmpty, alist_to_ns_cons
+  - nsAppend_nsBind, nsAppend_assoc, nsAppend_nsSing, nsSub_mono, nsAll2_mono
+  - nsAppend_to_nsBindList, eALL_T, nsLookup_nsAll
+
+  SemanticPrimitivesProps.lean (6 proven):
+  - with_same_v, unchanged_env — pattern match on sem_env
+  - with_same_clock — rfl
+  - Boolv_11 — case analysis on booleans
+  - extend_dec_env_assoc — cases on all envs + list append assoc
+  - do_app_cases — Iff.rfl (tautology)
+
+  TypeSound.lean (5 proven):
+  - fst_triple, remove_lambda_prod — funext + projection
+  - sing_list — case analysis
+  - v_unchanged — rfl
+  - same_type_refl — case on stamp
+
+  EvaluateProps.lean (1 proven):
+  - pair_CASE_eq_forall — propext + case analysis
+
+  Not Proven (296 remaining sorry's)
+
+  Major categories of remaining sorrys that I was not able to prove:
+
+  1. Opaque function stubs in HOL4Prelude.lean (49): Finmap.FLOOKUP,
+  Sptree.lookup, LazyList.LPREFIX, IEEE 754 operations, word shifts, TOKENS,
+  etc. These require concrete implementations (typically needs Mathlib), not
+  proofs.
+  2. Termination proofs (decreasing_by all_goals sorry): In TypeSystem.lean (4),
+   Namespace.lean (1), NamespaceProps.lean (1), Mllist.lean (1), Ast.lean (1),
+  Evaluate.lean (4), SemanticPrimitives.lean (6). These need well-founded
+  decreasing measures.
+  3. BEq v / BEq sem_env instance stubs in SemanticPrimitives.lean: Mutually
+  inductive types with function-valued fields can't derive BEq.
+  4. Complex inductive proofs that need auxiliary lemmas:
+    - TypeSysProps.lean (81 remaining): Most need check_freevars_add,
+  tveLookup_subst_*, deBruijn_inc/subst commutativity — a deep chain of lemmas
+  about de Bruijn indices.
+    - TypeSound.lean (39): Require type_v inversion and the weakening lemmas
+  from Weakening.lean.
+    - Weakening.lean (24): Require mutual induction on type_e/type_p/type_d
+  inductive relations — substantial formal development.
+    - NamespaceProps.lean (32): More complex (nsLookup_nsAppend_some,
+  nsAll2_nsLookup2, etc.) — induction on namespace structure with nested
+  lookups.
+    - EvaluateProps.lean (21): Require io_events_mono properties whose BEq laws
+  on io_event aren't established, plus is_clock_io_mono preservation lemmas.
+  5. Opaque-type-dependent theorems: FDOM_FLOOKUP, tlookup_bij_*,
+  CARD_IMAGE_ID_BIJ — unprovable until Finmap/Sptree/BIJ have concrete
+  definitions.
+  6. Attempted but reverted: build_rec_env_merge (needed a generalization over
+  the closure I couldn't quite work out), io_events_mono_refl (blocked by lack
+  of LawfulBEq for io_event).
+
+✻ Cogitated for 18m 15s

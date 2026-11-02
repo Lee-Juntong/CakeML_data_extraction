@@ -13,13 +13,31 @@ sys.stdout.reconfigure(encoding='utf-8')
 #   CAKEML: a clone of https://github.com/Lee-Juntong/cakeml with the lean-translate* branches
 #           (default: the CAKEML environment variable, else ./cakeml)
 #   AUDIT_DIR: the folder holding <workflow>/axioms.tsv (default: this script's folder)
+#        python table_r2.py --snapshots SNAPSHOT_DIR [--out table_r2.json]
+#   Snapshot mode, used by run_all.sh: reads the exported trees in the artifact's snapshots/ folder
+#   instead of a clone. The base is the snapshot 4841f993e, whose tree is identical to de795c9f6, and
+#   the endpoints are the snapshots of the five lean-translate-* heads (COMMIT.json names the branch).
+#   The result is written to --out (default: table_r2.json next to this script) and compared with the
+#   recorded table_r2.json of this folder.
 ARTIFACT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(ARTIFACT / 'scripts'))
+import counter
 from counter import declarations_at_ref
 
-repo = Path(sys.argv[1] if len(sys.argv) > 1 else os.environ.get('CAKEML', 'cakeml'))
-audit = Path(sys.argv[2]) if len(sys.argv) > 2 else Path(__file__).resolve().parent
-BASE = 'de795c9f6'
+argv = sys.argv[1:]
+snapshot_mode = '--snapshots' in argv
+out_path = None
+if '--out' in argv:
+    i = argv.index('--out'); out_path = Path(argv[i + 1]); del argv[i:i + 2]
+if snapshot_mode:
+    i = argv.index('--snapshots'); counter.SNAPSHOT_ROOT = Path(argv[i + 1]).resolve(); del argv[i:i + 2]
+    repo = Path('.')
+    audit = Path(argv[0]) if argv else Path(__file__).resolve().parent
+    BASE = '4841f993e'  # same tree as de795c9f6 (two repair commits rebased onto lean-translate)
+else:
+    repo = Path(argv[0] if argv else os.environ.get('CAKEML', 'cakeml'))
+    audit = Path(argv[1]) if len(argv) > 1 else Path(__file__).resolve().parent
+    BASE = 'de795c9f6'
 base, _ = declarations_at_ref(repo, BASE)
 canon = [d for d in base if d.group == 'theorem']
 B = {d.key: d for d in base}
@@ -67,8 +85,16 @@ runs = {'Skills': ('skills', 'lean-translate-Lean-Skills-Official'),
         'Second pass': ('second-pass', 'lean-translate-skills(prove)-docAccess-2pass'),
         'Hybrid': ('hybrid', 'lean-translate-CC-aristotle'),
         'Direct': ('direct', 'lean-translate-direct-aristotle')}
-if len(sys.argv) > 3:
-    runs['Direct (stage 2)'] = ('direct', sys.argv[3])
+if snapshot_mode:
+    # Map each branch to the snapshot whose COMMIT.json names it.
+    heads = {}
+    for d in counter.SNAPSHOT_ROOT.iterdir():
+        cj = d / 'COMMIT.json'
+        if cj.exists():
+            heads[json.load(open(cj, encoding='utf-8')).get('branch')] = d.name
+    runs = {label: (folder, heads[ref]) for label, (folder, ref) in runs.items()}
+elif len(argv) > 2:
+    runs['Direct (stage 2)'] = ('direct', argv[2])
 table = {}
 sets = collections.defaultdict(set)
 for label, (folder, ref) in runs.items():
@@ -128,4 +154,13 @@ for label, (folder, ref) in runs.items():
 main = [l for l in runs if not l.startswith('Direct (')]
 for m in ['Local', 'Mod.', 'Aud.']:
     print('Any', m, len(set().union(*[sets[l, m] for l in main])))
-json.dump(table, open(audit / 'table_r2.json', 'w'), indent=1)
+out_path = out_path or audit / 'table_r2.json'
+json.dump(table, open(out_path, 'w', encoding='utf-8'), indent=1)
+if snapshot_mode:
+    rec = json.load(open(Path(__file__).resolve().parent / 'table_r2.json', encoding='utf-8'))
+    diffs = [(l, k, rec.get(l, {}).get(k), v) for l, row in table.items() for k, v in row.items()
+             if rec.get(l, {}).get(k) != v]
+    diffs += [(l, k, v, None) for l, row in rec.items() for k, v in row.items() if k not in table.get(l, {})]
+    if diffs:
+        print('FAIL Table IX differs from the recorded table_r2.json:', diffs); sys.exit(1)
+    print('PASS Table IX equals the recorded table_r2.json')
