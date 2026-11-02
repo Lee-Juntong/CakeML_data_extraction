@@ -1,10 +1,11 @@
-import sys
+import os, sys
 from pathlib import Path
 sys.stdout.reconfigure(encoding='utf-8')
-sys.path.insert(0, r'E:\NUS\mcomp\Dissertation\publication\formalise2027\scripts\transitive_audit')
-from count_translation_progress import declarations_at_ref
+# Usage: python stages.py [CAKEML], CAKEML a clone of https://github.com/Lee-Juntong/cakeml (default: $CAKEML, else ./cakeml)
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'scripts'))
+from counter import declarations_at_ref
 
-repo = Path(r'E:\NUS\mcomp\Dissertation\CML_Proof\cakeml')
+repo = Path(sys.argv[1] if len(sys.argv) > 1 else os.environ.get('CAKEML', 'cakeml'))
 canon = [d for d in declarations_at_ref(repo, 'de795c9f6')[0] if d.group == 'theorem']
 for st, ref in [(1, '38acfb491d'), (2, 'dae9881896'), (3, 'e0384c714c'), (4, '8f73cac87f'), (5, '904068958d')]:
     decls = declarations_at_ref(repo, ref)[0]

@@ -1,5 +1,6 @@
-import subprocess,re,sys
-repo=r'E:\NUS\mcomp\Dissertation\CML_Proof\cakeml'
+import subprocess,re,sys,os
+# Usage: python ind2.py [CAKEML], CAKEML a clone of https://github.com/Lee-Juntong/cakeml (default: $CAKEML, else ./cakeml)
+repo=sys.argv[1] if len(sys.argv)>1 else os.environ.get('CAKEML','cakeml')
 G=['git','-c','safe.directory=*','-C',repo]
 KW=r'^(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+|noncomputable\s+)*(inductive|structure|instance|class|abbrev)\b'
 TOP=r'^(?:@\[|/-|--|theorem|lemma|def|noncomputable|private|protected|partial|inductive|structure|instance|class|abbrev|mutual|end|namespace|section|open|set_option|attribute|variable|#|import|macro|syntax|example|termination_by|decreasing_by)'
@@ -22,7 +23,7 @@ def blocks(ref):
                 out[key]=re.sub(r'\s+','',body); i=j
             else: i+=1
     return out
-for base,heads in [('252eab2cf',['0d1173557','88927cb6f','9f5188d63','aef82615e','41c815090']),('4841f993e',['proof2-skills','proof2-docs','proof2-second-pass','proof2-hybrid','proof2-direct'])]:
+for base,heads in [('252eab2cf',['0d1173557','88927cb6f','9f5188d63','aef82615e','41c815090']),('de795c9f6',['lean-translate-Lean-Skills-Official','lean-translate-lean4skills(prove)-docAccess','lean-translate-skills(prove)-docAccess-2pass','lean-translate-CC-aristotle','lean-translate-direct-aristotle'])]:
     B=blocks(base); print(base,len(B),{k:sum(1 for x in B if x[0]==k) for k in ['inductive','structure','instance','class','abbrev']})
     for h in heads:
         S=blocks(h)

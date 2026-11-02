@@ -1,6 +1,6 @@
 """Table IX, the round 2 version of Table VII: Local, Mod., Aud., Unch. on the canonical theorems of de795c9f6.
 
-Local: the theorem declaration has no sorry/admit (dissertation counter).
+Local: the theorem declaration has no sorry/admit (scripts/counter.py of the artifact).
 Aud.:  Lean.collectAxioms has no sorryAx and only the three standard axioms.
 Mod.:  local, and every sorry root in the closure is a definition (or a termination/instance obligation)
        that is admitted in the baseline de795c9f6; no admitted theorem is reached.
@@ -9,11 +9,16 @@ Unch.: Mod. with unchanged statement text (whitespace-insensitive).
 import sys, os, re, json, collections
 from pathlib import Path
 sys.stdout.reconfigure(encoding='utf-8')
-sys.path.insert(0, r'E:\NUS\mcomp\Dissertation\publication\formalise2027\scripts\transitive_audit')
-from count_translation_progress import declarations_at_ref
+# Usage: python table_r2.py [CAKEML] [AUDIT_DIR] [EXTRA_REF]
+#   CAKEML: a clone of https://github.com/Lee-Juntong/cakeml with the lean-translate* branches
+#           (default: the CAKEML environment variable, else ./cakeml)
+#   AUDIT_DIR: the folder holding <workflow>/axioms.tsv (default: this script's folder)
+ARTIFACT = Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(ARTIFACT / 'scripts'))
+from counter import declarations_at_ref
 
-repo = Path(r'E:\NUS\mcomp\Dissertation\CML_Proof\cakeml')
-audit = Path(sys.argv[1])
+repo = Path(sys.argv[1] if len(sys.argv) > 1 else os.environ.get('CAKEML', 'cakeml'))
+audit = Path(sys.argv[2]) if len(sys.argv) > 2 else Path(__file__).resolve().parent
 BASE = 'de795c9f6'
 base, _ = declarations_at_ref(repo, BASE)
 canon = [d for d in base if d.group == 'theorem']
@@ -37,12 +42,16 @@ def resolve(rows, d):
     return [r for r in rows if r['module'] == mod and (r['name'] == d.name or r['name'].endswith('.' + d.name))]
 
 
+# Attributes such as @[simp] are neither statement nor body edits, as in scripts/analysis.py.
+ATTR = re.compile(r"^@\[[^\]\n]*\]\s*")
+
+
 def norm_stmt(d):
-    return re.sub(r'\s+', '', d.content.split(':=', 1)[0])
+    return re.sub(r'\s+', '', ATTR.sub('', d.content).split(':=', 1)[0])
 
 
 def norm_body(d):
-    t = re.split(r'\b(termination_by|decreasing_by)\b', d.content)[0]
+    t = re.split(r'\b(termination_by|decreasing_by)\b', ATTR.sub('', d.content))[0]
     return re.sub(r'\s+', '', re.sub(r'\bsorry\b', '', t))
 
 
@@ -52,11 +61,14 @@ def is_aux(n):
     return any(p.startswith('_') or re.fullmatch(r'proof_\d+', p) for p in n.split('.'))
 
 
-runs = {'Skills': ('skills', 'proof2-skills'), 'Docs': ('docs', 'proof2-docs'),
-        'Second pass': ('second-pass', 'proof2-second-pass'), 'Hybrid': ('hybrid', 'proof2-hybrid'),
-        'Direct': ('direct', 'proof2-direct')}
-if len(sys.argv) > 2:
-    runs['Direct (stage 2)'] = ('direct', sys.argv[2])
+# Branches of the GitHub fork; ../proof_round2.bundle has the same heads under the names proof2-*.
+runs = {'Skills': ('skills', 'lean-translate-Lean-Skills-Official'),
+        'Docs': ('docs', 'lean-translate-lean4skills(prove)-docAccess'),
+        'Second pass': ('second-pass', 'lean-translate-skills(prove)-docAccess-2pass'),
+        'Hybrid': ('hybrid', 'lean-translate-CC-aristotle'),
+        'Direct': ('direct', 'lean-translate-direct-aristotle')}
+if len(sys.argv) > 3:
+    runs['Direct (stage 2)'] = ('direct', sys.argv[3])
 table = {}
 sets = collections.defaultdict(set)
 for label, (folder, ref) in runs.items():

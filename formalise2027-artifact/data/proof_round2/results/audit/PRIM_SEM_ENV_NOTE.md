@@ -1,6 +1,6 @@
 # PrimSemEnv: port of prim_type_sound_invariants (2026-10-15)
 
-Worktree `r2\primsemenv`, branch `prim-sem-env`, cut from `proof2-direct` (904068958d). Not pushed.
+Worktree `r2\primsemenv`, branch `prim-sem-env`, cut from `proof2-direct` (904068958d). Published on 2 November 2026 as branch `lean-translate-prim-sem-env` of https://github.com/Lee-Juntong/cakeml (head cdee629213).
 
 ## Translation
 
@@ -9,7 +9,7 @@ Worktree `r2\primsemenv`, branch `prim-sem-env`, cut from `proof2-direct` (90406
 - Definitions added: `unknown_loc`, `prim_types_program`, `add_to_sem_env`, `prim_sem_env`, `prim_tenv`, `prim_type_ids`. The theorem `prim_type_sound_invariants` has proof `sorry`. No existing file was changed, and no mismatch with existing definitions was found.
 - Not translated: `prim_sem_env_eq`. HOL4 states it as `EVAL ``prim_sem_env ffi```, so the source has no statement text.
 - One adaptation: HOL4 `THE` returns an unspecified value on `NONE`. Lean `THE` needs `Inhabited`, so the statement passes an explicit default with `@THE _ ⟨…⟩`. That default is never used, because `prim_sem_env ffi0` is `some _`; `#eval!` gives next_type_stamp 2 and next_exn_stamp 4.
-- Model used for the translation: Claude Opus 5.5 (Claude Code).
+- Model used for the translation: Claude Opus 4.7 (Claude Code), as stated by the author on 2 November 2026.
 
 ## Aristotle
 
