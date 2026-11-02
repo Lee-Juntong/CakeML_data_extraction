@@ -1,0 +1,12 @@
+This Lean 4 project translates the HOL4 development of CakeML type soundness into Lean. The HOL4 sources are in hol4-ultramin/. Every theorem statement in LeanTypeSound/ was reviewed against its HOL4 source and is proved in HOL4, so treat each statement as correct and fixed.
+
+Task: fill in the sorries of the theorems.
+
+Rules:
+1. Do not change any theorem statement. Do not weaken it, add hypotheses or type class assumptions, rename it, or delete it.
+2. Do not delete, rename, or move declarations or files. Keep TypeSound.lean complete, including decs_type_sound and semantics_type_sound at its end.
+3. You may add helper lemmas. You may also prove the termination obligations that are left as decreasing_by sorry. You may change the body of a definition only to prove its termination (for example with List.attach), and the new body must compute the same function.
+4. Work in import order (see LeanTypeSound.lean): the prelude and definition files first, then NamespaceProps, Misc, SemanticPrimitivesProps, EvaluateProps, TypeSysProps, Weakening, and TypeSound last. Use lemmas that the project states earlier.
+5. The HOL4 proofs in hol4-ultramin/ show the proof structure. Follow them when they help.
+6. If you cannot prove a theorem, leave its sorry in place and continue with the next theorem.
+7. At the end, the project must build with lake build without errors.

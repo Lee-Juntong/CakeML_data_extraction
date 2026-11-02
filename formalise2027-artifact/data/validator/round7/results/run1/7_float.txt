@@ -1,0 +1,26 @@
+{
+  "base": "7_float",
+  "status": "error",
+  "summary": "The Lean stubs for fp64 arithmetic change meaning relative to HOL4 in three places: fused multiply-add is computed with two roundings, the HOL4 rounding-mode argument is discarded, and the HOL4 rounding datatype is collapsed to a single constant.",
+  "errors": [{
+    "kind": "fma_double_rounding",
+    "severity": "high",
+    "hol4_evidence": "fp64_mul_add is produced by lift3 false (\"fp64_mul_add\", \"float_mul_add\"), i.e. the HOL4 float_mul_add operation, which is a single fused multiply-add with one rounding.",
+    "lean_evidence": "def fp64_mul_add (_rm : Unit) (a b c : word64) : word64 := fpToBits (fpOfBits a * fpOfBits b + fpOfBits c)  -- comment: 'not a true fused multiply-add ... two roundings'",
+    "why_wrong": "a*b+c with two roundings can differ from the single-rounding FMA in HOL4 in the last bit, so the Lean function returns different word64 results for some inputs. The gap is acknowledged in a comment but it is still a semantic mismatch, not only a missing proof."
+  }, {
+    "kind": "rounding_mode_ignored",
+    "severity": "medium",
+    "hol4_evidence": "lift1/lift2/lift3 give every fp64 operation a rounding_ty argument (for example rounding_ty --> fp_ty --> fp_ty --> fp_ty), so the result depends on the chosen rounding mode.",
+    "lean_evidence": "def fp64_sqrt (_rm : Unit) (a : word64) ...; def fp64_add (_rm : Unit) (a b : word64) ...; likewise for sub, mul, div, mul_add. The rounding argument is unused and the comment says 'Lean uses round-to-nearest-even'.",
+    "why_wrong": "For roundTowardPositive, roundTowardNegative and roundTowardZero the HOL4 results differ from round-to-nearest-even whenever rounding is inexact. The Lean stubs return the same result for every mode, so they do not match HOL4 for those modes."
+  }, {
+    "kind": "rounding_datatype_collapsed",
+    "severity": "low",
+    "hol4_evidence": "Datatype: rounding = roundTiesToEven | roundTowardPositive | roundTowardNegative | roundTowardZero",
+    "lean_evidence": "def roundTiesToEven : Unit := ()   (no counterpart for roundTowardPositive, roundTowardNegative or roundTowardZero)",
+    "why_wrong": "The HOL4 type has four constructors and the Lean version has one value of type Unit. The other three modes cannot be expressed in the Lean translation, so the type does not correspond to HOL4's rounding."
+  }],
+  "confidence": 0.85,
+  "notes": "Operations defined in the HOL4 excerpt but absent from the Lean file (fp64_roundToIntegral, fp64_compare, fp64_to_int, the isNan/isZero family, the with_flags variants, and the posInf/negZero constants) were not counted as errors because the Lean file is an opaque stub set and coverage gaps are not translation errors. The Lean comparisons (lessThan, lessEqual, greaterThan, greaterEqual, equal) and abs/negate are consistent with IEEE 754 on the inputs checked, so they were not flagged. The rounding-mode findings depend on the Lean comment's claim that the rounding argument is ignored, which the code confirms."
+}

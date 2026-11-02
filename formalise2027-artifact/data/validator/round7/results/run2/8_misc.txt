@@ -1,0 +1,14 @@
+{
+  "base": "8_misc",
+  "status": "error",
+  "summary": "The Lean file closes and opens a HOL4 namespace that it never declares.",
+  "errors": [{
+    "kind": "structure/namespace mismatch",
+    "severity": "medium",
+    "hol4_evidence": "HOL4 source is a flat theory script with top-level bindings only (stringScript.sml:24-30, listScript.sml:219-227, relationScript.sml:94-98). It has no namespace.",
+    "lean_evidence": "Lean line 39 is 'end HOL4' and line 41 is 'open HOL4'. No 'namespace HOL4' appears anywhere in the file.",
+    "why_wrong": "'end HOL4' with no matching open namespace scope is a Lean elaboration error, and 'open HOL4' names an unknown namespace. The Lean file therefore does not compile as written, even though the definitions themselves are correct."
+  }],
+  "confidence": 0.7,
+  "notes": "Checked and matching: FOLDR (f x (FOLDR f e l) matches l.foldr f b), FOLDL (argument order and accumulator match l.foldl f b), RTC (refl and step constructors match the two HOL4 clauses), ordering constructors LESS/EQUAL/GREATER, and ORD/CHR as the char bijection. The HOL4 ordering datatype is not in the fetched sources, so it was not compared beyond its constructors."
+}

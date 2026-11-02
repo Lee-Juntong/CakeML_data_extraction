@@ -1,0 +1,45 @@
+base theorems: 269, head theorems: 470, new in head: 201
+missing in head: 0
+statement changed: 2
+  CHANGED Misc.lean tlookup_bij_suff
+    base: {names : Sptree Nat} : (fun x => x ∈ Sptree.toList names) = Sptree.domain names → BIJ (tlookup names) Set.univ Set.univ
+    head: {names : Sptree Nat} (hnd : (List.map Prod.fst (names : List (Nat × Nat))).Nodup) : (fun x => x ∈ Sptree.toList names) = Sptree.domain names → BIJ (tlookup names) Set.univ Set.univ
+  CHANGED Misc.lean tlookup_bij_iff
+    base: {names : Sptree Nat} : BIJ (tlookup names) Set.univ Set.univ ↔ (fun x => x ∈ Sptree.toList names) = Sptree.domain names
+    head: {names : Sptree Nat} (hnd : (List.map Prod.fst (names : List (Nat × Nat))).Nodup) : BIJ (tlookup names) Set.univ Set.univ ↔ (fun x => x ∈ Sptree.toList names) = Sptree.domain names
+moved to another file (same statement): 35
+  MOVED fst_triple TypeSound.lean -> TypeSoundCore.lean
+  MOVED sing_list TypeSound.lean -> TypeSoundCore.lean
+  MOVED EVERY_LIST_REL_local TypeSound.lean -> TypeSoundCore.lean
+  MOVED v_unchanged TypeSound.lean -> TypeSoundCore.lean
+  MOVED check_dup_ctors_thm TypeSound.lean -> TypeSoundCore.lean
+  MOVED prim_canonical_values_thm TypeSound.lean -> TypeSoundCore.lean
+  MOVED has_lists_v_to_list TypeSound.lean -> TypeSoundCore.lean
+  MOVED ctor_canonical_values_thm TypeSound.lean -> TypeSoundCore.lean
+  MOVED same_type_refl TypeSound.lean -> TypeSoundCore.lean
+  MOVED eq_same_type TypeSound.lean -> TypeSoundCore.lean
+  MOVED type_env_conv_thm TypeSound.lean -> TypeSoundCore.lean
+  MOVED type_funs_fst TypeSound.lean -> TypeSoundCore.lean
+  MOVED type_recfun_env_help TypeSound.lean -> TypeSoundCore.lean
+  MOVED type_recfun_env TypeSound.lean -> TypeSoundCore.lean
+  MOVED type_v_exn TypeSound.lean -> TypeSoundCore.lean
+  MOVED type_v_Boolv TypeSound.lean -> TypeSoundCore.lean
+  MOVED remove_lambda_prod TypeSound.lean -> TypeSoundCore.lean
+  MOVED opapp_type_sound TypeSound.lean -> TypeSoundCore.lean
+  MOVED store_type_extension_weakS TypeSound.lean -> TypeSoundCore.lean
+  MOVED store_type_extension_refl TypeSound.lean -> TypeSoundCore.lean
+  MOVED store_type_extension_trans TypeSound.lean -> TypeSoundCore.lean
+  MOVED store_assign_type_sound TypeSound.lean -> TypeSoundCore.lean
+  MOVED store_alloc_type_sound TypeSound.lean -> TypeSoundCore.lean
+  MOVED type_v_list_to_v TypeSound.lean -> TypeSoundCore.lean
+  MOVED type_v_list_to_v_APPEND TypeSound.lean -> TypeSoundCore.lean
+  MOVED do_eq_Boolv TypeSound.lean -> TypeSoundCore.lean
+  MOVED prim_canonical_Boolv_thm TypeSound.lean -> TypeSoundCore.lean
+  MOVED prim_canonical_Boolv_cases TypeSound.lean -> TypeSoundCore.lean
+  MOVED op_type_sound TypeSound.lean -> TypeSoundCore.lean
+  MOVED build_conv_type_sound TypeSound.lean -> TypeSoundCore.lean
+  MOVED same_ctor_and_same_tid TypeSound.lean -> TypeSoundCore.lean
+  MOVED pat_type_sound TypeSound.lean -> TypeSoundCore.lean
+  MOVED lookup_var_sound TypeSound.lean -> TypeSoundCore.lean
+  MOVED EVERY_REPLICATE TypeSound.lean -> TypeSoundCore.lean
+  MOVED EVERY_LIST_REL_thm TypeSound.lean -> TypeSoundCore.lean

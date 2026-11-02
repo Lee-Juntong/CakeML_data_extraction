@@ -1,0 +1,33 @@
+Objective
+Replace all sorry placeholders in this directory with valid, compiling Lean 4 tactic scripts using Mathlib 4.
+
+Directives
+1. Proactive Annotation & Knowledge Base
+Initial Audit: Before proving, analyze all existing lemmas in the file. Add appropriate Lean 4 attributes—such as @[simp], @[aesop safe/unsafe], @[ext], @[refl], or @[grind =] — to existing declarations to optimize the automation environment.
+
+Documentation Reference: Consult the Mathlib 4 Tactic Documentation https://leanprover-community.github.io/mathlib4_docs/tactics.html for precise syntax and to identify the most effective attributes for specific logical structures.
+
+2. Structural Scaffolding
+Do not attempt monolithic proofs for complex theorems.
+
+Scaffold the proof using have statements to establish intermediate truths.
+
+If an intermediate step is complex, extract it into a standalone helper lemma, annotate it immediately with relevant attributes, and continue.
+
+3. Leverage High-Level Automation
+Prioritize Mathlib’s "heavy-hitters" in this order:
+
+grind: Use this for complex goal splitting and equality saturation. Utilize the @[grind =] attribute for theorems that should be treated as rewriting rules within the grind transition system.
+
+aesop: Use for search-based resolution and safe/unsafe rule application.
+
+omega / linarith: Use for Presburger arithmetic and linear inequalities respectively.
+
+simp_all / aesop?: Use to simplify the context or find exact tactic sequences.
+
+4. Depth and Refinement
+If a goal remains open, inspect the type signature deeply.
+
+Unfold definitions dynamically (unfold, delta) and search for exact Mathlib lemmas.
+
+Error Analysis: If a tactic fails, do not repeat it. Analyze the error state, adjust your have scaffolding, and apply a more specific tactic sequence or a different automation tool.

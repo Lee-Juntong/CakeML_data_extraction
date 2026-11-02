@@ -1,0 +1,55 @@
+﻿2026-10-11 17:43:22 run hybrid in E:\NUS\mcomp\Dissertation\r2\hybrid\lean_type_sound
+2026-10-11 17:43:22 arguments: -p --model claude-opus-4-7 --permission-mode acceptEdits --output-format stream-json --verbose --effort xhigh
+2026-10-11 17:43:22 claude version: 2.1.296 (Claude Code)
+2026-10-11 17:43:26 mcp list (try 1): lean-lsp: uvx lean-lsp-mcp - √ Connected | aristotle: uvx --exclude-newer 2026-05-07T00:00:00Z --from git+https://github.com/septract/lean-aristotle-mcp@e53a7ffb856c53d1e85166668af89fe4175a4898 aristotle-mcp - √ Connected
+2026-10-11 17:43:26 message 1 (hybrid_message1.txt) sent
+2026-10-11 18:06:17 message 1 result: is_error False, turns 237, cost_usd 23.210784, session ad388844-0834-4cbf-b92c-9dfa65b5dfaf, text: Full project builds successfully. Resolved **66 of 287 sorries** (23% reduction) across the dependency graph while keeping the project compilable.
+
+**Per-file reduction:**
+| File | Before | After |
+|---|---|---|
+| Namespace | 1 | 0 |
+| Ast | 1 | 0 |
+| TypeSystem | 4 | 0 |
+| SemanticPrimitives | 8 | 0 |
+| Mlstring | 7 | 2 |
+| Misc | 14 | 5 |
+| SemanticPrimitivesProps | 13 | 9 |
+| NamespaceProps | 50 | 31 |
+| EvaluateProps | 22 | 20 |
+| Evaluate | 6 | 6 |
+| TypeSysProps | 92 | 87 |
+| Weakening | 25 | 21 |
+| TypeSound | 44 | 40 |
+
+**Highlights:**
+- Replaced `decreasing_by sorry` termination stubs with proper `attach`+`List.sizeOf_lt_of_mem` or `decreasing_tactic` in `Namespace.nsMap`, `Ast.every_exp`, `TypeSystem.{check_freevars,check_freevars_ast,check_type_names,is_value}`, and `SemanticPrimitives.{pmatch/pmatch_list, do_eq/do_eq_list, v_to_list, v_to_char_list, concrete_v/_list}`.
+- Proved foundational `mk_id_thm`/`mk_id_surj`, several `ns*_nsEmpty` lemmas, `nsSub_mono`/`nsAll2_mono`, structural rewrites (`with_same_v`, `with_same_clock`, `Boolv_11`, `v_unchanged`, `unchanged_tenv`), identity reductions (`FST_pair`, `fst_triple`, `plus_0_I`, `LESS_1`), `weakS_refl`/`weakCT_refl`/`weakCT_trans`, `same_type_refl`, `tenv_*_ok_nsEmpty`, Mlstring explode theorems, and list lemmas (`map_some_eq`, `DROP_EMPTY`, `find_index_LESS_LENGTH`, `MAP_EQ_MAP_IMP`, `list_result_eq_Rval`, `sing_list`, `dec_inc_clock`).
+
+Remaining sorries are the clock-based termination for mutual `evaluate`/`evaluate_match`/`evaluate_decs`, `nsSub_compute` (ill-founded via a prop-level alistSub lambda), and deep type-soundness lemmas that require substantial induction infrastructure.
+2026-10-11 18:06:18 snapshot after message 1: 30b5228543 Proof round 2: hybrid, state after message 1
+2026-10-11 18:06:18 message 2 (hybrid_message2.txt) sent
+2026-10-11 18:19:36 message 2 result: is_error False, turns 132, cost_usd 46.61368800000001, session ad388844-0834-4cbf-b92c-9dfa65b5dfaf, text: Second pass resolved **19 additional sorries** (202 remain total; 85/287 ≈ 30% resolved overall).
+
+**Deltas vs. first pass:**
+| File | 1st pass | 2nd pass | Δ |
+|---|---|---|---|
+| EvaluateProps | 20 | 18 | -2 |
+| NamespaceProps | 31 | 25 | -6 |
+| SemanticPrimitivesProps | 9 | 7 | -2 |
+| TypeSound | 40 | 37 | -3 |
+| TypeSysProps | 87 | 86 | -1 |
+| Weakening | 21 | 16 | -5 |
+
+**Newly proved:**
+- NamespaceProps: `nsSub_conj`, `nsSub_refl`, `nsAll2_conj`, `nsAll2_nsLookup2`, `nsAll2_nsLookup_none`, `nsLookup_FOLDR_nsLift`
+- Weakening: `weak_ctMap_lookup`, `weak_tenvE_bind`, `weak_tenvE_opt_bind`, `weak_tenvE_bind_tvar`, `weak_tenvE_bind_var_list`
+- EvaluateProps: `pair_CASE_eq_forall`, `can_pmatch_all_EVERY`
+- SemanticPrimitivesProps: `concrete_v_list_thm`, `prim_type_cases`
+- TypeSound: `remove_lambda_prod`, `store_type_extension_refl`, `EVERY_LIST_REL_local`
+- TypeSysProps: `extend_dec_tenv_assoc_thm`
+
+Full project builds cleanly. The remaining sorries cluster around (a) clock-based termination for `evaluate*`, (b) deBruijn/type-substitution theorems over `sem_t` (which need mutual induction over `sem_t`/`List sem_t`), (c) `nsAll_nsAppend`-style lemmas needing `nsLookup_nsAppend_some`, and (d) deep type-soundness theorems about `type_v`/`type_e`.
+2026-10-11 18:19:37 snapshot after message 2: eaf56b9d8f Proof round 2: hybrid, state after message 2
+2026-10-11 18:19:37 all messages done. Running finish_run.ps1.
+2026-10-11 18:19:37 run hybrid finished

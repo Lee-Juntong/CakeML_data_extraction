@@ -1,0 +1,807 @@
+{
+ "model": "gemini-3.8-flash-high",
+ "base_url": "http://127.0.0.1:8317/v1",
+ "temperature": 0.1,
+ "top_p": 0.95,
+ "baseline_commit": "252eab2cf",
+ "prompt_source": "CakeML_data_extraction compare_validate.ipynb at 013b67c",
+ "started": "2026-10-05T03:10:25+0800",
+ "runs": [
+  {
+   "run": 1,
+   "calls": [
+    {
+     "base": "ast",
+     "status": "right",
+     "seconds": 10.4,
+     "usage": {
+      "completion_tokens": 1449,
+      "total_tokens": 7574,
+      "prompt_tokens": 6125,
+      "completion_tokens_details": {
+       "reasoning_tokens": 1448
+      }
+     }
+    },
+    {
+     "base": "evaluate",
+     "status": "right",
+     "seconds": 38.5,
+     "usage": {
+      "completion_tokens": 6673,
+      "total_tokens": 16268,
+      "prompt_tokens": 9595,
+      "completion_tokens_details": {
+       "reasoning_tokens": 6672
+      }
+     }
+    },
+    {
+     "base": "evaluateprops",
+     "status": "right",
+     "seconds": 34.7,
+     "usage": {
+      "completion_tokens": 5524,
+      "total_tokens": 15541,
+      "prompt_tokens": 10017,
+      "completion_tokens_details": {
+       "reasoning_tokens": 5524
+      }
+     }
+    },
+    {
+     "base": "ffi",
+     "status": "right",
+     "seconds": 3.4,
+     "usage": {
+      "completion_tokens": 349,
+      "total_tokens": 2629,
+      "prompt_tokens": 2280,
+      "completion_tokens_details": {
+       "reasoning_tokens": 348
+      }
+     }
+    },
+    {
+     "base": "fpsem",
+     "status": "right",
+     "seconds": 9.7,
+     "usage": {
+      "completion_tokens": 608,
+      "total_tokens": 1538,
+      "prompt_tokens": 930,
+      "completion_tokens_details": {
+       "reasoning_tokens": 607
+      }
+     }
+    },
+    {
+     "base": "location",
+     "status": "right",
+     "seconds": 8.8,
+     "usage": {
+      "completion_tokens": 332,
+      "total_tokens": 1221,
+      "prompt_tokens": 889,
+      "completion_tokens_details": {
+       "reasoning_tokens": 331
+      }
+     }
+    },
+    {
+     "base": "misc",
+     "status": "right",
+     "seconds": 28.4,
+     "usage": {
+      "completion_tokens": 3975,
+      "total_tokens": 10355,
+      "prompt_tokens": 6380,
+      "completion_tokens_details": {
+       "reasoning_tokens": 3975
+      }
+     }
+    },
+    {
+     "base": "mllist",
+     "status": "error",
+     "seconds": 30.2,
+     "usage": {
+      "completion_tokens": 4039,
+      "total_tokens": 4905,
+      "prompt_tokens": 866,
+      "completion_tokens_details": {
+       "reasoning_tokens": 3715
+      }
+     }
+    },
+    {
+     "base": "mlstring",
+     "status": "right",
+     "seconds": 27.3,
+     "usage": {
+      "completion_tokens": 4198,
+      "total_tokens": 11298,
+      "prompt_tokens": 7100,
+      "completion_tokens_details": {
+       "reasoning_tokens": 4197
+      }
+     }
+    },
+    {
+     "base": "namespace",
+     "status": "right",
+     "seconds": 12.9,
+     "usage": {
+      "completion_tokens": 1993,
+      "total_tokens": 5512,
+      "prompt_tokens": 3519,
+      "completion_tokens_details": {
+       "reasoning_tokens": 1993
+      }
+     }
+    },
+    {
+     "base": "namespaceprops",
+     "status": "right",
+     "seconds": 50.8,
+     "usage": {
+      "completion_tokens": 8107,
+      "total_tokens": 22498,
+      "prompt_tokens": 14391,
+      "completion_tokens_details": {
+       "reasoning_tokens": 8107
+      }
+     }
+    },
+    {
+     "base": "semanticprimitives",
+     "status": "right",
+     "seconds": 73.3,
+     "usage": {
+      "completion_tokens": 12750,
+      "total_tokens": 44896,
+      "prompt_tokens": 32146,
+      "completion_tokens_details": {
+       "reasoning_tokens": 12749
+      }
+     }
+    },
+    {
+     "base": "semanticprimitivesprops",
+     "status": "error",
+     "seconds": 26.4,
+     "usage": {
+      "completion_tokens": 3753,
+      "total_tokens": 10322,
+      "prompt_tokens": 6569,
+      "completion_tokens_details": {
+       "reasoning_tokens": 3386
+      }
+     }
+    },
+    {
+     "base": "typesound",
+     "status": "right",
+     "seconds": 45.3,
+     "usage": {
+      "completion_tokens": 7533,
+      "total_tokens": 58404,
+      "prompt_tokens": 50871,
+      "completion_tokens_details": {
+       "reasoning_tokens": 7532
+      }
+     }
+    },
+    {
+     "base": "typesoundinvariants",
+     "status": "right",
+     "seconds": 38.0,
+     "usage": {
+      "completion_tokens": 6668,
+      "total_tokens": 16531,
+      "prompt_tokens": 9863,
+      "completion_tokens_details": {
+       "reasoning_tokens": 6668
+      }
+     }
+    },
+    {
+     "base": "typesysprops",
+     "status": "right",
+     "seconds": 90.7,
+     "usage": {
+      "completion_tokens": 16700,
+      "total_tokens": 73146,
+      "prompt_tokens": 56446,
+      "completion_tokens_details": {
+       "reasoning_tokens": 16699
+      }
+     }
+    },
+    {
+     "base": "typesystem",
+     "status": "right",
+     "seconds": 51.3,
+     "usage": {
+      "completion_tokens": 8558,
+      "total_tokens": 32308,
+      "prompt_tokens": 23750,
+      "completion_tokens_details": {
+       "reasoning_tokens": 8557
+      }
+     }
+    },
+    {
+     "base": "weakening",
+     "status": "right",
+     "seconds": 25.7,
+     "usage": {
+      "completion_tokens": 4489,
+      "total_tokens": 17208,
+      "prompt_tokens": 12719,
+      "completion_tokens_details": {
+       "reasoning_tokens": 4488
+      }
+     }
+    },
+    {
+     "base": "lprefix_lub",
+     "status": "right",
+     "seconds": 2.3,
+     "usage": {
+      "completion_tokens": 183,
+      "total_tokens": 730,
+      "prompt_tokens": 547,
+      "completion_tokens_details": {
+       "reasoning_tokens": 182
+      }
+     }
+    },
+    {
+     "base": "semantics_min",
+     "status": "right",
+     "seconds": 4.7,
+     "usage": {
+      "completion_tokens": 583,
+      "total_tokens": 1950,
+      "prompt_tokens": 1367,
+      "completion_tokens_details": {
+       "reasoning_tokens": 582
+      }
+     }
+    }
+   ]
+  },
+  {
+   "run": 2,
+   "calls": [
+    {
+     "base": "ast",
+     "status": "right",
+     "seconds": 15.4,
+     "usage": {
+      "completion_tokens": 1552,
+      "total_tokens": 7677,
+      "prompt_tokens": 6125,
+      "completion_tokens_details": {
+       "reasoning_tokens": 1552
+      }
+     }
+    },
+    {
+     "base": "evaluate",
+     "status": "right",
+     "seconds": 38.0,
+     "usage": {
+      "completion_tokens": 6454,
+      "total_tokens": 16049,
+      "prompt_tokens": 9595,
+      "completion_tokens_details": {
+       "reasoning_tokens": 6453
+      }
+     }
+    },
+    {
+     "base": "evaluateprops",
+     "status": "right",
+     "seconds": 36.6,
+     "usage": {
+      "completion_tokens": 5035,
+      "total_tokens": 15052,
+      "prompt_tokens": 10017,
+      "completion_tokens_details": {
+       "reasoning_tokens": 5034
+      }
+     }
+    },
+    {
+     "base": "ffi",
+     "status": "right",
+     "seconds": 7.7,
+     "usage": {
+      "completion_tokens": 1250,
+      "total_tokens": 3530,
+      "prompt_tokens": 2280,
+      "completion_tokens_details": {
+       "reasoning_tokens": 1249
+      }
+     }
+    },
+    {
+     "base": "fpsem",
+     "status": "right",
+     "seconds": 4.8,
+     "usage": {
+      "completion_tokens": 452,
+      "total_tokens": 1382,
+      "prompt_tokens": 930,
+      "completion_tokens_details": {
+       "reasoning_tokens": 451
+      }
+     }
+    },
+    {
+     "base": "location",
+     "status": "right",
+     "seconds": 3.5,
+     "usage": {
+      "completion_tokens": 298,
+      "total_tokens": 1187,
+      "prompt_tokens": 889,
+      "completion_tokens_details": {
+       "reasoning_tokens": 297
+      }
+     }
+    },
+    {
+     "base": "misc",
+     "status": "right",
+     "seconds": 18.6,
+     "usage": {
+      "completion_tokens": 2316,
+      "total_tokens": 8696,
+      "prompt_tokens": 6380,
+      "completion_tokens_details": {
+       "reasoning_tokens": 2315
+      }
+     }
+    },
+    {
+     "base": "mllist",
+     "status": "error",
+     "seconds": 28.1,
+     "usage": {
+      "completion_tokens": 3895,
+      "total_tokens": 4761,
+      "prompt_tokens": 866,
+      "completion_tokens_details": {
+       "reasoning_tokens": 3599
+      }
+     }
+    },
+    {
+     "base": "mlstring",
+     "status": "right",
+     "seconds": 30.7,
+     "usage": {
+      "completion_tokens": 4859,
+      "total_tokens": 11959,
+      "prompt_tokens": 7100,
+      "completion_tokens_details": {
+       "reasoning_tokens": 4858
+      }
+     }
+    },
+    {
+     "base": "namespace",
+     "status": "right",
+     "seconds": 8.5,
+     "usage": {
+      "completion_tokens": 1149,
+      "total_tokens": 4668,
+      "prompt_tokens": 3519,
+      "completion_tokens_details": {
+       "reasoning_tokens": 1148
+      }
+     }
+    },
+    {
+     "base": "namespaceprops",
+     "status": "right",
+     "seconds": 40.8,
+     "usage": {
+      "completion_tokens": 6380,
+      "total_tokens": 20771,
+      "prompt_tokens": 14391,
+      "completion_tokens_details": {
+       "reasoning_tokens": 6379
+      }
+     }
+    },
+    {
+     "base": "semanticprimitives",
+     "status": "right",
+     "seconds": 67.0,
+     "usage": {
+      "completion_tokens": 11836,
+      "total_tokens": 43982,
+      "prompt_tokens": 32146,
+      "completion_tokens_details": {
+       "reasoning_tokens": 11835
+      }
+     }
+    },
+    {
+     "base": "semanticprimitivesprops",
+     "status": "error",
+     "seconds": 33.6,
+     "usage": {
+      "completion_tokens": 4718,
+      "total_tokens": 11287,
+      "prompt_tokens": 6569,
+      "completion_tokens_details": {
+       "reasoning_tokens": 4356
+      }
+     }
+    },
+    {
+     "base": "typesound",
+     "status": "right",
+     "seconds": 67.3,
+     "usage": {
+      "completion_tokens": 11027,
+      "total_tokens": 61898,
+      "prompt_tokens": 50871,
+      "completion_tokens_details": {
+       "reasoning_tokens": 11026
+      }
+     }
+    },
+    {
+     "base": "typesoundinvariants",
+     "status": "right",
+     "seconds": 62.5,
+     "usage": {
+      "completion_tokens": 9823,
+      "total_tokens": 19686,
+      "prompt_tokens": 9863,
+      "completion_tokens_details": {
+       "reasoning_tokens": 9822
+      }
+     }
+    },
+    {
+     "base": "typesysprops",
+     "status": "right",
+     "seconds": 79.0,
+     "usage": {
+      "completion_tokens": 14440,
+      "total_tokens": 70886,
+      "prompt_tokens": 56446,
+      "completion_tokens_details": {
+       "reasoning_tokens": 14439
+      }
+     }
+    },
+    {
+     "base": "typesystem",
+     "status": "right",
+     "seconds": 45.7,
+     "usage": {
+      "completion_tokens": 7865,
+      "total_tokens": 31615,
+      "prompt_tokens": 23750,
+      "completion_tokens_details": {
+       "reasoning_tokens": 7864
+      }
+     }
+    },
+    {
+     "base": "weakening",
+     "status": "right",
+     "seconds": 48.7,
+     "usage": {
+      "completion_tokens": 8344,
+      "total_tokens": 21063,
+      "prompt_tokens": 12719,
+      "completion_tokens_details": {
+       "reasoning_tokens": 8343
+      }
+     }
+    },
+    {
+     "base": "lprefix_lub",
+     "status": "right",
+     "seconds": 3.8,
+     "usage": {
+      "completion_tokens": 242,
+      "total_tokens": 789,
+      "prompt_tokens": 547,
+      "completion_tokens_details": {
+       "reasoning_tokens": 241
+      }
+     }
+    },
+    {
+     "base": "semantics_min",
+     "status": "right",
+     "seconds": 10.0,
+     "usage": {
+      "completion_tokens": 1339,
+      "total_tokens": 2706,
+      "prompt_tokens": 1367,
+      "completion_tokens_details": {
+       "reasoning_tokens": 1338
+      }
+     }
+    }
+   ]
+  },
+  {
+   "run": 3,
+   "calls": [
+    {
+     "base": "ast",
+     "status": "right",
+     "seconds": 11.2,
+     "usage": {
+      "completion_tokens": 1871,
+      "total_tokens": 7996,
+      "prompt_tokens": 6125,
+      "completion_tokens_details": {
+       "reasoning_tokens": 1870
+      }
+     }
+    },
+    {
+     "base": "evaluate",
+     "status": "right",
+     "seconds": 31.2,
+     "usage": {
+      "completion_tokens": 5027,
+      "total_tokens": 14622,
+      "prompt_tokens": 9595,
+      "completion_tokens_details": {
+       "reasoning_tokens": 5026
+      }
+     }
+    },
+    {
+     "base": "evaluateprops",
+     "status": "right",
+     "seconds": 33.6,
+     "usage": {
+      "completion_tokens": 5933,
+      "total_tokens": 15950,
+      "prompt_tokens": 10017,
+      "completion_tokens_details": {
+       "reasoning_tokens": 5932
+      }
+     }
+    },
+    {
+     "base": "ffi",
+     "status": "right",
+     "seconds": 8.4,
+     "usage": {
+      "completion_tokens": 1227,
+      "total_tokens": 3507,
+      "prompt_tokens": 2280,
+      "completion_tokens_details": {
+       "reasoning_tokens": 1226
+      }
+     }
+    },
+    {
+     "base": "fpsem",
+     "status": "right",
+     "seconds": 8.3,
+     "usage": {
+      "completion_tokens": 864,
+      "total_tokens": 1794,
+      "prompt_tokens": 930,
+      "completion_tokens_details": {
+       "reasoning_tokens": 863
+      }
+     }
+    },
+    {
+     "base": "location",
+     "status": "right",
+     "seconds": 4.0,
+     "usage": {
+      "completion_tokens": 311,
+      "total_tokens": 1200,
+      "prompt_tokens": 889,
+      "completion_tokens_details": {
+       "reasoning_tokens": 310
+      }
+     }
+    },
+    {
+     "base": "misc",
+     "status": "right",
+     "seconds": 24.7,
+     "usage": {
+      "completion_tokens": 3048,
+      "total_tokens": 9428,
+      "prompt_tokens": 6380,
+      "completion_tokens_details": {
+       "reasoning_tokens": 3047
+      }
+     }
+    },
+    {
+     "base": "mllist",
+     "status": "right",
+     "seconds": 5.5,
+     "usage": {
+      "completion_tokens": 494,
+      "total_tokens": 1360,
+      "prompt_tokens": 866,
+      "completion_tokens_details": {
+       "reasoning_tokens": 493
+      }
+     }
+    },
+    {
+     "base": "mlstring",
+     "status": "right",
+     "seconds": 25.6,
+     "usage": {
+      "completion_tokens": 3860,
+      "total_tokens": 10960,
+      "prompt_tokens": 7100,
+      "completion_tokens_details": {
+       "reasoning_tokens": 3859
+      }
+     }
+    },
+    {
+     "base": "namespace",
+     "status": "right",
+     "seconds": 14.3,
+     "usage": {
+      "completion_tokens": 2440,
+      "total_tokens": 5959,
+      "prompt_tokens": 3519,
+      "completion_tokens_details": {
+       "reasoning_tokens": 2439
+      }
+     }
+    },
+    {
+     "base": "namespaceprops",
+     "status": "right",
+     "seconds": 56.2,
+     "usage": {
+      "completion_tokens": 8876,
+      "total_tokens": 23267,
+      "prompt_tokens": 14391,
+      "completion_tokens_details": {
+       "reasoning_tokens": 8875
+      }
+     }
+    },
+    {
+     "base": "semanticprimitives",
+     "status": "right",
+     "seconds": 46.6,
+     "usage": {
+      "completion_tokens": 8011,
+      "total_tokens": 40157,
+      "prompt_tokens": 32146,
+      "completion_tokens_details": {
+       "reasoning_tokens": 8010
+      }
+     }
+    },
+    {
+     "base": "semanticprimitivesprops",
+     "status": "error",
+     "seconds": 36.3,
+     "usage": {
+      "completion_tokens": 5490,
+      "total_tokens": 12059,
+      "prompt_tokens": 6569,
+      "completion_tokens_details": {
+       "reasoning_tokens": 5118
+      }
+     }
+    },
+    {
+     "base": "typesound",
+     "status": "right",
+     "seconds": 56.4,
+     "usage": {
+      "completion_tokens": 9562,
+      "total_tokens": 60433,
+      "prompt_tokens": 50871,
+      "completion_tokens_details": {
+       "reasoning_tokens": 9561
+      }
+     }
+    },
+    {
+     "base": "typesoundinvariants",
+     "status": "right",
+     "seconds": 46.4,
+     "usage": {
+      "completion_tokens": 7641,
+      "total_tokens": 17504,
+      "prompt_tokens": 9863,
+      "completion_tokens_details": {
+       "reasoning_tokens": 7640
+      }
+     }
+    },
+    {
+     "base": "typesysprops",
+     "status": "right",
+     "seconds": 64.4,
+     "usage": {
+      "completion_tokens": 11566,
+      "total_tokens": 68012,
+      "prompt_tokens": 56446,
+      "completion_tokens_details": {
+       "reasoning_tokens": 11565
+      }
+     }
+    },
+    {
+     "base": "typesystem",
+     "status": "right",
+     "seconds": 29.3,
+     "usage": {
+      "completion_tokens": 4807,
+      "total_tokens": 28557,
+      "prompt_tokens": 23750,
+      "completion_tokens_details": {
+       "reasoning_tokens": 4807
+      }
+     }
+    },
+    {
+     "base": "weakening",
+     "status": "right",
+     "seconds": 31.9,
+     "usage": {
+      "completion_tokens": 5748,
+      "total_tokens": 18467,
+      "prompt_tokens": 12719,
+      "completion_tokens_details": {
+       "reasoning_tokens": 5747
+      }
+     }
+    },
+    {
+     "base": "lprefix_lub",
+     "status": "right",
+     "seconds": 3.2,
+     "usage": {
+      "completion_tokens": 191,
+      "total_tokens": 738,
+      "prompt_tokens": 547,
+      "completion_tokens_details": {
+       "reasoning_tokens": 190
+      }
+     }
+    },
+    {
+     "base": "semantics_min",
+     "status": "right",
+     "seconds": 9.1,
+     "usage": {
+      "completion_tokens": 1293,
+      "total_tokens": 2660,
+      "prompt_tokens": 1367,
+      "completion_tokens_details": {
+       "reasoning_tokens": 1292
+      }
+     }
+    }
+   ]
+  }
+ ],
+ "finished": "2026-10-05T03:41:05+0800"
+}

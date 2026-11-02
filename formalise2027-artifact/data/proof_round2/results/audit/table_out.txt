@@ -1,0 +1,9 @@
+canonical theorems at de795c9f6 269
+Skills           Local=59 Mod.=59 Aud.=51 Unch.=59 S.ed.=0 D.ed.=0 Help.=0 Miss.=0 moved=0
+Docs             Local=63 Mod.=63 Aud.=57 Unch.=63 S.ed.=0 D.ed.=0 Help.=0 Miss.=0 moved=0
+Second pass      Local=132 Mod.=132 Aud.=132 Unch.=132 S.ed.=0 D.ed.=9 Help.=0 Miss.=0 moved=0
+Hybrid           Local=71 Mod.=71 Aud.=71 Unch.=71 S.ed.=0 D.ed.=6 Help.=0 Miss.=0 moved=0
+Direct           Local=269 Mod.=269 Aud.=269 Unch.=267 S.ed.=2 D.ed.=21 Help.=195 Miss.=0 moved=35
+Any Local 269
+Any Mod. 269
+Any Aud. 269

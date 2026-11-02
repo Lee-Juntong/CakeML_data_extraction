@@ -1,0 +1,14 @@
+{
+  "base": "8_misc",
+  "status": "error",
+  "summary": "The Lean file closes namespace HOL4 without opening it and then opens HOL4, which is never declared, so the file does not compile. The definitions it contains match their HOL4 counterparts in meaning.",
+  "errors": [{
+    "kind": "structure/namespace mismatch",
+    "severity": "medium",
+    "hol4_evidence": "HOL4 source has no namespace. It declares CHAR_TYPE, FOLDR, FOLDL and RTC as top-level theory items (lines 3-27).",
+    "lean_evidence": "Lean line 39 is 'end HOL4' and line 41 is 'open HOL4'. No 'namespace HOL4' appears anywhere in the file.",
+    "why_wrong": "In Lean 4, 'end HOL4' without a matching 'namespace HOL4' is an error, and 'open HOL4' refers to an undeclared namespace. The file therefore does not compile, so the translated definitions cannot be used. This is a structural defect, not a missing proof."
+  }],
+  "confidence": 0.8,
+  "notes": "FOLDR (l.foldr f b), FOLDL (l.foldl f b) and RTC (refl and step constructors) match their HOL4 definitions in argument order and in meaning. ORD and CHR are direct analogues of ORD and CHR. Not counted as errors: CHR on inputs outside the HOL4 char range is unspecified in HOL4, and Char.ofNat maps invalid codes to a default character. The HOL4 char range is set by CHAR_EXISTS, which is not in the fetched sources, so the Lean Char (Unicode) versus HOL4 char (8-bit) difference could not be checked. The HOL4 ordering datatype is not in the fetched sources, so the Lean ordering type was checked only against its single use."
+}

@@ -1,0 +1,29 @@
+﻿Installed plugins:
+
+  > academic-research-skills@academic-research-skills
+    Version: 3.22.2
+    Scope: user
+    Status: 脳 disabled
+
+  > lean4@lean4-skills
+    Version: 4.11.3
+    Scope: user
+    Status: 鈭?enabled
+
+Synced from claude.ai:
+
+  > github@synced
+    Version: unknown
+    Path: C:\Users\my-pc\.claude\plugins\synced\17c9c92d-ff08-46df-8bad-896613c652b8_372c2a77-f8dd-46bf-96e6-a0d67d555f12\8cc1afaf-f7a8-48ad-be6f-c3d096b6329e
+    Status: 脳 disabled
+
+  > humanizer@synced
+    Version: 3.1.0
+    Path: C:\Users\my-pc\.claude\plugins\synced\17c9c92d-ff08-46df-8bad-896613c652b8_372c2a77-f8dd-46bf-96e6-a0d67d555f12\8522bbee-a491-445e-9400-615770e76ef5
+    Status: 脳 disabled
+
+  > academic-research-skills@synced
+    Version: 3.22.2
+    Path: C:\Users\my-pc\.claude\plugins\synced\17c9c92d-ff08-46df-8bad-896613c652b8_372c2a77-f8dd-46bf-96e6-a0d67d555f12\academic-research-skills
+    Status: 脳 disabled
+

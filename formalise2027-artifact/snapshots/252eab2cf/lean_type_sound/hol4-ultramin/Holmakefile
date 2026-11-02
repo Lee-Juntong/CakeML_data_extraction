@@ -1,0 +1,5 @@
+# Self-contained build of CakeML type soundness and its dependencies.
+# Requires only a standard HOL4 installation (no pre-built examples needed).
+
+all: $(DEFAULT_TARGETS)
+.PHONY: all

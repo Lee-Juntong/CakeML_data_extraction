@@ -1,0 +1,106 @@
+{
+ "description": "Review rounds of the stage 1 translation loop, reconstructed from commit history, validator records in CakeML_data_extraction, and project records. One translation state is reviewed per round.",
+ "rounds": [
+  {
+   "round": 1,
+   "date": "2026-02-19",
+   "reviewed_state": "5dc5b8ba0",
+   "review_input": "author inspection of paired files",
+   "findings": [
+    "missing FpSem ancestor import let the agent invent fp_cmp_fn over Nat",
+    "theorems stated as True or omitted",
+    "definition bodies replaced by sorry",
+    "nsAll2 used in some typing rules and expanded by hand in others"
+   ],
+   "decision": "three prioritised repair instructions issued to the agent",
+   "outputs": [
+    "1802597dc",
+    "5a3f2e5a4",
+    "a47e17267"
+   ]
+  },
+  {
+   "round": 2,
+   "date": "2026-02-26",
+   "reviewed_state": "a47e17267",
+   "review_input": "author scan of every file pair",
+   "findings": [
+    "24 theorem statements still True in Evaluate, Misc, Mlstring"
+   ],
+   "decision": "repair instruction",
+   "outputs": [
+    "b01347d3e"
+   ]
+  },
+  {
+   "round": 3,
+   "date": "2026-03-26",
+   "reviewed_state": "b01347d3e",
+   "review_input": "Gemini 2.5 Pro validator over 20 pairs (CakeML_data_extraction/compare_validate_results_old_2.jsonl) plus Lean expert reading",
+   "validator": {
+    "pairs": 20,
+    "right": 13,
+    "flagged": 7,
+    "findings": 8
+   },
+   "lean_expert": [
+    "partial def used for 10 functions"
+   ],
+   "decision": "all findings forwarded to the agent; agent fixed 5 pairs (6 findings), rejected 2 findings with source arguments (nsLookup_add_tenvE3 variable type, v_to_char_list return type), replaced partial def",
+   "outputs": [
+    "af5ac084c"
+   ]
+  },
+  {
+   "round": 4,
+   "date": "2026-04-01 to 2026-04-08",
+   "reviewed_state": "af5ac084c",
+   "review_input": "Gemini 2.5 Pro validator over 20 pairs (CakeML_data_extraction/compare_validate_results.jsonl)",
+   "validator": {
+    "pairs": 20,
+    "flagged": 6,
+    "findings": 7,
+    "failed_calls": 1,
+    "right_calls": 13,
+    "misrouted_calls": 1,
+    "right_pairs": 12,
+    "note": "The fpsem call was given the EvaluateProps files, so FpSem had no verdict; the weakening call failed."
+   },
+   "decision": "triage by author with Lean expert escalated 2 pairs (location defaults, v_to_char_list); CakeML developer rejected both; translation accepted",
+   "not_escalated": [
+    "misc UPDATE_LIST fold direction",
+    "mllist sort comparator type",
+    "typesysprops nsLookup_add_tenvE3 variable type",
+    "semantics_min missing clock argument"
+   ],
+   "outputs": []
+  }
+ ],
+ "rounds_3_4_totals": {
+  "findings": 15,
+  "flagged_pairs": 13,
+  "led_to_repairs": 6,
+  "repaired_pairs": 5,
+  "rejected_with_source_arguments": 5,
+  "rejected_by_agent": 2,
+  "rejected_by_expert": 3,
+  "not_escalated": 4
+ },
+ "after_acceptance": [
+  {
+   "state": "98d240248",
+   "date": "2026-04-23",
+   "event": "proof pilot, 48 theorems locally complete"
+  },
+  {
+   "state": "dbb89adda",
+   "date": "2026-04-29",
+   "event": "definition pass, 61 definitions completed, checked by build and structural scans"
+  },
+  {
+   "state": "252eab2cf",
+   "date": "2026-04-30",
+   "event": "proofs reset, baseline frozen"
+  }
+ ]
+}

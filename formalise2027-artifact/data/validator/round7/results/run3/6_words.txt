@@ -1,0 +1,20 @@
+{
+  "base": "6_words",
+  "status": "error",
+  "summary": "Shift operations (lsl, lsr, asr) do not match HOL4 when the shift amount is at or beyond the word width, and word_asr_8/word_asr_64 are wrong even for n = 0.",
+  "errors": [{
+    "kind": "shift_amount_semantics",
+    "severity": "high",
+    "hol4_evidence": "word_lsl: bit i is w ' (i - n) when i < WL and n <= i, so any shift by n >= WL yields the zero word. word_lsr: bit i is w ' (i + n) when i + n < WL, so any shift by n >= WL yields zero.",
+    "lean_evidence": "word_lsl_8 a n := a <<< n.toUInt8; word_lsr_8 a n := a >>> n.toUInt8 (same pattern for _64 with toUInt64). Lean UInt8/UInt64 shifts reduce the amount modulo the bit width, and n.toUInt8 truncates n modulo 256 first.",
+    "why_wrong": "For n = 8 on word8, HOL4 gives 0 for both lsl and lsr, but Lean returns a unchanged (8 mod 8 = 0). Likewise word_lsl_64 with n = 64 returns a instead of 0. Any shift by at least the width diverges."
+  }, {
+    "kind": "asr_sign_mask_wrong",
+    "severity": "high",
+    "hol4_evidence": "word_asr: bit i is msb(w) when WL <= i + n, otherwise w ' (i + n). So word_asr w 0 = w, and for n >= WL every bit equals the sign bit (all ones if msb set, else zero).",
+    "lean_evidence": "word_asr_8: signMask := if a &&& 0x80 != 0 then (0xFF <<< (8 - min 8 n).toUInt8) else 0; result (a >>> n.toUInt8) ||| signMask. word_asr_64 is analogous with 0x8000000000000000 and 64.",
+    "why_wrong": "For n = 0 and a = 0x80, 8 - 0 = 8 and 0xFF <<< 8 reduces to 0xFF in Lean, so the result is 0xFF; HOL4 gives 0x80 (the word is unchanged). Similarly for n = 8 and a with msb clear, Lean returns a (since 8 mod 8 = 0) while HOL4 returns 0. The same error appears in word_asr_64 at n = 0 and for n >= 64."
+  }],
+  "confidence": 0.9,
+  "notes": "word_add, word_sub, word_and, word_or, word_xor, word_ror, w2n, n2w and i2w match their HOL4 definitions for widths 8 and 64. The HOL4 sources fetched for this pair contain no word8 or word64 definitions (the source file notes this), so the widths are taken from the generic 'a word definitions instantiated at 8 and 64 bits. The Lean stubs are not checked against a HOL4 width definition for those types."
+}

@@ -1,0 +1,33 @@
+﻿date: 2026-10-09T22:15:50
+os: Microsoft Windows NT 10.0.19045.0
+cores: 16
+ram_gb: 63.9
+E_free_gb: 1431.3
+git: D:\Git\bin\git.exe | git version 2.40.0.windows.1
+lake: C:\Users\my-pc\.elan\bin\lake.exe | info: Version 4.2.4 of elan is available! Use `elan self update` to update.
+elan: C:\Users\my-pc\.elan\bin\elan.exe | elan 4.1.2 (58e8d545e 2025-05-26)
+lean: C:\Users\my-pc\.elan\bin\lean.exe | info: Version 4.2.4 of elan is available! Use `elan self update` to update.
+uv: C:\Users\my-pc\.local\bin\uv.exe | uv 0.12.24 (5411378eb 2026-10-08 x86_64-pc-windows-msvc)
+uvx: C:\Users\my-pc\.local\bin\uvx.exe | uvx 0.12.24 (5411378eb 2026-10-08 x86_64-pc-windows-msvc)
+claude: C:\Users\my-pc\.local\bin\claude.exe | 2.1.287 (Claude Code)
+aristotle: D:\Anaconda3\Scripts\aristotle.exe | aristotlelib 1.0.1
+python: D:\Anaconda3\python.exe | Python 3.10.13
+tar: C:\WINDOWS\system32\tar.exe | bsdtar 3.5.2 - libarchive 3.5.2 zlib/1.2.5.f-ipp 
+bash: D:\Git\bin\bash.exe | GNU bash, version 5.2.15(1)-release (x86_64-pc-msys)
+ARISTOTLE_API_KEY: set
+ANTHROPIC_API_KEY: not set
+global CLAUDE.md: False
+claude --help has --effort: True
+claude plugins:
+Installed plugins:
+
+  > academic-research-skills@academic-research-skills
+    Version: 3.22.2
+    Scope: user
+    Status: 鈭?enabled
+
+
+claude mcp (user):
+Checking MCP server health鈥?
+claude.ai Claude Docs: https://api.anthropic.com/v1/pages/mcp - 鈭?Connected
+

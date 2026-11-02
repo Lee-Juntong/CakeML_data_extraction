@@ -1,0 +1,6 @@
+run,record_base,index,lean_file,validator_claim,verdict,defect,evidence
+1,mllist,0,Mllist.lean,sort takes an ordering comparator where mergesort_tail takes a Boolean relation,correct,sort,hol4_library_evidence.md Findings 6 and 13
+1,semanticprimitivesprops,0,SemanticPrimitivesProps.lean,FV of Letrec must group as (FV_defs defs ∪ FV b) DIFF names because UNION and DIFF are left associative at the same precedence,correct,fv_letrec,hol4_library_evidence.md Finding 4
+2,mllist,0,Mllist.lean,sort takes an ordering comparator where mergesort_tail takes a Boolean relation,correct,sort,hol4_library_evidence.md Findings 6 and 13
+2,semanticprimitivesprops,0,SemanticPrimitivesProps.lean,FV of Letrec must group as (FV_defs defs ∪ FV b) DIFF names because UNION and DIFF are left associative at the same precedence,correct,fv_letrec,hol4_library_evidence.md Finding 4
+3,semanticprimitivesprops,0,SemanticPrimitivesProps.lean,FV of Letrec must group as (FV_defs defs ∪ FV b) DIFF names because UNION and DIFF are left associative at the same precedence,correct,fv_letrec,hol4_library_evidence.md Finding 4

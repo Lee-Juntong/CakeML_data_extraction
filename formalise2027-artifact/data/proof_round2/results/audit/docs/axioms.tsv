@@ -1,0 +1,824 @@
+LeanTypeSound.SemanticPrimitives	sem_env.mk.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	stamp.ExnStamp.injEq	propext	
+LeanTypeSound.Ast	op.Test.inj		
+LeanTypeSound.TypeSysProps	tveLookup.eq_1	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	sem_env.brecOn.eq		
+LeanTypeSound.Ast	test.Compare.sizeOf_spec		
+LeanTypeSound.Ast	lit.Word64.sizeOf_spec		
+LeanTypeSound.Ast	exp.brecOn_6.eq		
+LeanTypeSound.Ast	dec.brecOn.eq		
+LeanTypeSound.NamespaceProps	nsAll_nsAppend_left	sorryAx	thm:nsAll_nsAppend_left
+LeanTypeSound.Weakening	weak_tenv_refl	sorryAx,propext,Quot.sound	thm:weak_tenv_refl;def:check_freevars._unary
+LeanTypeSound.TypeSysProps	type_ds_empty	propext,sorryAx,Quot.sound	thm:type_ds_empty
+LeanTypeSound.Ast	op.ConfigGC.sizeOf_spec		
+LeanTypeSound.Ast	exp.Letrec.inj		
+LeanTypeSound.Namespace	namespace.Bind.sizeOf_spec		
+LeanTypeSound.TypeSysProps	bind_tvar0	sorryAx	thm:bind_tvar0
+LeanTypeSound.Ast	test.AltCompare.inj		
+LeanTypeSound.SemanticPrimitives	v.brecOn_5.eq		
+LeanTypeSound.Ast	op.Env_id.sizeOf_spec		
+LeanTypeSound.Ast	op.Eval.sizeOf_spec		
+LeanTypeSound.Ffi	ffi_state.mk.injEq	propext	
+LeanTypeSound.TypeSound	do_eq_Boolv	propext,sorryAx	thm:do_eq_Boolv;def:do_eq._mutual
+LeanTypeSound.TypeSystem	type_ds.brecOn	propext,sorryAx,Quot.sound	def:check_freevars_ast._unary;def:check_type_names;def:check_freevars._unary;def:is_value
+LeanTypeSound.Ast	exp.Log.injEq	propext	
+LeanTypeSound.SemanticPrimitives	cml_state.mk.inj		
+LeanTypeSound.Ffi	outcome.Resource_limit_hit.sizeOf_spec		
+LeanTypeSound.Ast	op.ThunkOp.inj		
+LeanTypeSound.NamespaceProps	mk_id_thm	propext	
+LeanTypeSound.Ast	pat.Pref.sizeOf_spec		
+LeanTypeSound.Ffi	outcome.FFI_outcome.injEq	propext	
+LeanTypeSound.SemanticPrimitives	result.Rval.injEq	propext	
+LeanTypeSound.Mlstring	app_list_ann.BigAppend.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	v_mods_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.Weakening	type_v_weakening	sorryAx,propext,Quot.sound	thm:type_v_weakening
+LeanTypeSound.Ast	dec.Dletrec.inj		
+LeanTypeSound.Ast	op.Aw8alloc.sizeOf_spec		
+LeanTypeSound.Ast	op.Test.injEq	propext	
+LeanTypeSound.Ast	pat.brecOn_1.eq		
+LeanTypeSound.TypeSysProps	ctMap_ok_lookup	sorryAx,propext	thm:ctMap_ok_lookup;def:check_freevars._unary
+LeanTypeSound.TypeSystem	tenv_val_exp.brecOn.eq		
+LeanTypeSound.Ffi	ffiname.SharedMem.inj		
+LeanTypeSound.EvaluateProps	is_clock_io_mono_bind	propext,sorryAx	thm:is_clock_io_mono_bind
+LeanTypeSound.Mlstring	TOKENS_eq_tokens_aux	propext,Quot.sound,Classical.choice,sorryAx	thm:TOKENS_eq_tokens_aux
+LeanTypeSound.Ast	exp.Con.injEq	propext	
+LeanTypeSound.NamespaceProps	eALL_T		
+LeanTypeSound.TypeSystem	check_type_names.eq_def	sorryAx	thm:check_type_names.eq_def;def:check_type_names
+LeanTypeSound.Ffi	ffiname.SharedMem.sizeOf_spec		
+LeanTypeSound.TypeSystem	check_freevars.eq_def	sorryAx,Quot.sound	thm:check_freevars._unary.eq_def;def:check_freevars._unary
+LeanTypeSound.EvaluateProps	is_clock_io_mono_return	propext,sorryAx	thm:is_clock_io_mono_return
+LeanTypeSound.TypeSystem	sem_t.Tvar_db.inj		
+LeanTypeSound.TypeSysProps	type_p_bvl	sorryAx,propext,Quot.sound	thm:type_p_bvl;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitivesProps	Boolv_11	propext	
+LeanTypeSound.SemanticPrimitives	concrete_v.eq_def	propext,sorryAx,Quot.sound	def:concrete_v._mutual;thm:concrete_v._mutual.eq_def
+LeanTypeSound.TypeSound	fst_triple	sorryAx	thm:fst_triple
+LeanTypeSound.SemanticPrimitives	v.Vectorv.injEq	propext	
+LeanTypeSound.Ast	op.Aupdate.sizeOf_spec		
+LeanTypeSound.EvaluateProps	is_clock_io_mono_check	propext,sorryAx	thm:is_clock_io_mono_check
+LeanTypeSound.SemanticPrimitives	exp_or_val.Val.sizeOf_spec		
+LeanTypeSound.Ast	dec.Dexn.sizeOf_spec		
+LeanTypeSound.Ast	op.Arith.injEq	propext	
+LeanTypeSound.Weakening	weakCT_refl		
+LeanTypeSound.Ast	exp.If.inj		
+LeanTypeSound.Ast	op.FromTo.injEq	propext	
+LeanTypeSound.Ast	op.Opapp.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	eval_state.EvalDecs.injEq	propext	
+LeanTypeSound.TypeSound	type_v_exn	sorryAx,propext,Quot.sound	thm:type_v_exn
+LeanTypeSound.TypeSystem	type_name_subst.eq_def	propext,Quot.sound	
+LeanTypeSound.Mlstring	explode_11	propext,Quot.sound,Classical.choice,sorryAx	thm:explode_11
+LeanTypeSound.Namespace	cml_id.brecOn.eq		
+LeanTypeSound.Mlstring	app_list_ann.Small.injEq	propext	
+LeanTypeSound.SemanticPrimitives	store_v.Varray.injEq	propext	
+LeanTypeSound.TypeSysProps	ctMap_ok_type_defs	sorryAx,propext,Quot.sound	thm:ctMap_ok_type_defs;def:check_freevars_ast._unary;def:check_type_names;def:check_freevars._unary
+LeanTypeSound.TypeSysProps	type_def_to_ctMap_mem	propext,Quot.sound,sorryAx	thm:type_def_to_ctMap_mem
+LeanTypeSound.SemanticPrimitives	v.Vectorv.sizeOf_spec		
+LeanTypeSound.Ast	pat.Pref.inj		
+LeanTypeSound.Ast	ast_t.Atvar.inj		
+LeanTypeSound.TypeSysProps	type_ps_length	sorryAx,propext,Quot.sound	thm:type_ps_length
+LeanTypeSound.TypeSysProps	type_subst_deBruijn_inc_single	sorryAx,propext,Quot.sound	thm:type_subst_deBruijn_inc_single;def:check_freevars._unary
+LeanTypeSound.Weakening	weak_tenvE_bind_tvar	propext,Quot.sound	
+LeanTypeSound.TypeSound	prim_canonical_values_thm	sorryAx,propext,Quot.sound	thm:prim_canonical_values_thm;def:check_freevars._unary
+LeanTypeSound.Ast	op.Shift.sizeOf_spec		
+LeanTypeSound.EvaluateProps	list_result_eq_Rval	propext	
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_name.sizeOf_spec		
+LeanTypeSound.TypeSystem	sem_t.Tvar.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	stamp.ExnStamp.sizeOf_spec		
+LeanTypeSound.Ast	pat.Pcon.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	v.Vectorv.inj		
+LeanTypeSound.EvaluateProps	do_app_refs_length	propext,sorryAx,Quot.sound,Classical.choice	thm:do_app_refs_length;def:do_eq._mutual;def:v_to_list;def:v_to_char_list
+LeanTypeSound.Misc	app_list.List.injEq	propext	
+LeanTypeSound.SemanticPrimitives	store_v.W8array.inj		
+LeanTypeSound.Ast	pat.Pvar.injEq	propext	
+LeanTypeSound.EvaluateProps	do_app_io_events_mono	propext,sorryAx,Quot.sound,Classical.choice	thm:do_app_io_events_mono;def:do_eq._mutual;def:v_to_list;def:v_to_char_list
+LeanTypeSound.Weakening	weakS_refl		
+LeanTypeSound.TypeSystem	sem_t.Tapp.inj		
+LeanTypeSound.TypeSoundInvariants	store_t.Varray_t.injEq	propext	
+LeanTypeSound.Ast	ast_t.Atapp.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	do_eq.eq_def	propext,sorryAx,Quot.sound	def:do_eq._mutual;thm:do_eq._mutual.eq_def
+LeanTypeSound.Ast	opb.Leq.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	extend_dec_env.eq_1		
+LeanTypeSound.SemanticPrimitives	v_ns_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	op.Opderef.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	eval_state.EvalOracle.injEq	propext	
+LeanTypeSound.Ast	arith.Not.sizeOf_spec		
+LeanTypeSound.Ast	ast_t.Atfun.inj		
+LeanTypeSound.Mlstring	app_list_ann.brecOn.eq		
+LeanTypeSound.Ffi	ffi_result.FFI_return.sizeOf_spec		
+LeanTypeSound.Ffi	ffi_state.mk.inj		
+LeanTypeSound.TypeSysProps	check_freevars_type_name_subst	sorryAx,propext,Quot.sound	thm:check_freevars_type_name_subst;def:check_freevars_ast._unary;def:check_type_names;def:check_freevars._unary
+LeanTypeSound.Weakening	weak_ctMap_lookup		
+LeanTypeSound.SemanticPrimitives	v_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.Ffi	outcome.FFI_outcome.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsSub_nsAppend2	sorryAx	thm:nsSub_nsAppend2
+LeanTypeSound.Ffi	io_event.IO_event.sizeOf_spec		
+LeanTypeSound.TypeSysProps	tenv_names_bind_var_list	sorryAx	thm:tenv_names_bind_var_list
+LeanTypeSound.Ast	arith.And.sizeOf_spec		
+LeanTypeSound.Ffi	oracle_result.Oracle_final.inj		
+LeanTypeSound.TypeSysProps	bind_var_list.eq_def		
+LeanTypeSound.Ast	lit.Char.injEq	propext	
+LeanTypeSound.Ast	shift.Asr.sizeOf_spec		
+LeanTypeSound.TypeSysProps	tveLookup.eq_2	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Let.inj		
+LeanTypeSound.Misc	find_index.eq_2		
+LeanTypeSound.NamespaceProps	nsAll2_nsBind	sorryAx	thm:nsAll2_nsBind
+LeanTypeSound.Ast	op.Arith.sizeOf_spec		
+LeanTypeSound.Weakening	type_e_weakening_lem	sorryAx,propext,Quot.sound	thm:type_e_weakening_lem;def:check_freevars._unary
+LeanTypeSound.Ffi	ffi_result.FFI_final.sizeOf_spec		
+LeanTypeSound.Misc	ALOOKUP_find_index_SOME	propext,sorryAx	thm:ALOOKUP_find_index_SOME
+LeanTypeSound.Ffi	oracle_result.Oracle_return.inj		
+LeanTypeSound.SemanticPrimitives	eval_oracle_state.mk.injEq	propext	
+LeanTypeSound.TypeSysProps	num_tvs.eq_def		
+LeanTypeSound.FpSem	fp_bop.FP_Div.sizeOf_spec		
+LeanTypeSound.Ast	pat.Pas.injEq	propext	
+LeanTypeSound.SemanticPrimitives	error_result.Rabort.inj		
+LeanTypeSound.Ast	exp.Var.inj		
+LeanTypeSound.SemanticPrimitives	abort.Rffi_error.injEq	propext	
+LeanTypeSound.TypeSysProps	type_subst_deBruijn_subst_single	sorryAx,propext,Quot.sound	thm:type_subst_deBruijn_subst_single;def:check_freevars._unary
+LeanTypeSound.NamespaceProps	nsBind_11		
+LeanTypeSound.TypeSound	type_all_env_extend	sorryAx,propext,Quot.sound	thm:type_all_env_extend
+LeanTypeSound.TypeSound	store_type_extension_weakS	sorryAx	thm:store_type_extension_weakS
+LeanTypeSound.SemanticPrimitives	dest_thunk_ret.BadRef.sizeOf_spec		
+LeanTypeSound.Ast	arith.FMA.sizeOf_spec		
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_tvar.sizeOf_spec		
+LeanTypeSound.TypeSystem	type_env.mk.injEq	propext	
+LeanTypeSound.Ast	op.Aupdate_unsafe.sizeOf_spec		
+LeanTypeSound.Ast	arith.Abs.sizeOf_spec		
+LeanTypeSound.Mlstring	mlstring.strlit.inj		
+LeanTypeSound.TypeSysProps	tveLookup.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	exp.brecOn_3.eq		
+LeanTypeSound.Mlstring	app_list_ann.BigList.inj		
+LeanTypeSound.Ast	op.Aw8sub.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	eval_state.EvalDecs.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_e_subst_lem7	propext,Quot.sound,sorryAx	thm:type_e_subst_lem7
+LeanTypeSound.Mlstring	explode_implode	propext,Quot.sound,Classical.choice,sorryAx	thm:explode_implode
+LeanTypeSound.Namespace	cml_id.Short.sizeOf_spec		
+LeanTypeSound.HOL4Prelude	HOL4.ordering.LESS.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	abort.Rtimeout_error.sizeOf_spec		
+LeanTypeSound.Misc	map_some_eq_append	propext	
+LeanTypeSound.TypeSysProps	num_tvs.eq_1		
+LeanTypeSound.TypeSysProps	type_v_freevars	sorryAx,propext,Quot.sound	thm:type_v_freevars;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	result.Rval.inj		
+LeanTypeSound.TypeSound	has_lists_v_to_list	sorryAx,propext,Quot.sound	thm:has_lists_v_to_list;def:v_to_list;def:check_freevars._unary;def:v_to_char_list
+LeanTypeSound.TypeSysProps	tveLookup_freevars_local	sorryAx,propext,Quot.sound	thm:tveLookup_freevars_local;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	eq_result.Eq_val.sizeOf_spec		
+LeanTypeSound.Ast	exp.Handle.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	List.all.eq_2		
+LeanTypeSound.SemanticPrimitives	v.Loc.sizeOf_spec		
+LeanTypeSound.NamespaceProps	id_to_n.eq_1		
+LeanTypeSound.Ast	lit.Char.inj		
+LeanTypeSound.TypeSound	EVERY_REPLICATE	sorryAx,propext,Quot.sound	thm:EVERY_REPLICATE
+LeanTypeSound.EvaluateProps	evaluate_length	sorryAx,propext,Quot.sound,Classical.choice	thm:evaluate_length;def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp
+LeanTypeSound.SemanticPrimitives	stamp.TypeStamp.injEq	propext	
+LeanTypeSound.TypeSound	sing_list	sorryAx	thm:sing_list
+LeanTypeSound.Weakening	gt_0		
+LeanTypeSound.TypeSystem	is_value.eq_def	propext,sorryAx	thm:is_value.eq_def;def:is_value
+LeanTypeSound.Ast	exp.brecOn_5.eq		
+LeanTypeSound.NamespaceProps	nsAppend_to_nsBindList		
+LeanTypeSound.Ast	op.Aw8sub_unsafe.sizeOf_spec		
+LeanTypeSound.Namespace	nsMap.eq_def	sorryAx,Quot.sound,propext	thm:nsMap.eq_def;def:nsMap
+LeanTypeSound.TypeSysProps	tveLookup_no_tvs	sorryAx,propext,Quot.sound	thm:tveLookup_no_tvs;def:check_freevars._unary
+LeanTypeSound.Ast	dec.Denv.inj		
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok_bvl_funs	sorryAx,propext,Quot.sound	thm:tenv_val_exp_ok_bvl_funs;def:check_freevars._unary
+LeanTypeSound.Ast	pat.Pas.inj		
+LeanTypeSound.Ast	arith.Neg.sizeOf_spec		
+LeanTypeSound.Ast	lit.Word64.inj		
+LeanTypeSound.Ast	lop.Andalso.sizeOf_spec		
+LeanTypeSound.Ast	shift.Lsr.sizeOf_spec		
+LeanTypeSound.Namespace	namespace.brecOn.eq		
+LeanTypeSound.Mlstring	app_list_ann.Small.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	with_same_v		
+LeanTypeSound.SemanticPrimitives	v.Closure.inj		
+LeanTypeSound.TypeSystem	type_e.brecOn	sorryAx,propext,Quot.sound	def:check_freevars_ast._unary;def:check_type_names;def:check_freevars._unary
+LeanTypeSound.TypeSysProps	tenv_ctor_ok_lookup	sorryAx	thm:tenv_ctor_ok_lookup;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	store_v.Thunk.injEq	propext	
+LeanTypeSound.SemanticPrimitives	result.Rerr.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	stamp.TypeStamp.inj		
+LeanTypeSound.SemanticPrimitives	eq_result.Eq_val.injEq	propext	
+LeanTypeSound.Ffi	oracle_result.Oracle_final.sizeOf_spec		
+LeanTypeSound.TypeSysProps	deBruijn_subst_check_freevars	sorryAx,propext,Quot.sound	thm:deBruijn_subst_check_freevars;def:check_freevars._unary
+LeanTypeSound.TypeSysProps	db_merge.eq_3		
+LeanTypeSound.Ast	exp.Tannot.inj		
+LeanTypeSound.Location	locn.POSN.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_subst_deBruijn_inc_list	sorryAx,propext,Quot.sound	thm:type_subst_deBruijn_inc_list;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	v.brecOn_1.eq		
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_tvar.inj		
+LeanTypeSound.Ast	thunk_op.UpdateThunk.inj		
+LeanTypeSound.Ast	op.Strlen.sizeOf_spec		
+LeanTypeSound.TypeSystem	sem_t.Tvar_db.injEq	propext	
+LeanTypeSound.NamespaceProps	id_to_mods.eq_1		
+LeanTypeSound.TypeSoundInvariants	store_t.Varray_t.sizeOf_spec		
+LeanTypeSound.Ast	op.Implode.sizeOf_spec		
+LeanTypeSound.TypeSysProps	check_freevars_subst_single	sorryAx,propext,Quot.sound	thm:check_freevars_subst_single;def:check_freevars._unary
+LeanTypeSound.TypeSysProps	tveLookup_db_merge_some	propext,Quot.sound,sorryAx	thm:tveLookup_db_merge_some
+LeanTypeSound.Ast	ast_t.Atfun.sizeOf_spec		
+LeanTypeSound.TypeSysProps	check_freevars_subst	sorryAx,propext,Quot.sound	thm:check_freevars_subst;def:check_freevars._unary
+LeanTypeSound.EvaluateProps	dec_clock.eq_1		
+LeanTypeSound.NamespaceProps	nsLookup_FOLDR_nsLift_some	sorryAx	thm:nsLookup_FOLDR_nsLift_some
+LeanTypeSound.Ast	op.ThunkOp.sizeOf_spec		
+LeanTypeSound.TypeSysProps	lookup_tenv_names	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Misc	IS_PREFIX_THM	propext,sorryAx	thm:IS_PREFIX_THM
+LeanTypeSound.TypeSysProps	db_merge.eq_2		
+LeanTypeSound.Ast	op.AallocFixed.sizeOf_spec		
+LeanTypeSound.TypeSysProps	check_freevars_add	sorryAx	thm:check_freevars_add;def:check_freevars._unary
+LeanTypeSound.Ast	exp.Raise.injEq	propext	
+LeanTypeSound.TypeSound	type_recfun_env_help	sorryAx,propext,Quot.sound	thm:type_recfun_env_help;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	v.Env.inj		
+LeanTypeSound.Weakening	weak_tenvE_bind	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	v.Loc.injEq	propext	
+LeanTypeSound.TypeSysProps	unchanged_tenv		
+LeanTypeSound.Ffi	behaviour.Fail.sizeOf_spec		
+LeanTypeSound.Ast	op_class.Simple.sizeOf_spec		
+LeanTypeSound.TypeSound	type_funs_fst	sorryAx,propext,Quot.sound	thm:type_funs_fst
+LeanTypeSound.Ast	ast_t.Atfun.injEq	propext	
+LeanTypeSound.Ast	dec.Dlet.sizeOf_spec		
+LeanTypeSound.Ast	op.Asub.sizeOf_spec		
+LeanTypeSound.Misc	plus_0_I	Quot.sound,propext	
+LeanTypeSound.Ast	op.Shift.inj		
+LeanTypeSound.Ast	lit.Word8.injEq	propext	
+LeanTypeSound.Ast	pat.Pvar.inj		
+LeanTypeSound.TypeSysProps	nsLookup_add_tenvE3	sorryAx	thm:nsLookup_add_tenvE3
+LeanTypeSound.Location	locn.EOFpt.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsAppend.eq_1		
+LeanTypeSound.Ast	arith.Sub.sizeOf_spec		
+LeanTypeSound.TypeSysProps	check_freevars_deBruijn_inc	sorryAx,propext,Quot.sound	thm:check_freevars_deBruijn_inc;def:check_freevars._unary
+LeanTypeSound.EvaluateProps	list_result.eq_1		
+LeanTypeSound.SemanticPrimitivesProps	FV_pes_MAP	sorryAx	thm:FV_pes_MAP
+LeanTypeSound.SemanticPrimitives	error_result.Rabort.injEq	propext	
+LeanTypeSound.Misc	app_list.Append.inj		
+LeanTypeSound.Ffi	final_event.Final_event.injEq	propext	
+LeanTypeSound.Ast	op.Arith.inj		
+LeanTypeSound.Ast	op.Vlength.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	unchanged_env		
+LeanTypeSound.TypeSound	v_unchanged	sorryAx	thm:v_unchanged
+LeanTypeSound.Ast	pat.Plit.inj		
+LeanTypeSound.TypeSysProps	deBruijn_subst_check_freevars2	sorryAx,propext,Quot.sound	thm:deBruijn_subst_check_freevars2;def:check_freevars._unary
+LeanTypeSound.Ast	exp.Mat.inj		
+LeanTypeSound.TypeSound	check_ctor_tenv_dups	sorryAx	thm:check_ctor_tenv_dups;def:check_freevars_ast._unary;def:check_type_names
+LeanTypeSound.Mlstring	app_list_ann.BigAppend.inj		
+LeanTypeSound.Ast	op.FFI.injEq	propext	
+LeanTypeSound.SemanticPrimitives	v.Litv.injEq	propext	
+LeanTypeSound.SemanticPrimitives	match_result.Match.sizeOf_spec		
+LeanTypeSound.Ast	op.ThunkOp.injEq	propext	
+LeanTypeSound.Ast	test.Compare.injEq	propext	
+LeanTypeSound.SemanticPrimitives	exp_or_val.Val.inj		
+LeanTypeSound.Misc	FDOM_FLOOKUP	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	sem_env.v_.eq_1		
+LeanTypeSound.EvaluateProps	io_events_mono_refl	propext,sorryAx	thm:io_events_mono_refl
+LeanTypeSound.Ast	arith.Sqrt.sizeOf_spec		
+LeanTypeSound.EvaluateProps	do_app_call_FFI_rel	propext,sorryAx,Quot.sound,Classical.choice	thm:do_app_call_FFI_rel;def:do_eq._mutual;def:v_to_list;def:v_to_char_list
+LeanTypeSound.Misc	DROP_EMPTY	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	dest_thunk_ret.IsThunk.inj		
+LeanTypeSound.SemanticPrimitives	dest_thunk_ret.IsThunk.injEq	propext	
+LeanTypeSound.NamespaceProps	nsAll_nsLift	sorryAx	thm:nsAll_nsLift
+LeanTypeSound.TypeSysProps	type_e_freevars	sorryAx,propext,Quot.sound	thm:type_e_freevars;def:check_freevars._unary
+LeanTypeSound.Ast	exp.Lannot.injEq	propext	
+LeanTypeSound.TypeSysProps	type_funs_Tfn	sorryAx,propext,Quot.sound	thm:type_funs_Tfn;def:check_freevars._unary
+LeanTypeSound.Misc	app_list.List.sizeOf_spec		
+LeanTypeSound.Ast	dec.Dmod.inj		
+LeanTypeSound.SemanticPrimitives	v.Env.sizeOf_spec		
+LeanTypeSound.TypeSysProps	bind_tvar_rewrites	propext,Quot.sound,sorryAx	thm:bind_tvar_rewrites;def:check_freevars._unary
+LeanTypeSound.Ast	op.ListAppend.sizeOf_spec		
+LeanTypeSound.Ast	dec.Dmod.sizeOf_spec		
+LeanTypeSound.TypeSysProps	check_ctor_tenv_ok	sorryAx,propext,Quot.sound	thm:check_ctor_tenv_ok;def:check_freevars_ast._unary;def:check_type_names;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	do_eq_list.eq_def	propext,sorryAx,Quot.sound	def:do_eq._mutual;thm:do_eq._mutual.eq_def
+LeanTypeSound.NamespaceProps	nsAll_nsEmpty		
+LeanTypeSound.Ast	op.Asub_unsafe.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsSub_nsBind	sorryAx	thm:nsSub_nsBind
+LeanTypeSound.SemanticPrimitivesProps	sem_env.c.eq_1		
+LeanTypeSound.Ast	dec.Dmod.injEq	propext	
+LeanTypeSound.Ffi	behaviour.Diverge.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsAll2_nsSing	sorryAx	thm:nsAll2_nsSing
+LeanTypeSound.TypeSound	store_type_extension_trans	sorryAx	thm:store_type_extension_trans
+LeanTypeSound.Ast	word_size.W64.sizeOf_spec		
+LeanTypeSound.Ast	exp.App.injEq	propext	
+LeanTypeSound.NamespaceProps	alistSub_cong	sorryAx	thm:alistSub_cong
+LeanTypeSound.TypeSysProps	deBuijn_inc_lem1	propext,Quot.sound,sorryAx	thm:deBuijn_inc_lem1
+LeanTypeSound.Ast	exp.Lit.injEq	propext	
+LeanTypeSound.Ast	exp.Log.inj		
+LeanTypeSound.SemanticPrimitives	v.brecOn_6.eq		
+LeanTypeSound.Namespace	namespace.brecOn_2.eq		
+LeanTypeSound.Weakening	type_all_env_weakening	sorryAx,propext,Quot.sound	thm:type_all_env_weakening
+LeanTypeSound.Ast	dec.Dlocal.inj		
+LeanTypeSound.Evaluate	evaluate_decs.eq_def	sorryAx,propext,Quot.sound,Classical.choice	def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp;thm:evaluate._mutual.eq_def
+LeanTypeSound.FpSem	fp_cmp.FP_GreaterEqual.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	dest_thunk_ret.NotThunk.sizeOf_spec		
+LeanTypeSound.Ast	exp.Con.sizeOf_spec		
+LeanTypeSound.Ast	exp.brecOn_4.eq		
+LeanTypeSound.SemanticPrimitives	eval_state.EvalOracle.sizeOf_spec		
+LeanTypeSound.FpSem	fp_bop.FP_Mul.sizeOf_spec		
+LeanTypeSound.Mlstring	mlstring.strlit.injEq	propext	
+LeanTypeSound.SemanticPrimitives	v.Litv.sizeOf_spec		
+LeanTypeSound.Weakening	disjoint_env_weakCT	sorryAx	thm:disjoint_env_weakCT
+LeanTypeSound.NamespaceProps	nsAppend_nsBind		
+LeanTypeSound.Ffi	behaviour.Terminate.inj		
+LeanTypeSound.Ast	word_size.W8.sizeOf_spec		
+LeanTypeSound.Mlstring	app_list_ann.BigAppend.injEq	propext	
+LeanTypeSound.Ffi	ffi_result.FFI_final.inj		
+LeanTypeSound.Ast	lit.Float64.inj		
+LeanTypeSound.NamespaceProps	alist_to_ns_cons		
+LeanTypeSound.SemanticPrimitives	cml_state.mk.injEq	propext	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_evaluate	propext,sorryAx,Quot.sound,Classical.choice	thm:is_clock_io_mono_evaluate;def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp
+LeanTypeSound.SemanticPrimitives	match_result.Match.inj		
+LeanTypeSound.TypeSysProps	type_funs_find_recfun	sorryAx,propext,Quot.sound	thm:type_funs_find_recfun
+LeanTypeSound.TypeSysProps	tveLookup_db_merge_none	propext,Quot.sound,sorryAx	thm:tveLookup_db_merge_none
+LeanTypeSound.Ast	dec.Denv.injEq	propext	
+LeanTypeSound.Ffi	outcome.FFI_outcome.inj		
+LeanTypeSound.Ast	exp.Lit.inj		
+LeanTypeSound.Ffi	final_event.Final_event.sizeOf_spec		
+LeanTypeSound.Weakening	eLookupC_weak	sorryAx,propext,Quot.sound	thm:eLookupC_weak;def:check_freevars._unary
+LeanTypeSound.Weakening	eLookupV_weak	sorryAx,propext,Quot.sound	thm:eLookupV_weak;def:check_freevars._unary
+LeanTypeSound.Ast	dec.brecOn_1.eq		
+LeanTypeSound.Ast	dec.Denv.sizeOf_spec		
+LeanTypeSound.TypeSound	exp_type_sound	sorryAx,propext,Quot.sound,Classical.choice	thm:exp_type_sound;def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp;def:check_freevars._unary;def:is_value
+LeanTypeSound.Ast	op.FromTo.inj		
+LeanTypeSound.Ast	op.Strsub.sizeOf_spec		
+LeanTypeSound.Location	locn.POSN.inj		
+LeanTypeSound.Ast	ast_t.Attup.sizeOf_spec		
+LeanTypeSound.Ast	arith.Mul.sizeOf_spec		
+LeanTypeSound.NamespaceProps	alist_to_ns.eq_1		
+LeanTypeSound.TypeSysProps	tenv_ctor_ok_merge	sorryAx	thm:tenv_ctor_ok_merge;def:check_freevars._unary
+LeanTypeSound.Ast	op.AallocEmpty.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	result.Rerr.inj		
+LeanTypeSound.SemanticPrimitivesProps	concrete_v_list.eq_2	propext,sorryAx,Quot.sound	def:concrete_v._mutual;thm:concrete_v._mutual.eq_def
+LeanTypeSound.SemanticPrimitives	stamp.ExnStamp.inj		
+LeanTypeSound.TypeSound	build_conv_type_sound	sorryAx,propext,Quot.sound	thm:build_conv_type_sound;def:check_freevars._unary
+LeanTypeSound.NamespaceProps	alist_to_ns_11	propext	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_cong	propext,sorryAx	thm:is_clock_io_mono_cong
+LeanTypeSound.Ast	lit.StrLit.sizeOf_spec		
+LeanTypeSound.Weakening	type_s_weakening	propext,sorryAx,Quot.sound	thm:type_s_weakening
+LeanTypeSound.Misc	tlookup_bij_iff	sorryAx	thm:tlookup_bij_iff
+LeanTypeSound.TypeSound	same_type_refl	propext,sorryAx	thm:same_type_refl
+LeanTypeSound.TypeSysProps	check_freevars_lem	sorryAx,propext,Quot.sound	thm:check_freevars_lem;def:check_freevars._unary
+LeanTypeSound.NamespaceProps	alist_to_ns_nil		
+LeanTypeSound.NamespaceProps	nsAll2_nsLookup_none	sorryAx	thm:nsAll2_nsLookup_none
+LeanTypeSound.Namespace	cml_id.Short.inj		
+LeanTypeSound.SemanticPrimitives	exp_or_val.Exp.sizeOf_spec		
+LeanTypeSound.Ffi	oracle_result.Oracle_final.injEq	propext	
+LeanTypeSound.Ast	arith.Add.sizeOf_spec		
+LeanTypeSound.Ast	test.Equal.sizeOf_spec		
+LeanTypeSound.TypeSystem	type_env.mk.inj		
+LeanTypeSound.Location	locn.UNKNOWNpt.sizeOf_spec		
+LeanTypeSound.TypeSound	semantics_type_sound	sorryAx,propext,Quot.sound,Classical.choice	thm:semantics_type_sound;def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp;def:check_freevars._unary
+LeanTypeSound.Location	locn.POSN.injEq	propext	
+LeanTypeSound.Misc	map_some_eq	propext	
+LeanTypeSound.NamespaceProps	nsLookup_nsBind	sorryAx	thm:nsLookup_nsBind
+LeanTypeSound.TypeSound	EVERY_LIST_REL_thm	sorryAx,propext,Quot.sound	thm:EVERY_LIST_REL_thm
+LeanTypeSound.Ast	exp.Mat.sizeOf_spec		
+LeanTypeSound.TypeSoundInvariants	store_t.Ref_t.inj		
+LeanTypeSound.Ast	exp.Handle.inj		
+LeanTypeSound.Ffi	behaviour.Terminate.injEq	propext	
+LeanTypeSound.Misc	FST_pair		
+LeanTypeSound.TypeSoundInvariants	store_t.W8array_t.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_es_list_rel	sorryAx,propext,Quot.sound	thm:type_es_list_rel
+LeanTypeSound.SemanticPrimitives	cml_state.mk.sizeOf_spec		
+LeanTypeSound.Ast	pat.Pas.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_subst_deBruijn_subst_list	sorryAx,propext,Quot.sound	thm:type_subst_deBruijn_subst_list;def:check_freevars._unary
+LeanTypeSound.Ast	pat.Ptannot.inj		
+LeanTypeSound.Misc	app_list.Append.sizeOf_spec		
+LeanTypeSound.Ast	op.Aalloc.sizeOf_spec		
+LeanTypeSound.Weakening	type_e_weakening	sorryAx,propext,Quot.sound	thm:type_e_weakening;def:check_freevars._unary
+LeanTypeSound.TypeSysProps	tveLookup_freevars_subst	sorryAx,propext,Quot.sound	thm:tveLookup_freevars_subst;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	match_result.Match_type_error.sizeOf_spec		
+LeanTypeSound.Ast	exp.Lannot.sizeOf_spec		
+LeanTypeSound.Location	locs.Locs.injEq	propext	
+LeanTypeSound.Ast	exp.Letrec.injEq	propext	
+LeanTypeSound.TypeSysProps	mem_type_def_to_ctMap	propext,Quot.sound,sorryAx	thm:mem_type_def_to_ctMap
+LeanTypeSound.SemanticPrimitives	store_v.W8array.sizeOf_spec		
+LeanTypeSound.Ast	op.CopyAw8Aw8.sizeOf_spec		
+LeanTypeSound.EvaluateProps	can_pmatch_all_EVERY	propext,sorryAx	thm:can_pmatch_all_EVERY;def:pmatch._mutual
+LeanTypeSound.Ast	opb.Geq.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsAll_alist_to_ns	sorryAx	thm:nsAll_alist_to_ns
+LeanTypeSound.Namespace	namespace.Bind.injEq	propext	
+LeanTypeSound.Misc	MAP_EQ_MAP_IMP	propext	
+LeanTypeSound.NamespaceProps	nsLookupMod_nsEmpty		
+LeanTypeSound.NamespaceProps	id_to_n.eq_def		
+LeanTypeSound.Ast	op.FromTo.sizeOf_spec		
+LeanTypeSound.TypeSysProps	bind_var_list_append	propext	
+LeanTypeSound.Ffi	io_event.IO_event.injEq	propext	
+LeanTypeSound.EvaluateProps	adj_clock.eq_1		
+LeanTypeSound.SemanticPrimitives	pmatch_list.eq_def	propext,sorryAx,Quot.sound	thm:pmatch._mutual.eq_def;def:pmatch._mutual
+LeanTypeSound.TypeSysProps	nsLookup_add_tenvE1	sorryAx,propext,Quot.sound	thm:nsLookup_add_tenvE1;def:check_freevars._unary
+LeanTypeSound.Ast	exp.Raise.inj		
+LeanTypeSound.TypeSysProps	bind_var_list.eq_1		
+LeanTypeSound.Ffi	shmem_op.MappedRead.sizeOf_spec		
+LeanTypeSound.TypeSound	type_env_conv_thm	sorryAx	thm:type_env_conv_thm
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_name.injEq	propext	
+LeanTypeSound.Ast	ast_t.Attup.injEq	propext	
+LeanTypeSound.SemanticPrimitives	eval_oracle_state.mk.inj		
+LeanTypeSound.Ast	op.Shift.injEq	propext	
+LeanTypeSound.SemanticPrimitives	store_v.Varray.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsAll2_nsBindList	sorryAx	thm:nsAll2_nsBindList
+LeanTypeSound.Namespace	cml_id.Long.inj		
+LeanTypeSound.EvaluateProps	pair_CASE_eq_forall	propext	
+LeanTypeSound.SemanticPrimitives	eq_result.Eq_type_error.sizeOf_spec		
+LeanTypeSound.Ast	dec.Dexn.injEq	propext	
+LeanTypeSound.Ast	opb.Gt.sizeOf_spec		
+LeanTypeSound.Ast	exp.Con.inj		
+LeanTypeSound.SemanticPrimitives	eval_decs_state.mk.sizeOf_spec		
+LeanTypeSound.TypeSystem	sem_t.brecOn_1.eq		
+LeanTypeSound.TypeSysProps	type_ds_sing	propext,sorryAx,Quot.sound	thm:type_ds_sing
+LeanTypeSound.NamespaceProps	nsSub_conj		
+LeanTypeSound.TypeSysProps	deBruijn_inc_deBruijn_inc	propext,Quot.sound,sorryAx	thm:deBruijn_inc_deBruijn_inc
+LeanTypeSound.Ast	prim_type.Float64T.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	eval_state.EvalOracle.inj		
+LeanTypeSound.SemanticPrimitives	sem_env_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	nsAll2_alist_to_ns	sorryAx	thm:nsAll2_alist_to_ns
+LeanTypeSound.NamespaceProps	id_to_mods.eq_def		
+LeanTypeSound.Ast	shift.Lsl.sizeOf_spec		
+LeanTypeSound.Ast	ast_t.Atvar.sizeOf_spec		
+LeanTypeSound.TypeSound	type_recfun_env	sorryAx,propext,Quot.sound	thm:type_recfun_env;def:check_freevars._unary
+LeanTypeSound.Mlstring	implode_explode	propext,Quot.sound,Classical.choice,sorryAx	thm:implode_explode
+LeanTypeSound.TypeSysProps	nil_deBruijn_subst	sorryAx,propext,Quot.sound	thm:nil_deBruijn_subst;def:check_freevars._unary
+LeanTypeSound.Ast	ast_t.brecOn_1.eq		
+LeanTypeSound.HOL4Prelude	HOL4.ordering.GREATER.sizeOf_spec		
+LeanTypeSound.TypeSysProps	tveLookup_inc_none	propext,Quot.sound,sorryAx	thm:tveLookup_inc_none
+LeanTypeSound.SemanticPrimitivesProps	FV_defs_MAP	sorryAx	thm:FV_defs_MAP
+LeanTypeSound.Ast	dec.Dlet.inj		
+LeanTypeSound.TypeSysProps	check_freevars_subst_inc	sorryAx,propext,Quot.sound	thm:check_freevars_subst_inc;def:check_freevars._unary
+LeanTypeSound.Weakening	weak_tenvE_bind_tvar2	sorryAx,propext,Quot.sound	thm:weak_tenvE_bind_tvar2;def:check_freevars._unary
+LeanTypeSound.Ffi	behaviour.Terminate.sizeOf_spec		
+LeanTypeSound.TypeSystem	type_es.brecOn	sorryAx,propext,Quot.sound	def:check_freevars._unary;def:check_freevars_ast._unary;def:check_type_names
+LeanTypeSound.Ast	dec.Dtype.injEq	propext	
+LeanTypeSound.Ast	exp.Let.injEq	propext	
+LeanTypeSound.SemanticPrimitives	store_v.Thunk.sizeOf_spec		
+LeanTypeSound.EvaluateProps	call_FFI_rel_io_events_mono	propext,sorryAx	thm:call_FFI_rel_io_events_mono
+LeanTypeSound.Ast	ast_t.Atvar.injEq	propext	
+LeanTypeSound.Ast	exp.Letrec.sizeOf_spec		
+LeanTypeSound.TypeSysProps	num_tvs.eq_2		
+LeanTypeSound.TypeSysProps	tenv_abbrev_ok_nsEmpty	sorryAx,propext,Quot.sound,Classical.choice	def:check_freevars._unary
+LeanTypeSound.FpSem	fp_cmp.FP_Less.sizeOf_spec		
+LeanTypeSound.Ast	exp.Fun.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	pat_bindings_accum	sorryAx	thm:pat_bindings_accum
+LeanTypeSound.Mlstring	app_list_ann.BigList.injEq	propext	
+LeanTypeSound.NamespaceProps	nsLookupMod_nsAppend_none	sorryAx	thm:nsLookupMod_nsAppend_none
+LeanTypeSound.Ast	dec.Dtabbrev.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsSub_compute.eq_def	sorryAx,Quot.sound,propext	thm:nsSub_compute._unary.eq_def;def:nsSub_compute._unary
+LeanTypeSound.SemanticPrimitives	pmatch.eq_def	propext,sorryAx,Quot.sound	thm:pmatch._mutual.eq_def;def:pmatch._mutual
+LeanTypeSound.Ast	thunk_op.UpdateThunk.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	v.brecOn_2.eq		
+LeanTypeSound.Location	locs.Locs.sizeOf_spec		
+LeanTypeSound.Ast	exp.Log.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	v.Litv.inj		
+LeanTypeSound.Ast	pat.Pcon.inj		
+LeanTypeSound.Mlstring	explode_aux_thm	propext,Quot.sound,Classical.choice,sorryAx	thm:explode_aux_thm
+LeanTypeSound.NamespaceProps	nsAppend_nsEmpty	propext	
+LeanTypeSound.Ast	exp.Fun.inj		
+LeanTypeSound.SemanticPrimitivesProps	concrete_v_list_thm	propext,sorryAx,Quot.sound	def:concrete_v._mutual;thm:concrete_v._mutual.eq_def
+LeanTypeSound.TypeSysProps	num_tvs_bind_var_list	propext	
+LeanTypeSound.TypeSysProps	type_funs_distinct	sorryAx,propext,Quot.sound	thm:type_funs_distinct
+LeanTypeSound.Ast	op.Equality.sizeOf_spec		
+LeanTypeSound.FpSem	fp_cmp.FP_Equal.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_d_tenv_ok	propext,sorryAx,Quot.sound	thm:type_d_tenv_ok;def:check_freevars._unary
+LeanTypeSound.TypeSysProps	tenv_ok_empty	sorryAx,propext,Quot.sound,Classical.choice	def:check_freevars._unary
+LeanTypeSound.Ffi	ffi_result.FFI_return.inj		
+LeanTypeSound.TypeSysProps	type_e_subst_lem3	sorryAx,propext,Quot.sound	thm:type_e_subst_lem3;def:check_freevars._unary
+LeanTypeSound.Ast	exp.Lannot.inj		
+LeanTypeSound.TypeSound	store_assign_type_sound	propext,sorryAx,Quot.sound	thm:store_assign_type_sound
+LeanTypeSound.Ast	arith.Xor.sizeOf_spec		
+LeanTypeSound.TypeSound	type_v_list_to_v	sorryAx,propext,Quot.sound	thm:type_v_list_to_v;def:v_to_list
+LeanTypeSound.SemanticPrimitives	store_v.Refv.injEq	propext	
+LeanTypeSound.TypeSystem	sem_t.Tvar.inj		
+LeanTypeSound.TypeSound	type_sound_invariant_union	sorryAx,propext,Quot.sound	thm:type_sound_invariant_union;def:check_freevars._unary
+LeanTypeSound.NamespaceProps	nsAll2_nsLift	sorryAx	thm:nsAll2_nsLift
+LeanTypeSound.TypeSound	ctor_canonical_values_thm	sorryAx,propext,Quot.sound	thm:ctor_canonical_values_thm;def:v_to_list;def:check_freevars._unary;def:v_to_char_list
+LeanTypeSound.NamespaceProps	mk_id.eq_2		
+LeanTypeSound.TypeSysProps	extend_dec_tenv_ok	sorryAx	thm:extend_dec_tenv_ok;def:check_freevars._unary
+LeanTypeSound.TypeSound	type_v_Boolv	sorryAx,propext,Quot.sound	thm:type_v_Boolv
+LeanTypeSound.Mlstring	app_list_ann.Small.inj		
+LeanTypeSound.Mlstring	app_list_ann.BigList.sizeOf_spec		
+LeanTypeSound.Namespace	cml_id.Long.sizeOf_spec		
+LeanTypeSound.Weakening	weak_tenv_extend_dec_tenv	sorryAx,propext,Quot.sound	thm:weak_tenv_extend_dec_tenv;def:check_freevars._unary
+LeanTypeSound.TypeSysProps	tenv_ctor_ok_nsEmpty	sorryAx,propext,Quot.sound,Classical.choice	def:check_freevars._unary
+LeanTypeSound.Ast	exp.Var.sizeOf_spec		
+LeanTypeSound.Ast	every_exp.eq_def	sorryAx	thm:every_exp.eq_def;def:every_exp
+LeanTypeSound.Location	locs.Locs.inj		
+LeanTypeSound.EvaluateProps	io_events_mono_trans	propext,sorryAx	thm:io_events_mono_trans
+LeanTypeSound.TypeSysProps	tveLookup_freevars_thm	sorryAx,propext,Quot.sound	thm:tveLookup_freevars_thm;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	v_to_list.eq_def	propext,sorryAx,Quot.sound	thm:v_to_list.eq_def;def:v_to_list
+LeanTypeSound.NamespaceProps	nsLookupMod_FOLDR_nsLift_none	sorryAx	thm:nsLookupMod_FOLDR_nsLift_none
+LeanTypeSound.TypeSysProps	ctMap_ok_merge_imp	sorryAx,propext	thm:ctMap_ok_merge_imp;def:check_freevars._unary
+LeanTypeSound.Ast	prim_type.CharT.sizeOf_spec		
+LeanTypeSound.Ast	exp.brecOn_1.eq		
+LeanTypeSound.Misc	tlookup_bij_suff	sorryAx	thm:tlookup_bij_suff
+LeanTypeSound.NamespaceProps	nsLookup_nsSing	propext,sorryAx	thm:nsLookup_nsSing
+LeanTypeSound.TypeSysProps	fupdate2_union	propext,sorryAx	thm:fupdate2_union
+LeanTypeSound.SemanticPrimitives	match_result.Match.injEq	propext	
+LeanTypeSound.TypeSound	check_dup_ctors_thm	sorryAx	thm:check_dup_ctors_thm
+LeanTypeSound.Ast	pat.Pcon.injEq	propext	
+LeanTypeSound.Ast	dec.Dexn.inj		
+LeanTypeSound.NamespaceProps	nsLookup_FOLDR_nsLift	sorryAx	thm:nsLookup_FOLDR_nsLift
+LeanTypeSound.Ast	lit.Float64.injEq	propext	
+LeanTypeSound.Ast	pat.Plit.sizeOf_spec		
+LeanTypeSound.TypeSysProps	tveLookup_subst_none	propext,Quot.sound,sorryAx	thm:tveLookup_subst_none
+LeanTypeSound.Ast	exp.Var.injEq	propext	
+LeanTypeSound.Ast	prim_type.WordT.inj		
+LeanTypeSound.Misc	find_index.eq_1		
+LeanTypeSound.Ast	pat.brecOn.eq		
+LeanTypeSound.NamespaceProps	nsLookupMod_nsLift	sorryAx	thm:nsLookupMod_nsLift
+LeanTypeSound.SemanticPrimitives	v.Conv.injEq	propext	
+LeanTypeSound.SemanticPrimitives	store_v.Refv.inj		
+LeanTypeSound.SemanticPrimitives	sem_env.mk.injEq	propext	
+LeanTypeSound.Ffi	ffiname.ExtCall.inj		
+LeanTypeSound.TypeSystem	sem_t.Tvar.injEq	propext	
+LeanTypeSound.FpSem	fp_bop.FP_Add.sizeOf_spec		
+LeanTypeSound.Namespace	namespace.Bind.inj		
+LeanTypeSound.Ffi	outcome.Success.sizeOf_spec		
+LeanTypeSound.Ast	ast_t.Atapp.injEq	propext	
+LeanTypeSound.TypeSound	opapp_type_sound	sorryAx,propext,Quot.sound	thm:opapp_type_sound;def:check_freevars._unary
+LeanTypeSound.TypeSystem	tenv_val_exp.Empty.sizeOf_spec		
+LeanTypeSound.TypeSystem	type_subst.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	lit.Word8.inj		
+LeanTypeSound.Ast	arith.Or.sizeOf_spec		
+LeanTypeSound.FpSem	fp_uop.FP_Abs.sizeOf_spec		
+LeanTypeSound.TypeSound	remove_lambda_prod	sorryAx	thm:remove_lambda_prod
+LeanTypeSound.SemanticPrimitives	exp_or_val.Exp.inj		
+LeanTypeSound.Evaluate	evaluate_clock	sorryAx,propext,Quot.sound,Classical.choice	thm:evaluate_clock;def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp
+LeanTypeSound.Ast	dec.Dtype.sizeOf_spec		
+LeanTypeSound.Misc	CARD_IMAGE_ID_BIJ	Classical.choice,propext,Quot.sound,sorryAx	thm:CARD_IMAGE_ID_BIJ
+LeanTypeSound.Evaluate	evaluate_match.eq_def	sorryAx,propext,Quot.sound,Classical.choice	def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp;thm:evaluate._mutual.eq_def
+LeanTypeSound.Ast	pat.Ptannot.injEq	propext	
+LeanTypeSound.TypeSysProps	type_p_tenvV_indep	sorryAx,propext,Quot.sound	thm:type_p_tenvV_indep
+LeanTypeSound.NamespaceProps	nsSub_mono		
+LeanTypeSound.NamespaceProps	id_to_n.eq_2		
+LeanTypeSound.SemanticPrimitives	sem_env.mk.inj		
+LeanTypeSound.Ast	ast_t.Attup.inj		
+LeanTypeSound.NamespaceProps	alist_rel_restr_thm	sorryAx	thm:alist_rel_restr_thm
+LeanTypeSound.SemanticPrimitives	v.brecOn_3.eq		
+LeanTypeSound.TypeSysProps	num_tvs_db_merge	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	build_rec_env_merge	sorryAx	thm:build_rec_env_merge
+LeanTypeSound.TypeSysProps	deBruijn_subst_tenvE.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_e_subst_lem	sorryAx,propext,Quot.sound	thm:type_e_subst_lem;def:check_freevars._unary
+LeanTypeSound.Ast	exp.If.injEq	propext	
+LeanTypeSound.TypeSysProps	num_tvs_deBruijn_subst_tenvE	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	deBruijn_subst_freevars	sorryAx,propext,Quot.sound	thm:deBruijn_subst_freevars;def:check_freevars._unary
+LeanTypeSound.NamespaceProps	nsAll_nsAppend	sorryAx	thm:nsAll_nsAppend
+LeanTypeSound.TypeSysProps	type_e_subst_lem5	propext,Quot.sound,sorryAx	thm:type_e_subst_lem5
+LeanTypeSound.SemanticPrimitivesProps	concrete_v_list.eq_1	propext,sorryAx,Quot.sound	def:concrete_v._mutual;thm:concrete_v._mutual.eq_def
+LeanTypeSound.Ffi	oracle_result.Oracle_return.sizeOf_spec		
+LeanTypeSound.Ast	lit.Word8.sizeOf_spec		
+LeanTypeSound.Misc	app_list.List.inj		
+LeanTypeSound.Weakening	type_tenv_val_weakening_lemma	sorryAx,propext,Quot.sound	thm:type_tenv_val_weakening_lemma
+LeanTypeSound.Ast	op.XorAw8Str_unsafe.sizeOf_spec		
+LeanTypeSound.NamespaceProps	mk_id.eq_1		
+LeanTypeSound.Ast	thunk_mode.Evaluated.sizeOf_spec		
+LeanTypeSound.FpSem	fp_bop.FP_Sub.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_recfun_lookup	sorryAx,propext,Quot.sound	thm:type_recfun_lookup;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	abort.Rffi_error.inj		
+LeanTypeSound.TypeSysProps	type_op_cases_thm	propext,sorryAx	thm:type_op_cases_thm
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_tvar.injEq	propext	
+LeanTypeSound.TypeSysProps	deBruijn_subst_E_bvl	propext,Quot.sound	
+LeanTypeSound.FpSem	fp_top.FP_Fma.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	eval_state.EvalDecs.inj		
+LeanTypeSound.Mlstring	explode_thm	propext,Quot.sound,Classical.choice,sorryAx	thm:explode_thm
+LeanTypeSound.Ffi	behaviour.Diverge.inj		
+LeanTypeSound.Ast	arith.Mod.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	store_v.W8array.injEq	propext	
+LeanTypeSound.TypeSound	decs_type_sound_no_check	sorryAx,propext,Quot.sound,Classical.choice	thm:decs_type_sound_no_check;def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	error_result.Rraise.inj		
+LeanTypeSound.TypeSysProps	tveLookup_subst_some	propext,Quot.sound,sorryAx	thm:tveLookup_subst_some
+LeanTypeSound.Ast	exp.brecOn_2.eq		
+LeanTypeSound.Ast	op.CopyStrAw8.sizeOf_spec		
+LeanTypeSound.TypeSound	type_e_con_check	sorryAx,propext,Quot.sound	thm:type_e_con_check;def:every_exp
+LeanTypeSound.NamespaceProps	nsAll2_conj	sorryAx	thm:nsAll2_conj
+LeanTypeSound.Ast	dec.Dletrec.injEq	propext	
+LeanTypeSound.TypeSysProps	subst_inc_cancel	propext,Quot.sound,sorryAx	thm:subst_inc_cancel
+LeanTypeSound.Ast	dec.Dlocal.sizeOf_spec		
+LeanTypeSound.Ast	op.Explode.sizeOf_spec		
+LeanTypeSound.TypeSound	prim_canonical_Boolv_thm	sorryAx,propext,Quot.sound	thm:prim_canonical_Boolv_thm;def:check_freevars._unary
+LeanTypeSound.NamespaceProps	nsAll2_nsLookup2	sorryAx	thm:nsAll2_nsLookup2
+LeanTypeSound.Ast	exp.Handle.injEq	propext	
+LeanTypeSound.SemanticPrimitives	store_v.Refv.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsSub_refl	sorryAx	thm:nsSub_refl
+LeanTypeSound.SemanticPrimitivesProps	with_same_clock		
+LeanTypeSound.TypeSysProps	type_es_length	sorryAx,propext,Quot.sound	thm:type_es_length
+LeanTypeSound.EvaluateProps	list_result.eq_2		
+LeanTypeSound.Weakening	type_sv_weakening	propext,sorryAx,Quot.sound	thm:type_sv_weakening
+LeanTypeSound.SemanticPrimitivesProps	List.all.eq_1		
+LeanTypeSound.SemanticPrimitives	match_result.No_match.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	do_con_check_build_conv	sorryAx	thm:do_con_check_build_conv
+LeanTypeSound.Ast	prim_type.BoolT.sizeOf_spec		
+LeanTypeSound.Ffi	ffiname.SharedMem.injEq	propext	
+LeanTypeSound.Misc	find_index.eq_def		
+LeanTypeSound.Misc	find_index_LESS_LENGTH	propext,Quot.sound	
+LeanTypeSound.Namespace	cml_id.Long.injEq	propext	
+LeanTypeSound.NamespaceProps	mk_id_surj	propext	
+LeanTypeSound.TypeSound	type_v_list_to_v_APPEND	sorryAx,propext,Quot.sound	thm:type_v_list_to_v_APPEND
+LeanTypeSound.Ast	thunk_op.AllocThunk.injEq	propext	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_err	propext,sorryAx	thm:is_clock_io_mono_err
+LeanTypeSound.Ast	lop.Orelse.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	result.Rerr.injEq	propext	
+LeanTypeSound.SemanticPrimitives	dest_thunk_ret.IsThunk.sizeOf_spec		
+LeanTypeSound.TypeSound	op_type_sound	sorryAx,propext,Quot.sound,Classical.choice	thm:op_type_sound;def:check_freevars._unary;def:do_eq._mutual;def:v_to_list;def:v_to_char_list
+LeanTypeSound.TypeSysProps	nsLookup_add_tenvE2	propext,Quot.sound,sorryAx	thm:nsLookup_add_tenvE2
+LeanTypeSound.Mlstring	TOKENS_eq_tokens	propext,Quot.sound,Classical.choice,sorryAx	thm:TOKENS_eq_tokens
+LeanTypeSound.Ast	pat.Pvar.sizeOf_spec		
+LeanTypeSound.Ast	exp.Lit.sizeOf_spec		
+LeanTypeSound.Ast	op.CopyAw8Str.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	List.all.eq_def		
+LeanTypeSound.Evaluate	fix_clock_evaluate	sorryAx,propext,Quot.sound,Classical.choice	thm:fix_clock_evaluate;def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp
+LeanTypeSound.TypeSystem	type_p.brecOn	sorryAx,propext,Quot.sound	def:check_freevars._unary;def:check_freevars_ast._unary;def:check_type_names
+LeanTypeSound.SemanticPrimitivesProps	extend_dec_env_assoc	propext	
+LeanTypeSound.Weakening	weakCT_trans		
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_name.inj		
+LeanTypeSound.Ffi	shmem_op.MappedWrite.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_d_tenv_ok_helper	propext,sorryAx,Quot.sound	thm:type_d_tenv_ok_helper;def:check_freevars._unary
+LeanTypeSound.TypeSystem	type_funs.brecOn	sorryAx,propext,Quot.sound	def:check_freevars_ast._unary;def:check_type_names;def:check_freevars._unary
+LeanTypeSound.SemanticPrimitives	eval_decs_state.mk.inj		
+LeanTypeSound.EvaluateProps	is_clock_io_mono_set_clock	propext,sorryAx	thm:is_clock_io_mono_set_clock
+LeanTypeSound.SemanticPrimitives	eq_result.Eq_val.inj		
+LeanTypeSound.Misc	app_list.brecOn.eq		
+LeanTypeSound.SemanticPrimitives	v.Closure.injEq	propext	
+LeanTypeSound.TypeSysProps	db_merge_bvl	propext	
+LeanTypeSound.TypeSysProps	nil_deBruijn_inc	sorryAx,propext,Quot.sound	thm:nil_deBruijn_inc;def:check_freevars._unary
+LeanTypeSound.Mlstring	mlstring.instLawfulBEq	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	lit.StrLit.inj		
+LeanTypeSound.Ast	exp.Fun.injEq	propext	
+LeanTypeSound.NamespaceProps	nsLookup_nsLift	sorryAx	thm:nsLookup_nsLift
+LeanTypeSound.Ast	ast_t.brecOn.eq		
+LeanTypeSound.TypeSound	lookup_var_sound	propext,Quot.sound,sorryAx	thm:lookup_var_sound;def:check_freevars._unary
+LeanTypeSound.TypeSound	pat_type_sound	sorryAx,propext,Quot.sound	thm:pat_type_sound;def:check_freevars._unary;def:pmatch._mutual
+LeanTypeSound.Ast	test.AltCompare.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_d_check_uniq	propext,sorryAx,Quot.sound	thm:type_d_check_uniq
+LeanTypeSound.Misc	app_list.Nil.sizeOf_spec		
+LeanTypeSound.Ffi	ffiname.ExtCall.sizeOf_spec		
+LeanTypeSound.Ast	arith.Div.sizeOf_spec		
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok_bvl	sorryAx	thm:tenv_val_exp_ok_bvl;def:check_freevars._unary
+LeanTypeSound.Ast	opb.Lt.sizeOf_spec		
+LeanTypeSound.Ast	lit.Char.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	abort.Rffi_error.sizeOf_spec		
+LeanTypeSound.TypeSysProps	deBruijn_inc0	propext,Quot.sound,sorryAx	thm:deBruijn_inc0
+LeanTypeSound.NamespaceProps	nsAppend_nsSing		
+LeanTypeSound.Ast	op.Aw8update.sizeOf_spec		
+LeanTypeSound.Ffi	ffi_state.mk.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	error_result.Rraise.sizeOf_spec		
+LeanTypeSound.Ast	exp.Tannot.injEq	propext	
+LeanTypeSound.SemanticPrimitives	store_v.Thunk.inj		
+LeanTypeSound.Ast	op.Opassign.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	v.Recclosure.sizeOf_spec		
+LeanTypeSound.TypeSysProps	bind_var_list.eq_2		
+LeanTypeSound.Ast	op.Opref.sizeOf_spec		
+LeanTypeSound.Ast	lit.StrLit.injEq	propext	
+LeanTypeSound.NamespaceProps	nsAll2_nsEmpty		
+LeanTypeSound.SemanticPrimitives	exp_or_val.Exp.injEq	propext	
+LeanTypeSound.Ast	dec.Dtabbrev.injEq	propext	
+LeanTypeSound.TypeSysProps	type_e_subst	sorryAx,propext,Quot.sound	thm:type_e_subst;def:check_freevars._unary
+LeanTypeSound.EvaluateProps	is_clock_io_mono_evaluate_decs	propext,sorryAx,Quot.sound,Classical.choice	thm:is_clock_io_mono_evaluate_decs;def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp
+LeanTypeSound.TypeSysProps	type_subst_thm	sorryAx,propext,Quot.sound	thm:type_subst_thm;def:check_freevars._unary
+LeanTypeSound.Ast	dec.Dlet.injEq	propext	
+LeanTypeSound.SemanticPrimitives	stamp.TypeStamp.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_funs_lookup	sorryAx,propext,Quot.sound	thm:type_funs_lookup
+LeanTypeSound.Weakening	weak_tenvE_freevars	propext,Quot.sound,sorryAx	thm:weak_tenvE_freevars;def:check_freevars._unary
+LeanTypeSound.NamespaceProps	nsAppend_assoc	propext	
+LeanTypeSound.Misc	LESS_1	Classical.choice,propext,Quot.sound	
+LeanTypeSound.TypeSysProps	deBruijn_subst_tenvE.eq_def	propext,Quot.sound	
+LeanTypeSound.Ffi	io_event.IO_event.inj		
+LeanTypeSound.SemanticPrimitives	concrete_v_list.eq_def	propext,sorryAx,Quot.sound	def:concrete_v._mutual;thm:concrete_v._mutual.eq_def
+LeanTypeSound.NamespaceProps	nsBind.eq_1		
+LeanTypeSound.FpSem	fp_uop.FP_Neg.sizeOf_spec		
+LeanTypeSound.TypeSound	EVERY_LIST_REL_local	sorryAx	thm:EVERY_LIST_REL_local
+LeanTypeSound.SemanticPrimitives	v_list_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	pat.Pref.injEq	propext	
+LeanTypeSound.TypeSysProps	deBruijn_subst2_thm	sorryAx,propext,Quot.sound	thm:deBruijn_subst2_thm;def:check_freevars._unary
+LeanTypeSound.TypeSoundInvariants	type_v.brecOn	sorryAx,propext,Quot.sound	def:check_freevars._unary
+LeanTypeSound.NamespaceProps	nsLookup_nsAppend_some	sorryAx	thm:nsLookup_nsAppend_some
+LeanTypeSound.Ffi	behaviour.Diverge.injEq	propext	
+LeanTypeSound.Weakening	type_p_weakening	sorryAx,propext,Quot.sound	thm:type_p_weakening;def:check_freevars._unary
+LeanTypeSound.TypeSysProps	deBruijn_subst_id	sorryAx,propext,Quot.sound	thm:deBruijn_subst_id;def:check_freevars._unary
+LeanTypeSound.Misc	app_list.Append.injEq	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app_cases	propext,sorryAx,Quot.sound,Classical.choice	thm:do_app_cases;def:do_eq._mutual;def:v_to_list;def:v_to_char_list
+LeanTypeSound.Ast	op.Aw8update_unsafe.sizeOf_spec		
+LeanTypeSound.Ffi	ffi_outcome.FFI_failed.sizeOf_spec		
+LeanTypeSound.Ast	thunk_op.ForceThunk.sizeOf_spec		
+LeanTypeSound.Ast	ast_t.Atapp.inj		
+LeanTypeSound.Ast	exp.App.sizeOf_spec		
+LeanTypeSound.FpSem	fp_cmp.FP_LessEqual.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	abort.Rtype_error.sizeOf_spec		
+LeanTypeSound.TypeSystem	sem_t.Tvar_db.sizeOf_spec		
+LeanTypeSound.NamespaceProps	mk_id.eq_def		
+LeanTypeSound.TypeSystem	type_ps.brecOn	sorryAx,propext,Quot.sound	def:check_freevars._unary;def:check_freevars_ast._unary;def:check_type_names
+LeanTypeSound.HOL4Prelude	HOL4.ordering.EQUAL.sizeOf_spec		
+LeanTypeSound.Namespace	cml_id.Short.injEq	propext	
+LeanTypeSound.Ffi	oracle_result.Oracle_return.injEq	propext	
+LeanTypeSound.NamespaceProps	nsAll2_nsAppend	sorryAx	thm:nsAll2_nsAppend
+LeanTypeSound.EvaluateProps	is_clock_io_mono_extra	propext,sorryAx	thm:is_clock_io_mono_extra
+LeanTypeSound.Ffi	ffi_outcome.FFI_diverged.sizeOf_spec		
+LeanTypeSound.TypeSoundInvariants	store_t.Ref_t.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	v_to_char_list.eq_def	propext,sorryAx,Quot.sound	thm:v_to_char_list.eq_def;def:v_to_char_list
+LeanTypeSound.Ast	thunk_mode.NotEvaluated.sizeOf_spec		
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok_db_merge	sorryAx	def:check_freevars._unary
+LeanTypeSound.TypeSysProps	deBruijn_subst_tenvE.eq_2	propext,Quot.sound	
+LeanTypeSound.Ffi	final_event.Final_event.inj		
+LeanTypeSound.HOL4Prelude	HOL4.RTC.brecOn		
+LeanTypeSound.NamespaceProps	nsLookup_nsAll		
+LeanTypeSound.TypeSysProps	num_tvs.eq_3		
+LeanTypeSound.TypeSysProps	type_p_subst	sorryAx,propext,Quot.sound	thm:type_p_subst;def:check_freevars._unary
+LeanTypeSound.Weakening	weak_tenvE_opt_bind	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	exp.Tannot.sizeOf_spec		
+LeanTypeSound.Ast	lit.IntLit.injEq	propext	
+LeanTypeSound.Ast	prim_type.IntT.sizeOf_spec		
+LeanTypeSound.NamespaceProps	id_to_mods.eq_2		
+LeanTypeSound.TypeSound	prim_canonical_Boolv_cases	sorryAx,propext,Quot.sound	thm:prim_canonical_Boolv_cases;def:check_freevars._unary
+LeanTypeSound.Ast	exp.Raise.sizeOf_spec		
+LeanTypeSound.Ast	dec.Dtabbrev.inj		
+LeanTypeSound.TypeSysProps	extend_dec_tenv_assoc_thm	propext	
+LeanTypeSound.TypeSysProps	tveLookup.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_p_freevars	sorryAx,propext,Quot.sound	thm:type_p_freevars;def:check_freevars._unary
+LeanTypeSound.Ast	dec.Dletrec.sizeOf_spec		
+LeanTypeSound.Ast	op_class.Force.sizeOf_spec		
+LeanTypeSound.Ast	op.Vsub_unsafe.sizeOf_spec		
+LeanTypeSound.Ast	lit.IntLit.inj		
+LeanTypeSound.Ast	thunk_op.AllocThunk.sizeOf_spec		
+LeanTypeSound.EvaluateProps	is_clock_io_mono_minimal	propext,sorryAx	thm:is_clock_io_mono_minimal
+LeanTypeSound.Ast	op.FFI.sizeOf_spec		
+LeanTypeSound.Ast	op.Alength.sizeOf_spec		
+LeanTypeSound.Ast	shift.Ror.sizeOf_spec		
+LeanTypeSound.FpSem	fp_cmp.FP_Greater.sizeOf_spec		
+LeanTypeSound.TypeSystem	check_freevars_ast.eq_def	sorryAx,Quot.sound	thm:check_freevars_ast._unary.eq_def;def:check_freevars_ast._unary
+LeanTypeSound.TypeSysProps	deBruijn_subst_tenvE.eq_1	propext,Quot.sound	
+LeanTypeSound.TypeSoundInvariants	store_t.Varray_t.inj		
+LeanTypeSound.TypeSound	eq_same_type	sorryAx,propext,Quot.sound	thm:eq_same_type;def:do_eq._mutual;def:check_freevars._unary
+LeanTypeSound.EvaluateProps	dec_inc_clock	propext	
+LeanTypeSound.TypeSysProps	db_merge.eq_def		
+LeanTypeSound.SemanticPrimitives	eval_oracle_state.mk.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsAll_nsSing	sorryAx	thm:nsAll_nsSing
+LeanTypeSound.SemanticPrimitives	error_result.Rraise.injEq	propext	
+LeanTypeSound.Mlstring	mlstring.strlit.sizeOf_spec		
+LeanTypeSound.Ast	lit.Float64.sizeOf_spec		
+LeanTypeSound.Weakening	weak_tenvE_bind_var_list	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	thunk_op.AllocThunk.inj		
+LeanTypeSound.SemanticPrimitives	store_v.Varray.inj		
+LeanTypeSound.TypeSystem	sem_t.Tapp.sizeOf_spec		
+LeanTypeSound.Ast	exp.Mat.injEq	propext	
+LeanTypeSound.Ast	op.Strcat.sizeOf_spec		
+LeanTypeSound.TypeSysProps	tenv_abbrev_ok_lookup	sorryAx	thm:tenv_abbrev_ok_lookup;def:check_freevars._unary
+LeanTypeSound.NamespaceProps	nsAll2_mono		
+LeanTypeSound.TypeSound	same_ctor_and_same_tid	propext,sorryAx	thm:same_ctor_and_same_tid
+LeanTypeSound.Ast	op_class.EvalOp.sizeOf_spec		
+LeanTypeSound.Ast	prim_type.StrT.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	result.Rval.sizeOf_spec		
+LeanTypeSound.Ast	exp.If.sizeOf_spec		
+LeanTypeSound.Ast	pat.Ptannot.sizeOf_spec		
+LeanTypeSound.TypeSoundInvariants	store_t.Ref_t.injEq	propext	
+LeanTypeSound.TypeSysProps	tveLookup_inc_some	propext,Quot.sound,sorryAx	thm:tveLookup_inc_some
+LeanTypeSound.EvaluateProps	is_clock_io_mono_do_app_simple	propext,sorryAx,Quot.sound,Classical.choice	thm:is_clock_io_mono_do_app_simple;def:do_eq._mutual;def:v_to_list;def:v_to_char_list
+LeanTypeSound.TypeSystem	sem_t.brecOn.eq		
+LeanTypeSound.Weakening	type_tenv_ctor_weakening	sorryAx	thm:type_tenv_ctor_weakening
+LeanTypeSound.FpSem	fp_uop.FP_Sqrt.sizeOf_spec		
+LeanTypeSound.Ast	pat.Plit.injEq	propext	
+LeanTypeSound.Ast	exp.App.inj		
+LeanTypeSound.TypeSound	decs_type_sound	sorryAx,propext,Quot.sound,Classical.choice	thm:decs_type_sound;def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp;def:check_freevars._unary
+LeanTypeSound.Evaluate	fix_clock_do_eval_res	propext,Quot.sound,sorryAx	thm:fix_clock_do_eval_res;def:v_to_list;def:concrete_v._mutual
+LeanTypeSound.Namespace	namespace.brecOn_1.eq		
+LeanTypeSound.Ffi	ffiname.ExtCall.injEq	propext	
+LeanTypeSound.SemanticPrimitives	v.Recclosure.injEq	propext	
+LeanTypeSound.Ast	test.AltCompare.injEq	propext	
+LeanTypeSound.NamespaceProps	nsSub_nsEmpty		
+LeanTypeSound.TypeSysProps	tenv_val_ok_nsEmpty	sorryAx,propext,Quot.sound,Classical.choice	def:check_freevars._unary
+LeanTypeSound.HOL4Prelude	HOL4.LIST_REL.brecOn		
+LeanTypeSound.TypeSound	build_tdefs_build_tenv	propext,Quot.sound,sorryAx	thm:build_tdefs_build_tenv
+LeanTypeSound.Ast	op.VfromList.sizeOf_spec		
+LeanTypeSound.Ast	op.Vsub.sizeOf_spec		
+LeanTypeSound.TypeSystem	type_env.mk.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsLookup_nsEmpty		
+LeanTypeSound.Ast	prim_type.WordT.sizeOf_spec		
+LeanTypeSound.Ffi	ffi_result.FFI_final.injEq	propext	
+LeanTypeSound.SemanticPrimitivesProps	Boolv.eq_1		
+LeanTypeSound.TypeSound	store_alloc_type_sound	sorryAx,propext,Quot.sound	thm:store_alloc_type_sound;def:check_freevars._unary
+LeanTypeSound.Ast	dec.Dtype.inj		
+LeanTypeSound.SemanticPrimitives	exp_or_val.Val.injEq	propext	
+LeanTypeSound.SemanticPrimitives	v.Recclosure.inj		
+LeanTypeSound.SemanticPrimitives	eval_decs_state.mk.injEq	propext	
+LeanTypeSound.Ast	op.Test.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	v.Closure.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	prim_type_cases		
+LeanTypeSound.Ffi	ffi_result.FFI_return.injEq	propext	
+LeanTypeSound.TypeSystem	deBruijn_inc.eq_def	propext,Quot.sound	
+LeanTypeSound.TypeSystem	sem_t.Tapp.injEq	propext	
+LeanTypeSound.Ast	op.Aw8length.sizeOf_spec		
+LeanTypeSound.Ast	op.CopyStrStr.sizeOf_spec		
+LeanTypeSound.Ast	thunk_op.UpdateThunk.injEq	propext	
+LeanTypeSound.Ast	exp.brecOn.eq		
+LeanTypeSound.Ast	lit.IntLit.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	error_result.Rabort.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	v_binds_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	test.Compare.inj		
+LeanTypeSound.TypeSound	store_type_extension_refl	sorryAx	thm:store_type_extension_refl
+LeanTypeSound.SemanticPrimitives	v.brecOn_4.eq		
+LeanTypeSound.Evaluate	evaluate.eq_def	sorryAx,propext,Quot.sound,Classical.choice	def:evaluate._mutual;def:pmatch._mutual;def:v_to_list;def:concrete_v._mutual;def:do_eq._mutual;def:v_to_char_list;def:every_exp;thm:evaluate._mutual.eq_def
+LeanTypeSound.TypeSysProps	db_merge.eq_1		
+LeanTypeSound.Ast	dec.Dlocal.injEq	propext	
+LeanTypeSound.Ast	prim_type.WordT.injEq	propext	
+LeanTypeSound.NamespaceProps	nsEmpty.eq_1		
+LeanTypeSound.TypeSysProps	add_tenvE_bvl	sorryAx	thm:add_tenvE_bvl
+LeanTypeSound.SemanticPrimitives	v.Conv.inj		
+LeanTypeSound.SemanticPrimitives	v.brecOn.eq		
+LeanTypeSound.Ast	op_class.FunApp.sizeOf_spec		
+LeanTypeSound.Ast	lit.Word64.injEq	propext	
+LeanTypeSound.SemanticPrimitives	v.Loc.inj		
+LeanTypeSound.SemanticPrimitives	v.Env.injEq	propext	
+LeanTypeSound.Ast	op.FFI.inj		
+LeanTypeSound.Ast	pat.Pany.sizeOf_spec		
+LeanTypeSound.Ast	exp.Let.sizeOf_spec		
+LeanTypeSound.TypeSystem	type_d.brecOn	propext,sorryAx,Quot.sound	def:check_freevars_ast._unary;def:check_type_names;def:check_freevars._unary;def:is_value
+LeanTypeSound.SemanticPrimitives	v.Conv.sizeOf_spec		
+LeanTypeSound.TypeSystem	deBruijn_subst.eq_def	propext,Quot.sound	

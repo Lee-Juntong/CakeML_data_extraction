@@ -1,0 +1,15 @@
+{
+ "commit": "4841f993eaa66d5bfdd70b5b3b6d99494a386897",
+ "short": "4841f993e",
+ "date": "2026-10-05",
+ "author": "Claude (repairs directed by the author)",
+ "branch": "lean-translate-round5-repair",
+ "parent": "405848cad0a4a3fddb6273077f9dea753218bb48",
+ "first_repair_commit": "405848cad0a4a3fddb6273077f9dea753218bb48",
+ "baseline": "252eab2cf8c80fd51351b769577268771fb99c8c",
+ "subject": "State the computed theorems do_app_cases and type_op_cases in full",
+ "history": [
+  "405848cad Repair six translation defects of the frozen baseline (5 Oct 2026)",
+  "4841f993e State the computed theorems do_app_cases and type_op_cases in full (5 Oct 2026)"
+ ]
+}

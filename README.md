@@ -97,3 +97,7 @@ compare_validate.ipynb
 afterwork.ipynb
 compare_validate_*.json[l]
 ```
+
+## FormaliSE 2027 artifact
+
+`formalise2027-artifact/` holds the artifact of the FormaliSE 2027 experience report "Migrating CakeML Type Soundness from HOL4 to Lean with LLM Agents". It includes the validator records of review rounds 3 to 7 (`formalise2027-artifact/data/validator/`), the records of both proving rounds, and the scripts that recompute the paper's tables. Its own README explains how to run it. The Lean translation and the proving branches are in the CakeML fork, https://github.com/Lee-Juntong/cakeml.

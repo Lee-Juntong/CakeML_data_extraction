@@ -1,0 +1,50 @@
+[
+  {
+    "base": "location",
+    "status": "error",
+    "summary": "Partial functions in HOL4 were translated into total functions in Lean by adding default behavior for cases not covered in the original definitions. This changes the semantics from partial to total with specific, arbitrary default values.",
+    "errors": [
+      {
+        "kind": "Semantic change: partial function made total with default value",
+        "severity": "medium",
+        "hol4_evidence": "Definition locnrow_def:\n  locnrow (POSN r c) = r\nEnd\n\nDefinition locncol_def:\n  locncol (POSN r c) = c\nEnd",
+        "lean_evidence": "def locnrow : locn → Nat\n  | .POSN r _ => r\n  | _ => 0\n\ndef locncol : locn → Nat\n  | .POSN _ c => c\n  | _ => 0",
+        "why_wrong": "The HOL4 functions `locnrow` and `locncol` are partial, defined only for the `POSN` constructor. The Lean translations are total functions that return a default value of `0` for the `UNKNOWNpt` and `EOFpt` cases. This introduces new behavior not present in the original specification, changing the functions' semantics.",
+        "suggested_fix": "To more faithfully represent the partial nature of the HOL4 functions, the Lean versions should return an `Option Nat`.\n\ndef locnrow : locn → Option Nat\n  | .POSN r _ => some r\n  | _ => none\n\ndef locncol : locn → Option Nat\n  | .POSN _ c => some c\n  | _ => none"
+      },
+      {
+        "kind": "Semantic change: partial function made total with identity fallback",
+        "severity": "medium",
+        "hol4_evidence": "Definition locn_rowupdate_def:\n  locn_rowupdate f (POSN r c) = POSN (f r) c\nEnd\n\nDefinition locn_colupdate_def:\n  locn_colupdate f (POSN r c) = POSN r (f c)\nEnd",
+        "lean_evidence": "def locn_rowupdate (f : Nat → Nat) : locn → locn\n  | .POSN r c => .POSN (f r) c\n  | l => l\n\ndef locn_colupdate (f : Nat → Nat) : locn → locn\n  | .POSN r c => .POSN r (f c)\n  | l => l",
+        "why_wrong": "The HOL4 functions `locn_rowupdate` and `locn_colupdate` are partial, defined only for the `POSN` constructor. The Lean translations are made total by returning the input value unchanged for the `UNKNOWNpt` and `EOFpt` cases. This introduces an identity-function behavior for these cases, which is not specified in the original definitions.",
+        "suggested_fix": "To more faithfully represent the partial nature of the HOL4 functions, the Lean versions should return an `Option locn`.\n\ndef locn_rowupdate (f : Nat → Nat) : locn → Option locn\n  | .POSN r c => some (.POSN (f r) c)\n  | _ => none\n\ndef locn_colupdate (f : Nat → Nat) : locn → Option locn\n  | .POSN r c => some (.POSN r (f c))\n  | _ => none"
+      }
+    ],
+    "confidence": 1,
+    "notes": "The errors stem from a common challenge in translating from a logic that supports partial functions (HOL4) to one that requires total functions (Lean 4). The translator made a choice to add default behavior, which alters the semantics.",
+    "hol4_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\hol4-ultramin\\locationScript.sml",
+    "lean_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\LeanTypeSound\\Location.lean",
+    "stage": 1
+  },
+  {
+    "base": "semanticprimitives",
+    "status": "error",
+    "summary": "The function `v_to_char_list` is translated incorrectly. The HOL4 version returns a string, while the Lean version returns a list of characters.",
+    "errors": [
+      {
+        "kind": "Logic error",
+        "severity": "medium",
+        "hol4_evidence": "Definition v_to_char_list_def:\n  v_to_char_list (Conv (SOME stamp) []) =\n    (if stamp = TypeStamp «[]» list_type_num then SOME \"\" else NONE) ∧\n  v_to_char_list (Conv (SOME stamp) [Litv (Char c); v]) =\n    (if stamp = TypeStamp «::» list_type_num then\n       case v_to_char_list v of NONE => NONE | SOME cs => SOME (STRING c cs)\n     else NONE) ∧\n  v_to_char_list _ = NONE",
+        "lean_evidence": "def v_to_char_list : v → Option (List Char)\n  | .Conv (some stmp) [] =>\n    if stmp == .TypeStamp (mlstring.strlit \"[]\") list_type_num then some [] else none\n  | .Conv (some stmp) [.Litv (.Char c), v'] =>\n    if stmp == .TypeStamp (mlstring.strlit \"::\") list_type_num then\n      match v_to_char_list v' with\n      | none => none\n      | some cs => some (c :: cs)\n    else none\n  | _ => none",
+        "why_wrong": "The HOL4 function `v_to_char_list` recursively builds and returns a string (type `mlstring`). The base case for an empty list returns an empty string `\"\"`, and the recursive step uses `STRING` to prepend a character to the resulting string. The Lean translation returns a list of characters (type `Option (List Char)`). Its base case returns an empty list `[]`, and the recursive step uses list cons `::`. This changes the return type and logic of the function.",
+        "suggested_fix": "The Lean function should be changed to return an `Option mlstring` to match the HOL4 version. This would involve returning an empty `mlstring` in the base case and using a string prepending function (like `str_cons`) in the recursive step.\n\n```lean\ndef v_to_char_list : v → Option mlstring\n  | .Conv (some stmp) [] =>\n    if stmp == .TypeStamp (mlstring.strlit \"[]\") list_type_num then some (mlstring.strlit \"\") else none\n  | .Conv (some stmp) [.Litv (.Char c), v'] =>\n    if stmp == .TypeStamp (mlstring.strlit \"::\") list_type_num then\n      match v_to_char_list v' with\n      | none => none\n      | some cs => some (str_cons c cs) -- Assuming str_cons is available\n    else none\n  | _ => none\n```"
+      }
+    ],
+    "confidence": 5,
+    "notes": "The HOL4 source code appears to have a type error in its usage of `v_to_char_list` within the `do_app` function (specifically for the `Implode` primitive), where it seems to expect a list of characters instead of a string. The Lean translation seems to 'fix' this bug by changing the implementation of `v_to_char_list`. While the Lean version might be more correct in spirit, it is not a faithful translation of the provided HOL4 source code.",
+    "hol4_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\hol4-ultramin\\semanticPrimitivesScript.sml",
+    "lean_path": "E:\\NUS\\mcomp\\Dissertation\\cakeML\\cakeml\\lean_type_sound\\LeanTypeSound\\SemanticPrimitives.lean",
+    "stage": 1
+  }
+]

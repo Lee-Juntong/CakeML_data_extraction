@@ -1,0 +1,4 @@
+﻿academic-research-skills@academic-research-skills
+academic-research-skills@synced
+github@synced
+humanizer@synced

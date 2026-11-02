@@ -1,0 +1,13 @@
+2026-10-09 22:26:04 start skills
+2026-10-09 22:51:19 end skills, exit code 0
+2026-10-09 22:51:19 start second-pass
+2026-10-09 23:46:29 end second-pass, exit code 1
+2026-10-09 23:46:29 stopped after an error in second-pass
+2026-10-09 23:46:29 run_all finished
+2026-10-11 14:46:40 start second-pass
+2026-10-11 15:30:34 end second-pass, exit code 0
+2026-10-11 15:30:34 start docs
+2026-10-11 17:43:21 end docs, exit code 0
+2026-10-11 17:43:21 start hybrid
+2026-10-11 18:19:38 end hybrid, exit code 0
+2026-10-11 18:19:38 run_all finished

@@ -1,0 +1,23 @@
+{
+  "base": "4_sptree_lazylist",
+  "status": "error",
+  "summary": "Lean Sptree fromAList keeps duplicate keys, so toList and toAList return extra entries that HOL4 never returns. Lean toList also orders values differently from HOL4's tree traversal.",
+  "errors": [
+    {
+      "kind": "fromAList_duplicate_keys",
+      "severity": "high",
+      "hol4_evidence": "fromAList ((x,y)::xs) = insert x y (fromAList xs) (sptreeScript.sml:1478-1481). fromAList [(0,x),(0,y)] = insert 0 x (LS y) = LS x, so toList = [x] and toAList = [(0,x)].",
+      "lean_evidence": "def fromAList {α : Type} (l : List (Nat × α)) : Sptree α := l. For [(0,x),(0,y)] the result is [(0,x),(0,y)], so toList = [x, y] and toAList = [(0,x),(0,y)].",
+      "why_wrong": "An spt holds at most one entry per key. The Lean model keeps duplicate keys, so toList and toAList return elements that the HOL4 functions never return. lookup still agrees only because find? takes the first match."
+    },
+    {
+      "kind": "toList_element_order",
+      "severity": "medium",
+      "hol4_evidence": "toList m = toListA [] m (sptreeScript.sml:1132-1133). insert 0 a LN = LS a, then insert 1 b (LS a) = BS LN a (LS b). toListA [] (BS LN a (LS b)) = [a, b].",
+      "lean_evidence": "insert k v t = (k, v) :: t.filter (...). Inserting 0 then 1 gives [(1,b),(0,a)], and toList = t.map Prod.snd = [b, a].",
+      "why_wrong": "For the same map, HOL4 returns values in tree-traversal order and Lean returns them in reverse insertion order. The two toList results differ, so any consumer that depends on the order sees different values."
+    }
+  ],
+  "confidence": 0.8,
+  "notes": "Not reported as errors: (a) Lean omits foldi, lrnext, and the llist LTAKE/LLENGTH/isPREFIX helpers, which is missing coverage rather than a wrong translation. (b) LazyList toList takes an arbitrary witness N from Classical.choose and uses filterMap, which drops holes. This matches HOL4 only under the downward-closed none invariant that the Lean comment documents but the type does not enforce. (c) LPREFIX matches HOL4 on finite and infinite cases under that invariant. (d) toAList order may also differ from HOL4 in general; the one example I checked coincides, so I did not report it separately."
+}

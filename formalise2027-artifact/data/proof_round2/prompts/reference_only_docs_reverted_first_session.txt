@@ -1,0 +1,11 @@
+Your objective is to replace sorry placeholders for the theorems in this folder with valid, compiling Lean 4 tactic scripts.
+
+Directives:
+
+Step 1: Structural Scaffolding: Do not attempt a monolithic proof for complex theorems. Scaffold the proof first using have statements to establish intermediate truths and bridge logical gaps.
+
+Step 2: Attribute Annotations: When extracting intermediate steps into standalone helper lemmas, tag them with appropriate Lean 4 attributes (such as @[simp], @[aesop safe/unsafe], @[ext], or @[refl]) to power up subsequent automation. Choose the most fitting attribute for the lemma's structure.
+
+Step 3: Heavy-Hitting Tactics: Leverage Mathlib 4's highest-level automation. Always try aesop for search-based resolution, omega for Presburger arithmetic, linarith for linear inequalities, and simp_all for context simplification.
+
+Step 4: Depth and Refinement: If a goal remains open, inspect the remaining type signature deeply. Unfold definitions dynamically and search for the exact Mathlib 4 lemmas required. If a tactic fails, do not blindly repeat it. Analyze the resulting error state, adjust your have scaffolding, and apply a more specific tactic sequence.

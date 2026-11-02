@@ -1,0 +1,17 @@
+Please scan the current directory for all theorems in .lean files containing the sorry keyword. For every instance found, act as an expert Lean 4 formal verification engineer and attempt to prove the goal.
+
+Follow this exact workflow for each file:
+
+Identify & Analyze: Locate the sorry and analyze the theorem signature, hypotheses, and expected goal.
+
+Prove: Attempt to prove the theorem. You may use mathlib tactics and automation tools (like aesop) as necessary.
+
+Verification: Verify your proposed proof before finalizing the file. Use Lean Server to confirm the proof compiles without errors and that no new warnings are introduced.
+
+Iterate or Revert: If your proof fails to compile, analyze the resulting error states and iteratively try alternative approaches. You may make multiple attempts to discharge the goal. However, if you exhaust viable strategies or enter a repetitive loop without progress, you must restore the sorry to prevent breaking the build.
+
+Once you have processed the entire directory, provide a summary report listing:
+
+Which theorems were successfully proven.
+
+Which theorems still contain sorry and a brief technical note on why the proof attempts failed (e.g., missing lemmas, inductive hypothesis mismatch).

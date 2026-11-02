@@ -1,0 +1,21 @@
+{
+  "base": "7_float",
+  "status": "error",
+  "summary": "The Lean stub for fp64_mul_add does not match HOL4's fused multiply-add semantics, and the rounding-mode argument is erased, so non-default HOL4 rounding modes are not represented.",
+  "errors": [{
+    "kind": "fma_double_rounding",
+    "severity": "high",
+    "hol4_evidence": "fp64_mul_add = lift3 false (fp ^ \"_mul_add\", \"float_mul_add\") with HOL4 rounding_ty --> fp_ty --> fp_ty --> fp_ty --> fp_ty, i.e. a single-rounding fused operation (float_mul_add)",
+    "lean_evidence": "def fp64_mul_add (_rm : Unit) (a b c : word64) : word64 :=\n  fpToBits (fpOfBits a * fpOfBits b + fpOfBits c)  -- comment: 'this is not a true fused multiply-add ... two roundings'",
+    "why_wrong": "The Lean definition rounds the product and then the sum separately. HOL4 rounds once. Results can differ in the last bit, so the meaning changes. The Lean source itself records this as a translation gap."
+  },
+  {
+    "kind": "rounding_mode_erased",
+    "severity": "medium",
+    "hol4_evidence": "Datatype: rounding = roundTiesToEven | roundTowardPositive | roundTowardNegative | roundTowardZero; all fp operations take a rounding argument of this type",
+    "lean_evidence": "def roundTiesToEven : Unit := ()\n... def fp64_add (_rm : Unit) ... (similarly for sub, mul, div, sqrt, mul_add)",
+    "why_wrong": "HOL4 has four rounding modes, and the operations are parameterised by them. Lean has only a Unit placeholder for roundTiesToEven, the other three constructors are missing, and the argument is discarded. Any HOL4 term using a non-default mode has no faithful counterpart."
+  }],
+  "confidence": 0.8,
+  "notes": "Only the Lean stubs present in the pair were checked. Missing definitions (for example fp_compare, *_with_flags, fp_to_int, fp_to_real, roundToIntegral) are not reported as errors because they are omissions rather than wrong translations. The stated Float (binary64) model is assumed to match HOL4 fp64 for the non-FMA operations."
+}

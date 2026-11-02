@@ -1,0 +1,14 @@
+{
+  "base": "5_set_ops",
+  "status": "error",
+  "summary": "Lean CARD does not compute the cardinality of a finite set. It returns the length of an arbitrary enumerating list, which may contain duplicates.",
+  "errors": [{
+    "kind": "wrong_definition",
+    "severity": "high",
+    "hol4_evidence": "CARD_DEF = new_specification (\"CARD_DEF\", [\"CARD\"], CARD_EXISTS) (pred_setScript.sml:3428). CARD is the cardinality of a set, so CARD {1} = 1.",
+    "lean_evidence": "noncomputable def CARD s : Nat := if h : FINITE s then (Classical.choose h).length else 0, where FINITE s only requires some list l with (s a <-> a in l) for all a.",
+    "why_wrong": "Classical.choose returns an arbitrary enumerating list, and nothing requires it to be duplicate-free. The doc comment says the list is de-duplicated, but the code does not do that. For s = {1}, the list [1, 1] also enumerates s, so CARD {1} can evaluate to 2 instead of 1. The value is not determined, so it does not match HOL4 CARD."
+  }],
+  "confidence": 0.9,
+  "notes": "INJ and SURJ have no separate Lean definitions. BIJ is inlined with the same meaning as HOL4 BIJ = INJ /\\ SURJ, so this is an omission, not a meaning error. DISJOINT, IMAGE, BIGUNION, FINITE and TOKENS match HOL4. The BEq constraint on TOKENS is extra but harmless. CARD of an infinite set is 0 in Lean; HOL4 leaves that case to CARD_EXISTS."
+}

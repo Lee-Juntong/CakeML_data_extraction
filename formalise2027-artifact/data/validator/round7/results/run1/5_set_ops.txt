@@ -1,0 +1,14 @@
+{
+  "base": "5_set_ops",
+  "status": "error",
+  "summary": "Lean CARD does not return the cardinality of a finite set. It returns the length of an arbitrary enumerating list, which may contain duplicates, despite the comment saying the list is de-duplicated.",
+  "errors": [{
+    "kind": "wrong_value",
+    "severity": "high",
+    "hol4_evidence": "val CARD_DEF = new_specification ('CARD_DEF', ['CARD'], CARD_EXISTS); CARD is the cardinality of a finite set.",
+    "lean_evidence": "noncomputable def CARD s : Nat := if h : FINITE s then (Classical.choose h).length else 0, with comment 'returns the length of the de-duplicated enumerating list'.",
+    "why_wrong": "Lean FINITE only requires that the list contain exactly the elements of s, so duplicates are allowed and Classical.choose may pick any such list. For s = {0}, the list [0, 0] is a valid witness, which gives CARD = 2 instead of 1. The result is also not determined by s, because the choice is arbitrary. No de-duplication is performed."
+  }],
+  "confidence": 0.9,
+  "notes": "Checked and consistent: DISJOINT (Set.Disjoint matches s INTER t = EMPTY), IMAGE (Set.image), BIGUNION (Set.sUnion), FINITE (existence of an enumerating list is equivalent to HOL4 inductive finiteness), BIJ (matches INJ and SURJ conjunction), TOKENS (splitOnP with empty groups removed matches HOL4 SPLITP-based TOKENS). INJ and SURJ have no separate Lean definitions, but BIJ inlines them, which does not change meaning. Lean TOKENS is generalised from string to any type with BEq, which is harmless."
+}

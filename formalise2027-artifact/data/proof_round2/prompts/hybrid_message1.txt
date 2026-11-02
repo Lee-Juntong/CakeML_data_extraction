@@ -1,0 +1,25 @@
+You are an expert Lean 4 developer. Your goal is to resolve as many sorry statements as possible in this directory.
+
+Because Lean files have strict import dependencies, you MUST follow this execution plan:
+
+1. Map Dependencies:
+Scan all .lean files and their import statements.
+Build a dependency graph to determine the correct bottom-up compilation order.
+
+2. Proactive Annotation & Knowledge Base
+
+Before proving, analyze all existing lemmas in the file. Add appropriate Lean 4 attributes—such as @[simp], @[aesop safe/unsafe], @[ext], @[refl], or @[grind =]—to existing declarations to optimize the automation environment.-Consult the Mathlib 4 Tactic Documentation https://leanprover-community.github.io/mathlib4_docs/tactics.html for precise syntax and to identify the most effective attributes for specific logical structures.
+
+3. Best-Effort Processing:
+Process files one by one, starting from the leaf dependencies.
+For each file, use the Aristotle MCP  to attempt closing all gaps.
+
+4. Reference & Assist:
+If Aristotle fails on a specific goal, consult Mathlib 4 Tactic Documentation and apply basic structural tactics (intro, cases, induction) to break the goal down, then hand it back to Aristotle.
+
+5. Graceful Fallback (Do Not Get Stuck):
+If a sorry remains unsolvable after your assistance, leave the sorry in place and move on. Do not waste excessive loops on a single stubborn theorem.
+
+6. Validation:
+Run lake build on the current module.
+You may proceed to the next file in the dependency graph if the current file compiles without fatal errors, and you had tried your best to prove the theorems in the current file.

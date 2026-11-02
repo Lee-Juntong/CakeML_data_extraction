@@ -1,0 +1,20 @@
+{
+  "base": "4_sptree_lazylist",
+  "status": "error",
+  "summary": "Lean Sptree.fromAList keeps duplicate keys, so toAList and toList can return more entries than HOL4 does. Lean's toAList/toList also return list order (insertion history) rather than HOL4's foldi-determined order.",
+  "errors": [{
+    "kind": "fromAList/toAList: duplicate keys not collapsed",
+    "severity": "high",
+    "hol4_evidence": "fromAList_def: fromAList ((x,y)::xs) = insert x y (fromAList xs); insert replaces an existing key, so the resulting tree holds each key at most once. toAList_def: toAList = foldi (\\k v a. (k,v)::a) 0 []. Example: fromAList [(1,a),(1,b)] gives a tree with one entry, so toAList returns a single pair (1,a).",
+    "lean_evidence": "def fromAList (l : List (Nat × α)) : Sptree α := l  (no deduplication). def toAList (t : Sptree α) : List (Nat × α) := t. Example: fromAList [(1,a),(1,b)] gives toAList = [(1,a),(1,b)], which has two entries.",
+    "why_wrong": "The HOL4 Sptree never holds duplicate keys, but the Lean representation admits them, so toAList and toList (and hence any length or membership observation on them) differ from HOL4. lookup still agrees because find? returns the first match, so the divergence is confined to the enumeration functions."
+  }, {
+    "kind": "toList/toAList: element order not the HOL4 traversal order",
+    "severity": "medium",
+    "hol4_evidence": "toListA and foldi_def fix an order determined by the trie shape and lrnext: toAList = foldi (\\k v a. (k,v)::a) 0 [], and toList m = toListA [] m. The output order depends only on the key set and tree structure.",
+    "lean_evidence": "def toList (t : Sptree α) : List α := t.map Prod.snd and def toAList (t : Sptree α) : List (Nat × α) := t. Both return list order, which is the most recent insertion first (insert prepends) or the fromAList argument order.",
+    "why_wrong": "Two HOL4 trees with the same key/value set always enumerate identically. The Lean list order depends on insertion history, so the same map can enumerate differently. This is a semantic mismatch for any consumer that relies on the HOL4 ordering."
+  }],
+  "confidence": 0.8,
+  "notes": "LazyList LPREFIX, fromList, and toList were checked and appear to match (infinite l1 requires pointwise agreement, which for an infinite l1 means equality; finite cases match isPREFIX and LTAKE; Classical.choose gives a non-least N but filterMap over range N still collects exactly the elements). The HOL4 snippet for LPREFIX calls toList on an llist before the llist toList definition appears in the concatenated extract; this is a source-extraction ordering issue, not a translation error. The exact toAList order depends on lrnext, which is not in the snippet, so the order finding is stated without a concrete expected sequence."
+}

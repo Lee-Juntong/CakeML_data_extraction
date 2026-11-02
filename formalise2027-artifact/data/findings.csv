@@ -1,0 +1,16 @@
+id,round,record_base,lean_file,validator_claim,handling,handling_evidence,post_hoc_verdict,post_hoc_evidence
+1,3,evaluate,Evaluate.lean,Application omits the Force and EvalOp operator classes,repaired by agent,af5ac084c commit message,correct,af5ac084c Evaluate.lean adds Force and EvalOp cases
+2,3,typesoundinvariants,TypeSoundInvariants.lean,Closure typing rules drop the domain condition of nsAll2,repaired in part by agent,af5ac084c commit message,correct; repair partial,hol4_library_evidence.md Finding 2
+3,3,typesoundinvariants,TypeSoundInvariants.lean,Constructor typing rule omits REVERSE before building the substitution,agent added a reversal,af5ac084c commit message,wrong,hol4_library_evidence.md Finding 3
+4,3,semanticprimitivesprops,SemanticPrimitivesProps.lean,FV of Letrec should group as A union (B diff C),agent regrouped,af5ac084c commit message,wrong,hol4_library_evidence.md Finding 4
+5,3,weakening,Weakening.lean,type_s_weakening types the store as a list,agent retyped,af5ac084c commit message,wrong; edit changed nothing,hol4_library_evidence.md Findings 5
+6,3,mllist,Mllist.lean,sort uses an Ord class in place of a comparator,agent added a comparator returning ordering,af5ac084c commit message,correct in part,hol4_library_evidence.md Findings 6 and 13
+7,3,semanticprimitives,SemanticPrimitives.lean,v_to_char_list should return a string type,rejected by agent,af5ac084c commit message,wrong,hol4_library_evidence.md Findings 7
+8,3,typesysprops,TypeSysProps.lean,"In nsLookup_add_tenvE3, n should be a plain name",rejected by agent,af5ac084c commit message,wrong,hol4_library_evidence.md Findings 8
+9,4,location,Location.lean,locnrow and locncol add a default 0,rejected by developer,validator/round4_escalated.json and project notes,wrong; HOL4 leaves the value unspecified,locationScript.sml locnrow_def
+10,4,location,Location.lean,Row and column updates return other locations unchanged,rejected by developer,validator/round4_escalated.json and project notes,wrong; as 9,locationScript.sml locn_rowupdate_def
+11,4,semanticprimitives,SemanticPrimitives.lean,As 7,rejected by developer,validator/round4_escalated.json and project notes,wrong; as 7,as 7
+12,4,misc,Misc.lean,UPDATE_LIST folds in the wrong direction,not escalated,absent from validator/round4_escalated.json,wrong,hol4_library_evidence.md Finding 12
+13,4,mllist,Mllist.lean,The comparator should be Boolean,not escalated,absent from validator/round4_escalated.json,correct; remains in baseline,hol4_library_evidence.md Findings 6 and 13
+14,4,typesysprops,TypeSysProps.lean,As 8,not escalated,absent from validator/round4_escalated.json,wrong; as 8,as 8
+15,4,semantics_min,SemanticsMin.lean,semantics_prog omits the clock argument,not escalated,absent from validator/round4_escalated.json,wrong; validator misquoted the Lean text,hol4_library_evidence.md Findings 15

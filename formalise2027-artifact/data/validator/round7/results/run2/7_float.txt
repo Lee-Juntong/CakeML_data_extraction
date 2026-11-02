@@ -1,0 +1,20 @@
+{
+  "base": "7_float",
+  "status": "error",
+  "summary": "The Lean stubs drop the HOL4 rounding-mode argument (rounding is collapsed to Unit, so roundTowardPositive/Negative/Zero are lost) and implement fp64_mul_add as two roundings instead of one fused multiply-add. Both change results.",
+  "errors": [{
+    "kind": "rounding_mode_collapsed",
+    "severity": "high",
+    "hol4_evidence": "binary_ieeeScript.sml:271-276 defines Datatype: rounding = roundTiesToEven | roundTowardPositive | roundTowardNegative | roundTowardZero. machine_ieeeLib.sml lift1/lift2/lift3 (lines 46-59, 112-118, 160-167) thread a rounding_ty argument through every arithmetic op.",
+    "lean_evidence": "def roundTiesToEven : Unit := () ; def fp64_add (_rm : Unit) (a b : word64) ... ; def fp64_sqrt (_rm : Unit) ... (same pattern for sub, mul, div, mul_add). The comment says the rounding argument is ignored.",
+    "why_wrong": "The HOL4 rounding type has four constructors and each arithmetic op is parameterised by it. Lean has no rounding type, only a single Unit value, and every op ignores its mode. Calls with roundTowardPositive, roundTowardNegative or roundTowardZero therefore compute round-to-nearest-even results, which differ from HOL4 for some inputs. The Lean comment documents the gap, but it still changes meaning."
+  }, {
+    "kind": "fma_replaced_by_double_rounding",
+    "severity": "high",
+    "hol4_evidence": "machine_ieeeLib.sml lift3 (lines 142-171) builds fp64_mul_add and fp64_mul_sub from float_mul_add / float_mul_sub, which are single-rounding fused operations.",
+    "lean_evidence": "def fp64_mul_add (_rm : Unit) (a b c : word64) : word64 := fpToBits (fpOfBits a * fpOfBits b + fpOfBits c) ; the comment acknowledges this is not a true FMA and uses two roundings.",
+    "why_wrong": "HOL4 rounds a*b+c once. The Lean version rounds a*b first and then rounds the sum, so the result can differ in the last bit. This is a semantic change, not a proof simplification."
+  }],
+  "confidence": 0.85,
+  "notes": "Lean's fp64_mul_sub is absent from the excerpt, so it is not assessed. Missing HOL4 operations outside the shown lift list are coverage gaps, not counted here. The comparison and equality definitions appear to match IEEE semantics and were not flagged."
+}

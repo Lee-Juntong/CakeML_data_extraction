@@ -1,0 +1,14 @@
+{
+  "base": "1_sets",
+  "status": "error",
+  "summary": "The Lean shim's set-operator precedences do not match the HOL4 infix declarations, so unparenthesised mixed expressions parse differently.",
+  "errors": [{
+    "kind": "operator precedence/associativity mismatch",
+    "severity": "low",
+    "hol4_evidence": "DIFF_DEF is new_infixl_definition at precedence 500 (pred_setScript.sml:949-951); UNION_DEF is infixl 500; INTER_DEF is infixl 600.",
+    "lean_evidence": "sdiff is exposed via the SDiff instance, so \\ uses Lean's built-in infix precedence 70, the same level as ∩ (70) and tighter than ∪ (65).",
+    "why_wrong": "In HOL4, s UNION t DIFF u parses as (s UNION t) DIFF u, and s DIFF t INTER u parses as s DIFF (t INTER u). In Lean, s ∪ t \\ u parses as s ∪ (t \\ u), and s \\ t ∩ u parses as (s \\ t) ∩ u. The same source text therefore denotes different sets."
+  }],
+  "confidence": 0.6,
+  "notes": "The set semantics of every definition match HOL4 (IN, EMPTY, UNIV, INSERT, UNION, INTER, DIFF, IMAGE, BIGUNION, DISJOINT, SUBSET were all checked). Only the operator fixities differ. A fix would declare HOL4-matching notations, or the affected expressions would need explicit parentheses."
+}

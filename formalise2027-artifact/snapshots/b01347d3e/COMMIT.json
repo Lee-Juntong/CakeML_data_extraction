@@ -1,0 +1,7 @@
+{
+ "commit": "b01347d3e85966a516da3c643a777b0ae1ab0b0d",
+ "short": "b01347d3e",
+ "date": "2026-02-26",
+ "author": "tanyongkiam",
+ "subject": "Replace 24 vacuous True theorem stubs with proper HOL4 statements"
+}

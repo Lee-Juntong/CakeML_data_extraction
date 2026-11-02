@@ -1,0 +1,53 @@
+﻿2026-10-11 15:30:35 run docs in E:\NUS\mcomp\Dissertation\r2\docs\lean_type_sound
+2026-10-11 15:30:35 arguments: -p --model claude-opus-4-7 --permission-mode acceptEdits --output-format stream-json --verbose --effort xhigh
+2026-10-11 15:30:35 claude version: 2.1.296 (Claude Code)
+2026-10-11 15:30:35 message 1 (docs_message1.txt) sent
+2026-10-11 15:32:54 message 1 result: is_error True, turns 22, cost_usd 1.388617, session ed98c88e-53a2-4880-aee1-b8225acd56b7, text: You've hit your session limit · resets 5pm (Asia/Singapore)
+2026-10-11 15:32:54 usage limit reached (You've hit your session limit · resets 5pm (Asia/Singapore)). Waiting until 2026-10-11 17:02:00.
+2026-10-11 17:02:00 intervention: message 1, resume 1, sent 'continue' to session ed98c88e-53a2-4880-aee1-b8225acd56b7
+2026-10-11 17:28:04 message 1 resume 1 result: is_error False, turns 118, cost_usd 12.3295325, text: **Status: build passes, 42 of 287 sorries proved (15%). 245 remain.**
+
+Proven in this session (all compile cleanly):
+- `Misc.lean` 9/14 (FST_pair, LESS_1, plus_0_I, map_some_eq, map_some_eq_append, find_index_LESS_LENGTH, MAP_EQ_MAP_IMP, FDOM_FLOOKUP, DROP_EMPTY)
+- `SemanticPrimitivesProps.lean` 7/13 (with_same_v, unchanged_env, with_same_clock, Boolv_11, extend_dec_env_assoc, concrete_v_list_thm, prim_type_cases)
+- `EvaluateProps.lean` 1/22 (pair_CASE_eq_forall)
+- `Weakening.lean` 5/25 (weakS_refl, gt_0, weak_ctMap_lookup, weakCT_refl, weakCT_trans)
+- `NamespaceProps.lean` 20/50 (mk_id_thm, mk_id_surj, nsSub_mono, nsAll2_mono, nsLookup_nsEmpty, nsLookupMod_nsEmpty, nsAppend_nsEmpty, alist_to_ns_nil, nsSub_nsEmpty, nsAll_nsEmpty, nsAll2_nsEmpty, alist_to_ns_cons, nsAppend_nsBind, nsAppend_assoc, nsAppend_nsSing, nsBind_11, alist_to_ns_11, eALL_T, nsLookup_nsAll, nsSub_conj)
+
+**Not attempted — require research-level formalization work:**
+- `TypeSound.lean` 44 sorries — type preservation, progress, do_app typing (deep structural inductions over mutual inductives type_v/type_e/type_p with 20+ constructors each)
+- `TypeSysProps.lean` 92 sorries — type system weakening, substitution, de Bruijn mechanics
+- `NamespaceProps.lean` remaining 30 — deeper lookup/append reasoning
+- `Weakening.lean` remaining 20 — weak_tenv/weak_tenvE mono proofs over typing judgments
+- `EvaluateProps.lean` 21 — clock monotonicity, io_events_mono (depend on inductive hypothesis chains)
+- `Mlstring.lean` 7 — `explode_aux` recursion lemmas
+- `SemanticPrimitives.lean` 8 + `TypeSystem.lean` 4 + `Evaluate.lean` 6 + `Namespace.lean` 1 + `Ast.lean` 1 — all `decreasing_by all_goals sorry` termination arguments for mutual recursive functions (require crafted well-founded measures)
+- `SemanticPrimitivesProps.lean` 6 — do_app_cases ↔ case-split, FV_pes_MAP (large statements)
+
+**Note on Mathlib:** `import Mathlib.Tactic` conflicts with `HOL4Prelude`'s own `Set` definition — `Mathlib.Data.Set.Defs` imports `Set.union` and clashes. The project effectively can't take Mathlib's set theory without a shim rename. All proofs above use Lean 4 core tactics only.
+
+The remaining 245 sorries are the substance of the CakeML type-soundness proof — each needs tens to hundreds of lines of hand-written tactic script, mirroring the HOL4 originals. This is multi-week formalization work and not something I can finish in a single pass.
+2026-10-11 17:28:05 snapshot after message 1: 8913d9987b Proof round 2: docs, state after message 1
+2026-10-11 17:28:05 no def changed into partial def. Correction not sent.
+2026-10-11 17:28:05 message 3 (docs_message3.txt) sent
+2026-10-11 17:43:19 message 3 result: is_error False, turns 149, cost_usd 35.0538165, session ed98c88e-53a2-4880-aee1-b8225acd56b7, text: **Status: build passes. 287 → 224 sorries (63 proven, 22%).**
+
+Progress on this second pass (21 new proofs):
+- **Weakening** (25→16): `weak_tenvE_bind`, `weak_tenvE_opt_bind`, `weak_tenvE_bind_tvar`, `weak_tenvE_bind_var_list`
+- **TypeSysProps** (92→78): `unchanged_tenv`, `extend_dec_tenv_assoc_thm`, `tenv_val_ok_nsEmpty`, `tenv_ctor_ok_nsEmpty`, `tenv_abbrev_ok_nsEmpty`, `tenv_ok_empty`, `bind_var_list_append`, `num_tvs_bind_var_list`, `num_tvs_db_merge`, `num_tvs_deBruijn_subst_tenvE`, `lookup_tenv_names`, `tenv_val_exp_ok_db_merge`, `db_merge_bvl`, `deBruijn_subst_E_bvl`
+- **EvaluateProps** (22→19): `dec_inc_clock`, `list_result_eq_Rval`
+- **NamespaceProps** (30→29): `nsAppend_to_nsBindList`
+
+**Also added infrastructure:**
+- `Mlstring.lean`: `LawfulBEq mlstring` instance — enables lookup/BEq proofs that reduce the `=`/`==` gap. Many downstream `[LawfulBEq modN]` constraints now resolve.
+
+**Remaining difficulties (why 224 still open):**
+- **Mutually inductive types** (`type_e`/`type_es`/`type_funs`, `type_p`/`type_ps`): `induction` tactic is not supported — these need `rec`-based proofs with crafted motives.
+- **Nested inductive `sem_t`**: `induction` not supported since `.Tapp` carries a `List sem_t`. Requires custom induction principle.
+- **Nested `namespace m n v` recursion**: `nsLookup` recurses through `ALOOKUP` on a list of `(m × namespace m n v)`, so proofs about lookup through nested namespaces need either custom structural recursion or lifted induction.
+- **Large case-splits** (do_app_cases, type_op_cases, FV_pes_MAP): need case analysis over 30+ constructors.
+- **Deep semantics** (TypeSound.lean 44 sorries): preservation, progress — each is a long structural proof over `type_v`.
+- **Termination arguments** (`decreasing_by all_goals sorry`): require well-founded measures for mutual recursion.
+2026-10-11 17:43:20 snapshot after message 3: a4041a445a Proof round 2: docs, state after message 3
+2026-10-11 17:43:20 all messages done. Running finish_run.ps1.
+2026-10-11 17:43:20 run docs finished

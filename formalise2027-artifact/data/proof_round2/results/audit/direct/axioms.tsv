@@ -1,0 +1,1805 @@
+LeanTypeSound.SemanticPrimitives	sem_env.mk.sizeOf_spec		
+LeanTypeSound.EvaluateProps	evaluate.eq_15	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	stamp.ExnStamp.injEq	propext	
+LeanTypeSound.TypeSysProps	tveLookup.eq_1	propext,Quot.sound	
+LeanTypeSound.Ast	lit.Word64.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	do_arith.eq_29	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSound	every_exp.eq_10	propext,Quot.sound	
+LeanTypeSound.Ast	exp.brecOn_6.eq		
+LeanTypeSound.TypeSoundCore	do_test.eq_7	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	nsAll_nsAppend_left	propext,Quot.sound	
+LeanTypeSound.Weakening	weak_tenv_refl	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	instLawfulBEqFfiname	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqTest.beq_spec_3	propext	
+LeanTypeSound.Ast	op.ConfigGC.sizeOf_spec		
+LeanTypeSound.TypeSystem	is_value.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	do_opapp.eq_1	propext	
+LeanTypeSound.Mlstring	explode.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqOpb.beq.eq_def		
+LeanTypeSound.Namespace	namespace.Bind.sizeOf_spec		
+LeanTypeSound.Weakening	type_sv.eq_4	propext,Quot.sound	
+LeanTypeSound.Ast	test.AltCompare.inj		
+LeanTypeSound.Misc	HOL4.EL.eq_1	propext	
+LeanTypeSound.EvaluateProps	evaluate.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	outcome.Resource_limit_hit.sizeOf_spec		
+LeanTypeSound.Ast	op.ThunkOp.inj		
+LeanTypeSound.Ast	instBEqWord_size.beq_spec		
+LeanTypeSound.Ast	instLawfulBEqOpb	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	decs_sound_cons	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	pat.Pref.sizeOf_spec		
+LeanTypeSound.TypeSystem	check_type_names_Attup	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	result.Rval.injEq	propext	
+LeanTypeSound.TypeSoundCore	Tstring_num.eq_1		
+LeanTypeSound.Misc	Sptree.lookup_isSome_iff	propext,Quot.sound	
+LeanTypeSound.Mlstring	app_list_ann.BigAppend.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instBEqResult.beq.eq_3	propext	
+LeanTypeSound.Ast	op.Aw8alloc.sizeOf_spec		
+LeanTypeSound.Ffi	instBEqOutcome.beq.eq_3	propext	
+LeanTypeSound.TypeSysProps	type_op.eq_10	propext	
+LeanTypeSound.TypeSystem	tenv_val_exp.brecOn.eq		
+LeanTypeSound.Ffi	ffiname.SharedMem.inj		
+LeanTypeSound.TypeSysProps	Texn.eq_1		
+LeanTypeSound.EvaluateProps	is_clock_io_mono_bind	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	TOKENS_eq_tokens_aux	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqLit.beq.eq_7	propext	
+LeanTypeSound.Ast	exp.Con.injEq	propext	
+LeanTypeSound.Ast	instBEqOp_class.beq.eq_1		
+LeanTypeSound.TypeSystem	check_type_names.eq_def	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instBEqMatch_result.beq.eq_2	propext	
+LeanTypeSound.Ffi	ffiname.SharedMem.sizeOf_spec		
+LeanTypeSound.EvaluateProps	evaluate_decs.eq_5	propext,Quot.sound,Classical.choice	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_return	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	sem_t.Tvar_db.inj		
+LeanTypeSound.Location	instLawfulBEqLocs	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_p_bvl	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqResult.beq_spec_2	propext	
+LeanTypeSound.TypeSoundExp	do_log_bool_ne_none	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	supported_arith.eq_2	propext	
+LeanTypeSound.TypeSoundCore	LIST_REL_of_getElem_bang	propext,Classical.choice,Quot.sound	
+LeanTypeSound.SemanticPrimitives	v.Vectorv.injEq	propext	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_check	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_op.eq_24	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_12	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	store_v_same_type.eq_5	propext	
+LeanTypeSound.TypeSysProps	deBruijn_inc.eq_3	propext,Quot.sound	
+LeanTypeSound.Ast	op.Arith.injEq	propext	
+LeanTypeSound.TypeSysProps	type_op.eq_1	propext	
+LeanTypeSound.Weakening	weakCT_refl		
+LeanTypeSound.Mlstring	HOL4.TOKENS.eq_1		
+LeanTypeSound.TypeSoundCore	supported_test.eq_1	propext	
+LeanTypeSound.SemanticPrimitives	instBEqMatch_result.beq_spec_3	propext	
+LeanTypeSound.TypeSysProps	tenv_val_ok_alist_tenv_add_tvs	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	type_name_subst.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	instReflBEqWord_size	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Namespace	cml_id.brecOn.eq		
+LeanTypeSound.TypeSysProps	type_p_freevars_aux	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_e_freevars_rec	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	store_v.Varray.injEq	propext	
+LeanTypeSound.TypeSysProps	type_def_to_ctMap_mem	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	the_Litv_IntLit.eq_2	propext	
+LeanTypeSound.TypeSoundCore	v_beq.eq_3	propext,Quot.sound	
+LeanTypeSound.Ast	ast_t.Atvar.inj		
+LeanTypeSound.Ast	instBEqPrim_type.beq.eq_4	propext	
+LeanTypeSound.FpSem	instBEqFp_cmp.beq_spec		
+LeanTypeSound.TypeSysProps	type_ps_length	propext,Quot.sound	
+LeanTypeSound.TypeSoundExp	type_v_closure_of_env	propext,Quot.sound	
+LeanTypeSound.FpSem	instBEqFp_top.beq_spec_1		
+LeanTypeSound.Ffi	instBEqFinal_event.beq.eq_1	propext	
+LeanTypeSound.TypeSoundCore	pmatch.eq_8	propext	
+LeanTypeSound.Location	instBEqLocn.beq_spec_4	propext	
+LeanTypeSound.TypeSound	decs_sound_dmod	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_38	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	prim_canonical_values_thm	propext,Quot.sound	
+LeanTypeSound.TypeSoundExp	type_all_env_ext	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.Shift.sizeOf_spec		
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_name.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	do_eq.eq_3	propext	
+LeanTypeSound.TypeSoundCore	supported_test.eq_2	propext	
+LeanTypeSound.TypeSoundCore	check_type.eq_8	propext,Quot.sound	
+LeanTypeSound.Ast	pat.Pcon.sizeOf_spec		
+LeanTypeSound.Ast	instReflBEqPrim_type	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	every_exp.eq_11	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	pat_bindings.eq_4		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_44	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	v.Vectorv.inj		
+LeanTypeSound.EvaluateProps	do_app_refs_length	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instReflBEqThunk_mode	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	store_v.W8array.inj		
+LeanTypeSound.Ast	pat.Pvar.injEq	propext	
+LeanTypeSound.EvaluateProps	do_app_io_events_mono	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Weakening	weakS_refl		
+LeanTypeSound.TypeSoundCore	do_arith.eq_30	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundCore	Tarray_num.eq_1		
+LeanTypeSound.TypeSoundExp	type_es_reverse	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_con_check.eq_1		
+LeanTypeSound.Mlstring	explode_aux.eq_def	propext,Quot.sound,Classical.choice	
+LeanTypeSound.EvaluateProps	evaluate_decs.eq_2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundExp	exp_res_single	propext,Quot.sound	
+LeanTypeSound.Ast	op.Opderef.sizeOf_spec		
+LeanTypeSound.TypeSysProps	deBruijn_inc.eq_2	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_7	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	check_ctor_tenv.eq_2	propext,Quot.sound	
+LeanTypeSound.Ast	arith.Not.sizeOf_spec		
+LeanTypeSound.Ast	ast_t.Atfun.inj		
+LeanTypeSound.Mlstring	app_list_ann.brecOn.eq		
+LeanTypeSound.TypeSysProps	check_freevars_type_name_subst	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	decs_sound_dlet	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	instLawfulBEqMlstring	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	instBEqFfiname.beq.eq_2	propext	
+LeanTypeSound.Weakening	weak_ctMap_lookup		
+LeanTypeSound.Ast	instBEqPrim_type.beq.eq_6	propext	
+LeanTypeSound.NamespaceProps	nsSub_nsAppend2	propext,Quot.sound	
+LeanTypeSound.Mlstring	explode_implode_toList	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	every_exp.eq_1	propext,Quot.sound	
+LeanTypeSound.Ffi	io_event.IO_event.sizeOf_spec		
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok.eq_def	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	v_beq.eq_8	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	evaluate.eq_10	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	arith.And.sizeOf_spec		
+LeanTypeSound.Ffi	instBEqFinal_event.beq.eq_def	propext	
+LeanTypeSound.TypeSystem	check_type_names.eq_1	propext,Quot.sound	
+LeanTypeSound.Mlstring	splitOnP_cons	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instBEqEq_result.beq_spec_2	propext	
+LeanTypeSound.TypeSound	decs_sound_dtabbrev	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Misc	HOL4.ALOOKUP.eq_2		
+LeanTypeSound.TypeSoundCore	mem_LUPDATE_imp	propext	
+LeanTypeSound.Ast	shift.Asr.sizeOf_spec		
+LeanTypeSound.Ast	exp.Let.inj		
+LeanTypeSound.Ffi	instBEqFfiname.beq_spec_1	propext	
+LeanTypeSound.Ast	op.Arith.sizeOf_spec		
+LeanTypeSound.Ffi	ffi_result.FFI_final.sizeOf_spec		
+LeanTypeSound.TypeSound	build_tdefs.eq_2		
+LeanTypeSound.EvaluateProps	evaluate_match.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.FpSem	fp_bop.FP_Div.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instBEqError_result.beq.eq_3	propext	
+LeanTypeSound.Ast	pat.Pas.injEq	propext	
+LeanTypeSound.SemanticPrimitives	error_result.Rabort.inj		
+LeanTypeSound.FpSem	instBEqFp_bop.beq_spec		
+LeanTypeSound.EvaluateProps	evaluate.eq_13	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	opt_bind_name.eq_2		
+LeanTypeSound.TypeSoundCore	cv_ref	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	do_opapp.eq_2	propext	
+LeanTypeSound.FpSem	instReflBEqFp_uop	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	exp.Var.inj		
+LeanTypeSound.TypeSoundCore	build_rec_env_nsBindList	propext	
+LeanTypeSound.NamespaceProps	nsBind_11	propext	
+LeanTypeSound.TypeSound	type_all_env_extend	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_15	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	arith.FMA.sizeOf_spec		
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_tvar.sizeOf_spec		
+LeanTypeSound.Ast	op.Aupdate_unsafe.sizeOf_spec		
+LeanTypeSound.Ast	arith.Abs.sizeOf_spec		
+LeanTypeSound.Mlstring	mlstring.strlit.inj		
+LeanTypeSound.TypeSysProps	tveLookup.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	exp.brecOn_3.eq		
+LeanTypeSound.Mlstring	app_list_ann.BigList.inj		
+LeanTypeSound.Mlstring	splitOnP_go_acc	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	fix_clock_evaluate1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	explode_implode	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Namespace	cml_id.Short.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	abort.Rtimeout_error.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_4	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq.eq_def	propext	
+LeanTypeSound.Evaluate	list_sizeOf_reverse	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_funs_map_fst	propext,Quot.sound	
+LeanTypeSound.Misc	map_some_eq_append	propext	
+LeanTypeSound.TypeSysProps	num_tvs.eq_1		
+LeanTypeSound.TypeSysProps	type_v_freevars	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	build_tdefs.eq_def		
+LeanTypeSound.TypeSound	decs_sound_dtype	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	has_lists_v_to_list	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	List.head!.eq_2		
+LeanTypeSound.TypeSysProps	tveLookup_freevars_local	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqPrim_type.beq_spec_1	propext	
+LeanTypeSound.Ast	exp.Handle.sizeOf_spec		
+LeanTypeSound.Ast	instBEqThunk_op.beq_spec	propext	
+LeanTypeSound.SemanticPrimitives	v.Loc.sizeOf_spec		
+LeanTypeSound.NamespaceProps	id_to_n.eq_1		
+LeanTypeSound.TypeSoundCore	EVERY_REPLICATE	propext,Quot.sound	
+LeanTypeSound.Ffi	instBEqFfiname.beq_spec	propext	
+LeanTypeSound.Ffi	instBEqOutcome.beq.eq_def	propext	
+LeanTypeSound.SemanticPrimitives	instBEqResult.beq.eq_1	propext	
+LeanTypeSound.SemanticPrimitives	stamp.TypeStamp.injEq	propext	
+LeanTypeSound.TypeSoundCore	sing_list	propext	
+LeanTypeSound.TypeSoundCore	pmatch.eq_9	propext	
+LeanTypeSound.TypeSysProps	bind_tvar.eq_1		
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	v_beq.eq_4	propext,Quot.sound	
+LeanTypeSound.Namespace	nsMap.eq_def	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	store_v_same_type.eq_4	propext	
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok_bvl_funs	propext,Quot.sound	
+LeanTypeSound.Ast	pat.Pas.inj		
+LeanTypeSound.SemanticPrimitivesProps	FV_pes.eq_2		
+LeanTypeSound.TypeSysProps	type_op.eq_15	propext	
+LeanTypeSound.TypeSoundCore	store_lookup_some_iff	propext,Quot.sound	
+LeanTypeSound.Mlstring	TOKENS_cons_not_P	propext,Quot.sound	
+LeanTypeSound.Ast	lit.Word64.inj		
+LeanTypeSound.Ast	shift.Lsr.sizeOf_spec		
+LeanTypeSound.Namespace	namespace.brecOn.eq		
+LeanTypeSound.TypeSysProps	HOL4.ZIP.eq_1		
+LeanTypeSound.SemanticPrimitivesProps	with_same_v		
+LeanTypeSound.TypeSystem	check_type_names.eq_4	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	v.Closure.inj		
+LeanTypeSound.SemanticPrimitives	store_v.Thunk.injEq	propext	
+LeanTypeSound.Ffi	instBEqIo_event.beq_spec	propext	
+LeanTypeSound.SemanticPrimitives	stamp.TypeStamp.inj		
+LeanTypeSound.TypeSysProps	build_ctor_tenv.eq_def	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instBEqAbort.beq_spec_4	propext	
+LeanTypeSound.TypeSysProps	db_merge.eq_3		
+LeanTypeSound.TypeSoundCore	lit_same_type.eq_5	propext	
+LeanTypeSound.TypeSoundCore	do_eq.eq_9	propext	
+LeanTypeSound.Location	locn.POSN.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_subst_deBruijn_inc_list	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instLawfulBEqEq_result	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	vs_to_string.eq_2	propext	
+LeanTypeSound.Ast	op.Strlen.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instBEqAbort.beq_spec_1	propext	
+LeanTypeSound.Ast	instBEqPrim_type.beq.eq_1	propext	
+LeanTypeSound.TypeSoundCore	check_type.eq_3	propext,Quot.sound	
+LeanTypeSound.Ffi	instBEqFfiname.beq.eq_1	propext	
+LeanTypeSound.TypeSoundCore	store_v_same_type.eq_3	propext	
+LeanTypeSound.TypeSysProps	lookup_varE.eq_2	propext,Quot.sound	
+LeanTypeSound.Ast	op.Implode.sizeOf_spec		
+LeanTypeSound.TypeSysProps	check_freevars_subst_single	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	tveLookup_db_merge_some	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	do_eq_list.eq_1	propext	
+LeanTypeSound.Ast	ast_t.Atfun.sizeOf_spec		
+LeanTypeSound.Evaluate	evaluate.induct	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqMatch_result.beq_spec_4	propext	
+LeanTypeSound.FpSem	instLawfulBEqFp_bop	propext,Quot.sound,Classical.choice	
+LeanTypeSound.EvaluateProps	dec_clock.eq_1		
+LeanTypeSound.NamespaceProps	nsLookup_FOLDR_nsLift_some	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSysProps	ALOOKUP_map_snd_none		
+LeanTypeSound.Ast	op.ThunkOp.sizeOf_spec		
+LeanTypeSound.TypeSysProps	lookup_tenv_names	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	LIST_REL_append		
+LeanTypeSound.Ffi	instBEqIo_event.beq.eq_def	propext	
+LeanTypeSound.Ast	op.AallocFixed.sizeOf_spec		
+LeanTypeSound.TypeSysProps	alist_to_fmap_zip_mem	propext	
+LeanTypeSound.Ast	exp.Raise.injEq	propext	
+LeanTypeSound.TypeSoundCore	do_arith.eq_22	propext,Classical.choice,Quot.sound	
+LeanTypeSound.SemanticPrimitives	v.Loc.injEq	propext	
+LeanTypeSound.Ast	instBEqThunk_op.beq_spec_4	propext	
+LeanTypeSound.TypeSysProps	unchanged_tenv		
+LeanTypeSound.TypeSysProps	Tlist.eq_1		
+LeanTypeSound.TypeSoundCore	do_arith.eq_16	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Ffi	behaviour.Fail.sizeOf_spec		
+LeanTypeSound.EvaluateProps	evaluate_decs.eq_4	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	ast_t.Atfun.injEq	propext	
+LeanTypeSound.Ast	dec.Dlet.sizeOf_spec		
+LeanTypeSound.Ast	op.Asub.sizeOf_spec		
+LeanTypeSound.Misc	plus_0_I	Quot.sound,propext	
+LeanTypeSound.EvaluateProps	evaluate_decs.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqOpb.beq.eq_1		
+LeanTypeSound.Ast	instBEqWord_size.beq.eq_def		
+LeanTypeSound.Namespace	instBEqCml_id.beq_spec_3	propext	
+LeanTypeSound.SemanticPrimitives	instBEqAbort.beq.eq_4	propext	
+LeanTypeSound.Ast	lit.Word8.injEq	propext	
+LeanTypeSound.Ast	pat.Pvar.inj		
+LeanTypeSound.SemanticPrimitives	instBEqAbort.beq.eq_1	propext	
+LeanTypeSound.HOL4Prelude	HOL4.instReflBEqOrdering	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Location	locn.EOFpt.sizeOf_spec		
+LeanTypeSound.Namespace	instBEqCml_id.beq.eq_1	propext	
+LeanTypeSound.NamespaceProps	nsAppend.eq_1		
+LeanTypeSound.Ast	arith.Sub.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instLawfulBEqMatch_result	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundCore	Tref_num.eq_1		
+LeanTypeSound.EvaluateProps	list_result.eq_1		
+LeanTypeSound.Misc	app_list.Append.inj		
+LeanTypeSound.Ffi	final_event.Final_event.injEq	propext	
+LeanTypeSound.TypeSoundExp	do_if.eq_1	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instBEqEq_result.beq_spec	propext	
+LeanTypeSound.SemanticPrimitivesProps	unchanged_env		
+LeanTypeSound.TypeSoundCore	v_unchanged		
+LeanTypeSound.Ffi	instBEqFfi_outcome.beq_spec_1		
+LeanTypeSound.TypeSysProps	deBruijn_subst_check_freevars2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	Tchar_num.eq_1		
+LeanTypeSound.Ast	op.FFI.injEq	propext	
+LeanTypeSound.Ast	op.ThunkOp.injEq	propext	
+LeanTypeSound.TypeSoundCore	pmatch.eq_2	propext	
+LeanTypeSound.SemanticPrimitives	exp_or_val.Val.inj		
+LeanTypeSound.TypeSoundCore	dest_Litv.eq_2	propext	
+LeanTypeSound.EvaluateProps	io_events_mono_refl	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	ctor_same_type.eq_3	propext	
+LeanTypeSound.EvaluateProps	do_app_call_FFI_rel	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqTest.beq.eq_def	propext	
+LeanTypeSound.FpSem	instBEqFp_uop.beq_spec		
+LeanTypeSound.EvaluateProps	evaluate_length_aux	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	dest_thunk_ret.IsThunk.injEq	propext	
+LeanTypeSound.NamespaceProps	nsAll_nsLift	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSysProps	type_e_freevars	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	exp.Lannot.injEq	propext	
+LeanTypeSound.TypeSysProps	type_funs_Tfn	propext,Quot.sound	
+LeanTypeSound.Mlstring	instBEqMlstring.beq.eq_2		
+LeanTypeSound.Ast	dec.Dmod.inj		
+LeanTypeSound.SemanticPrimitives	instBEqEq_result.beq.eq_def	propext	
+LeanTypeSound.SemanticPrimitives	instBEqMatch_result.beq.eq_3	propext	
+LeanTypeSound.Ast	dec.Dmod.sizeOf_spec		
+LeanTypeSound.TypeSysProps	check_ctor_tenv_ok	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	Tarray.eq_1		
+LeanTypeSound.Mlstring	instBEqMlstring.beq_spec_2		
+LeanTypeSound.Misc	find_index_shift	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	Tint.eq_1		
+LeanTypeSound.NamespaceProps	nsAll_nsEmpty	propext	
+LeanTypeSound.SemanticPrimitives	instBEqAbort.beq_spec_3	propext	
+LeanTypeSound.TypeSoundCore	do_eq.eq_8	propext	
+LeanTypeSound.SemanticPrimitivesProps	sem_env.c.eq_1		
+LeanTypeSound.Ffi	instReflBEqFfiname	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqAbort.beq.eq_def	propext	
+LeanTypeSound.Ast	dec.Dmod.injEq	propext	
+LeanTypeSound.Ffi	behaviour.Diverge.sizeOf_spec		
+LeanTypeSound.TypeSysProps	same_type.eq_2	propext	
+LeanTypeSound.NamespaceProps	alistSub_cong	propext,Quot.sound	
+LeanTypeSound.Weakening	HOL4.Finmap.FDOM.eq_1		
+LeanTypeSound.TypeSoundCore	do_conversion.eq_2	propext	
+LeanTypeSound.TypeSysProps	type_op.eq_20	propext	
+LeanTypeSound.TypeSysProps	deBuijn_inc_lem1	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Log.inj		
+LeanTypeSound.SemanticPrimitives	v.brecOn_6.eq		
+LeanTypeSound.Namespace	namespace.brecOn_2.eq		
+LeanTypeSound.Weakening	type_all_env_weakening	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Evaluate	evaluate_decs.eq_def	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	v_to_list.eq_1	propext	
+LeanTypeSound.SemanticPrimitivesProps	pat_bindings.eq_3		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_9	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_op.eq_2	propext	
+LeanTypeSound.SemanticPrimitives	dest_thunk_ret.NotThunk.sizeOf_spec		
+LeanTypeSound.Namespace	instBEqCml_id.beq_spec_2	propext	
+LeanTypeSound.TypeSysProps	type_op.eq_17	propext	
+LeanTypeSound.TypeSoundCore	check_type.eq_7	propext,Quot.sound	
+LeanTypeSound.FpSem	fp_bop.FP_Mul.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_34	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	pat_type_sound_ps	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_op.eq_29	propext	
+LeanTypeSound.Ast	instBEqTest.beq_spec	propext	
+LeanTypeSound.TypeSoundCore	v_beq.eq_5	propext,Quot.sound	
+LeanTypeSound.Ast	word_size.W8.sizeOf_spec		
+LeanTypeSound.TypeSound	every_exp.eq_6	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_16	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundExp	type_all_env_bindList	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	lit.Float64.inj		
+LeanTypeSound.NamespaceProps	alist_to_ns_cons		
+LeanTypeSound.TypeSound	build_ctor_tenv_no_mods	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	cml_state.mk.injEq	propext	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_evaluate	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_25	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Namespace	instBEqCml_id.beq_spec	propext	
+LeanTypeSound.TypeSysProps	type_funs_find_recfun	propext,Quot.sound,Classical.choice	
+LeanTypeSound.FpSem	instReflBEqFp_bop	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	dec.Denv.injEq	propext	
+LeanTypeSound.TypeSound	every_exp.eq_13	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Lit.inj		
+LeanTypeSound.TypeSysProps	alist_to_fmap_zip_isSome	propext,Quot.sound	
+LeanTypeSound.Ffi	final_event.Final_event.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	do_arith.eq_10	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Weakening	eLookupV_weak	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_11	propext	
+LeanTypeSound.Ast	dec.brecOn_1.eq		
+LeanTypeSound.Ast	instBEqWord_size.beq.eq_1		
+LeanTypeSound.Ast	dec.Denv.sizeOf_spec		
+LeanTypeSound.TypeSound	exp_type_sound	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Location	locn.POSN.inj		
+LeanTypeSound.EvaluateProps	can_pmatch_all.eq_1	propext	
+LeanTypeSound.Ast	ast_t.Attup.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	the_Litv_IntLit.eq_1	propext	
+LeanTypeSound.TypeSysProps	extend_dec_tenv.eq_1		
+LeanTypeSound.TypeSoundCore	store_v_same_type.eq_1	propext	
+LeanTypeSound.TypeSysProps	tenv_ctor_ok_merge	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.AallocEmpty.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	do_arith.eq_25	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundCore	do_conversion.eq_9	propext	
+LeanTypeSound.SemanticPrimitivesProps	concrete_v_list.eq_2	propext	
+LeanTypeSound.SemanticPrimitives	stamp.ExnStamp.inj		
+LeanTypeSound.TypeSoundCore	build_conv_type_sound	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	alist_to_ns_11	propext	
+LeanTypeSound.Ffi	instBEqOutcome.beq.eq_2	propext	
+LeanTypeSound.NamespaceProps	HOL4.FOLDR.eq_1		
+LeanTypeSound.TypeSoundCore	Tdouble_num.eq_1		
+LeanTypeSound.Ast	lit.StrLit.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	pat_bindings.eq_5		
+LeanTypeSound.Misc	tlookup_bij_iff	Quot.sound,propext,Classical.choice	
+LeanTypeSound.TypeSysProps	check_freevars_lem	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	alist_to_ns_nil		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_3	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	check_freevars.eq_2	propext,Quot.sound	
+LeanTypeSound.TypeSystem	check_freevars_Tapp	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	exp_or_val.Exp.sizeOf_spec		
+LeanTypeSound.Ast	arith.Add.sizeOf_spec		
+LeanTypeSound.Ast	test.Equal.sizeOf_spec		
+LeanTypeSound.TypeSystem	type_env.mk.inj		
+LeanTypeSound.EvaluateProps	evaluate.eq_16	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqOp.beq.eq_1	propext	
+LeanTypeSound.Location	locn.POSN.injEq	propext	
+LeanTypeSound.Misc	map_some_eq	propext	
+LeanTypeSound.NamespaceProps	nsLookup_nsBind	propext	
+LeanTypeSound.TypeSysProps	deBruijn_subst.eq_3	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Mat.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instLawfulBEqStamp	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	every_exp.eq_14	propext,Quot.sound	
+LeanTypeSound.Misc	FST_pair		
+LeanTypeSound.TypeSoundInvariants	store_t.W8array_t.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_es_list_rel	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	build_conv.eq_2		
+LeanTypeSound.SemanticPrimitives	instBEqStamp.beq.eq_1	propext	
+LeanTypeSound.TypeSysProps	check_ctor_tenv.eq_1	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_subst_deBruijn_subst_list	propext,Quot.sound	
+LeanTypeSound.Misc	app_list.Append.sizeOf_spec		
+LeanTypeSound.Ast	op.Aalloc.sizeOf_spec		
+LeanTypeSound.Weakening	type_e_weakening	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_op.eq_19	propext	
+LeanTypeSound.EvaluateProps	update_thunk_length	propext	
+LeanTypeSound.TypeSoundCore	do_arith.eq_9	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Ast	exp.Letrec.injEq	propext	
+LeanTypeSound.TypeSysProps	mem_type_def_to_ctMap	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	store_v.W8array.sizeOf_spec		
+LeanTypeSound.Ast	op.CopyAw8Aw8.sizeOf_spec		
+LeanTypeSound.Namespace	namespace.Bind.injEq	propext	
+LeanTypeSound.Mlstring	explode_aux.eq_2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	nsLookupMod_nsEmpty	propext	
+LeanTypeSound.NamespaceProps	id_to_n.eq_def		
+LeanTypeSound.Location	instReflBEqLocs	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	Tchar.eq_1		
+LeanTypeSound.Ast	op.FromTo.sizeOf_spec		
+LeanTypeSound.TypeSysProps	bind_var_list_append	propext	
+LeanTypeSound.TypeSoundCore	HOL4.REPLICATE.eq_1		
+LeanTypeSound.TypeSoundCore	check_type.eq_1	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	adj_clock.eq_1		
+LeanTypeSound.TypeSysProps	nsLookup_add_tenvE1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	type_env_conv_thm	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.Shift.injEq	propext	
+LeanTypeSound.SemanticPrimitives	store_v.Varray.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_17	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	pmatch.eq_6	propext	
+LeanTypeSound.NamespaceProps	nsAll2_nsBindList	Classical.choice,propext,Quot.sound	
+LeanTypeSound.FpSem	instBEqFp_cmp.beq.eq_1		
+LeanTypeSound.TypeSoundCore	do_eq_list.eq_3	propext	
+LeanTypeSound.SemanticPrimitives	eq_result.Eq_type_error.sizeOf_spec		
+LeanTypeSound.Ast	dec.Dexn.injEq	propext	
+LeanTypeSound.TypeSysProps	Tword8.eq_1		
+LeanTypeSound.TypeSoundExp	do_if_bool_ne_none	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	combine_dec_result_Rval		
+LeanTypeSound.SemanticPrimitives	eval_decs_state.mk.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_ds_sing	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqOp_class.beq_spec		
+LeanTypeSound.SemanticPrimitives	sem_env_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	id_to_mods.eq_def		
+LeanTypeSound.Ast	shift.Lsl.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	type_recfun_env	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	implode_explode	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	nil_deBruijn_subst	propext,Quot.sound	
+LeanTypeSound.Ast	instLawfulBEqThunk_op	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	tveLookup_inc_none	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	check_freevars_subst_inc	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqLit.beq_spec_7	propext	
+LeanTypeSound.TypeSystem	type_es.brecOn	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Let.injEq	propext	
+LeanTypeSound.TypeSystem	is_value.eq_6	propext,Quot.sound	
+LeanTypeSound.Ast	ast_t.Atvar.injEq	propext	
+LeanTypeSound.TypeSoundCore	lit_same_type.eq_4	propext	
+LeanTypeSound.Ast	instBEqLop.beq_spec		
+LeanTypeSound.Ffi	instBEqShmem_op.beq.eq_def		
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_10	propext	
+LeanTypeSound.TypeSysProps	tenv_abbrev_ok_nsEmpty	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_10	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	app_list_ann.BigList.injEq	propext	
+LeanTypeSound.NamespaceProps	nsLookupMod_nsAppend_none	propext,Quot.sound	
+LeanTypeSound.Mlstring	List.splitOnP.eq_1		
+LeanTypeSound.NamespaceProps	nsSub_compute.eq_def	Quot.sound,propext	
+LeanTypeSound.SemanticPrimitives	instBEqResult.beq.eq_def	propext	
+LeanTypeSound.Location	locs.Locs.sizeOf_spec		
+LeanTypeSound.Ast	pat.Pcon.inj		
+LeanTypeSound.Mlstring	explode_aux_thm	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	nsAppend_nsEmpty	propext	
+LeanTypeSound.TypeSysProps	type_def_to_ctMap.eq_2	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	concrete_v_list_thm	propext	
+LeanTypeSound.TypeSoundCore	store_assign.eq_1	propext	
+LeanTypeSound.TypeSoundCore	check_type_Boolv	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.Equality.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_name_subst.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_d_tenv_ok	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	extend_dec_tenv_empty	propext	
+LeanTypeSound.Ffi	ffi_result.FFI_return.inj		
+LeanTypeSound.TypeSysProps	opt_bind_name.eq_1		
+LeanTypeSound.TypeSoundCore	store_assign_type_sound	propext,Quot.sound	
+LeanTypeSound.Misc	CARD_eq_of_nodup	Classical.choice,propext,Quot.sound	
+LeanTypeSound.EvaluateProps	evaluate.eq_9	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	arith.Xor.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_29	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	check_freevars_ast.eq_2	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	ALL_DISTINCT_getElem?_inj	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	getElem!_map'	propext	
+LeanTypeSound.Ast	instLawfulBEqOp_class	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	nsLookupMod.eq_2		
+LeanTypeSound.SemanticPrimitives	store_v.Refv.injEq	propext	
+LeanTypeSound.Misc	HOL4.Sptree.toList.eq_1		
+LeanTypeSound.TypeSound	type_sound_invariant_union	propext,Quot.sound	
+LeanTypeSound.Ffi	instBEqFfiname.beq.eq_def	propext	
+LeanTypeSound.Ast	instBEqTest.beq.eq_1	propext	
+LeanTypeSound.SemanticPrimitives	instReflBEqStamp	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	nsAll2_nsLift	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundExp	bind_tvar_zero	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	check_type.eq_6	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	mk_id.eq_2		
+LeanTypeSound.TypeSysProps	extend_dec_tenv_ok	propext,Quot.sound,Classical.choice	
+LeanTypeSound.EvaluateProps	fix_clock_evaluate2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	app_list_ann.Small.inj		
+LeanTypeSound.TypeSysProps	FUPDATE_LIST_some_mem	Classical.choice,propext,Quot.sound	
+LeanTypeSound.Mlstring	app_list_ann.BigList.sizeOf_spec		
+LeanTypeSound.Namespace	cml_id.Long.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	pat_bindings.eq_1		
+LeanTypeSound.SemanticPrimitives	instBEqResult.beq_spec_3	propext	
+LeanTypeSound.TypeSysProps	HOL4.ALL_DISTINCT.eq_2		
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq_spec_5	propext	
+LeanTypeSound.SemanticPrimitives	instReflBEqEq_result	propext,Quot.sound	
+LeanTypeSound.Ast	every_exp.eq_def	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	t_of.eq_7		
+LeanTypeSound.SemanticPrimitives	instBEqMatch_result.beq.eq_4	propext	
+LeanTypeSound.TypeSoundCore	do_test.eq_2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	the_Litv_Word64.eq_1	propext	
+LeanTypeSound.Location	locs.Locs.inj		
+LeanTypeSound.TypeSoundExp	hval_con	propext,Quot.sound	
+LeanTypeSound.TypeSoundExp	type_es_single	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_8	propext	
+LeanTypeSound.TypeSoundCore	the_Litv_Float64.eq_2	propext	
+LeanTypeSound.NamespaceProps	nsLookupMod_FOLDR_nsLift_none	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	ctMap_ok_merge_imp	propext,Quot.sound	
+LeanTypeSound.Ast	prim_type.CharT.sizeOf_spec		
+LeanTypeSound.Ast	exp.brecOn_1.eq		
+LeanTypeSound.TypeSysProps	Tfn.eq_1		
+LeanTypeSound.Misc	tlookup_bij_suff	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	match_result.Match.injEq	propext	
+LeanTypeSound.Ast	pat.Pcon.injEq	propext	
+LeanTypeSound.Ast	instBEqPrim_type.beq.eq_5	propext	
+LeanTypeSound.NamespaceProps	nsLookup_FOLDR_nsLift	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Mlstring	list_getElem!_of_lt	propext	
+LeanTypeSound.TypeSoundCore	do_arith.eq_1	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Ffi	instReflBEqIo_event	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	decs_sound_concl_err_mono	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_ps_freevars_aux	propext,Quot.sound	
+LeanTypeSound.Ast	prim_type.WordT.inj		
+LeanTypeSound.TypeSoundCore	ctMap_bool_stamp	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	pat.brecOn.eq		
+LeanTypeSound.NamespaceProps	nsLookupMod_nsLift	propext,Classical.choice,Quot.sound	
+LeanTypeSound.SemanticPrimitives	store_v.Refv.inj		
+LeanTypeSound.TypeSound	nsLookup_nsAppend_alist_Short	propext	
+LeanTypeSound.Ffi	ffiname.ExtCall.inj		
+LeanTypeSound.TypeSoundCore	cv_int	propext,Quot.sound	
+LeanTypeSound.Ffi	instReflBEqFinal_event	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	build_tdefs_no_mods	propext	
+LeanTypeSound.FpSem	fp_bop.FP_Add.sizeOf_spec		
+LeanTypeSound.Evaluate	fix_clock_of_le	propext	
+LeanTypeSound.Ast	ast_t.Atapp.injEq	propext	
+LeanTypeSound.Ast	instBEqArith.beq_spec_1		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_37	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_conversion.eq_11	propext	
+LeanTypeSound.Ast	lit.Word8.inj		
+LeanTypeSound.Ast	arith.Or.sizeOf_spec		
+LeanTypeSound.TypeSysProps	add_tenvE.eq_def		
+LeanTypeSound.FpSem	fp_uop.FP_Abs.sizeOf_spec		
+LeanTypeSound.NamespaceProps	alist_rel_restr.eq_1		
+LeanTypeSound.Location	instBEqLocn.beq.eq_3	propext	
+LeanTypeSound.NamespaceProps	nsLookupMod.eq_def		
+LeanTypeSound.Ast	instLawfulBEqTest	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	vs_to_string.eq_3	propext	
+LeanTypeSound.Evaluate	evaluate_match.eq_def	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	pat.Ptannot.injEq	propext	
+LeanTypeSound.NamespaceProps	nsSub_mono		
+LeanTypeSound.NamespaceProps	id_to_n.eq_2		
+LeanTypeSound.FpSem	instBEqFp_uop.beq.eq_def		
+LeanTypeSound.Ast	ast_t.Attup.inj		
+LeanTypeSound.NamespaceProps	alist_rel_restr_thm	Quot.sound,propext	
+LeanTypeSound.TypeSysProps	list_map_eq_self	Quot.sound,propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_18	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqLit.beq.eq_5	propext	
+LeanTypeSound.TypeSysProps	deBruijn_subst_tenvE.eq_3	propext,Quot.sound	
+LeanTypeSound.Ast	exp.If.injEq	propext	
+LeanTypeSound.NamespaceProps	nsAll_nsAppend	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_e_subst_lem5	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	deBruijn_subst.eq_2	propext,Quot.sound	
+LeanTypeSound.Ffi	instBEqShmem_op.beq.eq_1		
+LeanTypeSound.TypeSoundCore	v_to_char_list.eq_3	propext	
+LeanTypeSound.TypeSoundCore	v_to_list.eq_2	propext	
+LeanTypeSound.Ast	lit.Word8.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	do_eq_list.eq_2	propext	
+LeanTypeSound.Ast	instReflBEqLop	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Misc	app_list.List.inj		
+LeanTypeSound.SemanticPrimitivesProps	build_conv.eq_1		
+LeanTypeSound.FpSem	fp_bop.FP_Sub.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_recfun_lookup	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqLit.beq.eq_4	propext	
+LeanTypeSound.TypeSystem	is_value.eq_5	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqLit.beq.eq_1	propext	
+LeanTypeSound.TypeSysProps	type_op_cases_thm	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	deBruijn_subst_E_bvl	propext,Quot.sound	
+LeanTypeSound.TypeSystem	is_value.eq_7	propext,Quot.sound	
+LeanTypeSound.FpSem	fp_top.FP_Fma.sizeOf_spec		
+LeanTypeSound.EvaluateProps	do_app_refs_ffi	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Weakening	type_sv.eq_3	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqArith.beq.eq_1		
+LeanTypeSound.TypeSoundCore	v_beq.eq_2	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	nsLookupMod.eq_1		
+LeanTypeSound.Mlstring	explode_thm	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_test.eq_4	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	behaviour.Diverge.inj		
+LeanTypeSound.SemanticPrimitives	store_v.W8array.injEq	propext	
+LeanTypeSound.TypeSoundExp	exp_res_ok_list_result	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	mem_REPLICATE_imp	propext	
+LeanTypeSound.TypeSysProps	tveLookup_subst_some	propext,Quot.sound	
+LeanTypeSound.FpSem	instBEqFp_top.beq.eq_def		
+LeanTypeSound.NamespaceProps	HOL4.IS_PREFIX.eq_1		
+LeanTypeSound.Ast	exp.brecOn_2.eq		
+LeanTypeSound.Misc	HOL4.ALOOKUP.eq_def		
+LeanTypeSound.Ffi	instBEqFfi_outcome.beq.eq_1		
+LeanTypeSound.TypeSoundCore	ctor_same_type.eq_1	propext	
+LeanTypeSound.TypeSysProps	type_es_list_rel_aux	propext,Quot.sound	
+LeanTypeSound.Ast	op.CopyStrAw8.sizeOf_spec		
+LeanTypeSound.EvaluateProps	evaluate_decs.eq_7	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_36	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	dec.Dletrec.injEq	propext	
+LeanTypeSound.TypeSound	decs_sound_nil	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_arith.eq_14	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Mlstring	instBEqMlstring.beq_spec		
+LeanTypeSound.EvaluateProps	icm_check_beq	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	instBEqIo_event.beq.eq_1	propext	
+LeanTypeSound.NamespaceProps	nsAll2_nsLookup2		
+LeanTypeSound.Ast	exp.Handle.injEq	propext	
+LeanTypeSound.TypeSound	inv_restore	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqOp_class.beq_spec_1		
+LeanTypeSound.FpSem	instBEqFp_top.beq_spec		
+LeanTypeSound.TypeSysProps	type_es_length	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	nsLift.eq_1		
+LeanTypeSound.EvaluateProps	list_result.eq_2		
+LeanTypeSound.Weakening	type_sv_weakening	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	instLawfulBEqFfi_outcome	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	match_result.No_match.sizeOf_spec		
+LeanTypeSound.EvaluateProps	evaluate.eq_4	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	do_con_check_build_conv	propext	
+LeanTypeSound.Misc	find_index.eq_def		
+LeanTypeSound.Misc	find_index_LESS_LENGTH	propext,Classical.choice,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instBEqAbort.beq_spec_2	propext	
+LeanTypeSound.TypeSoundCore	do_arith.eq_5	propext,Classical.choice,Quot.sound	
+LeanTypeSound.NamespaceProps	mk_id_surj	propext	
+LeanTypeSound.TypeSoundCore	type_v_list_to_v_APPEND	propext,Quot.sound,Classical.choice	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_err	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	lop.Orelse.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	result.Rerr.injEq	propext	
+LeanTypeSound.TypeSoundCore	op_type_sound_core	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	op_type_sound	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	nsLookup_add_tenvE2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	TOKENS_eq_tokens	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	pat.Pvar.sizeOf_spec		
+LeanTypeSound.Ast	exp.Lit.sizeOf_spec		
+LeanTypeSound.Ast	instBEqLit.beq_spec	propext	
+LeanTypeSound.Evaluate	fix_clock_evaluate	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_conversion.eq_8	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_35	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Weakening	weakCT_trans		
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_name.inj		
+LeanTypeSound.Ffi	instBEqFinal_event.beq.eq_2	propext	
+LeanTypeSound.SemanticPrimitives	instLawfulBEqResult	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_d_tenv_ok_helper	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_arith.eq_20	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSystem	type_funs.brecOn	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	eval_decs_state.mk.inj		
+LeanTypeSound.TypeSysProps	build_ctor_tenv.eq_3	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_set_clock	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	Tint_num.eq_1		
+LeanTypeSound.Ffi	instBEqShmem_op.beq_spec		
+LeanTypeSound.Misc	app_list.brecOn.eq		
+LeanTypeSound.SemanticPrimitives	v.Closure.injEq	propext	
+LeanTypeSound.TypeSysProps	EL_mem'	propext	
+LeanTypeSound.NamespaceProps	nsLookup_nsLift	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Ast	instReflBEqShift	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	HOL4.GENLIST.eq_1		
+LeanTypeSound.Ast	instBEqThunk_op.beq_spec_1	propext	
+LeanTypeSound.TypeSysProps	Tbool.eq_1		
+LeanTypeSound.TypeSysProps	type_d_check_uniq	propext,Quot.sound	
+LeanTypeSound.Misc	app_list.Nil.sizeOf_spec		
+LeanTypeSound.FpSem	instBEqFp_bop.beq.eq_def		
+LeanTypeSound.Ast	instLawfulBEqWord_size	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqPrim_type.beq_spec_6	propext	
+LeanTypeSound.Ast	arith.Div.sizeOf_spec		
+LeanTypeSound.Ast	opb.Lt.sizeOf_spec		
+LeanTypeSound.TypeSysProps	FUPDATE_FUNION_aux	Quot.sound,propext	
+LeanTypeSound.SemanticPrimitives	abort.Rffi_error.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsAppend_nsSing		
+LeanTypeSound.SemanticPrimitives	instBEqError_result.beq_spec_1	propext	
+LeanTypeSound.SemanticPrimitives	instLawfulBEqError_result	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Location	instBEqLocs.beq.eq_2	propext	
+LeanTypeSound.Ast	op.Aw8update.sizeOf_spec		
+LeanTypeSound.Ast	instLawfulBEqThunk_mode	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	ffi_state.mk.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	error_result.Rraise.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_name_subst.eq_4	propext,Quot.sound	
+LeanTypeSound.TypeSystem	check_type_names_Atapp	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	evaluate.eq_7	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	HOL4.EVERY.eq_1		
+LeanTypeSound.TypeSoundCore	do_eq.eq_2	propext	
+LeanTypeSound.SemanticPrimitives	instBEqEq_result.beq_spec_3	propext	
+LeanTypeSound.Ast	instBEqLit.beq.eq_def	propext	
+LeanTypeSound.TypeSysProps	bind_var_list.eq_2		
+LeanTypeSound.TypeSysProps	find_recfun.eq_def		
+LeanTypeSound.EvaluateProps	evaluate.eq_11	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqThunk_mode.beq.eq_def		
+LeanTypeSound.TypeSoundCore	vs_to_string.eq_1	propext	
+LeanTypeSound.TypeSound	evaluate_prog_with_clock.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_e_subst	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	instBEqFinal_event.beq_spec_2	propext	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_evaluate_decs	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_subst_thm	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	dec.Dlet.injEq	propext	
+LeanTypeSound.TypeSoundExp	fix_clock_eval_eq	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	stamp.TypeStamp.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_op.eq_11	propext	
+LeanTypeSound.TypeSysProps	type_funs_lookup	propext,Quot.sound,Classical.choice	
+LeanTypeSound.EvaluateProps	evaluate_decs.eq_10	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Weakening	weak_tenvE_freevars	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	nsAppend_assoc	propext	
+LeanTypeSound.Misc	LESS_1	Classical.choice,propext,Quot.sound	
+LeanTypeSound.TypeSysProps	deBruijn_subst_tenvE.eq_def	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	evaluate_match.eq_2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.FpSem	fp_uop.FP_Neg.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	EVERY_LIST_REL_local	propext	
+LeanTypeSound.SemanticPrimitives	v_list_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	pat.Pref.injEq	propext	
+LeanTypeSound.TypeSysProps	Tref.eq_1		
+LeanTypeSound.TypeSound	every_exp.eq_7	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	nsLookup_nsAppend_some	propext,Quot.sound	
+LeanTypeSound.Ffi	behaviour.Diverge.injEq	propext	
+LeanTypeSound.Weakening	type_p_weakening	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	deBruijn_subst_id	propext,Quot.sound	
+LeanTypeSound.Misc	app_list.Append.injEq	propext	
+LeanTypeSound.TypeSoundExp	getOpClass.eq_4	propext	
+LeanTypeSound.TypeSysProps	type_op.eq_8	propext	
+LeanTypeSound.Ffi	ffi_outcome.FFI_failed.sizeOf_spec		
+LeanTypeSound.Ast	thunk_op.ForceThunk.sizeOf_spec		
+LeanTypeSound.Mlstring	instBEqMlstring.beq_spec_1		
+LeanTypeSound.FpSem	fp_cmp.FP_LessEqual.sizeOf_spec		
+LeanTypeSound.TypeSystem	sem_t.Tvar_db.sizeOf_spec		
+LeanTypeSound.NamespaceProps	mk_id.eq_def		
+LeanTypeSound.TypeSystem	type_ps.brecOn	propext,Quot.sound	
+LeanTypeSound.HOL4Prelude	HOL4.ordering.EQUAL.sizeOf_spec		
+LeanTypeSound.Namespace	cml_id.Short.injEq	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_8	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqPrim_type.beq.eq_3	propext	
+LeanTypeSound.SemanticPrimitives	instBEqResult.beq_spec	propext	
+LeanTypeSound.Ast	instLawfulBEqLop	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_subst.eq_1	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	the_Litv_Word8.eq_2	propext	
+LeanTypeSound.TypeSoundCore	Ttup_num.eq_1		
+LeanTypeSound.SemanticPrimitives	instBEqError_result.beq_spec_2	propext	
+LeanTypeSound.TypeSoundInvariants	store_t.Ref_t.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	lit_same_type.eq_6	propext	
+LeanTypeSound.TypeSysProps	type_op.eq_13	propext	
+LeanTypeSound.Ast	instLawfulBEqOp	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	v_to_char_list.eq_def	propext	
+LeanTypeSound.Ast	thunk_mode.NotEvaluated.sizeOf_spec		
+LeanTypeSound.TypeSysProps	Tword8array.eq_1		
+LeanTypeSound.Ffi	final_event.Final_event.inj		
+LeanTypeSound.TypeSoundCore	do_eq.eq_10	propext	
+LeanTypeSound.HOL4Prelude	HOL4.RTC.brecOn		
+LeanTypeSound.TypeSysProps	num_tvs.eq_3		
+LeanTypeSound.Ast	instBEqShift.beq.eq_1		
+LeanTypeSound.SemanticPrimitivesProps	pats_bindings.eq_def		
+LeanTypeSound.Weakening	weak_tenvE_opt_bind	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Tannot.sizeOf_spec		
+LeanTypeSound.Ast	lit.IntLit.injEq	propext	
+LeanTypeSound.TypeSoundCore	do_conversion.eq_6	propext	
+LeanTypeSound.TypeSoundExp	num_tvs_bind_tvar_of_zero	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	OpOK_raise	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_30	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	t_of.eq_3		
+LeanTypeSound.Ast	prim_type.IntT.sizeOf_spec		
+LeanTypeSound.NamespaceProps	id_to_mods.eq_2		
+LeanTypeSound.TypeSysProps	Tvector.eq_1		
+LeanTypeSound.TypeSoundCore	v_beq_eq	propext,Quot.sound	
+LeanTypeSound.Ast	dec.Dtabbrev.inj		
+LeanTypeSound.TypeSoundCore	do_arith.eq_27	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Ast	instBEqTest.beq.eq_3	propext	
+LeanTypeSound.Ast	dec.Dletrec.sizeOf_spec		
+LeanTypeSound.TypeSound	one_con_check.eq_2	propext	
+LeanTypeSound.Ast	op.Vsub_unsafe.sizeOf_spec		
+LeanTypeSound.Ast	thunk_op.AllocThunk.sizeOf_spec		
+LeanTypeSound.Misc	HOL4.Finmap.FLOOKUP.eq_1		
+LeanTypeSound.Ast	shift.Ror.sizeOf_spec		
+LeanTypeSound.TypeSoundExp	type_all_env_opt_bind	propext,Quot.sound,Classical.choice	
+LeanTypeSound.FpSem	fp_cmp.FP_Greater.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instBEqAbort.beq.eq_3	propext	
+LeanTypeSound.TypeSoundCore	eq_same_type	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	cv_array	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	dec_inc_clock	propext	
+LeanTypeSound.SemanticPrimitives	eval_oracle_state.mk.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	v_beq.eq_1	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	icm_iff	propext	
+LeanTypeSound.Mlstring	mlstring.strlit.sizeOf_spec		
+LeanTypeSound.Weakening	weak_tenvE_bind_var_list	propext,Quot.sound	
+LeanTypeSound.Ast	thunk_op.AllocThunk.inj		
+LeanTypeSound.SemanticPrimitives	store_v.Varray.inj		
+LeanTypeSound.TypeSystem	sem_t.Tapp.sizeOf_spec		
+LeanTypeSound.Ast	op.Strcat.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsAll2_mono		
+LeanTypeSound.TypeSoundCore	same_ctor_and_same_tid	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_op.eq_6	propext	
+LeanTypeSound.SemanticPrimitives	result.Rval.sizeOf_spec		
+LeanTypeSound.Ast	exp.If.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq.eq_5	propext	
+LeanTypeSound.Ast	pat.Ptannot.sizeOf_spec		
+LeanTypeSound.Ffi	instBEqFfi_outcome.beq_spec		
+LeanTypeSound.Ffi	instBEqOutcome.beq_spec_1	propext	
+LeanTypeSound.TypeSoundInvariants	store_t.Ref_t.injEq	propext	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_do_app_simple	propext,Quot.sound,Classical.choice	
+LeanTypeSound.FpSem	instBEqFp_top.beq.eq_1		
+LeanTypeSound.TypeSystem	sem_t.brecOn.eq		
+LeanTypeSound.TypeSysProps	type_recfun_lookup_aux	propext,Quot.sound	
+LeanTypeSound.Ast	pat.Plit.injEq	propext	
+LeanTypeSound.Ast	exp.App.inj		
+LeanTypeSound.SemanticPrimitivesProps	pats_bindings.eq_2		
+LeanTypeSound.Evaluate	fix_clock_do_eval_res	propext,Quot.sound	
+LeanTypeSound.Ffi	instBEqFinal_event.beq_spec	propext	
+LeanTypeSound.Namespace	namespace.brecOn_1.eq		
+LeanTypeSound.Ffi	ffiname.ExtCall.injEq	propext	
+LeanTypeSound.TypeSound	check_dup_ctors.eq_1		
+LeanTypeSound.TypeSysProps	t_of.eq_4		
+LeanTypeSound.SemanticPrimitives	v.Recclosure.injEq	propext	
+LeanTypeSound.Ast	instBEqArith.beq_spec		
+LeanTypeSound.Ffi	instBEqOutcome.beq.eq_1	propext	
+LeanTypeSound.TypeSystem	check_freevars_ast.eq_3	propext,Quot.sound	
+LeanTypeSound.Ffi	instReflBEqShmem_op	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_arith.eq_2	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundExp	exp_res_ok_err	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_evaluate_aux	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Misc	Set.image.eq_1		
+LeanTypeSound.NamespaceProps	nsSub_nsEmpty	propext	
+LeanTypeSound.Ast	op.Vsub.sizeOf_spec		
+LeanTypeSound.Location	instBEqLocs.beq_spec	propext	
+LeanTypeSound.Ffi	ffi_result.FFI_final.injEq	propext	
+LeanTypeSound.SemanticPrimitivesProps	Boolv.eq_1		
+LeanTypeSound.TypeSysProps	lookup_varE.eq_1	propext,Quot.sound	
+LeanTypeSound.Evaluate	evaluate.mutual_induct	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	store_alloc_type_sound	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqStamp.beq_spec_3	propext	
+LeanTypeSound.Ast	dec.Dtype.inj		
+LeanTypeSound.TypeSysProps	Tstring.eq_1		
+LeanTypeSound.Ast	instBEqLit.beq.eq_6	propext	
+LeanTypeSound.SemanticPrimitives	v.Recclosure.inj		
+LeanTypeSound.Mlstring	instBEqMlstring.beq.eq_def		
+LeanTypeSound.TypeSysProps	ast_t.ind'	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	type_v_recclosure_of_env	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqPrim_type.beq.eq_2	propext	
+LeanTypeSound.Ast	op.Test.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	prim_type_cases	propext	
+LeanTypeSound.Ffi	ffi_result.FFI_return.injEq	propext	
+LeanTypeSound.TypeSoundCore	do_test.eq_3	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	deBruijn_inc.eq_def	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	can_pmatch_all.eq_2	propext	
+LeanTypeSound.Ffi	instLawfulBEqOutcome	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	sem_t.Tapp.injEq	propext	
+LeanTypeSound.Ast	op.Aw8length.sizeOf_spec		
+LeanTypeSound.Ast	op.CopyStrStr.sizeOf_spec		
+LeanTypeSound.TypeSound	decs_seq_frame	Classical.choice,propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	cv_w8	propext,Quot.sound	
+LeanTypeSound.Ast	instReflBEqLit	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	lit.IntLit.sizeOf_spec		
+LeanTypeSound.NamespaceProps	ALOOKUP_mem	propext	
+LeanTypeSound.TypeSound	extend_dec_tenv_assoc	propext	
+LeanTypeSound.SemanticPrimitives	v_binds_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	test.Compare.inj		
+LeanTypeSound.Location	instBEqLocn.beq.eq_4	propext	
+LeanTypeSound.SemanticPrimitivesProps	FV_pes.eq_1		
+LeanTypeSound.TypeSoundCore	store_type_extension_refl	Quot.sound	
+LeanTypeSound.SemanticPrimitives	v.brecOn_4.eq		
+LeanTypeSound.Evaluate	evaluate.eq_def	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	dec.Dlocal.injEq	propext	
+LeanTypeSound.TypeSysProps	type_op.eq_26	propext	
+LeanTypeSound.SemanticPrimitivesProps	pats_bindings.eq_1		
+LeanTypeSound.NamespaceProps	nsEmpty.eq_1		
+LeanTypeSound.SemanticPrimitives	v.brecOn.eq		
+LeanTypeSound.NamespaceProps	ALOOKUP_none_iff	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	nsLookupMod_nsBind	propext	
+LeanTypeSound.TypeSysProps	type_op.eq_28	propext	
+LeanTypeSound.Ast	op.Test.inj		
+LeanTypeSound.SemanticPrimitives	sem_env.brecOn.eq		
+LeanTypeSound.Ast	test.Compare.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	Texn_num.eq_1		
+LeanTypeSound.EvaluateProps	store_alloc.eq_1		
+LeanTypeSound.Ast	dec.brecOn.eq		
+LeanTypeSound.TypeSysProps	ALOOKUP_some_mem	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSysProps	type_ds_empty	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Letrec.inj		
+LeanTypeSound.TypeSysProps	bind_tvar0	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	HOL4.Finmap.o_f.eq_1		
+LeanTypeSound.TypeSound	inv_after_exp	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Misc	Sptree.lookup_eq_some_iff	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	FUPDATE_LIST_reverse_eq_alist	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	v.brecOn_5.eq		
+LeanTypeSound.Ast	op.Env_id.sizeOf_spec		
+LeanTypeSound.Ast	op.Eval.sizeOf_spec		
+LeanTypeSound.EvaluateProps	do_eval_res.eq_1	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	cv_str	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_6	propext	
+LeanTypeSound.Mlstring	tokens_aux.eq_3	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	ffi_state.mk.injEq	propext	
+LeanTypeSound.TypeSoundCore	do_eq_Boolv	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instLawfulBEqLit	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	instBEqIo_event.beq.eq_2	propext	
+LeanTypeSound.TypeSystem	type_ds.brecOn	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Log.injEq	propext	
+LeanTypeSound.Ast	instBEqShift.beq_spec_1		
+LeanTypeSound.SemanticPrimitives	instBEqMatch_result.beq_spec_2	propext	
+LeanTypeSound.SemanticPrimitives	cml_state.mk.inj		
+LeanTypeSound.NamespaceProps	mk_id_thm	propext	
+LeanTypeSound.Ffi	outcome.FFI_outcome.injEq	propext	
+LeanTypeSound.SemanticPrimitives	instReflBEqError_result	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Misc	HOL4.Sptree.domain.eq_1		
+LeanTypeSound.TypeSysProps	HOL4.Finmap.FEMPTY.eq_1		
+LeanTypeSound.SemanticPrimitives	v_mods_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.Weakening	type_v_weakening	propext,Quot.sound,Classical.choice	
+LeanTypeSound.EvaluateProps	evaluate.eq_14	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	dec.Dletrec.inj		
+LeanTypeSound.Ast	op.Test.injEq	propext	
+LeanTypeSound.Ast	pat.brecOn_1.eq		
+LeanTypeSound.TypeSysProps	ctMap_ok_lookup	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instLawfulBEqAbort	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	Tbool_num.eq_1		
+LeanTypeSound.TypeSoundCore	type_v_list_to_v_of_all	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	the_Litv_Float64.eq_1	propext	
+LeanTypeSound.EvaluateProps	evaluate_decs.eq_9	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	eALL_T		
+LeanTypeSound.Ffi	instBEqFfiname.beq_spec_2	propext	
+LeanTypeSound.TypeSystem	check_freevars.eq_def	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	evaluate_decs.eq_3	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	OpOK_val	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqLit.beq_spec_6	propext	
+LeanTypeSound.SemanticPrimitivesProps	Boolv_11	propext	
+LeanTypeSound.SemanticPrimitives	instBEqError_result.beq.eq_def	propext	
+LeanTypeSound.TypeSoundCore	fst_triple	Quot.sound	
+LeanTypeSound.Ffi	instBEqFinal_event.beq_spec_1	propext	
+LeanTypeSound.Ast	op.Aupdate.sizeOf_spec		
+LeanTypeSound.TypeSound	every_exp.eq_2	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	exp_or_val.Val.sizeOf_spec		
+LeanTypeSound.Ast	dec.Dexn.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	do_eq.eq_4	propext	
+LeanTypeSound.Ast	exp.If.inj		
+LeanTypeSound.Ast	op.FromTo.injEq	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_24	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.Opapp.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	eval_state.EvalDecs.injEq	propext	
+LeanTypeSound.TypeSoundCore	type_v_exn	propext,Quot.sound	
+LeanTypeSound.FpSem	instBEqFp_uop.beq.eq_1		
+LeanTypeSound.Mlstring	explode_11	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	app_list_ann.Small.injEq	propext	
+LeanTypeSound.TypeSoundCore	ctMap_ok_prim_lookup	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	ctMap_ok_type_defs	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	strsub_eq	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	v.Vectorv.sizeOf_spec		
+LeanTypeSound.TypeSysProps	find_recfun.eq_2		
+LeanTypeSound.Ast	pat.Pref.inj		
+LeanTypeSound.TypeSoundCore	supported_test.eq_3	propext	
+LeanTypeSound.TypeSysProps	type_subst_deBruijn_inc_single	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_28	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	v_beq.eq_7	propext,Quot.sound	
+LeanTypeSound.Weakening	weak_tenvE_bind_tvar	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_name_subst.eq_2	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	list_result_eq_Rval	propext,Quot.sound	
+LeanTypeSound.TypeSystem	sem_t.Tvar.sizeOf_spec		
+LeanTypeSound.TypeSystem	check_freevars_ast.eq_4	propext,Quot.sound	
+LeanTypeSound.Ffi	instLawfulBEqIo_event	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_test.eq_6	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	stamp.ExnStamp.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instBEqEq_result.beq.eq_1	propext	
+LeanTypeSound.Ffi	instBEqFfiname.beq.eq_3	propext	
+LeanTypeSound.Misc	app_list.List.injEq	propext	
+LeanTypeSound.NamespaceProps	nsLookup.eq_2		
+LeanTypeSound.TypeSound	decs_seq_invariant	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	sem_t.Tapp.inj		
+LeanTypeSound.TypeSystem	check_type_names.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSoundInvariants	store_t.Varray_t.injEq	propext	
+LeanTypeSound.TypeSoundCore	do_arith.eq_8	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Ast	ast_t.Atapp.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	do_eq.eq_def	propext	
+LeanTypeSound.Ast	opb.Leq.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	extend_dec_env.eq_1		
+LeanTypeSound.SemanticPrimitives	v_ns_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	eval_state.EvalOracle.injEq	propext	
+LeanTypeSound.Misc	exists_nodup_enum	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	t_of.eq_6		
+LeanTypeSound.Ffi	ffi_result.FFI_return.sizeOf_spec		
+LeanTypeSound.Ffi	ffi_state.mk.inj		
+LeanTypeSound.SemanticPrimitives	v_beq.eq_def	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	pat_bindings.eq_def		
+LeanTypeSound.Ffi	outcome.FFI_outcome.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	v_list_beq.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	check_ctor_tenv_getElem?	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_31	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	tokens.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	tenv_names_bind_var_list	Quot.sound,propext	
+LeanTypeSound.SemanticPrimitives	instBEqEq_result.beq_spec_1	propext	
+LeanTypeSound.SemanticPrimitives	instBEqStamp.beq_spec	propext	
+LeanTypeSound.Ffi	oracle_result.Oracle_final.inj		
+LeanTypeSound.HOL4Prelude	HOL4.instBEqOrdering.beq_spec		
+LeanTypeSound.Ffi	instLawfulBEqFinal_event	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	bind_var_list.eq_def		
+LeanTypeSound.Ast	lit.Char.injEq	propext	
+LeanTypeSound.TypeSysProps	tveLookup.eq_2	propext,Quot.sound	
+LeanTypeSound.Misc	find_index.eq_2		
+LeanTypeSound.NamespaceProps	nsAll2_nsBind	Classical.choice,propext,Quot.sound	
+LeanTypeSound.Weakening	type_sv.eq_1	propext,Quot.sound	
+LeanTypeSound.Weakening	type_e_weakening_lem	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Location	instBEqLocs.beq_spec_2	propext	
+LeanTypeSound.Misc	ALOOKUP_find_index_SOME	propext,Quot.sound	
+LeanTypeSound.FpSem	instReflBEqFp_top	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	oracle_result.Oracle_return.inj		
+LeanTypeSound.SemanticPrimitives	instBEqResult.beq.eq_2	propext	
+LeanTypeSound.EvaluateProps	evaluate.eq_5	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	store_v_same_type.eq_2	propext	
+LeanTypeSound.TypeSoundCore	LIST_REL_length	propext	
+LeanTypeSound.SemanticPrimitives	eval_oracle_state.mk.injEq	propext	
+LeanTypeSound.NamespaceProps	nsLookupMod_Bind_cons		
+LeanTypeSound.TypeSysProps	lookup_var.eq_1	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	num_tvs.eq_def		
+LeanTypeSound.TypeSoundExp	tvs_zero_of_not_value	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	deBruijn_subst_t_of	propext,Quot.sound	
+LeanTypeSound.TypeSoundExp	LIST_REL_map_right_inv		
+LeanTypeSound.SemanticPrimitives	abort.Rffi_error.injEq	propext	
+LeanTypeSound.TypeSysProps	type_subst_deBruijn_subst_single	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	deBruijn_inc.eq_1	propext,Quot.sound	
+LeanTypeSound.Ast	instReflBEqOp	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	store_type_extension_weakS		
+LeanTypeSound.SemanticPrimitives	dest_thunk_ret.BadRef.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instBEqStamp.beq.eq_2	propext	
+LeanTypeSound.TypeSystem	type_env.mk.injEq	propext	
+LeanTypeSound.TypeSysProps	same_type.eq_1	propext	
+LeanTypeSound.Mlstring	tokens_aux.eq_4	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_33	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_arith.eq_19	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSound	decs_concl_simple	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.Aw8sub.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	eval_state.EvalDecs.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_e_subst_lem7	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_27	propext,Quot.sound,Classical.choice	
+LeanTypeSound.HOL4Prelude	HOL4.ordering.LESS.sizeOf_spec		
+LeanTypeSound.TypeSysProps	Ttup.eq_1		
+LeanTypeSound.TypeSysProps	tveLookup_bind_tvar	propext,Quot.sound	
+LeanTypeSound.FpSem	instBEqFp_bop.beq.eq_1		
+LeanTypeSound.Ast	instReflBEqTest	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	TOKENS_nil	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_11	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	result.Rval.inj		
+LeanTypeSound.SemanticPrimitives	eq_result.Eq_val.sizeOf_spec		
+LeanTypeSound.TypeSysProps	alist_to_fmap_zip_map	propext	
+LeanTypeSound.TypeSysProps	add_tenvE.eq_1		
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_9	propext	
+LeanTypeSound.Ast	lit.Char.inj		
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok_bvl_gen	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	nsLookup.eq_def		
+LeanTypeSound.Location	instBEqLocn.beq_spec_2	propext	
+LeanTypeSound.EvaluateProps	evaluate_length	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Weakening	gt_0		
+LeanTypeSound.TypeSystem	is_value.eq_def	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	LIST_REL_reverse	propext	
+LeanTypeSound.TypeSoundCore	pmatch_list.eq_1	propext	
+LeanTypeSound.FpSem	instBEqFp_uop.beq_spec_1		
+LeanTypeSound.Ast	instBEqPrim_type.beq_spec_7	propext	
+LeanTypeSound.Ast	exp.brecOn_5.eq		
+LeanTypeSound.NamespaceProps	nsAppend_to_nsBindList	propext	
+LeanTypeSound.Ast	op.Aw8sub_unsafe.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	type_v_Tapp_ctor_canonical	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_e_subst_var	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	tveLookup_no_tvs	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq_spec	propext	
+LeanTypeSound.Ast	dec.Denv.inj		
+LeanTypeSound.Ast	arith.Neg.sizeOf_spec		
+LeanTypeSound.Ast	lop.Andalso.sizeOf_spec		
+LeanTypeSound.Misc	tlookup.eq_1		
+LeanTypeSound.Mlstring	app_list_ann.Small.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_5	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	check_freevars_ast.eq_1	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_43	propext,Quot.sound,Classical.choice	
+LeanTypeSound.EvaluateProps	evaluate_decs.eq_6	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	type_e.brecOn	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	tenv_ctor_ok_lookup	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	result.Rerr.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	eq_result.Eq_val.injEq	propext	
+LeanTypeSound.Ast	instBEqThunk_op.beq.eq_2	propext	
+LeanTypeSound.Ffi	oracle_result.Oracle_final.sizeOf_spec		
+LeanTypeSound.TypeSysProps	deBruijn_subst_check_freevars	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	list_rel_tenv_add_tvs	propext,Quot.sound	
+LeanTypeSound.TypeSoundExp	type_op_not_force	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	exp.Tannot.inj		
+LeanTypeSound.TypeSystem	is_value_Con	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	v.brecOn_1.eq		
+LeanTypeSound.Evaluate	list_sizeOf_append	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqOpb.beq_spec_1		
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_tvar.inj		
+LeanTypeSound.Ast	thunk_op.UpdateThunk.inj		
+LeanTypeSound.Ffi	instBEqOutcome.beq.eq_4	propext	
+LeanTypeSound.TypeSystem	sem_t.Tvar_db.injEq	propext	
+LeanTypeSound.EvaluateProps	evaluate.eq_8	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	v_to_list_cases	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	id_to_mods.eq_1		
+LeanTypeSound.TypeSoundInvariants	store_t.Varray_t.sizeOf_spec		
+LeanTypeSound.Ast	instBEqPrim_type.beq_spec_5	propext	
+LeanTypeSound.TypeSoundCore	pmatch.eq_5	propext	
+LeanTypeSound.TypeSysProps	check_freevars_subst	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq_spec_1	propext	
+LeanTypeSound.Ast	instBEqThunk_mode.beq_spec_1		
+LeanTypeSound.TypeSound	consistent_ctMap_empty		
+LeanTypeSound.Namespace	instBEqCml_id.beq_spec_1	propext	
+LeanTypeSound.TypeSysProps	check_freevars_Tvar	propext,Quot.sound	
+LeanTypeSound.Misc	IS_PREFIX_THM	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	db_merge.eq_2		
+LeanTypeSound.EvaluateProps	icm_bind_gen	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	check_freevars_add	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instReflBEqOp_class	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	type_recfun_env_help	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	v.Env.inj		
+LeanTypeSound.Weakening	weak_tenvE_bind	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok.eq_2	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_40	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_test.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	pmatch.eq_1	propext	
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq_spec_3	propext	
+LeanTypeSound.Ast	instBEqTest.beq_spec_1	propext	
+LeanTypeSound.Ast	op_class.Simple.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	type_funs_fst	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instBEqAbort.beq_spec	propext	
+LeanTypeSound.TypeSysProps	Tdouble.eq_1		
+LeanTypeSound.TypeSysProps	type_op.eq_12	propext	
+LeanTypeSound.Mlstring	tokens_aux.eq_2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_conversion.eq_4	propext	
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq.eq_3	propext	
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_1	propext	
+LeanTypeSound.HOL4Prelude	HOL4.instBEqOrdering.beq_spec_1		
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_3	propext	
+LeanTypeSound.TypeSoundExp	not_opapp_of_simple	propext	
+LeanTypeSound.Ast	op.Shift.inj		
+LeanTypeSound.SemanticPrimitives	instBEqStamp.beq_spec_2	propext	
+LeanTypeSound.TypeSysProps	HOL4.Finmap.FUNION.eq_1		
+LeanTypeSound.TypeSysProps	type_op.eq_5	propext	
+LeanTypeSound.Ast	instBEqOp.beq_spec_1	propext	
+LeanTypeSound.TypeSoundCore	do_eq.eq_1	propext	
+LeanTypeSound.TypeSysProps	nsLookup_add_tenvE3	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	nsLookup.eq_1		
+LeanTypeSound.TypeSoundCore	type_v_Ttup_canonical	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	check_freevars_deBruijn_inc	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	FV_defs.eq_def		
+LeanTypeSound.SemanticPrimitivesProps	FV_pes_MAP	Quot.sound,propext	
+LeanTypeSound.FpSem	instReflBEqFp_cmp	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	mem_zip_getElem_bang	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	error_result.Rabort.injEq	propext	
+LeanTypeSound.Ast	instBEqLit.beq_spec_2	propext	
+LeanTypeSound.TypeSoundCore	eq_same_type_v	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.Arith.inj		
+LeanTypeSound.Ast	op.Vlength.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_def_to_ctMap.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	pat.Plit.inj		
+LeanTypeSound.SemanticPrimitives	instBEqMatch_result.beq.eq_def	propext	
+LeanTypeSound.Ast	exp.Mat.inj		
+LeanTypeSound.TypeSound	check_ctor_tenv_dups	propext,Quot.sound	
+LeanTypeSound.Mlstring	app_list_ann.BigAppend.inj		
+LeanTypeSound.SemanticPrimitives	v.Litv.injEq	propext	
+LeanTypeSound.SemanticPrimitives	match_result.Match.sizeOf_spec		
+LeanTypeSound.TypeSysProps	HOL4.Finmap.alist_to_fmap.eq_1		
+LeanTypeSound.NamespaceProps	nsSing.eq_1		
+LeanTypeSound.Ast	test.Compare.injEq	propext	
+LeanTypeSound.TypeSystem	check_freevars_ast_Attup	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	nsAll2_of_closure_conds	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	Tvector_num.eq_1		
+LeanTypeSound.Misc	FDOM_FLOOKUP	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	sem_env.v_.eq_1		
+LeanTypeSound.Ast	arith.Sqrt.sizeOf_spec		
+LeanTypeSound.Misc	DROP_EMPTY	propext	
+LeanTypeSound.SemanticPrimitives	dest_thunk_ret.IsThunk.inj		
+LeanTypeSound.Ast	instBEqTest.beq_spec_4	propext	
+LeanTypeSound.TypeSoundCore	do_eq_list_ne_of_zip	propext	
+LeanTypeSound.TypeSystem	is_value.eq_4	propext,Quot.sound	
+LeanTypeSound.Misc	app_list.List.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	v_beq.eq_6	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	v.Env.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	FV_defs.eq_2		
+LeanTypeSound.TypeSoundCore	Tfn_num.eq_1		
+LeanTypeSound.TypeSysProps	bind_tvar_rewrites	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.ListAppend.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instBEqError_result.beq_spec_3	propext	
+LeanTypeSound.TypeSoundCore	the_Litv_Word64.eq_2	propext	
+LeanTypeSound.EvaluateProps	evaluate.eq_2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_arith.eq_21	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundCore	vs_to_string.eq_def	propext	
+LeanTypeSound.TypeSoundCore	do_eq_list.eq_def	propext	
+LeanTypeSound.Ast	op.Asub_unsafe.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsSub_nsBind	Classical.choice,propext,Quot.sound	
+LeanTypeSound.Misc	HOL4.ALOOKUP.eq_1		
+LeanTypeSound.NamespaceProps	nsAll2_nsSing	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundCore	store_type_extension_trans	Quot.sound,propext	
+LeanTypeSound.TypeSysProps	add_tenvE.eq_2		
+LeanTypeSound.Ast	word_size.W64.sizeOf_spec		
+LeanTypeSound.Ffi	instBEqIo_event.beq_spec_1	propext	
+LeanTypeSound.SemanticPrimitives	instBEqStamp.beq_spec_1	propext	
+LeanTypeSound.Ast	exp.App.injEq	propext	
+LeanTypeSound.TypeSysProps	sem_t.ind'	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	lit_same_type.eq_2	propext	
+LeanTypeSound.SemanticPrimitives	instReflBEqStore_v	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	ALOOKUP_map_key	propext	
+LeanTypeSound.TypeSoundCore	list_to_v.eq_def		
+LeanTypeSound.Ast	exp.Lit.injEq	propext	
+LeanTypeSound.Evaluate	dec_clock_clock		
+LeanTypeSound.Ast	dec.Dlocal.inj		
+LeanTypeSound.TypeSound	good_ctMap_extend	propext,Quot.sound	
+LeanTypeSound.FpSem	fp_cmp.FP_GreaterEqual.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_op.eq_21	propext	
+LeanTypeSound.TypeSoundCore	check_type.eq_2	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Con.sizeOf_spec		
+LeanTypeSound.Location	instLawfulBEqLocn	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	instBEqIo_event.beq_spec_2	propext	
+LeanTypeSound.Ast	exp.brecOn_4.eq		
+LeanTypeSound.Ast	instBEqLit.beq_spec_5	propext	
+LeanTypeSound.Ffi	instBEqOutcome.beq_spec_4	propext	
+LeanTypeSound.SemanticPrimitives	eval_state.EvalOracle.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	Tword8_num.eq_1		
+LeanTypeSound.Mlstring	mlstring.strlit.injEq	propext	
+LeanTypeSound.SemanticPrimitives	v.Litv.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_funs_Tfn_aux	propext,Quot.sound	
+LeanTypeSound.Weakening	disjoint_env_weakCT	propext	
+LeanTypeSound.TypeSysProps	check_freevars_Tvar_db	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok.eq_1	propext,Quot.sound	
+LeanTypeSound.HOL4Prelude	HOL4.instBEqOrdering.beq.eq_def		
+LeanTypeSound.TypeSoundCore	check_type.eq_5	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	nsAppend_nsBind		
+LeanTypeSound.Ffi	behaviour.Terminate.inj		
+LeanTypeSound.Weakening	type_sv.eq_2	propext,Quot.sound	
+LeanTypeSound.Mlstring	strlen.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Mlstring	app_list_ann.BigAppend.injEq	propext	
+LeanTypeSound.TypeSoundExp	type_op_not_eval	propext	
+LeanTypeSound.Ffi	ffi_result.FFI_final.inj		
+LeanTypeSound.FpSem	instBEqFp_bop.beq_spec_1		
+LeanTypeSound.Ast	instBEqThunk_op.beq_spec_2	propext	
+LeanTypeSound.Ast	instBEqWord_size.beq_spec_1		
+LeanTypeSound.TypeSoundCore	do_conversion.eq_1	propext	
+LeanTypeSound.Namespace	instLawfulBEqCml_id	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Mlstring	instBEqMlstring.beq.eq_1		
+LeanTypeSound.SemanticPrimitives	match_result.Match.inj		
+LeanTypeSound.TypeSysProps	type_op.eq_7	propext	
+LeanTypeSound.TypeSoundExp	LIST_REL_map_right		
+LeanTypeSound.TypeSysProps	tveLookup_db_merge_none	propext,Quot.sound	
+LeanTypeSound.Ffi	outcome.FFI_outcome.inj		
+LeanTypeSound.TypeSoundCore	supported_arith.eq_3	propext	
+LeanTypeSound.Weakening	eLookupC_weak	propext,Quot.sound	
+LeanTypeSound.TypeSound	every_exp.eq_9	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	icm_of_clock_indep	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	pmatch_list.eq_3	propext	
+LeanTypeSound.Ast	op.FromTo.inj		
+LeanTypeSound.Ast	op.Strsub.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_op.eq_34	propext	
+LeanTypeSound.TypeSoundCore	lit_same_type.eq_7	propext	
+LeanTypeSound.Ast	arith.Mul.sizeOf_spec		
+LeanTypeSound.Ast	instBEqLop.beq_spec_1		
+LeanTypeSound.Ast	instBEqThunk_op.beq.eq_4	propext	
+LeanTypeSound.TypeSoundCore	v_list_beq.eq_2	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	alist_to_ns.eq_1		
+LeanTypeSound.SemanticPrimitives	result.Rerr.inj		
+LeanTypeSound.Location	instBEqLocn.beq_spec	propext	
+LeanTypeSound.EvaluateProps	evaluate_decs.eq_8	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Location	instReflBEqLocn	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_arith.eq_12	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSysProps	type_op.eq_27	propext	
+LeanTypeSound.TypeSysProps	type_ps_length_aux	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqThunk_op.beq.eq_def	propext	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_cong	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	do_opapp.eq_3	propext	
+LeanTypeSound.Ast	instBEqPrim_type.beq.eq_7	propext	
+LeanTypeSound.Weakening	type_s_weakening	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	list_to_v.eq_1		
+LeanTypeSound.TypeSoundCore	same_type_refl	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqEq_result.beq.eq_3	propext	
+LeanTypeSound.NamespaceProps	nsAll2_nsLookup_none		
+LeanTypeSound.TypeSoundExp	do_log.eq_1	propext,Quot.sound	
+LeanTypeSound.Namespace	cml_id.Short.inj		
+LeanTypeSound.Ffi	oracle_result.Oracle_final.injEq	propext	
+LeanTypeSound.TypeSoundCore	lit_same_type.eq_1	propext	
+LeanTypeSound.SemanticPrimitives	instReflBEqAbort	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Location	locn.UNKNOWNpt.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_def_to_ctMap.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSound	semantics_type_sound	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Namespace	instReflBEqCml_id	propext	
+LeanTypeSound.TypeSound	build_constrs.eq_1		
+LeanTypeSound.TypeSoundCore	cv_vector	propext,Quot.sound	
+LeanTypeSound.TypeSoundExp	match_res_to_exp	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	EVERY_LIST_REL_thm	propext,Quot.sound	
+LeanTypeSound.Misc	HOL4.DROP.eq_1		
+LeanTypeSound.TypeSysProps	type_p_tenvV_aux	propext,Quot.sound	
+LeanTypeSound.TypeSoundInvariants	store_t.Ref_t.inj		
+LeanTypeSound.Evaluate	list_sizeOf_pos	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Handle.inj		
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_5	propext	
+LeanTypeSound.Ffi	instBEqFfiname.beq_spec_3	propext	
+LeanTypeSound.Evaluate	do_log_exp	propext,Quot.sound	
+LeanTypeSound.TypeSound	range_diff_self		
+LeanTypeSound.TypeSysProps	type_op.eq_33	propext	
+LeanTypeSound.Ffi	behaviour.Terminate.injEq	propext	
+LeanTypeSound.TypeSysProps	tveLookup_closed	propext,Quot.sound	
+LeanTypeSound.TypeSoundExp	EvalSound.single	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_14	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	supported_arith.eq_4	propext	
+LeanTypeSound.TypeSysProps	t_of.eq_1		
+LeanTypeSound.SemanticPrimitives	cml_state.mk.sizeOf_spec		
+LeanTypeSound.Ast	pat.Pas.sizeOf_spec		
+LeanTypeSound.Ast	pat.Ptannot.inj		
+LeanTypeSound.Mlstring	splitOnP_shape	propext,Quot.sound	
+LeanTypeSound.TypeSoundExp	can_pmatch_all_of_typed	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	tveLookup_freevars_subst	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	match_result.Match_type_error.sizeOf_spec		
+LeanTypeSound.Ast	exp.Lannot.sizeOf_spec		
+LeanTypeSound.Location	locs.Locs.injEq	propext	
+LeanTypeSound.EvaluateProps	can_pmatch_all_EVERY	propext,Quot.sound	
+LeanTypeSound.Ast	opb.Geq.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsAll_alist_to_ns	propext	
+LeanTypeSound.TypeSoundCore	LIST_REL_getElem_bang	propext	
+LeanTypeSound.Misc	MAP_EQ_MAP_IMP	propext	
+LeanTypeSound.TypeSoundCore	do_conversion.eq_3	propext	
+LeanTypeSound.TypeSoundCore	pat_type_sound_p	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqStamp.beq.eq_3	propext	
+LeanTypeSound.Ast	instReflBEqArith	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqThunk_mode.beq.eq_1		
+LeanTypeSound.SemanticPrimitivesProps	FV_pes.eq_def		
+LeanTypeSound.Ffi	io_event.IO_event.injEq	propext	
+LeanTypeSound.TypeSystem	check_freevars.eq_1	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	pmatch_list.eq_def	propext	
+LeanTypeSound.Ast	exp.Raise.inj		
+LeanTypeSound.TypeSysProps	bind_var_list.eq_1		
+LeanTypeSound.Ffi	shmem_op.MappedRead.sizeOf_spec		
+LeanTypeSound.Evaluate	lex_le_lt		
+LeanTypeSound.NamespaceProps	nsSub_nsAppend_of_nsAll2	propext,Quot.sound	
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_name.injEq	propext	
+LeanTypeSound.Ast	ast_t.Attup.injEq	propext	
+LeanTypeSound.TypeSoundCore	pmatch_list.eq_2	propext	
+LeanTypeSound.Evaluate	do_if_exp	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	pmatch.eq_4	propext	
+LeanTypeSound.SemanticPrimitivesProps	pat_bindings.eq_2		
+LeanTypeSound.SemanticPrimitivesProps	FV_defs.eq_1		
+LeanTypeSound.SemanticPrimitives	eval_oracle_state.mk.inj		
+LeanTypeSound.TypeSoundCore	do_eq.eq_6	propext	
+LeanTypeSound.Ffi	instBEqOutcome.beq_spec_2	propext	
+LeanTypeSound.TypeSoundExp	getOpClass.eq_3	propext	
+LeanTypeSound.TypeSysProps	Tword64.eq_1		
+LeanTypeSound.Namespace	cml_id.Long.inj		
+LeanTypeSound.EvaluateProps	pair_CASE_eq_forall	propext	
+LeanTypeSound.TypeSoundCore	v_to_list.eq_3	propext	
+LeanTypeSound.HOL4Prelude	HOL4.instBEqOrdering.beq.eq_1		
+LeanTypeSound.Ast	opb.Gt.sizeOf_spec		
+LeanTypeSound.FpSem	instBEqFp_cmp.beq_spec_1		
+LeanTypeSound.Ast	exp.Con.inj		
+LeanTypeSound.TypeSystem	sem_t.brecOn_1.eq		
+LeanTypeSound.NamespaceProps	nsSub_conj		
+LeanTypeSound.TypeSysProps	deBruijn_inc_deBruijn_inc	propext,Quot.sound	
+LeanTypeSound.Ast	prim_type.Float64T.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	eval_state.EvalOracle.inj		
+LeanTypeSound.NamespaceProps	nsAll2_alist_to_ns	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Ast	ast_t.Atvar.sizeOf_spec		
+LeanTypeSound.Ast	ast_t.brecOn_1.eq		
+LeanTypeSound.TypeSoundCore	do_arith.eq_18	propext,Classical.choice,Quot.sound	
+LeanTypeSound.HOL4Prelude	HOL4.ordering.GREATER.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	list_to_v.eq_2		
+LeanTypeSound.SemanticPrimitivesProps	FV_defs_MAP	Quot.sound,propext	
+LeanTypeSound.Ast	dec.Dlet.inj		
+LeanTypeSound.Weakening	weak_tenvE_bind_tvar2	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	behaviour.Terminate.sizeOf_spec		
+LeanTypeSound.Mlstring	implode.eq_1		
+LeanTypeSound.Ast	dec.Dtype.injEq	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_21	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instLawfulBEqPrim_type	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	store_v.Thunk.sizeOf_spec		
+LeanTypeSound.EvaluateProps	call_FFI_rel_io_events_mono	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_arith.eq_6	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundExp	LIST_REL_mono		
+LeanTypeSound.TypeSoundCore	ctMap_list_stamp	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqLit.beq.eq_2	propext	
+LeanTypeSound.Ast	instBEqPrim_type.beq.eq_def	propext	
+LeanTypeSound.Ast	exp.Letrec.sizeOf_spec		
+LeanTypeSound.TypeSysProps	num_tvs.eq_2		
+LeanTypeSound.HOL4Prelude	HOL4.instLawfulBEqOrdering	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	check_freevars.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	find_recfun.eq_1		
+LeanTypeSound.TypeSound	extend_dec_env_empty	propext	
+LeanTypeSound.FpSem	fp_cmp.FP_Less.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	do_eq.eq_7	propext	
+LeanTypeSound.TypeSysProps	same_type.eq_3	propext	
+LeanTypeSound.Ast	exp.Fun.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_def_to_ctMap.eq_1	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	pat_bindings_accum	propext	
+LeanTypeSound.EvaluateProps	can_pmatch_all.eq_def	propext	
+LeanTypeSound.Ast	dec.Dtabbrev.sizeOf_spec		
+LeanTypeSound.TypeSysProps	HOL4.Finmap.FUPDATE_LIST.eq_1		
+LeanTypeSound.TypeSoundCore	pmatch.eq_def	propext	
+LeanTypeSound.TypeSoundCore	do_arith.eq_23	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundCore	cv_w8array	propext,Quot.sound	
+LeanTypeSound.Ast	thunk_op.UpdateThunk.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	v.brecOn_2.eq		
+LeanTypeSound.TypeSysProps	check_ctor_tenv.eq_def	propext,Quot.sound	
+LeanTypeSound.TypeSound	decs_sound_dlocal	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	exp.Log.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	v.Litv.inj		
+LeanTypeSound.TypeSysProps	HOL4.Finmap.FUPDATE.eq_1		
+LeanTypeSound.Ast	exp.Fun.inj		
+LeanTypeSound.Mlstring	list_head!_cons		
+LeanTypeSound.Ast	instBEqThunk_op.beq.eq_3	propext	
+LeanTypeSound.TypeSysProps	num_tvs_bind_var_list	propext	
+LeanTypeSound.TypeSysProps	type_funs_distinct	propext,Quot.sound,Classical.choice	
+LeanTypeSound.FpSem	fp_cmp.FP_Equal.sizeOf_spec		
+LeanTypeSound.TypeSysProps	tenv_ok_empty	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_subst.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_e_subst_lem3	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	same_ctor.eq_1	propext	
+LeanTypeSound.Location	instBEqLocn.beq_spec_1	propext	
+LeanTypeSound.TypeSoundCore	do_conversion.eq_10	propext	
+LeanTypeSound.Ast	exp.Lannot.inj		
+LeanTypeSound.TypeSoundCore	do_arith.eq_13	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSound	FUPDATE_LIST_reverse_apply	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	type_v_list_to_v	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqStamp.beq.eq_def	propext	
+LeanTypeSound.TypeSystem	sem_t.Tvar.inj		
+LeanTypeSound.Ast	instBEqOp.beq.eq_def	propext	
+LeanTypeSound.EvaluateProps	evaluate.eq_6	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqLop.beq.eq_def		
+LeanTypeSound.TypeSoundCore	ctor_canonical_values_thm	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	type_v_Boolv	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	lit_same_type.eq_3	propext	
+LeanTypeSound.TypeSoundCore	do_arith.eq_26	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundCore	do_test.eq_5	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Misc	inj_of_nodup_map	propext,Quot.sound	
+LeanTypeSound.Weakening	weak_tenv_extend_dec_tenv	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_23	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	pmatch.eq_3	propext	
+LeanTypeSound.NamespaceProps	ALOOKUP_append	propext	
+LeanTypeSound.TypeSysProps	tenv_ctor_ok_nsEmpty	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	exp.Var.sizeOf_spec		
+LeanTypeSound.TypeSoundExp	EvalSound.single_val	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_op.eq_22	propext	
+LeanTypeSound.TypeSoundCore	do_conversion.eq_5	propext	
+LeanTypeSound.SemanticPrimitives	instBEqMatch_result.beq.eq_1	propext	
+LeanTypeSound.EvaluateProps	io_events_mono_trans	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	tveLookup_freevars_thm	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	v_to_list.eq_def	propext	
+LeanTypeSound.SemanticPrimitives	instLawfulBEqStore_v	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Evaluate	lex_lt		
+LeanTypeSound.NamespaceProps	nsLookup_nsSing	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSysProps	fupdate2_union	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	pat_bindings.eq_7		
+LeanTypeSound.TypeSoundCore	check_dup_ctors_thm		
+LeanTypeSound.Ast	dec.Dexn.inj		
+LeanTypeSound.Ast	instLawfulBEqArith	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundExp	exp_res_ok_ext	propext,Quot.sound,Classical.choice	
+LeanTypeSound.FpSem	instLawfulBEqFp_uop	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	is_value.eq_2	propext,Quot.sound	
+LeanTypeSound.TypeSystem	check_freevars_ast_Atapp	propext,Quot.sound	
+LeanTypeSound.Mlstring	strsub.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	lit.Float64.injEq	propext	
+LeanTypeSound.TypeSysProps	HOL4.ALL_DISTINCT.eq_def		
+LeanTypeSound.Ast	pat.Plit.sizeOf_spec		
+LeanTypeSound.TypeSysProps	tveLookup_subst_none	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	supported_arith.eq_5	propext	
+LeanTypeSound.Ast	exp.Var.injEq	propext	
+LeanTypeSound.SemanticPrimitives	instReflBEqResult	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundExp	app_pre	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_arith.eq_15	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Misc	find_index.eq_1		
+LeanTypeSound.SemanticPrimitives	v.Conv.injEq	propext	
+LeanTypeSound.SemanticPrimitives	sem_env.mk.injEq	propext	
+LeanTypeSound.Ast	instBEqOp.beq_spec	propext	
+LeanTypeSound.Misc	nodup_of_subset_length	propext,Quot.sound	
+LeanTypeSound.TypeSystem	sem_t.Tvar.injEq	propext	
+LeanTypeSound.Namespace	namespace.Bind.inj		
+LeanTypeSound.Ffi	outcome.Success.sizeOf_spec		
+LeanTypeSound.TypeSysProps	mem_zipWith_aux	propext	
+LeanTypeSound.TypeSoundCore	opapp_type_sound	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	tenv_val_exp.Empty.sizeOf_spec		
+LeanTypeSound.Mlstring	tokens_aux.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Namespace	instBEqCml_id.beq.eq_3	propext	
+LeanTypeSound.TypeSystem	type_subst.eq_def	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqLit.beq_spec_1	propext	
+LeanTypeSound.TypeSoundCore	remove_lambda_prod	Quot.sound	
+LeanTypeSound.SemanticPrimitives	exp_or_val.Exp.inj		
+LeanTypeSound.Evaluate	evaluate_clock	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqResult.beq_spec_1	propext	
+LeanTypeSound.Ast	dec.Dtype.sizeOf_spec		
+LeanTypeSound.Misc	CARD_IMAGE_ID_BIJ	Classical.choice,propext,Quot.sound	
+LeanTypeSound.Ffi	instBEqShmem_op.beq_spec_1		
+LeanTypeSound.TypeSysProps	type_p_tenvV_indep	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqPrim_type.beq_spec	propext	
+LeanTypeSound.SemanticPrimitives	sem_env.mk.inj		
+LeanTypeSound.Mlstring	instReflBEqMlstring	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_arith.eq_3	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Evaluate	evaluate_decs.induct	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqThunk_mode.beq_spec		
+LeanTypeSound.TypeSoundExp	do_log_val_eq	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	v.brecOn_3.eq		
+LeanTypeSound.TypeSysProps	num_tvs_db_merge	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	build_rec_env_merge	propext	
+LeanTypeSound.SemanticPrimitives	instBEqError_result.beq.eq_2	propext	
+LeanTypeSound.TypeSysProps	type_e_subst_lem	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	instReflBEqOutcome	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_funs_freevars_aux	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	num_tvs_deBruijn_subst_tenvE	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	deBruijn_subst_freevars	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqThunk_op.beq.eq_1	propext	
+LeanTypeSound.SemanticPrimitivesProps	concrete_v_list.eq_1	propext	
+LeanTypeSound.Ffi	oracle_result.Oracle_return.sizeOf_spec		
+LeanTypeSound.TypeSysProps	deBruijn_inc_id_of_check	propext,Quot.sound	
+LeanTypeSound.Mlstring	TOKENS_cons_P	propext,Quot.sound	
+LeanTypeSound.Weakening	type_tenv_val_weakening_lemma	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.XorAw8Str_unsafe.sizeOf_spec		
+LeanTypeSound.NamespaceProps	mk_id.eq_1		
+LeanTypeSound.Ast	thunk_mode.Evaluated.sizeOf_spec		
+LeanTypeSound.Ast	instBEqPrim_type.beq_spec_3	propext	
+LeanTypeSound.SemanticPrimitives	abort.Rffi_error.inj		
+LeanTypeSound.Location	instBEqLocn.beq_spec_3	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_con_check.eq_2		
+LeanTypeSound.TypeSystem	tenv_val_exp.Bind_tvar.injEq	propext	
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq.eq_2	propext	
+LeanTypeSound.EvaluateProps	HOL4.LUPDATE.eq_1		
+LeanTypeSound.TypeSysProps	type_op.eq_18	propext	
+LeanTypeSound.SemanticPrimitives	eval_state.EvalDecs.inj		
+LeanTypeSound.TypeSysProps	type_op.eq_3	propext	
+LeanTypeSound.Ast	arith.Mod.sizeOf_spec		
+LeanTypeSound.TypeSoundExp	opapp_of_funapp	propext	
+LeanTypeSound.TypeSoundCore	do_eq.eq_5	propext	
+LeanTypeSound.TypeSound	every_exp.eq_5	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_op.eq_9	propext	
+LeanTypeSound.Namespace	instBEqCml_id.beq.eq_def	propext	
+LeanTypeSound.TypeSound	decs_type_sound_no_check	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	error_result.Rraise.inj		
+LeanTypeSound.Misc	tlookup_of_not_mem	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_op.eq_30	propext	
+LeanTypeSound.EvaluateProps	store_assign_length	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_41	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSound	type_e_con_check	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	nsAll2_conj	propext	
+LeanTypeSound.TypeSysProps	subst_inc_cancel	propext,Quot.sound	
+LeanTypeSound.Ast	dec.Dlocal.sizeOf_spec		
+LeanTypeSound.Ast	op.Explode.sizeOf_spec		
+LeanTypeSound.Ast	instBEqOpb.beq_spec		
+LeanTypeSound.TypeSoundCore	prim_canonical_Boolv_thm	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqShift.beq_spec		
+LeanTypeSound.TypeSound	every_exp.eq_12	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	store_v.Refv.sizeOf_spec		
+LeanTypeSound.NamespaceProps	nsSub_refl		
+LeanTypeSound.SemanticPrimitivesProps	with_same_clock		
+LeanTypeSound.Ast	prim_type.BoolT.sizeOf_spec		
+LeanTypeSound.Ffi	ffiname.SharedMem.injEq	propext	
+LeanTypeSound.Namespace	cml_id.Long.injEq	propext	
+LeanTypeSound.TypeSysProps	add_tenvE.eq_3		
+LeanTypeSound.Ast	thunk_op.AllocThunk.injEq	propext	
+LeanTypeSound.SemanticPrimitives	dest_thunk_ret.IsThunk.sizeOf_spec		
+LeanTypeSound.Ast	op.CopyAw8Str.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_22	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_op.eq_31	propext	
+LeanTypeSound.TypeSystem	type_p.brecOn	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	extend_dec_env_assoc	propext	
+LeanTypeSound.Ast	instLawfulBEqShift	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	cv_w64	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	nsLookup_Bind_Long		
+LeanTypeSound.Ffi	shmem_op.MappedWrite.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	check_type.eq_4	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqArith.beq.eq_def		
+LeanTypeSound.SemanticPrimitives	eq_result.Eq_val.inj		
+LeanTypeSound.NamespaceProps	alist_rel_restr.eq_2		
+LeanTypeSound.TypeSysProps	db_merge_bvl	propext	
+LeanTypeSound.TypeSysProps	nil_deBruijn_inc	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	lit.StrLit.inj		
+LeanTypeSound.Ast	exp.Fun.injEq	propext	
+LeanTypeSound.Evaluate	evaluate_match.induct	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq.eq_1	propext	
+LeanTypeSound.TypeSysProps	HOL4.ALL_DISTINCT.eq_1		
+LeanTypeSound.Ast	ast_t.brecOn.eq		
+LeanTypeSound.Location	instBEqLocs.beq_spec_1	propext	
+LeanTypeSound.TypeSoundCore	lookup_var_sound	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	pat_type_sound	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_ps_tenvV_aux	propext,Quot.sound	
+LeanTypeSound.Ast	test.AltCompare.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_op.eq_16	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_20	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	Tword64_num.eq_1		
+LeanTypeSound.Ffi	ffiname.ExtCall.sizeOf_spec		
+LeanTypeSound.Ast	instBEqOp_class.beq.eq_def		
+LeanTypeSound.Ast	instBEqTest.beq.eq_2	propext	
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok_bvl	propext,Quot.sound	
+LeanTypeSound.Ast	lit.Char.sizeOf_spec		
+LeanTypeSound.EvaluateProps	is_clock_io_mono.eq_1	propext	
+LeanTypeSound.Ast	instBEqLop.beq.eq_1		
+LeanTypeSound.Evaluate	pat_sizeOf_pos	propext,Quot.sound	
+LeanTypeSound.Mlstring	List.head!.eq_1		
+LeanTypeSound.TypeSysProps	deBruijn_inc0	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_7	propext	
+LeanTypeSound.FpSem	instBEqFp_cmp.beq.eq_def		
+LeanTypeSound.Ast	exp.Tannot.injEq	propext	
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_2	propext	
+LeanTypeSound.SemanticPrimitives	store_v.Thunk.inj		
+LeanTypeSound.Ast	op.Opassign.sizeOf_spec		
+LeanTypeSound.Ast	instBEqThunk_op.beq_spec_3	propext	
+LeanTypeSound.SemanticPrimitives	v.Recclosure.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	supported_arith.eq_1	propext	
+LeanTypeSound.TypeSysProps	EL_map'	propext	
+LeanTypeSound.Ast	op.Opref.sizeOf_spec		
+LeanTypeSound.Ast	lit.StrLit.injEq	propext	
+LeanTypeSound.Ast	instBEqLit.beq_spec_3	propext	
+LeanTypeSound.NamespaceProps	nsAll2_nsEmpty	propext	
+LeanTypeSound.TypeSoundCore	do_arith.eq_7	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundCore	do_arith.eq_28	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Misc	HOL4.IMAGE.eq_1		
+LeanTypeSound.SemanticPrimitives	exp_or_val.Exp.injEq	propext	
+LeanTypeSound.Ast	dec.Dtabbrev.injEq	propext	
+LeanTypeSound.EvaluateProps	evaluate.eq_12	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	instBEqOutcome.beq_spec_3	propext	
+LeanTypeSound.TypeSoundCore	Tword8array_num.eq_1		
+LeanTypeSound.SemanticPrimitivesProps	pat_bindings.eq_6		
+LeanTypeSound.Location	instBEqLocn.beq.eq_2	propext	
+LeanTypeSound.Ffi	io_event.IO_event.inj		
+LeanTypeSound.TypeSoundCore	do_arith.eq_17	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSysProps	type_subst.eq_2	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	concrete_v_list.eq_def	propext	
+LeanTypeSound.TypeSoundCore	Tlist_num.eq_1		
+LeanTypeSound.FpSem	instLawfulBEqFp_cmp	propext,Quot.sound,Classical.choice	
+LeanTypeSound.NamespaceProps	nsBind.eq_1		
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq_spec_4	propext	
+LeanTypeSound.Evaluate	evaluate_clock_aux	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	deBruijn_subst2_thm	propext,Quot.sound	
+LeanTypeSound.TypeSoundInvariants	type_v.brecOn	propext,Quot.sound	
+LeanTypeSound.Mlstring	tokens_aux.eq_def	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundExp	type_v_ext	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	check_type_names.eq_2	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	t_of.eq_5		
+LeanTypeSound.SemanticPrimitivesProps	do_app_cases	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.Aw8update_unsafe.sizeOf_spec		
+LeanTypeSound.NamespaceProps	alist_rel_restr.eq_def		
+LeanTypeSound.Location	instBEqLocs.beq.eq_def	propext	
+LeanTypeSound.Ast	ast_t.Atapp.inj		
+LeanTypeSound.Ast	exp.App.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_op.eq_23	propext	
+LeanTypeSound.SemanticPrimitives	abort.Rtype_error.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	v_to_char_list.eq_2	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_19	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	cv_double	propext,Quot.sound	
+LeanTypeSound.TypeSound	decs_sound_dexn	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	oracle_result.Oracle_return.injEq	propext	
+LeanTypeSound.NamespaceProps	nsAll2_nsAppend	propext,Quot.sound	
+LeanTypeSound.EvaluateProps	is_clock_io_mono_extra	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	dest_Litv.eq_1	propext	
+LeanTypeSound.Evaluate	fix_clock.eq_1		
+LeanTypeSound.Ast	instBEqLit.beq.eq_3	propext	
+LeanTypeSound.Ffi	ffi_outcome.FFI_diverged.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instBEqEq_result.beq.eq_2	propext	
+LeanTypeSound.TypeSoundCore	v_list_beq.eq_1	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	tenv_val_exp_ok_db_merge	propext,Quot.sound	
+LeanTypeSound.TypeSoundExp	getOpClass.eq_1	propext	
+LeanTypeSound.TypeSysProps	deBruijn_subst_tenvE.eq_2	propext,Quot.sound	
+LeanTypeSound.NamespaceProps	nsLookup_nsAll		
+LeanTypeSound.TypeSysProps	type_p_subst	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	ctor_same_type.eq_2	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_13	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_name_subst.eq_1	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_op.eq_32	propext	
+LeanTypeSound.TypeSoundCore	cv_char	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqShift.beq.eq_def		
+LeanTypeSound.TypeSoundCore	prim_canonical_Boolv_cases	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	exp.Raise.sizeOf_spec		
+LeanTypeSound.TypeSysProps	extend_dec_tenv_assoc_thm	propext	
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq_spec_2	propext	
+LeanTypeSound.TypeSysProps	tveLookup.eq_3	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	type_p_freevars	propext,Quot.sound	
+LeanTypeSound.Ast	op_class.Force.sizeOf_spec		
+LeanTypeSound.Ast	instBEqLit.beq_spec_4	propext	
+LeanTypeSound.EvaluateProps	evaluate.eq_3	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	lit.IntLit.inj		
+LeanTypeSound.EvaluateProps	is_clock_io_mono_minimal	propext,Classical.choice,Quot.sound	
+LeanTypeSound.NamespaceProps	HOL4.MEM.eq_1		
+LeanTypeSound.Ffi	instBEqOutcome.beq_spec	propext	
+LeanTypeSound.FpSem	instLawfulBEqFp_top	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.FFI.sizeOf_spec		
+LeanTypeSound.TypeSound	every_exp.eq_8	propext,Quot.sound	
+LeanTypeSound.Ast	op.Alength.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_42	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_op.eq_14	propext	
+LeanTypeSound.TypeSystem	check_freevars_ast.eq_def	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_6	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_op.eq_25	propext	
+LeanTypeSound.TypeSysProps	ALOOKUP_map_snd_some	propext	
+LeanTypeSound.TypeSysProps	deBruijn_subst_tenvE.eq_1	propext,Quot.sound	
+LeanTypeSound.Ast	instReflBEqOpb	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundInvariants	store_t.Varray_t.inj		
+LeanTypeSound.TypeSysProps	type_funs_distinct_aux	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	db_merge.eq_def		
+LeanTypeSound.NamespaceProps	nsAll_nsSing	propext,Classical.choice,Quot.sound	
+LeanTypeSound.SemanticPrimitives	error_result.Rraise.injEq	propext	
+LeanTypeSound.TypeSoundExp	getOpClass.eq_2	propext	
+LeanTypeSound.Ast	lit.Float64.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_26	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	type_def_to_ctMap_mem_gen	propext,Quot.sound	
+LeanTypeSound.Ast	exp.Mat.injEq	propext	
+LeanTypeSound.TypeSysProps	tenv_abbrev_ok_lookup	propext,Quot.sound	
+LeanTypeSound.Ast	op_class.EvalOp.sizeOf_spec		
+LeanTypeSound.Ast	prim_type.StrT.sizeOf_spec		
+LeanTypeSound.TypeSoundCore	pmatch.eq_7	propext	
+LeanTypeSound.Evaluate	fix_clock_clock_le	propext,Quot.sound	
+LeanTypeSound.TypeSound	decs_sound_all	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	do_arith.eq_11	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Ast	instReflBEqThunk_op	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ffi	instLawfulBEqShmem_op	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	deBruijn_subst.eq_1	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	tveLookup_inc_some	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instBEqError_result.beq.eq_1	propext	
+LeanTypeSound.TypeSound	set_union_empty	Quot.sound,propext	
+LeanTypeSound.Weakening	type_tenv_ctor_weakening	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqPrim_type.beq_spec_4	propext	
+LeanTypeSound.FpSem	fp_uop.FP_Sqrt.sizeOf_spec		
+LeanTypeSound.Namespace	instBEqCml_id.beq.eq_2	propext	
+LeanTypeSound.TypeSound	decs_type_sound	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSystem	is_value.eq_1	propext,Quot.sound	
+LeanTypeSound.Ast	instBEqTest.beq_spec_2	propext	
+LeanTypeSound.TypeSoundCore	do_arith.eq_4	propext,Classical.choice,Quot.sound	
+LeanTypeSound.TypeSoundCore	do_conversion.eq_7	propext	
+LeanTypeSound.Ast	test.AltCompare.injEq	propext	
+LeanTypeSound.TypeSound	one_con_check.eq_1	propext	
+LeanTypeSound.TypeSysProps	tenv_val_ok_nsEmpty	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	instBEqPrim_type.beq_spec_2	propext	
+LeanTypeSound.HOL4Prelude	HOL4.LIST_REL.brecOn		
+LeanTypeSound.TypeSound	build_tdefs_build_tenv	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Ast	op.VfromList.sizeOf_spec		
+LeanTypeSound.SemanticPrimitives	instReflBEqMatch_result	propext	
+LeanTypeSound.TypeSoundCore	the_Litv_Word8.eq_1	propext	
+LeanTypeSound.TypeSystem	type_env.mk.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_op_deBruijn_subst	propext,Quot.sound	
+LeanTypeSound.Mlstring	explode_aux.eq_1	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	EL_mem_of_lt	propext	
+LeanTypeSound.NamespaceProps	nsLookup_nsEmpty	propext	
+LeanTypeSound.SemanticPrimitives	instBEqError_result.beq_spec	propext	
+LeanTypeSound.Ast	prim_type.WordT.sizeOf_spec		
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_32	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqMatch_result.beq_spec_1	propext	
+LeanTypeSound.TypeSound	build_tdefs_lookup_rel	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSoundCore	OpOK_of_eq	propext,Quot.sound,Classical.choice	
+LeanTypeSound.Location	instBEqLocn.beq.eq_def	propext	
+LeanTypeSound.SemanticPrimitives	exp_or_val.Val.injEq	propext	
+LeanTypeSound.Ffi	instReflBEqFfi_outcome	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	eval_decs_state.mk.injEq	propext	
+LeanTypeSound.TypeSoundCore	type_s_lookup	propext,Quot.sound	
+LeanTypeSound.TypeSound	every_exp.eq_4	propext,Quot.sound	
+LeanTypeSound.TypeSoundCore	v_to_char_list.eq_1	propext	
+LeanTypeSound.SemanticPrimitives	v.Closure.sizeOf_spec		
+LeanTypeSound.TypeSound	build_tdefs.eq_1		
+LeanTypeSound.TypeSysProps	type_op.eq_35	propext	
+LeanTypeSound.TypeSoundCore	supported_conversion.eq_4	propext	
+LeanTypeSound.TypeSound	decs_sound_dletrec	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqAbort.beq.eq_2	propext	
+LeanTypeSound.Ast	thunk_op.UpdateThunk.injEq	propext	
+LeanTypeSound.Ast	exp.brecOn.eq		
+LeanTypeSound.Location	instBEqLocs.beq.eq_1	propext	
+LeanTypeSound.Location	instBEqLocn.beq.eq_1	propext	
+LeanTypeSound.TypeSound	every_exp.eq_3	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	error_result.Rabort.sizeOf_spec		
+LeanTypeSound.Ffi	instBEqFfi_outcome.beq.eq_def		
+LeanTypeSound.TypeSysProps	build_ctor_tenv.eq_2	propext,Quot.sound	
+LeanTypeSound.TypeSoundExp	exp_type_sound_aux	propext,Quot.sound,Classical.choice	
+LeanTypeSound.SemanticPrimitives	instBEqStore_v.beq.eq_4	propext	
+LeanTypeSound.SemanticPrimitivesProps	do_app.eq_39	propext,Quot.sound,Classical.choice	
+LeanTypeSound.TypeSysProps	t_of.eq_2		
+LeanTypeSound.TypeSysProps	db_merge.eq_1		
+LeanTypeSound.TypeSoundCore	do_arith.eq_24	propext,Classical.choice,Quot.sound	
+LeanTypeSound.Ast	prim_type.WordT.injEq	propext	
+LeanTypeSound.TypeSysProps	build_ctor_tenv.eq_1	propext,Quot.sound	
+LeanTypeSound.TypeSysProps	add_tenvE_bvl		
+LeanTypeSound.SemanticPrimitives	v.Conv.inj		
+LeanTypeSound.Ast	op_class.FunApp.sizeOf_spec		
+LeanTypeSound.Ast	lit.Word64.injEq	propext	
+LeanTypeSound.SemanticPrimitives	v.Loc.inj		
+LeanTypeSound.TypeSysProps	tenv_add_tvs.eq_1		
+LeanTypeSound.SemanticPrimitives	v.Env.injEq	propext	
+LeanTypeSound.Ast	op.FFI.inj		
+LeanTypeSound.Ast	pat.Pany.sizeOf_spec		
+LeanTypeSound.TypeSysProps	type_op.eq_4	propext	
+LeanTypeSound.Ast	exp.Let.sizeOf_spec		
+LeanTypeSound.Ast	instBEqTest.beq.eq_4	propext	
+LeanTypeSound.TypeSystem	type_d.brecOn	propext,Quot.sound	
+LeanTypeSound.SemanticPrimitives	instBEqMatch_result.beq_spec	propext	
+LeanTypeSound.SemanticPrimitives	v.Conv.sizeOf_spec		
+LeanTypeSound.TypeSystem	deBruijn_subst.eq_def	propext,Quot.sound	

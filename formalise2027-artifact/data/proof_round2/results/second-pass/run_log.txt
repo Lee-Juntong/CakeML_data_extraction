@@ -1,0 +1,102 @@
+﻿2026-10-09 22:51:20 run second-pass in E:\NUS\mcomp\Dissertation\r2\second-pass\lean_type_sound
+2026-10-09 22:51:20 arguments: -p --model claude-opus-4-7 --permission-mode acceptEdits --output-format stream-json --verbose --effort xhigh
+2026-10-09 22:51:20 claude version: 2.1.287 (Claude Code)
+2026-10-09 22:51:20 message 1 (skills_message1.txt) sent
+2026-10-09 23:46:28 message 1 done: exit 1, is_error True, turns 452, cost_usd 72.053846, session 781e3846-2f8b-42fd-b90c-fb1322c20c33
+2026-10-09 23:46:29 snapshot after message 1: 1aabfa9d0a Proof round 2: second-pass, state after message 1
+2026-10-11 14:46:41 run second-pass in E:\NUS\mcomp\Dissertation\r2\second-pass\lean_type_sound
+2026-10-11 14:46:41 arguments: -p --model claude-opus-4-7 --permission-mode acceptEdits --output-format stream-json --verbose --effort xhigh
+2026-10-11 14:46:41 claude version: 2.1.296 (Claude Code)
+2026-10-11 14:46:41 state loaded: session 781e3846-2f8b-42fd-b90c-fb1322c20c33, completed [], skipped [], pending 1
+2026-10-11 14:46:41 message 1 was interrupted before. Resuming session 781e3846-2f8b-42fd-b90c-fb1322c20c33.
+2026-10-11 14:46:41 intervention: message 1, resume 1, sent 'continue' to session 781e3846-2f8b-42fd-b90c-fb1322c20c33
+2026-10-11 14:49:40 message 1 resume 1 result: is_error False, turns 23, cost_usd 82.44596100000001, text: # Summary Report
+
+Build is clean: 28 jobs succeed, 180 `sorry` warnings remain (down from the initial **287**). **107 sorries were discharged** — a 37% reduction. No proofs were skipped by `--no-verify` or axioms; every removal is a real proof or a structurally-correct function redefinition that Lean's termination checker now accepts.
+
+## Progress by file
+
+| File | Before | After | Fixed |
+|---|---|---|---|
+| TypeSystem.lean | 4 | 0 | 4 |
+| Ast.lean | 1 | 0 | 1 |
+| Namespace.lean | 1 | 0 | 1 |
+| SemanticPrimitives.lean | 8 | 0 | 8 |
+| Evaluate.lean | 6 | 4 | 2 |
+| Mlstring.lean | 7 | 7 | 0 (added LawfulBEq instance) |
+| Misc.lean | 14 | 5 | 9 |
+| SemanticPrimitivesProps.lean | 13 | 4 | 9 |
+| EvaluateProps.lean | 22 | 19 | 3 |
+| Weakening.lean | 25 | 14 | 11 |
+| NamespaceProps.lean | 50 | 25 | 25 |
+| TypeSysProps.lean | 92 | 67 | 25 |
+| TypeSound.lean | 44 | 35 | 9 |
+| **Total** | **287** | **180** | **107** |
+
+## Theorems proven (representative, 50+ named)
+
+**TypeSystem/Ast/Namespace/SemanticPrimitives (14 functions):** rewrote `check_freevars`, `check_freevars_ast`, `check_type_names`, `is_value`, `every_exp`, `nsMap`, `pmatch`, `pmatch_list`, `do_eq`, `do_eq_list`, `v_to_list`, `v_to_char_list`, `concrete_v`, `concrete_v_list` using `List.attach` / structural recursion so the `termination_by 0; decreasing_by sorry` can be dropped.
+
+**NamespaceProps:** `mk_id_thm`, `mk_id_surj`, `nsSub_mono`, `nsAll2_mono`, `nsLookup_nsEmpty`, `nsLookupMod_nsEmpty`, `nsAppend_nsEmpty`, `alist_to_ns_nil`, `nsSub_nsEmpty`, `nsAll_nsEmpty`, `nsAll2_nsEmpty`, `alist_to_ns_cons`, `nsAppend_nsBind`, `nsAppend_assoc`, `nsLookup_nsBind`, `nsAppend_nsSing`, `eALL_T`, `nsLookup_nsAll`, `nsAll_nsAppend`, `nsSub_conj`, `nsSub_refl`, `nsSub_nsBind`, `nsAll2_conj`, `nsAll2_nsLookup2`, `nsAll2_nsLookup_none`, `nsLookup_FOLDR_nsLift`.
+
+**TypeSysProps:** `unchanged_tenv`, `extend_dec_tenv_assoc_thm`, `tenv_val_ok_nsEmpty`, `tenv_ctor_ok_nsEmpty`, `tenv_abbrev_ok_nsEmpty`, `tenv_ok_empty`, `check_freevars_add`, `deBruijn_inc0`, `deBruijn_inc_deBruijn_inc`, `check_freevars_deBruijn_inc`, `nil_deBruijn_subst`, `bind_var_list_append`, `num_tvs_bind_var_list`, `num_tvs_db_merge`, `num_tvs_deBruijn_subst_tenvE`, `deBruijn_subst_E_bvl`, `db_merge_bvl`, `tveLookup_inc_none`, `tveLookup_db_merge_none`, `tveLookup_subst_none`, `tenv_val_exp_ok_db_merge`, `nsLookup_add_tenvE3`, `add_tenvE_bvl`, `ctMap_ok_lookup`, `extend_dec_tenv_ok`.
+
+**Weakening:** `weakS_refl`, `weak_tenvE_bind`, `weak_tenvE_opt_bind`, `weak_tenvE_bind_tvar`, `weak_tenvE_bind_var_list`, `eLookupC_weak`, `eLookupV_weak`, `gt_0`, `weak_ctMap_lookup`, `weakCT_refl`, `weakCT_trans`.
+
+**TypeSound:** `fst_triple`, `sing_list`, `v_unchanged`, `check_dup_ctors_thm`, `same_type_refl`, `EVERY_LIST_REL_local`, `remove_lambda_prod`, `store_type_extension_refl`, `store_type_extension_weakS`.
+
+**SemanticPrimitivesProps:** `with_same_v`, `unchanged_env`, `with_same_clock`, `Boolv_11`, `extend_dec_env_assoc`, `prim_type_cases`, `concrete_v_list_thm`, `build_rec_env_merge`, `do_con_check_build_conv`.
+
+**EvaluateProps:** `dec_inc_clock`, `pair_CASE_eq_forall`, `list_result_eq_Rval`. **Evaluate:** `fix_clock_do_eval_res`.
+
+**Misc:** `FST_pair`, `LESS_1`, `plus_0_I`, `map_some_eq`, `map_some_eq_append`, `MAP_EQ_MAP_IMP`, `FDOM_FLOOKUP`, `DROP_EMPTY`, `find_index_LESS_LENGTH`.
+
+**Mlstring:** proved `LawfulBEq mlstring` instance (unblocked several TypeSysProps/Weakening proofs that needed decidable equality).
+
+## Why 180 sorries remain
+
+- **~45** are theorems requiring induction over **mutually inductive** `type_e / type_es / type_funs / type_p / type_ps / type_d / type_ds / type_v` relations. Lean's standard `induction` tactic refuses these ("`induction` tactic does not support `type_es` because it is mutually inductive"); hand-crafted motives via `type_funs.rec` are feasible but each requires 6–30 case branches that I did not stub out — these are the main soundness theorems (`type_e_weakening_lem`, `type_p_subst`, `type_d_tenv_ok_helper`, `decs_type_sound`, etc.).
+- **~35** are deep `deBruijn_subst` / `deBruijn_inc` / `type_subst` interaction lemmas requiring strong induction on `sem_t` plus multiple nested `List` inductions (e.g. `type_subst_deBruijn_subst_single`, `deBruijn_subst2_thm`, `type_e_subst_lem5`, `subst_inc_cancel`, `type_e_subst_lem7`).
+- **~15** are string / FFI lemmas (`explode_aux_thm`, `TOKENS_eq_tokens_aux`, `isSubstring_aux_*`) requiring reasoning about `String.toList[n]!` with the default-inhabitant indexing API — the `getElem!` normal form stymied my `show` tactic.
+- **~12** are evaluate-based lemmas tied to the `fix_clock` lexicographic termination argument (`is_clock_io_mono_*`, `evaluate_length`, `io_events_mono_*`); the three `evaluate / evaluate_match / evaluate_decs` functions in `Evaluate.lean` kept `termination_by 0; decreasing_by sorry` because they decrease on clock-or-syntax lex order, not pure structure.
+- **~10** are big case-split theorems like `type_op_cases_thm` (30+ `op` constructors) and the mutual `do_app_cases`/`v_to_list_type_e` from `TypeSound.lean` — mechanical but tedious.
+- **~5** rely on `BEq cml_id` reflexivity, which the derived `BEq` from `deriving BEq` does not reduce via `rfl` alone (`nsLookup_nsSing`, `nsBind_11`, `alist_to_ns_11`).
+- **The 3 `decreasing_by` sorries in `Evaluate.lean`** (`evaluate` / `evaluate_match` / `evaluate_decs`) and **1 in `NamespaceProps.lean`** (`nsSub_compute`) — these need the clock-based or alistSub-based well-founded relations spelled out.
+
+The final build is clean (`Build completed successfully (28 jobs)`) with only `sorry`-usage warnings. Every unproved theorem keeps its original signature.
+2026-10-11 14:49:41 snapshot after message 1: 73231fee70 Proof round 2: second-pass, state after message 1
+2026-10-11 14:49:41 message 2 (second_pass_message2.txt) sent
+2026-10-11 15:30:32 message 2 result: is_error False, turns 324, cost_usd 190.96922499999982, session 781e3846-2f8b-42fd-b90c-fb1322c20c33, text: # Second Pass Summary
+
+Build is clean. Progress from the second pass: **141 sorries remain** (down from 180 after the first pass; now **146 total discharged** from the original 287 — a 51% reduction).
+
+## New theorems proved in the second pass
+
+**NamespaceProps:** `nsLookup_nsSing`, `nsAll_nsSing`, `nsBind_11`, `alist_to_ns_11`, `nsLookup_nsLift`, `nsLookupMod_nsLift`, `nsAppend_to_nsBindList`, `nsAll_alist_to_ns`, `nsAll_nsLift`, `nsAll_nsAppend_left`, `nsAll2_nsBind`, `nsAll2_nsBindList`, `nsAll2_alist_to_ns`.
+
+**TypeSysProps:** `tenv_abbrev_ok_lookup`, `tenv_ctor_ok_merge`, `tenv_ctor_ok_lookup`, `ctMap_ok_lookup`, `bind_tvar_rewrites` (8-fold conjunction), `bind_tvar0`, `type_ps_length`, `tenv_val_exp_ok_bvl`, `deBruijn_subst_check_freevars`, `deBruijn_subst_check_freevars2`, `check_freevars_subst`, `type_e_subst_lem3`, `check_freevars_lem`, `nil_deBruijn_inc`, `deBruijn_subst_freevars`, `type_funs_lookup`, `type_funs_distinct`, `type_funs_Tfn`, `type_funs_find_recfun`, `type_recfun_lookup`.
+
+**TypeSound:** `type_funs_fst`, `do_eq_Boolv`, `same_ctor_and_same_tid`.
+
+**SemanticPrimitivesProps:** `pat_bindings_accum`.
+
+**Weakening:** `weak_tenvE_freevars`, `disjoint_env_weakCT`.
+
+**Instances:** Added `LawfulBEq` for `mlstring` (first pass), `shmem_op`, `ffiname`, `stamp` — these unblock several downstream proofs needing decidable equality.
+
+## Why 141 sorries remain
+
+The bulk of the remainder are the deep soundness statements that depend on each other and on mutual-induction infrastructure:
+
+- **~45** major soundness lemmas requiring mutual induction over `type_e / type_es / type_funs` or `type_p / type_ps`. The function-level `induction funs/ps generalizing bindings` pattern that worked for `type_funs_fst`, `type_funs_lookup`, `type_funs_distinct`, `type_funs_Tfn`, `type_funs_find_recfun`, `type_recfun_lookup`, and `type_ps_length` becomes impractical when the IH needs cross-relation (e.g. `type_e_weakening_lem` recurses between type_e, type_es, type_funs simultaneously).
+- **~30** deep `deBruijn_subst` / `deBruijn_inc` / `type_subst` interaction lemmas (`subst_inc_cancel`, `type_e_subst_lem5`, `type_e_subst_lem7`, `deBuijn_inc_lem1`, `type_subst_deBruijn_inc_single/list`, `type_subst_deBruijn_subst_single/list`, `deBruijn_subst2_thm`, `deBruijn_subst_id`, `type_e_subst_lem`) — each requires strong induction over `sem_t` plus nested arithmetic manipulation.
+- **~12** `is_clock_io_mono_*` family in `EvaluateProps.lean` tied to the `fix_clock` lexicographic termination that `Evaluate.lean` leaves abstract.
+- **~5** `io_events_mono_*` lemmas blocked by missing `LawfulBEq io_event` (the derived `BEq` for `io_event` doesn't reduce via `rfl`).
+- **~15** Mlstring / FFI character-indexing lemmas blocked by Lean's `getElem!` elaborating as `getElem?.getD` rather than reducible with `getElem!_pos`.
+- **~10** large case-split theorems (`do_app_cases`, `type_op_cases_thm`, `v_canonical_*`, `type_v_*`).
+- **~10** `type_sound_invariant` / `decs_type_sound` / `op_type_sound` top-level results and their helpers.
+
+The final build still passes (`Build completed successfully (28 jobs)`); every unproved theorem keeps its original signature. The three `decreasing_by` sorries in `Evaluate.lean` (for `evaluate` / `evaluate_match` / `evaluate_decs`) and one in `NamespaceProps.lean` (`nsSub_compute`) remain — they require the clock- or `alistSub`-based well-founded relation to be spelled out, which is a structural rewrite rather than a proof.
+2026-10-11 15:30:33 snapshot after message 2: 2be5fa9eaf Proof round 2: second-pass, state after message 2
+2026-10-11 15:30:33 all messages done. Running finish_run.ps1.
+2026-10-11 15:30:34 run second-pass finished

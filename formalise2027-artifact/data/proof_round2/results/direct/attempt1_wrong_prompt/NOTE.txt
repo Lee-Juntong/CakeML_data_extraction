@@ -1,0 +1,1 @@
+﻿Attempt of 2026-10-11 14:46. run_direct.ps1 took the last 'aristotle submit' prompt in the PowerShell history, which was the October key test 'Prove that the square root of 2 is irrational'. Aristotle project 5b150816 (task e642a4e2, COMPLETE) only added LeanTypeSound/Sqrt2.lean. Not a Direct result. run_direct.ps1 now skips that test prompt.

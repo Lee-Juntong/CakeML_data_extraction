@@ -1,0 +1,42 @@
+{
+ "Skills": {
+  "Local": 59,
+  "Aud.": 51,
+  "Mod.": 59,
+  "Unch.": 59,
+  "Help.": 0
+ },
+ "Docs": {
+  "Local": 63,
+  "Aud.": 57,
+  "Mod.": 63,
+  "Unch.": 63,
+  "Help.": 0
+ },
+ "Second pass": {
+  "Local": 132,
+  "Aud.": 132,
+  "Mod.": 132,
+  "Unch.": 132,
+  "D.ed.": 9,
+  "Help.": 0
+ },
+ "Hybrid": {
+  "Local": 71,
+  "Aud.": 71,
+  "Mod.": 71,
+  "Unch.": 71,
+  "D.ed.": 6,
+  "Help.": 0
+ },
+ "Direct": {
+  "Local": 269,
+  "Aud.": 269,
+  "Mod.": 269,
+  "Unch.": 267,
+  "S.ed.": 2,
+  "moved": 35,
+  "D.ed.": 21,
+  "Help.": 195
+ }
+}

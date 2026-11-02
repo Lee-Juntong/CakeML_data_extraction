@@ -1,0 +1,1 @@
+Thank you, but I just realised that you turned some of the defs into "partial" when you failed to prove termination. You should leave them as def so that you can continue proving lemmas that utilise them. Please leave such sorries and continue proving those lemmas.

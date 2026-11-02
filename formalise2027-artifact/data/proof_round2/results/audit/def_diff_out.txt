@@ -1,0 +1,74 @@
+base defs: 483 head defs: 503
+NEW ('abbrev', 'timeout_res') EvaluateProps.lean 
+NEW ('def', 'monoGoal?') EvaluateProps.lean 
+NEW ('def', 'isStatePairTy') EvaluateProps.lean 
+NEW ('def', 'hasClockOf') EvaluateProps.lean 
+NEW ('def', 'stateProjs') EvaluateProps.lean 
+NEW ('def', 'congFun') EvaluateProps.lean 
+NEW ('def', 'congFunCont') EvaluateProps.lean 
+NEW ('def', 'applyCong') EvaluateProps.lean 
+NEW ('def', 'prodFstDiscr?') EvaluateProps.lean 
+NEW ('def', 'analyseBody') EvaluateProps.lean 
+NEW ('def', 'discrOf') EvaluateProps.lean 
+NEW ('def', 'splitHypsPred') Tactics.lean 
+NEW ('def', 'decs_sound_concl') TypeSound.lean 
+NEW ('def', 'decs_sound_motive') TypeSound.lean 
+NEW ('def', 'op_res_ok') TypeSoundCore.lean 
+NEW ('def', 'OpOK') TypeSoundCore.lean 
+NEW ('def', 'exp_res_ok') TypeSoundExp.lean 
+NEW ('def', 'match_res_ok') TypeSoundExp.lean 
+NEW ('def', 'EvalSound') TypeSoundExp.lean 
+NEW ('def', 'MatchSound') TypeSoundExp.lean 
+CHANGED ('inductive', 'lit') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'shift') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'arith') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'word_size') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'thunk_mode') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'thunk_op') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'opb') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'test') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'prim_type') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'op') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'op_class') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('inductive', 'lop') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('def', 'every_exp') Ast.lean -> Ast.lean | modifiers - -> -
+CHANGED ('def', 'evaluate') Evaluate.lean -> Evaluate.lean | modifiers - -> -
+CHANGED ('def', 'evaluate_match') Evaluate.lean -> Evaluate.lean | modifiers - -> -
+CHANGED ('def', 'evaluate_decs') Evaluate.lean -> Evaluate.lean | modifiers - -> -
+CHANGED ('inductive', 'ffi_outcome') Ffi.lean -> Ffi.lean | modifiers - -> -
+CHANGED ('inductive', 'shmem_op') Ffi.lean -> Ffi.lean | modifiers - -> -
+CHANGED ('inductive', 'ffiname') Ffi.lean -> Ffi.lean | modifiers - -> -
+CHANGED ('inductive', 'io_event') Ffi.lean -> Ffi.lean | modifiers - -> -
+CHANGED ('inductive', 'final_event') Ffi.lean -> Ffi.lean | modifiers - -> -
+CHANGED ('inductive', 'outcome') Ffi.lean -> Ffi.lean | modifiers - -> -
+CHANGED ('inductive', 'fp_cmp') FpSem.lean -> FpSem.lean | modifiers - -> -
+CHANGED ('inductive', 'fp_uop') FpSem.lean -> FpSem.lean | modifiers - -> -
+CHANGED ('inductive', 'fp_bop') FpSem.lean -> FpSem.lean | modifiers - -> -
+CHANGED ('inductive', 'fp_top') FpSem.lean -> FpSem.lean | modifiers - -> -
+CHANGED ('def', 'CARD') HOL4Prelude.lean -> HOL4Prelude.lean | modifiers noncomputable -> noncomputable
+CHANGED ('inductive', 'ordering') HOL4Prelude.lean -> HOL4Prelude.lean | modifiers - -> -
+CHANGED ('inductive', 'locn') Location.lean -> Location.lean | modifiers - -> -
+CHANGED ('inductive', 'locs') Location.lean -> Location.lean | modifiers - -> -
+CHANGED ('inductive', 'mlstring') Mlstring.lean -> Mlstring.lean | modifiers - -> -
+CHANGED ('inductive', 'cml_id') Namespace.lean -> Namespace.lean | modifiers - -> -
+CHANGED ('def', 'nsMap') Namespace.lean -> Namespace.lean | modifiers - -> -
+CHANGED ('def', 'nsSub_compute') NamespaceProps.lean -> NamespaceProps.lean | modifiers - -> -
+CHANGED ('inductive', 'stamp') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('inductive', 'abort') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('inductive', 'error_result') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('inductive', 'result') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('inductive', 'store_v') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('inductive', 'match_result') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('def', 'pmatch') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('def', 'pmatch_list') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('inductive', 'eq_result') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('def', 'do_eq') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('def', 'do_eq_list') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('def', 'v_to_list') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('def', 'v_to_char_list') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('def', 'concrete_v') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('def', 'concrete_v_list') SemanticPrimitives.lean -> SemanticPrimitives.lean | modifiers - -> -
+CHANGED ('def', 'check_freevars') TypeSystem.lean -> TypeSystem.lean | modifiers - -> -
+CHANGED ('def', 'check_freevars_ast') TypeSystem.lean -> TypeSystem.lean | modifiers - -> -
+CHANGED ('def', 'check_type_names') TypeSystem.lean -> TypeSystem.lean | modifiers - -> -
+CHANGED ('def', 'is_value') TypeSystem.lean -> TypeSystem.lean | modifiers - -> -

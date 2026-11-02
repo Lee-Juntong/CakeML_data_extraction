@@ -1,0 +1,14 @@
+{
+  "base": "5_set_ops",
+  "status": "error",
+  "summary": "Lean CARD is not the cardinality of a finite set: it returns the length of an arbitrary enumerating list chosen by Classical.choose, which may contain duplicates and is not deduplicated despite the comment saying it is.",
+  "errors": [{
+    "kind": "wrong_definition",
+    "severity": "high",
+    "hol4_evidence": "val CARD_DEF = new_specification (\"CARD_DEF\", [\"CARD\"], CARD_EXISTS); (CARD is the cardinality of a finite set, as specified by CARD_EXISTS; CARD of an infinite set is 0 by the usual HOL4 convention.)",
+    "lean_evidence": "/- HOL4: CARD ... Defined classically: when `FINITE s`, returns the length of the de-duplicated enumerating list; otherwise 0. -/ noncomputable def CARD ... := if h : FINITE s then (Classical.choose h).length else 0",
+    "why_wrong": "Classical.choose h yields some list l with s a <-> a in l, but nothing forces l to be duplicate-free, so (Classical.choose h).length can be any length >= the true cardinality (e.g. for s = {1}, a list [1, 1] gives 2). The result is also not even a well-defined function of s, since the choice is arbitrary. The comment's claim of deduplication is not implemented. The HOL4 CARD returns the unique cardinality. The Lean definition needs a duplicate-free enumeration (e.g. require l.Nodup in FINITE's witness or take the length of a Nodup list) to match the HOL4 meaning."
+  }],
+  "confidence": 0.9,
+  "notes": "Other definitions checked and judged equivalent: DISJOINT (Set.Disjoint), IMAGE (Set.image), BIGUNION (Set.sUnion), FINITE (existence of an enumerating list is equivalent to HOL4's inductive FINITE_DEF), BIJ (matches INJ and SURJ clauses), TOKENS (splitOnP with empty groups filtered out matches HOL4 SPLITP-based recursion; the [BEq alpha] constraint is unused in meaning but harmless). The Lean FINITE lacks a Nodup condition, which is irrelevant to its truth value and so not an error."
+}

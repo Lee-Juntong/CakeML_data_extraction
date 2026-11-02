@@ -1,0 +1,26 @@
+{
+  "base": "6_words",
+  "status": "error",
+  "summary": "Shift operations differ from HOL4 when the shift amount is at least the word width, and word_asr differs when the shift amount is 0 or at least the width. Lean's UInt shifts take the amount modulo the width and n.toUInt8 truncates n, while HOL4 defines out-of-range shifts as 0 (lsl, lsr) or as the sign bit replicated (asr). The same pattern applies to the _64 variants.",
+  "errors": [{
+    "kind": "shift amount >= width not zero (lsl)",
+    "severity": "high",
+    "hol4_evidence": "word_lsl_def: (FCP i. i < WL /\\ n <= i /\\ w ' (i - n)). For n >= WL no index i satisfies i < WL /\\ n <= i, so the result is 0.",
+    "lean_evidence": "def word_lsl_8 (a : word8) (n : Nat) : word8 := a <<< n.toUInt8. For n = 8, n.toUInt8 = 0, so word_lsl_8 0x01 8 = 0x01; for n = 9 the shift is 1 (mod 8).",
+    "why_wrong": "HOL4 gives word_lsl 0x01 8 = 0 on an 8-bit word, but Lean returns 0x01. Shifts by n >= width must produce 0. The same error is in word_lsl_64."
+  }, {
+    "kind": "shift amount >= width not zero (lsr)",
+    "severity": "high",
+    "hol4_evidence": "word_lsr_def: (FCP i. i + n < WL /\\ w ' (i + n)). For n >= WL the condition i + n < WL fails for every i, so the result is 0.",
+    "lean_evidence": "def word_lsr_8 (a : word8) (n : Nat) : word8 := a >>> n.toUInt8. word_lsr_8 0x80 8 = 0x80 because 8 truncates to 0.",
+    "why_wrong": "HOL4 gives word_lsr 0x80 8 = 0, but Lean returns 0x80. Logical right shift by n >= width must be 0. The same error is in word_lsr_64."
+  }, {
+    "kind": "arithmetic shift wrong for n = 0 and n >= width",
+    "severity": "high",
+    "hol4_evidence": "word_asr_def: (FCP i. if WL <= i + n then word_msb w else w ' (i + n)). For n = 0, WL <= i is false for all i < WL, so the result is w. For n >= WL, every bit becomes word_msb w.",
+    "lean_evidence": "word_asr_8: signMask = if a &&& 0x80 != 0 then (0xFF <<< (8 - min 8 n).toUInt8) else 0; result = (a >>> n.toUInt8) ||| signMask. For n = 0, the mask shift is 8, which is 0 mod 8, so word_asr_8 0x80 0 = 0xFF. For n = 8, n.toUInt8 = 0 and min 8 n = 8, so word_asr_8 0x01 8 = 0x01 and word_asr_8 0x80 8 = 0xFF.",
+    "why_wrong": "HOL4 gives word_asr 0x80 0 = 0x80 (the value is unchanged), but Lean gives 0xFF. HOL4 gives word_asr 0x01 8 = 0x00 (msb is 0), but Lean gives 0x01. Only shifts 1 to 7 agree. The same error is in word_asr_64."
+  }],
+  "confidence": 0.9,
+  "notes": "Verified as correct: word_add, word_sub (modular), word_and, word_or, word_xor, word_ror (both widths, all shift amounts), w2n, n2w, i2w_8 and i2w_64 (the modular reduction matches). Not counted as errors: word8 and word64 have no definition in the fetched HOL4 sources (marked NOT FOUND in the HOL4 file), so the mapping to UInt8 and UInt64 is unverified against the source. The Lean definitions for word_lsl_8, word_lsr_8 and word_asr_8 would also need proof obligations that are not checked here."
+}

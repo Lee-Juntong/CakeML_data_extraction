@@ -1,0 +1,1811 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261009221534
+Username: LJT-DESKTOP\my-pc
+RunAs User: LJT-DESKTOP\my-pc
+Configuration Name: 
+Machine: LJT-DESKTOP (Microsoft Windows NT 10.0.19045.0)
+Host Application: powershell -NoProfile -ExecutionPolicy Bypass -File E:\NUS\mcomp\Dissertation\publication\formalise2027\proof_round2\start_round2.ps1
+Process ID: 22052
+PSVersion: 5.1.19041.6456
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.6456
+BuildVersion: 10.0.19041.6456
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+
+==== 1. Tools
+Tool check written to E:\NUS\mcomp\Dissertation\publication\formalise2027\proof_round2\results\tools_check.txt
+Installing uv (https://astral.sh/uv)
+downloading uv 0.12.24 (x86_64-pc-windows-msvc)
+installing to C:\Users\my-pc\.local\bin
+  uv.exe
+  uvx.exe
+  uvw.exe
+everything's installed!
+Tool check written to E:\NUS\mcomp\Dissertation\publication\formalise2027\proof_round2\results\tools_check.txt
+
+==== 2. Work folders
+ARISTOTLE_API_KEY: set
+== git long paths
+
+== verify bundle
+E:/NUS/mcomp/Dissertation/publication/formalise2027/repair/lean-translate-round5-repair.bundle is okay
+The bundle contains this ref:
+4841f993eaa66d5bfdd70b5b3b6d99494a386897 refs/heads/lean-translate-round5-repair
+The bundle requires this ref:
+252eab2cf8c80fd51351b769577268771fb99c8c
+The bundle uses this hash algorithm: sha1
+== fetch repair branch from bundle
+Receiving objects: 100% (17/17), 9.38 KiB | 873.00 KiB/s, done.
+Resolving deltas: 100% (14/14), completed with 11 local objects.
+From E:\NUS\mcomp\Dissertation\publication\formalise2027\repair\lean-translate-round5-repair.bundle
+ * [new branch]            lean-translate-round5-repair -> lean-translate-round5-repair
+== worktree skills
+Preparing worktree (new branch 'proof2-skills')
+Updating files: 100% (1901/1901), done.
+HEAD is now at 4841f993ea State the computed theorems do_app_cases and type_op_cases in full
+== worktree second-pass
+Preparing worktree (new branch 'proof2-second-pass')
+HEAD is now at 4841f993ea State the computed theorems do_app_cases and type_op_cases in full
+== worktree docs
+Preparing worktree (new branch 'proof2-docs')
+Updating files: 100% (1901/1901), done.
+HEAD is now at 4841f993ea State the computed theorems do_app_cases and type_op_cases in full
+== worktree hybrid
+Preparing worktree (new branch 'proof2-hybrid')
+HEAD is now at 4841f993ea State the computed theorems do_app_cases and type_op_cases in full
+== worktree direct
+Preparing worktree (new branch 'proof2-direct')
+Updating files: 100% (1901/1901), done.
+HEAD is now at 4841f993ea State the computed theorems do_app_cases and type_op_cases in full
+== commit Lean 4.28.0 for Direct
+warning: in the working copy of 'lean_type_sound/lake-manifest.json', LF will be replaced by CRLF the next time Git touc
+hes it
+warning: in the working copy of 'lean_type_sound/lakefile.lean', LF will be replaced by CRLF the next time Git touches i
+t
+[proof2-direct 5cd098c35f] Switch to Lean 4.28.0 for Aristotle, as in dd68757d7
+ 3 files changed, 13 insertions(+), 13 deletions(-)
+== add lean-lsp in skills
+Added stdio MCP server lean-lsp with command: uvx lean-lsp-mcp to local config
+File modified: C:\Users\my-pc\.claude.json [project: E:\NUS\mcomp\Dissertation\r2\skills\lean_type_sound]
+== MCP servers in skills
+Checking MCP server health鈥?
+claude.ai Claude Docs: https://api.anthropic.com/v1/pages/mcp - 鈭?Connected
+lean-lsp: uvx lean-lsp-mcp - 鈭?Connected
+== MCP servers in second-pass
+Checking MCP server health鈥?
+claude.ai Claude Docs: https://api.anthropic.com/v1/pages/mcp - 鈭?Connected
+lean-lsp: uvx lean-lsp-mcp - 鈭?Connected
+== MCP servers in docs
+Checking MCP server health鈥?
+claude.ai Claude Docs: https://api.anthropic.com/v1/pages/mcp - 鈭?Connected
+lean-lsp: uvx lean-lsp-mcp - 鈭?Connected
+== add aristotle in hybrid
+Added stdio MCP server aristotle with command: uvx --from git+https://github.com/septract/lean-aristotle-mcp aristotle-m
+cp to local config
+File modified: C:\Users\my-pc\.claude.json [project: E:\NUS\mcomp\Dissertation\r2\hybrid\lean_type_sound]
+== MCP servers in hybrid
+Checking MCP server health鈥?
+claude.ai Claude Docs: https://api.anthropic.com/v1/pages/mcp - 鈭?Connected
+lean-lsp: uvx lean-lsp-mcp - 鈭?Connected
+aristotle: uvx --from git+https://github.com/septract/lean-aristotle-mcp aristotle-mcp - 脳 Failed to connect 鈥?CONNECTION_CLOSED: Connection closed
+== lake build in skills (warnings about sorry are expected)
+info: Version 4.2.4 of elan is available! Use `elan self update` to update.
+info: downloading https://releases.lean-lang.org/lean4/v4.29.1/lean-4.29.1-windows.tar.zst
+525.2 MiB / 525.2 MiB (100 %)   7.0 MiB/s ETA:   0 s
+info: installing C:\Users\my-pc\.elan\toolchains\leanprover--lean4---v4.29.1
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4
+info: mathlib: checking out revision '5e932f97dd25535344f80f9dd8da3aab83df0fe6'
+info: plausible: cloning https://github.com/leanprover-community/plausible
+info: plausible: checking out revision '83e90935a17ca19ebe4b7893c7f7066e266f50d3'
+info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'c5d5b8fe6e5158def25cd28eb94e4141ad97c843'
+info: importGraph: cloning https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision '48d5698bc464786347c1b0d859b18f938420f060'
+info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '4dd0959c44d1af0462bd604d0f87c5781307d709'
+info: aesop: cloning https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '7152850e7b216a0d409701617721b6e469d34bf6'
+info: Qq: cloning https://github.com/leanprover-community/quote4
+info: Qq: checking out revision '707efb56d0696634e9e965523a1bbe9ac6ce141d'
+info: batteries: cloning https://github.com/leanprover-community/batteries
+info: batteries: checking out revision '756e3321fd3b02a85ffda19fef789916223e578c'
+info: Cli: cloning https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision '7802da01beb530bf051ab657443f9cd9bc3e1a29'
+⚠⚠ [10/29] Built LeanTypeSound.Namespace
+warning: LeanTypeSound/Namespace.lean:208:4: declaration uses `sorry`
+warning: LeanTypeSound/Namespace.lean:208:0: declaration uses `sorry`
+⚠⚠ [11/29] Built LeanTypeSound.Misc
+warning: LeanTypeSound/Misc.lean:162:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:170:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:177:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:184:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:192:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:209:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:215:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:221:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:227:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:247:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:253:8: declaration uses `sorry`
+⚠⚠ [13/29] Built LeanTypeSound.Mlstring
+warning: LeanTypeSound/Mlstring.lean:257:17: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:258:52: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:256:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:264:30: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:270:28: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:269:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:275:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:281:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:295:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:312:8: declaration uses `sorry`
+⚠⚠ [14/29] Built LeanTypeSound.Ast
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:0: declaration uses `sorry`
+⚠⚠ [17/29] Built LeanTypeSound.NamespaceProps
+warning: LeanTypeSound/NamespaceProps.lean:55:4: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:55:0: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:68:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:71:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:74:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:80:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:86:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:89:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:92:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:96:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:99:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:103:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:106:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:110:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:114:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:118:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:122:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:128:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:132:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:137:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:141:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:146:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:150:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:154:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:161:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:168:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:176:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:180:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:188:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:191:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:195:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:199:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:204:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:208:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:212:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:217:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:222:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:228:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:249:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:253:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:260:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:266:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:272:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:278:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:284:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:290:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:299:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:306:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:312:8: declaration uses `sorry`
+⚠⚠ [18/29] Built LeanTypeSound.SemanticPrimitives
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:303:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:380:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:379:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:426:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:426:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:443:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:443:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:761:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:760:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:1144:51: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: LeanTypeSound/SemanticPrimitives.lean:1163:54: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: LeanTypeSound/SemanticPrimitives.lean:1189:63: `String.mk` has been deprecated: Use `String.ofList` instead
+⚠⚠ [19/29] Built LeanTypeSound.SemanticPrimitivesProps
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:179:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:184:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:189:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:194:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:208:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:217:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:519:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:528:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:536:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:543:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:550:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:556:8: declaration uses `sorry`
+⚠⚠ [20/29] Built LeanTypeSound.TypeSystem
+warning: LeanTypeSound/TypeSystem.lean:88:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:88:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:0: declaration uses `sorry`
+⚠⚠ [21/29] Built LeanTypeSound.Evaluate
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:70:0: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:276:8: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:291:8: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:299:8: declaration uses `sorry`
+⚠⚠ [22/29] Built LeanTypeSound.EvaluateProps
+warning: LeanTypeSound/EvaluateProps.lean:104:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:111:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:117:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:124:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:132:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:143:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:153:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:159:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:165:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:174:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:189:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:207:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:220:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:244:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:253:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:271:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:284:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:297:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:308:8: declaration uses `sorry`
+⚠⚠ [25/29] Built LeanTypeSound.TypeSysProps
+warning: LeanTypeSound/TypeSysProps.lean:112:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:122:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:130:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:136:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:142:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:148:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:155:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:168:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:179:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:187:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:195:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:207:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:222:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:233:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:244:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:256:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:269:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:285:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:303:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:319:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:335:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:353:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:365:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:380:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:400:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:421:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:441:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:459:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:473:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:489:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:503:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:517:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:530:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:541:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:558:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:579:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:587:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:598:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:609:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:622:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:636:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:646:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:653:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:663:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:675:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:685:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:692:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:703:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:718:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:728:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:741:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:756:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:770:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:783:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:792:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:846:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:860:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:896:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:926:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:940:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:949:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:957:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:968:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:990:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1012:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1062:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1076:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1090:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1107:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1123:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1135:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1157:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1172:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1186:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1199:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1210:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1228:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1245:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1258:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1270:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1281:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1289:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1304:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1322:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1341:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1352:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1368:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1385:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1400:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1409:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1433:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1440:8: declaration uses `sorry`
+⚠⚠ [26/29] Built LeanTypeSound.Weakening
+warning: LeanTypeSound/Weakening.lean:67:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:73:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:82:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:92:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:102:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:112:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:124:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:134:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:146:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:159:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:171:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:190:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:213:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:231:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:249:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:255:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:275:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:295:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:313:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:328:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:342:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:355:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:366:8: declaration uses `sorry`
+⚠⚠ [27/29] Built LeanTypeSound.TypeSound
+warning: LeanTypeSound/TypeSound.lean:45:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:51:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:57:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:64:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:70:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:99:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:148:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:174:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:197:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:214:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:236:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:252:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:273:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:303:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:326:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:337:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:344:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:362:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:379:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:386:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:394:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:409:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:431:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:451:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:465:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:475:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:483:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:494:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:520:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:556:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:580:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:613:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:660:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:678:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:687:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:739:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:799:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:815:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:824:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:834:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:856:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:894:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:941:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:973:8: declaration uses `sorry`
+Build completed successfully (29 jobs).
+== copy packages to second-pass
+== lake build in second-pass (warnings about sorry are expected)
+⚠⚠ [9/28] Built LeanTypeSound.Namespace
+warning: LeanTypeSound/Namespace.lean:208:4: declaration uses `sorry`
+warning: LeanTypeSound/Namespace.lean:208:0: declaration uses `sorry`
+⚠⚠ [10/28] Built LeanTypeSound.Misc
+warning: LeanTypeSound/Misc.lean:162:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:170:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:177:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:184:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:192:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:209:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:215:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:221:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:227:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:247:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:253:8: declaration uses `sorry`
+⚠⚠ [12/28] Built LeanTypeSound.Mlstring
+warning: LeanTypeSound/Mlstring.lean:257:17: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:258:52: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:256:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:264:30: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:270:28: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:269:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:275:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:281:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:295:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:312:8: declaration uses `sorry`
+⚠⚠ [13/28] Built LeanTypeSound.Ast
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:0: declaration uses `sorry`
+⚠⚠ [16/28] Built LeanTypeSound.NamespaceProps
+warning: LeanTypeSound/NamespaceProps.lean:55:4: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:55:0: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:68:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:71:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:74:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:80:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:86:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:89:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:92:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:96:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:99:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:103:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:106:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:110:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:114:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:118:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:122:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:128:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:132:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:137:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:141:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:146:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:150:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:154:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:161:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:168:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:176:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:180:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:188:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:191:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:195:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:199:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:204:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:208:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:212:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:217:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:222:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:228:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:249:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:253:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:260:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:266:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:272:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:278:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:284:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:290:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:299:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:306:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:312:8: declaration uses `sorry`
+⚠⚠ [17/28] Built LeanTypeSound.SemanticPrimitives
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:303:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:380:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:379:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:426:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:426:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:443:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:443:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:761:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:760:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:1144:51: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: LeanTypeSound/SemanticPrimitives.lean:1163:54: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: LeanTypeSound/SemanticPrimitives.lean:1189:63: `String.mk` has been deprecated: Use `String.ofList` instead
+⚠⚠ [18/28] Built LeanTypeSound.SemanticPrimitivesProps
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:179:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:184:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:189:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:194:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:208:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:217:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:519:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:528:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:536:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:543:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:550:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:556:8: declaration uses `sorry`
+⚠⚠ [19/28] Built LeanTypeSound.TypeSystem
+warning: LeanTypeSound/TypeSystem.lean:88:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:88:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:0: declaration uses `sorry`
+⚠⚠ [20/28] Built LeanTypeSound.Evaluate
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:70:0: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:276:8: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:291:8: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:299:8: declaration uses `sorry`
+⚠⚠ [22/28] Built LeanTypeSound.EvaluateProps
+warning: LeanTypeSound/EvaluateProps.lean:104:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:111:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:117:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:124:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:132:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:143:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:153:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:159:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:165:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:174:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:189:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:207:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:220:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:244:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:253:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:271:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:284:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:297:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:308:8: declaration uses `sorry`
+⚠⚠ [24/28] Built LeanTypeSound.TypeSysProps
+warning: LeanTypeSound/TypeSysProps.lean:112:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:122:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:130:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:136:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:142:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:148:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:155:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:168:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:179:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:187:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:195:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:207:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:222:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:233:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:244:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:256:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:269:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:285:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:303:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:319:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:335:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:353:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:365:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:380:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:400:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:421:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:441:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:459:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:473:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:489:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:503:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:517:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:530:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:541:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:558:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:579:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:587:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:598:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:609:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:622:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:636:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:646:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:653:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:663:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:675:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:685:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:692:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:703:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:718:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:728:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:741:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:756:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:770:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:783:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:792:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:846:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:860:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:896:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:926:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:940:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:949:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:957:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:968:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:990:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1012:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1062:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1076:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1090:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1107:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1123:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1135:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1157:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1172:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1186:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1199:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1210:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1228:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1245:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1258:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1270:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1281:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1289:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1304:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1322:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1341:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1352:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1368:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1385:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1400:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1409:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1433:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1440:8: declaration uses `sorry`
+⚠⚠ [25/28] Built LeanTypeSound.Weakening
+warning: LeanTypeSound/Weakening.lean:67:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:73:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:82:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:92:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:102:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:112:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:124:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:134:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:146:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:159:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:171:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:190:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:213:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:231:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:249:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:255:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:275:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:295:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:313:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:328:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:342:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:355:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:366:8: declaration uses `sorry`
+⚠⚠ [26/28] Built LeanTypeSound.TypeSound
+warning: LeanTypeSound/TypeSound.lean:45:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:51:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:57:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:64:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:70:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:99:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:148:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:174:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:197:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:214:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:236:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:252:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:273:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:303:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:326:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:337:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:344:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:362:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:379:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:386:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:394:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:409:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:431:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:451:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:465:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:475:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:483:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:494:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:520:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:556:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:580:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:613:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:660:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:678:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:687:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:739:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:799:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:815:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:824:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:834:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:856:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:894:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:941:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:973:8: declaration uses `sorry`
+Build completed successfully (28 jobs).
+== copy packages to docs
+== lake build in docs (warnings about sorry are expected)
+⚠⚠ [9/28] Built LeanTypeSound.Namespace
+warning: LeanTypeSound/Namespace.lean:208:4: declaration uses `sorry`
+warning: LeanTypeSound/Namespace.lean:208:0: declaration uses `sorry`
+⚠⚠ [10/28] Built LeanTypeSound.Misc
+warning: LeanTypeSound/Misc.lean:162:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:170:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:177:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:184:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:192:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:209:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:215:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:221:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:227:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:247:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:253:8: declaration uses `sorry`
+⚠⚠ [12/28] Built LeanTypeSound.Mlstring
+warning: LeanTypeSound/Mlstring.lean:257:17: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:258:52: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:256:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:264:30: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:270:28: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:269:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:275:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:281:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:295:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:312:8: declaration uses `sorry`
+⚠⚠ [13/28] Built LeanTypeSound.Ast
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:0: declaration uses `sorry`
+⚠⚠ [16/28] Built LeanTypeSound.NamespaceProps
+warning: LeanTypeSound/NamespaceProps.lean:55:4: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:55:0: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:68:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:71:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:74:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:80:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:86:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:89:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:92:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:96:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:99:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:103:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:106:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:110:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:114:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:118:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:122:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:128:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:132:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:137:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:141:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:146:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:150:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:154:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:161:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:168:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:176:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:180:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:188:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:191:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:195:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:199:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:204:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:208:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:212:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:217:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:222:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:228:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:249:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:253:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:260:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:266:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:272:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:278:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:284:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:290:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:299:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:306:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:312:8: declaration uses `sorry`
+⚠⚠ [17/28] Built LeanTypeSound.SemanticPrimitives
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:303:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:380:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:379:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:426:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:426:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:443:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:443:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:761:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:760:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:1144:51: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: LeanTypeSound/SemanticPrimitives.lean:1163:54: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: LeanTypeSound/SemanticPrimitives.lean:1189:63: `String.mk` has been deprecated: Use `String.ofList` instead
+⚠⚠ [18/28] Built LeanTypeSound.SemanticPrimitivesProps
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:179:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:184:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:189:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:194:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:208:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:217:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:519:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:528:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:536:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:543:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:550:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:556:8: declaration uses `sorry`
+⚠⚠ [19/28] Built LeanTypeSound.TypeSystem
+warning: LeanTypeSound/TypeSystem.lean:88:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:88:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:0: declaration uses `sorry`
+⚠⚠ [20/28] Built LeanTypeSound.Evaluate
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:70:0: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:276:8: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:291:8: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:299:8: declaration uses `sorry`
+⚠⚠ [21/28] Built LeanTypeSound.EvaluateProps
+warning: LeanTypeSound/EvaluateProps.lean:104:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:111:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:117:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:124:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:132:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:143:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:153:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:159:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:165:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:174:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:189:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:207:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:220:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:244:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:253:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:271:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:284:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:297:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:308:8: declaration uses `sorry`
+⚠⚠ [24/28] Built LeanTypeSound.TypeSysProps
+warning: LeanTypeSound/TypeSysProps.lean:112:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:122:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:130:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:136:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:142:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:148:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:155:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:168:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:179:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:187:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:195:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:207:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:222:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:233:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:244:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:256:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:269:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:285:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:303:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:319:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:335:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:353:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:365:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:380:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:400:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:421:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:441:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:459:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:473:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:489:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:503:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:517:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:530:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:541:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:558:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:579:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:587:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:598:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:609:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:622:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:636:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:646:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:653:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:663:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:675:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:685:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:692:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:703:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:718:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:728:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:741:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:756:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:770:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:783:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:792:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:846:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:860:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:896:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:926:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:940:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:949:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:957:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:968:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:990:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1012:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1062:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1076:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1090:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1107:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1123:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1135:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1157:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1172:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1186:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1199:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1210:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1228:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1245:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1258:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1270:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1281:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1289:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1304:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1322:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1341:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1352:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1368:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1385:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1400:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1409:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1433:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1440:8: declaration uses `sorry`
+⚠⚠ [25/28] Built LeanTypeSound.Weakening
+warning: LeanTypeSound/Weakening.lean:67:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:73:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:82:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:92:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:102:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:112:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:124:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:134:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:146:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:159:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:171:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:190:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:213:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:231:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:249:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:255:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:275:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:295:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:313:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:328:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:342:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:355:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:366:8: declaration uses `sorry`
+⚠⚠ [26/28] Built LeanTypeSound.TypeSound
+warning: LeanTypeSound/TypeSound.lean:45:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:51:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:57:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:64:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:70:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:99:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:148:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:174:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:197:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:214:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:236:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:252:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:273:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:303:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:326:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:337:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:344:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:362:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:379:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:386:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:394:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:409:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:431:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:451:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:465:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:475:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:483:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:494:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:520:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:556:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:580:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:613:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:660:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:678:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:687:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:739:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:799:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:815:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:824:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:834:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:856:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:894:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:941:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:973:8: declaration uses `sorry`
+Build completed successfully (28 jobs).
+== copy packages to hybrid
+== lake build in hybrid (warnings about sorry are expected)
+⚠⚠ [9/28] Built LeanTypeSound.Namespace
+warning: LeanTypeSound/Namespace.lean:208:4: declaration uses `sorry`
+warning: LeanTypeSound/Namespace.lean:208:0: declaration uses `sorry`
+⚠⚠ [10/28] Built LeanTypeSound.Misc
+warning: LeanTypeSound/Misc.lean:162:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:170:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:177:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:184:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:192:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:209:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:215:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:221:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:227:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:247:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:253:8: declaration uses `sorry`
+⚠⚠ [12/28] Built LeanTypeSound.Mlstring
+warning: LeanTypeSound/Mlstring.lean:257:17: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:258:52: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:256:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:264:30: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:270:28: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:269:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:275:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:281:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:295:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:312:8: declaration uses `sorry`
+⚠⚠ [14/28] Built LeanTypeSound.Ast
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:0: declaration uses `sorry`
+⚠⚠ [16/28] Built LeanTypeSound.NamespaceProps
+warning: LeanTypeSound/NamespaceProps.lean:55:4: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:55:0: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:68:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:71:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:74:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:80:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:86:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:89:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:92:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:96:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:99:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:103:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:106:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:110:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:114:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:118:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:122:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:128:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:132:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:137:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:141:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:146:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:150:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:154:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:161:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:168:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:176:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:180:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:188:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:191:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:195:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:199:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:204:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:208:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:212:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:217:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:222:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:228:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:249:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:253:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:260:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:266:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:272:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:278:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:284:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:290:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:299:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:306:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:312:8: declaration uses `sorry`
+⚠⚠ [17/28] Built LeanTypeSound.SemanticPrimitives
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:303:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:380:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:379:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:426:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:426:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:443:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:443:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:761:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:760:0: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:1144:51: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: LeanTypeSound/SemanticPrimitives.lean:1163:54: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: LeanTypeSound/SemanticPrimitives.lean:1189:63: `String.mk` has been deprecated: Use `String.ofList` instead
+⚠⚠ [18/28] Built LeanTypeSound.Evaluate
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:70:0: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:276:8: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:291:8: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:299:8: declaration uses `sorry`
+⚠⚠ [19/28] Built LeanTypeSound.SemanticPrimitivesProps
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:179:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:184:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:189:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:194:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:208:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:217:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:519:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:528:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:536:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:543:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:550:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:556:8: declaration uses `sorry`
+⚠⚠ [20/28] Built LeanTypeSound.TypeSystem
+warning: LeanTypeSound/TypeSystem.lean:88:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:88:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:0: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:0: declaration uses `sorry`
+⚠⚠ [21/28] Built LeanTypeSound.EvaluateProps
+warning: LeanTypeSound/EvaluateProps.lean:104:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:111:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:117:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:124:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:132:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:143:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:153:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:159:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:165:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:174:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:189:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:207:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:220:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:244:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:253:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:271:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:284:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:297:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:308:8: declaration uses `sorry`
+⚠⚠ [24/28] Built LeanTypeSound.TypeSysProps
+warning: LeanTypeSound/TypeSysProps.lean:112:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:122:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:130:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:136:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:142:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:148:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:155:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:168:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:179:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:187:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:195:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:207:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:222:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:233:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:244:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:256:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:269:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:285:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:303:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:319:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:335:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:353:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:365:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:380:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:400:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:421:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:441:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:459:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:473:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:489:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:503:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:517:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:530:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:541:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:558:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:579:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:587:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:598:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:609:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:622:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:636:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:646:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:653:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:663:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:675:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:685:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:692:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:703:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:718:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:728:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:741:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:756:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:770:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:783:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:792:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:846:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:860:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:896:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:926:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:940:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:949:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:957:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:968:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:990:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1012:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1062:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1076:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1090:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1107:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1123:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1135:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1157:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1172:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1186:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1199:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1210:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1228:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1245:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1258:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1270:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1281:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1289:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1304:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1322:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1341:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1352:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1368:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1385:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1400:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1409:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1433:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1440:8: declaration uses `sorry`
+⚠⚠ [25/28] Built LeanTypeSound.Weakening
+warning: LeanTypeSound/Weakening.lean:67:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:73:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:82:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:92:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:102:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:112:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:124:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:134:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:146:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:159:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:171:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:190:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:213:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:231:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:249:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:255:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:275:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:295:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:313:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:328:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:342:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:355:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:366:8: declaration uses `sorry`
+⚠⚠ [26/28] Built LeanTypeSound.TypeSound
+warning: LeanTypeSound/TypeSound.lean:45:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:51:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:57:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:64:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:70:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:99:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:148:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:174:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:197:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:214:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:236:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:252:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:273:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:303:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:326:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:337:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:344:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:362:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:379:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:386:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:394:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:409:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:431:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:451:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:465:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:475:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:483:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:494:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:520:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:556:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:580:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:613:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:660:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:678:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:687:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:739:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:799:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:815:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:824:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:834:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:856:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:894:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:941:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:973:8: declaration uses `sorry`
+Build completed successfully (28 jobs).
+== lake build in direct (Lean 4.28.0)
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4
+info: mathlib: checking out revision '8f9d9cff6bd728b17a24e163c9402775d9e6a365'
+info: plausible: cloning https://github.com/leanprover-community/plausible
+info: plausible: checking out revision '55c8532eb21ec9f6d565d51d96b8ca50bd1fbef3'
+info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'c5d5b8fe6e5158def25cd28eb94e4141ad97c843'
+info: importGraph: cloning https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision '85b59af46828c029a9168f2f9c35119bd0721e6e'
+info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision 'be3b2e63b1bbf496c478cef98b86972a37c1417d'
+info: aesop: cloning https://github.com/leanprover-community/aesop
+info: aesop: checking out revision 'f642a64c76df8ba9cb53dba3b919425a0c2aeaf1'
+info: Qq: cloning https://github.com/leanprover-community/quote4
+info: Qq: checking out revision 'b8f98e9087e02c8553945a2c5abf07cec8e798c3'
+info: batteries: cloning https://github.com/leanprover-community/batteries
+info: batteries: checking out revision '495c008c3e3f4fb4256ff5582ddb3abf3198026f'
+info: Cli: cloning https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision '4f10f47646cb7d5748d6f423f4a07f98f7bbcc9e'
+⚠⚠ [10/29] Built LeanTypeSound.Namespace
+warning: LeanTypeSound/Namespace.lean:208:4: declaration uses `sorry`
+⚠⚠ [11/29] Built LeanTypeSound.Misc
+warning: LeanTypeSound/Misc.lean:162:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:170:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:177:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:184:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:192:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:209:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:215:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:221:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:227:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:247:8: declaration uses `sorry`
+warning: LeanTypeSound/Misc.lean:253:8: declaration uses `sorry`
+⚠⚠ [13/29] Built LeanTypeSound.Mlstring
+warning: LeanTypeSound/Mlstring.lean:257:17: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:258:52: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:256:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:264:30: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:270:28: `String.data` has been deprecated: Use `String.toList` instead
+warning: LeanTypeSound/Mlstring.lean:269:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:275:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:281:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:295:8: declaration uses `sorry`
+warning: LeanTypeSound/Mlstring.lean:312:8: declaration uses `sorry`
+⚠⚠ [15/29] Built LeanTypeSound.Ast
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+warning: LeanTypeSound/Ast.lean:314:4: declaration uses `sorry`
+⚠⚠ [17/29] Built LeanTypeSound.NamespaceProps
+warning: LeanTypeSound/NamespaceProps.lean:55:4: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:68:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:71:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:74:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:80:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:86:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:89:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:92:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:96:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:99:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:103:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:106:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:110:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:114:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:118:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:122:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:128:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:132:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:137:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:141:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:146:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:150:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:154:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:161:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:168:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:176:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:180:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:188:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:191:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:195:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:199:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:204:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:208:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:212:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:217:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:222:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:228:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:249:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:253:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:260:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:266:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:272:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:278:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:284:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:290:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:299:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:306:8: declaration uses `sorry`
+warning: LeanTypeSound/NamespaceProps.lean:312:8: declaration uses `sorry`
+⚠⚠ [18/29] Built LeanTypeSound.SemanticPrimitives
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:304:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:380:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:380:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:380:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:380:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:426:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:443:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:761:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:761:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:761:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:761:4: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitives.lean:1144:51: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: LeanTypeSound/SemanticPrimitives.lean:1163:54: `String.mk` has been deprecated: Use `String.ofList` instead
+warning: LeanTypeSound/SemanticPrimitives.lean:1189:63: `String.mk` has been deprecated: Use `String.ofList` instead
+⚠⚠ [19/29] Built LeanTypeSound.Evaluate
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:71:4: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:276:8: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:291:8: declaration uses `sorry`
+warning: LeanTypeSound/Evaluate.lean:299:8: declaration uses `sorry`
+⚠⚠ [20/29] Built LeanTypeSound.SemanticPrimitivesProps
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:179:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:184:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:189:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:194:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:208:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:217:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:519:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:528:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:536:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:543:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:550:8: declaration uses `sorry`
+warning: LeanTypeSound/SemanticPrimitivesProps.lean:556:8: declaration uses `sorry`
+⚠⚠ [21/29] Built LeanTypeSound.TypeSystem
+warning: LeanTypeSound/TypeSystem.lean:88:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:98:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:368:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:4: declaration uses `sorry`
+warning: LeanTypeSound/TypeSystem.lean:430:4: declaration uses `sorry`
+⚠⚠ [23/29] Built LeanTypeSound.EvaluateProps
+warning: LeanTypeSound/EvaluateProps.lean:104:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:111:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:117:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:124:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:132:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:143:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:153:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:159:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:165:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:174:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:189:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:201:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:207:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:220:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:234:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:244:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:253:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:271:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:284:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:297:8: declaration uses `sorry`
+warning: LeanTypeSound/EvaluateProps.lean:308:8: declaration uses `sorry`
+⚠⚠ [25/29] Built LeanTypeSound.TypeSysProps
+warning: LeanTypeSound/TypeSysProps.lean:112:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:122:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:130:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:136:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:142:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:148:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:155:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:168:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:179:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:187:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:195:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:207:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:222:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:233:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:244:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:256:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:269:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:285:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:303:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:319:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:335:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:353:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:365:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:380:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:400:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:421:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:441:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:459:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:473:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:489:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:503:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:517:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:530:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:541:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:558:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:579:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:587:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:598:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:609:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:622:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:636:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:646:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:653:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:663:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:675:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:685:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:692:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:703:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:718:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:728:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:741:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:756:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:770:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:783:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:792:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:846:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:860:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:896:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:926:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:940:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:949:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:957:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:968:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:990:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1012:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1062:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1076:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1090:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1107:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1123:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1135:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1157:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1172:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1186:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1199:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1210:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1228:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1245:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1258:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1270:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1281:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1289:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1304:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1322:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1341:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1352:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1368:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1385:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1400:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1409:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1433:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSysProps.lean:1440:8: declaration uses `sorry`
+⚠⚠ [26/29] Built LeanTypeSound.Weakening
+warning: LeanTypeSound/Weakening.lean:67:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:73:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:82:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:92:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:102:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:112:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:124:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:134:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:146:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:159:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:171:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:190:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:213:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:231:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:241:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:249:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:255:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:263:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:275:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:295:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:313:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:328:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:342:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:355:8: declaration uses `sorry`
+warning: LeanTypeSound/Weakening.lean:366:8: declaration uses `sorry`
+⚠⚠ [27/29] Built LeanTypeSound.TypeSound
+warning: LeanTypeSound/TypeSound.lean:45:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:51:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:57:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:64:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:70:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:99:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:148:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:174:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:197:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:214:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:236:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:252:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:273:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:303:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:326:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:337:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:344:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:362:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:379:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:386:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:394:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:409:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:431:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:451:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:465:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:475:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:483:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:494:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:520:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:556:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:580:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:613:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:660:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:678:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:687:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:739:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:799:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:815:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:824:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:834:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:856:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:894:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:941:8: declaration uses `sorry`
+warning: LeanTypeSound/TypeSound.lean:973:8: declaration uses `sorry`
+Build completed successfully (29 jobs).
+
+Setup is complete. Check the MCP lists above:
+  skills, second-pass, docs: lean-lsp only (no aristotle)
+  hybrid: lean-lsp and aristotle, both connected
+Then continue with README.md, step 3.
+
+==== 3. Claude Code setup
+SSH not configured,…cloning via HTTPS: https://github.com/cameronfreer/lean4-skills.git
+Refreshing marketplace cache (timeout: 120s)……
+Cloning repository (timeout: 120s): https://github.com/cameronfreer/lean4-skills.git
+Clone complete, validating marketplace……
+Cleaning up old marketplace cache……
+√√Successfully added marketplace: lean4-skills (declared in user settings)
+
+√√ Successfuly installed plugin: lean4@lean4-skills (scope: user)
+
+Successfully disabled plugin: academic-research-skills (scope: user)
+
+Claude Code is ready for the runs.
+
+==== 4. Direct (Aristotle) in a second window
+
+==== 5. Skills, Second pass, Docs, Hybrid (this takes many hours)
+
+==== 6. Restore the Claude Code setup
+√√Successfully enabled plugin: academic-research-skills (scope: user)
+
+Plugins enabled again.
+
+==== Done. Claude reads the results from proof_round2\results.
+**********************
+Windows PowerShell transcript end
+End time: 20261009234630
+**********************
