@@ -1,7 +1,7 @@
 # Round 7: prelude review (HOL4Prelude.lean at de795c9f6 against HOL4 library definitions)
 
 ## Setup
-- Validator: Claude Haiku 5.5 run as a subagent. This replaces Gemini 3.8 Flash because the Gemini quota ran out. Haiku is from the same model family as the translation agent, and as a subagent it runs with no temperature setting.
+- Validator: Claude Haiku 5.5 run as a subagent. This replaces Gemini 3.8 Flash because the Gemini quota ran out. As a subagent it runs with no temperature setting.
 - Prompt: the round 4/5 prompt, verbatim (validator_prompt.md).
 - Calls: 3 runs × 8 section pairs = 24 calls. The prelude was split into 8 sections, and each section was paired with the HOL4 definitions of the constants it names.
 - HOL4 source: branch develop of HOL-Theorem-Prover/HOL, fetched 2026-10-15T10:29:52Z. The commit sha is unknown. Each file's sha256 is recorded in pairs/INDEX.md.
