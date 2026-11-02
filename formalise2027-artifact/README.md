@@ -131,8 +131,8 @@ OpenAI compatible endpoint. The two scripts differ only in their input file.
 The repaired translation was written by Claude under the author's direction after
 the study, in two commits on the branch `lean-translate-round5-repair`: `405848cad`
 repairs six defects, and `4841f993e` states the computed theorems `do_app_cases` and
-`type_op_cases` in full. Each repair follows the HOL4 text. The author triaged and
-adjudicated the round 5 findings; after May the author was the only human in the loop. As in every round of the study, the
+`type_op_cases` in full. Each repair follows the HOL4 text. A human expert triaged and
+adjudicated the round 5 findings. As in every round of the study, the
 build, the structural checks, and the next review round check the repairs.
 
 The counter in `scripts/counter.py` accepts declarations with attributes such as
