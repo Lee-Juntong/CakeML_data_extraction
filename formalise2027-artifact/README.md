@@ -141,7 +141,7 @@ look absent in the dissertation.
 
 ## Additions of November 2026
 
-This section lists the records added after the artifact archive of 9 October 2026. The Docker entry point does not yet run them; they are records and Lean files to check by hand. The final translation is commit `de795c9f6` on branch `lean-translate` of the CakeML fork; the README text above still names the earlier repair `4841f993e`.
+This section lists the records added after the artifact archive of 9 October 2026. The Docker entry point does not yet run them; they are records and Lean files to check by hand. The final translation is commit `de795c9f6` on branch `lean-translate` of the CakeML fork; the README text above still names the earlier repair `4841f993e` on branch `lean-translate-round5-repair`, which was not pushed. Its tree is identical to `de795c9f6`, which carries the same two repair commits rebased onto `lean-translate`.
 
 | Path | Content |
 |---|---|
