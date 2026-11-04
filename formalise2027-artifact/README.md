@@ -32,6 +32,9 @@ checks the Lean proofs of the repaired statements and the semantic scan for vacu
 
 ## Proving endpoints
 
+The paper calls the Hybrid workflow "Aristotle offered". This README, the scripts, and the
+records keep the name Hybrid.
+
 | Commit | Workflow in the paper | Session log in `claude-logs/` |
 |---|---|---|
 | `aef82615e` | Skills: one pass with the Skills prompt | `2026-04-30-175234-*.txt` |
