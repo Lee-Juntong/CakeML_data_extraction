@@ -28,6 +28,7 @@ checks the Lean proofs of the repaired statements and the semantic scan for vacu
 | `scripts/lean/` | `Axioms.lean` (transitive axiom audit), `StmtTaint.lean` and `StmtRoots.lean` (statement taint), `DefSorry.lean` (admitted definitions), the refutations `Refute_nsLookup_nsBind.lean` and `Refute_explode_thm.lean`, `Check_repairs.lean` (proofs of the repaired statements), `Check_computed.lean` (proofs of the expanded `do_app_cases` and `type_op_cases`), and `Vacuous.lean` (statements that are trivially true, such as `P ↔ P`). |
 | `scripts/analysis.py` | Recomputes all numbers and compares them with `expected/expected.json`. |
 | `scripts/check_validator.py` | Recomputes the validator counts of Table V and checks Table VI and the R5 column of Table VIII against the records. |
+| `paper.pdf` | The paper as submitted to FormaliSE 2027 (anonymous version). |
 | `run_all.sh`, `Dockerfile`, `build_image.sh` | Entry point, image definition, and image export with SHA256 checksum. |
 
 ## Proving endpoints
